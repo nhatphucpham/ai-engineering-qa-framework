@@ -1,0 +1,23 @@
+{
+  "dataClassification": "synthetic",
+  "taskId": "MOCK-05",
+  "provenance": "Authored mock CI input; not an actual CI execution log.",
+  "snapshot": "mock-05-head",
+  "headSnapshot": "mock-05-head",
+  "testModule": "test_baseline",
+  "sourceModule": "after.py",
+  "result": "passed",
+  "tests": 2,
+  "acMapping": {
+    "AC-01": [
+      "test_baseline.Baseline.test_admin_same_workspace"
+    ],
+    "AC-02": [
+      "test_baseline.Baseline.test_non_admin_denied"
+    ],
+    "AC-03": []
+  },
+  "humanDecision": "pending",
+  "humanEffortMinutes": null,
+  "aiCost": null
+}

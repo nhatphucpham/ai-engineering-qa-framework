@@ -1,0 +1,22 @@
+{
+  "dataClassification": "synthetic",
+  "taskId": "MOCK-01",
+  "provenance": "Authored mock CI input; not an actual CI execution log.",
+  "snapshot": "mock-01-head",
+  "headSnapshot": "mock-01-head",
+  "testModule": "test_baseline",
+  "sourceModule": "after.py",
+  "result": "passed",
+  "tests": 2,
+  "acMapping": {
+    "AC-01": [
+      "test_baseline.Baseline.test_below_threshold"
+    ],
+    "AC-02": [
+      "test_baseline.Baseline.test_exact_threshold"
+    ]
+  },
+  "humanDecision": "pending",
+  "humanEffortMinutes": null,
+  "aiCost": null
+}

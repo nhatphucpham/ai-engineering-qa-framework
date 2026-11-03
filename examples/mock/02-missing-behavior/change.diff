@@ -1,0 +1,6 @@
+--- before.py
++++ after.py
+@@ -1,2 +1,2 @@
+ def apply_filter(rows, query, page):
+-    return {"rows": rows, "page": page}
++    return {"rows": [row for row in rows if query in row], "page": page}

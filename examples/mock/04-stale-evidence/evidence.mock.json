@@ -1,0 +1,22 @@
+{
+  "dataClassification": "synthetic",
+  "taskId": "MOCK-04",
+  "provenance": "Authored mock CI input; not an actual CI execution log.",
+  "snapshot": "mock-04-base",
+  "headSnapshot": "mock-04-head",
+  "testModule": "test_baseline",
+  "sourceModule": "before.py",
+  "result": "passed",
+  "tests": 2,
+  "acMapping": {
+    "AC-01": [
+      "test_baseline.Baseline.test_within_stock"
+    ],
+    "AC-02": [
+      "test_baseline.Baseline.test_over_stock"
+    ]
+  },
+  "humanDecision": "pending",
+  "humanEffortMinutes": null,
+  "aiCost": null
+}

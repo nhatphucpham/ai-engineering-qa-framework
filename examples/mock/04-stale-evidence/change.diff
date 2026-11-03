@@ -1,0 +1,6 @@
+--- before.py
++++ after.py
+@@ -1,2 +1,2 @@
+ def can_reserve(stock, quantity):
+-    return 0 < quantity <= stock
++    return quantity > 0

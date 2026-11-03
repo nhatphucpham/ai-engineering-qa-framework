@@ -1,0 +1,104 @@
+{
+  "dataClassification": "synthetic-only",
+  "cases": [
+    {
+      "id": "MOCK-01",
+      "directory": "01-complete",
+      "purpose": "Đủ evidence; không tạo finding giả",
+      "head": "mock-01-head",
+      "checks": {
+        "test_baseline": {
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "expected.test_probe": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "expected_review": "complete trong phạm vi toy; human decision pending"
+    },
+    {
+      "id": "MOCK-02",
+      "directory": "02-missing-behavior",
+      "purpose": "Baseline xanh nhưng thiếu reset pagination",
+      "head": "mock-02-head",
+      "checks": {
+        "test_baseline": {
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "expected.test_probe": {
+          "tests": 1,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "expected_review": "AC-02 unverified trước probe, failed sau probe; cần sửa state"
+    },
+    {
+      "id": "MOCK-03",
+      "directory": "03-ambiguous",
+      "purpose": "Whitespace chưa được requirement định nghĩa",
+      "head": "mock-03-head",
+      "checks": {
+        "test_baseline": {
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "expected_review": "AC hiện rõ verified, whitespace unverified; cần owner clarification"
+    },
+    {
+      "id": "MOCK-04",
+      "directory": "04-stale-evidence",
+      "purpose": "Evidence ở base không xác minh được regression tại head",
+      "head": "mock-04-head",
+      "checks": {
+        "test_baseline": {
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "expected.test_probe": {
+          "tests": 1,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "expected_review": "Evidence base không hợp lệ cho head; AC-02 failed sau probe head"
+    },
+    {
+      "id": "MOCK-05",
+      "directory": "05-pending-review",
+      "purpose": "Authorization toy pass nhưng mandatory review còn thiếu",
+      "head": "mock-05-head",
+      "checks": {
+        "test_baseline": {
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "expected.test_probe": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "expected_review": "Sau probe AC đều verified trong toy, mandatory approval pending → incomplete"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+--- before.py
++++ after.py
+@@ -1,2 +1,2 @@
+ def shipping(total):
+-    return 0 if total > 100 else 5
++    return 0 if total >= 100 else 5
