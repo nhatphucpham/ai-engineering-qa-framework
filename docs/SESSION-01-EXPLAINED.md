@@ -74,7 +74,7 @@ S0 đã có phạm vi thử nghiệm, hai hồ sơ truy được nguồn và k�
 
 Bạn có thể đọc [MOCK-02](../pilot/mock/MOCK-02.md) trước để thấy rõ vấn đề, rồi đọc [MOCK-01](../pilot/mock/MOCK-01.md) để so với case đủ evidence. Sau đó đọc [PILOT-BRIEF](PILOT-BRIEF.md) để xem phạm vi và lý do chọn hướng tiếp theo.
 
-Bước tiếp theo được đề xuất là S1: làm rõ hướng dẫn cốt lõi và thử cách đối chiếu từng yêu cầu với bằng chứng bằng hồ sơ thủ công. Chưa cần xây công cụ tự động. Các thay đổi của session chưa được commit/push.
+Tại thời điểm hoàn thành S0, bước tiếp theo được đề xuất là S1: làm rõ hướng dẫn cốt lõi và thử cách đối chiếu từng yêu cầu với bằng chứng bằng hồ sơ thủ công. Chưa cần xây công cụ tự động. Sau đó các artifact S0/S1 đã được commit và push lên `master` tại [5c65446](https://github.com/nhatphucpham/ai-engineering-qa-framework/commit/5c65446a7a7f1d66c22a6e8f7314855c39bb2d4d).
 
 ## 8. Cập nhật: S1 đã có ví dụ nhiều file
 

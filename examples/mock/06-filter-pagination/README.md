@@ -21,7 +21,7 @@ Nếu tổ chức lượt review riêng, chỉ cấp requirements, base/head, di
 
 ## Chạy suite ban đầu mà chưa mở đáp án
 
-Từ thư mục case:
+Từ root repo, chuyển vào thư mục case rồi chạy:
 
 ```sh
 cd examples/mock/06-filter-pagination

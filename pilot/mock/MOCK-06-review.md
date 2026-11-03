@@ -10,7 +10,7 @@ Giá trị minh họa so với MOCK-02: cần theo dõi state qua nhiều lớp 
 
 ## Phạm vi, input và provenance
 
-Requirement [mock-req-06-v1](../../examples/mock/06-filter-pagination/requirements.md). Snapshot `mock-06-base-v1` → `mock-06-head-v1` là nhãn local. Case được tạo mới trên checkout nền `063d25f`; Git SHA nền không chứa các file mới chưa commit. [Execution local](../../examples/mock/06-filter-pagination/execution.local.json) ghi SHA-256 của code, requirement, diff, input evidence, tests và runner để xác định đúng nội dung đã chạy.
+Requirement [mock-req-06-v1](../../examples/mock/06-filter-pagination/requirements.md). Snapshot `mock-06-base-v1` → `mock-06-head-v1` là nhãn local. Case được tạo mới trên checkout nền `063d25f`, sau đó được commit/push trong `5c65446`; Git SHA nền chưa chứa MOCK-06. [Execution local](../../examples/mock/06-filter-pagination/execution.local.json) ghi SHA-256 của code, requirement, diff, input evidence, tests và runner để xác định đúng nội dung đã chạy.
 
 Đã đọc requirement, [diff](../../examples/mock/06-filter-pagination/change.diff), cả base/head của data/service/api/ui, [baseline](../../examples/mock/06-filter-pagination/tests/test_baseline.py), [historical test](../../examples/mock/06-filter-pagination/tests/test_historical.py), [CI input giả lập](../../examples/mock/06-filter-pagination/evidence.mock.json), [probe](../../examples/mock/06-filter-pagination/expected/test_probe.py), [đáp án thiết kế](../../examples/mock/06-filter-pagination/expected/quality-record.md) và runner. Không có nguồn ẩn/ngoài repo.
 
