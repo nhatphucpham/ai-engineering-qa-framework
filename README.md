@@ -9,7 +9,7 @@ Repo đang ở giai đoạn lập kế hoạch và thử bằng dữ liệu synt
 
 ## Mẫu thử offline
 
-Xem [5 mẫu mock và hướng dẫn walkthrough](examples/mock/README.md), kèm [mẫu hồ sơ kiểm chứng](templates/quality-record.md). Toàn bộ requirement, source, diff và CI evidence đều synthetic. Thử nghiệm thật chỉ thực hiện trong môi trường bảo mật riêng của người dùng.
+Xem [5 mẫu cơ bản và MOCK-06 nhiều file](examples/mock/README.md), kèm [mẫu hồ sơ kiểm chứng](templates/quality-record.md). Toàn bộ requirement, source, diff và CI evidence đều synthetic. Thử nghiệm thật chỉ thực hiện trong môi trường bảo mật riêng của người dùng.
 
 Chạy từ root repo, chỉ cần Python 3.10+:
 
@@ -18,3 +18,15 @@ python3 -B examples/mock/run.py
 ```
 
 Hai probe cố ý thất bại để tái hiện bug. Exit 0 của runner chỉ xác nhận bộ mẫu có kết quả đúng thiết kế, không phải approval hay đánh giá hiệu quả framework.
+
+## S1 — Review một thay đổi nhiều file
+
+Đọc [hồ sơ MOCK-06](pilot/mock/MOCK-06-review.md) để xem một thay đổi đi qua UI state, API giả lập, cache và service: baseline xanh, hai lỗi tái hiện được, evidence cũ và một yêu cầu chưa rõ. [Core framework v0](docs/CORE-FRAMEWORK.md) hướng dẫn cách đi từ yêu cầu đến hành động review. Đây là walkthrough đã biết đáp án, chưa đánh giá độc lập hoặc xác nhận usefulness với reviewer thật.
+
+MOCK-06 có runner riêng, chạy từ root repo:
+
+```sh
+python3 -B examples/mock/06-filter-pagination/run.py
+```
+
+Runner này ghi execution local cùng hash input; xem [hướng dẫn case](examples/mock/06-filter-pagination/README.md). Runner phía trên vẫn chỉ chạy MOCK-01–05.

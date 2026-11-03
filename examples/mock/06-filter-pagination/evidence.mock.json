@@ -1,0 +1,26 @@
+{
+  "dataClassification": "synthetic-only",
+  "provenance": "Authored CI/review input; not a real execution log or approval.",
+  "taskId": "MOCK-06",
+  "requirementVersion": "mock-req-06-v1",
+  "checks": [
+    {
+      "id": "CI-HEAD",
+      "snapshot": "mock-06-head-v1",
+      "module": "test_baseline",
+      "tests": 6,
+      "result": "passed"
+    },
+    {
+      "id": "CI-OLD-RESET",
+      "snapshot": "mock-06-base-v1",
+      "module": "test_historical",
+      "tests": 1,
+      "result": "passed"
+    }
+  ],
+  "reviewNote": "Synthetic author claim: cache optimization and state preservation; all checks green. Verify against requirements.",
+  "humanDecision": "pending",
+  "humanEffortMinutes": null,
+  "budgetMinutes": null
+}

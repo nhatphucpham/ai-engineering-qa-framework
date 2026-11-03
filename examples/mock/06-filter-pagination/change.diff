@@ -1,0 +1,19 @@
+--- base/api.py
++++ head/api.py
+@@ -8,7 +8,7 @@
+         self.cache = {}
+ 
+     def get_items(self, category, page, page_size=2):
+-        key = (category, page, page_size)
++        key = (page, page_size)
+         if key not in self.cache:
+             self.cache[key] = list_items(category, page, page_size)
+         return self.cache[key]
+--- base/ui.py
++++ head/ui.py
+@@ -8,5 +8,4 @@
+ 
+     def select_category(self, category):
+         self.category = category
+-        self.page = 1
+         return self.api.get_items(self.category, self.page)

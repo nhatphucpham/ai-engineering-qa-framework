@@ -11,8 +11,11 @@ Toàn bộ requirement, code, revision ID, review và CI evidence ở đây đư
 | [03 — Requirement mơ hồ](03-ambiguous/expected/quality-record.md) | “Không được để tên trống” chưa định nghĩa whitespace | Hỏi owner; chưa được gọi behavior whitespace là defect |
 | [04 — Evidence cũ](04-stale-evidence/expected/quality-record.md) | Baseline pass ở snapshot trước, head đã có regression | Không verify head bằng evidence cũ; probe head thì failed |
 | [05 — Thiếu human review](05-pending-review/expected/quality-record.md) | Toy authorization checks pass nhưng review bắt buộc còn pending | Behavior được kiểm chứng hẹp; verification tổng thể incomplete |
+| [06 — UI state, API, cache và service](06-filter-pagination/README.md) | Review nhiều file: sequence checks, evidence cũ và requirement mơ hồ | Baseline xanh chưa đủ; xem hồ sơ riêng và kết quả execution local |
 
 ## Cách dùng
+
+Các bước và runner ngay dưới áp dụng cho MOCK-01–05. MOCK-06 có hai thư mục snapshot, test suite và runner riêng; xem [hướng dẫn MOCK-06](06-filter-pagination/README.md) và [hồ sơ review](../../pilot/mock/MOCK-06-review.md).
 
 1. Chọn một folder, chỉ đọc `requirements.md`, `before.py`, `after.py`, `change.diff`, `test_baseline.py`, `evidence.mock.json` trước.
 2. Điền [hồ sơ kiểm chứng](../../templates/quality-record.md): claim nào có evidence, cần thêm check gì, hành động của ai? `evidence.mock.json` là CI input được giả lập, chưa phải execution log thật.

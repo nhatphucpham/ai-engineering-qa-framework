@@ -1,0 +1,94 @@
+{
+  "dataClassification": "synthetic-only",
+  "provenance": "Actual local execution of authored synthetic code; not CI or blind evaluation.",
+  "executedAtUTC": "2026-11-03T14:07:23.613889+00:00",
+  "python": "3.12.14",
+  "sha256": {
+    "base/api.py": "457a08c0cf3f1bec84a5d9b453eaf9842b3383838afc6be588bcbce9870d98ac",
+    "base/data.py": "b1d84d4773aaa4aff049b665cd110a8ba839d2140113a6f561477aeadc17958b",
+    "base/service.py": "21990cc8f8e015b252a95d2350f51a2a9a37a910d0c87ad552d706a4f8dc2aa7",
+    "base/ui.py": "0e920915bb60abc42a7b83f9df1f211d7e9f0239e00466c3e84fe1f610d5db12",
+    "change.diff": "ccd3cc0991f3ff3028da7f2739390c03ea7356c7055dd275877e482322d90353",
+    "evidence.mock.json": "33d25b115e19ae2f13beeab2304a8bad72ce06fdc8a90077cdf82c503fc49f96",
+    "expected/test_probe.py": "c59c44430684f92dbc3a613f84d2d302e396d93dc7e42a57f3fada3993ebe00c",
+    "head/api.py": "78751b417a1a3f475398f20e6fa285d5438cd641ca2f7b1eb790167a3e8d2d74",
+    "head/data.py": "b1d84d4773aaa4aff049b665cd110a8ba839d2140113a6f561477aeadc17958b",
+    "head/service.py": "21990cc8f8e015b252a95d2350f51a2a9a37a910d0c87ad552d706a4f8dc2aa7",
+    "head/ui.py": "8f5255147903b13eeae1b1e6b25a251ebaf3adc25d973c28169cc26de6e0e3e5",
+    "requirements.md": "a5ac4efe841cbb0aa00c890b96b3b3c70a77e5b1a522b56ebec984210478de5f",
+    "run.py": "a9f69cb4fe44955e311bc8b290c61b50df40086f1355f10741eb61d0f9ac404f",
+    "tests/test_baseline.py": "5677215a89bbe6cd145e1fd7c36bf91136f87312d08f25497d5429e03fdb3a4a",
+    "tests/test_historical.py": "ec2c72b5b993c974c2dfba09cecec4f9411012c5becd083db962704a9f5ed01d"
+  },
+  "runs": [
+    {
+      "snapshot": "mock-06-base-v1",
+      "module": "test_baseline",
+      "matched": true,
+      "tests": 6,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-base-v1",
+      "module": "test_historical",
+      "matched": true,
+      "tests": 1,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-base-v1",
+      "module": "test_probe",
+      "matched": true,
+      "tests": 2,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-head-v1",
+      "module": "test_baseline",
+      "matched": true,
+      "tests": 6,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-head-v1",
+      "module": "test_historical",
+      "matched": true,
+      "tests": 1,
+      "failures": [
+        {
+          "id": "test_historical.Historical.test_reset_from_third_page",
+          "trace": "Traceback (most recent call last):\n  File \"/workspace/ai-engineering-qa-framework/examples/mock/06-filter-pagination/tests/test_historical.py\", line 11, in test_reset_from_third_page\n    self.assertEqual(view.page, 1)\nAssertionError: 3 != 1\n"
+        }
+      ],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-head-v1",
+      "module": "test_probe",
+      "matched": true,
+      "tests": 2,
+      "failures": [
+        {
+          "id": "test_probe.Probe.test_cache_across_categories",
+          "trace": "Traceback (most recent call last):\n  File \"/workspace/ai-engineering-qa-framework/examples/mock/06-filter-pagination/expected/test_probe.py\", line 24, in test_cache_across_categories\n    self.assertEqual([item['id'] for item in second['items']], ['T1', 'T2'])\nAssertionError: Lists differ: ['B1', 'B2'] != ['T1', 'T2']\n\nFirst differing element 0:\n'B1'\n'T1'\n\n- ['B1', 'B2']\n?   ^     ^\n\n+ ['T1', 'T2']\n?   ^     ^\n\n"
+        },
+        {
+          "id": "test_probe.Probe.test_reset_with_recorded_api_call",
+          "trace": "Traceback (most recent call last):\n  File \"/workspace/ai-engineering-qa-framework/examples/mock/06-filter-pagination/expected/test_probe.py\", line 17, in test_reset_with_recorded_api_call\n    self.assertEqual(api.request, ('tools', 1, 2))\nAssertionError: Tuples differ: ('tools', 3, 2) != ('tools', 1, 2)\n\nFirst differing element 1:\n3\n1\n\n- ('tools', 3, 2)\n?           ^\n\n+ ('tools', 1, 2)\n?           ^\n\n"
+        }
+      ],
+      "errors": [],
+      "skipped": 0
+    }
+  ],
+  "mismatches": []
+}
