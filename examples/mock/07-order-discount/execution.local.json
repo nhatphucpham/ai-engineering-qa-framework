@@ -1,0 +1,62 @@
+{
+  "dataClassification": "synthetic-only",
+  "provenance": "Local execution of authored known fixtures; not CI, blind evaluation or approval.",
+  "executedAtUTC": "2026-11-04T12:21:20.741577+00:00",
+  "python": "3.14.8",
+  "requirement": "mock-req-07-v1",
+  "sha256": {
+    "fixed/pricing.py": "c2bfc8c1bb90956c19db136c043e3784881b83267055c2106e339e7ddbc8b1ec",
+    "head/pricing.py": "270108024af2c1e6e13cb02ba58a4e473215eb0d4b1808ddf6790e276e4b7a98",
+    "run.py": "7da43ad06f6dc6a22b4a6cc7b713b8e5cf0fb1d9992242c4b6927ac03af13260",
+    "tests/test_baseline.py": "79eab881e079cfa7a3537a38e37d03a4d3462cb68c5e122a76f281d4c5f96126",
+    "tests/test_probe.py": "0fde698e69f438b695f4fc3ac5cb02311d6d87de864b71592461c0e0133bfc16",
+    "requirements.md": "4af66dc2c73fea86a154e271dbad64cadc96c451adc493ed208876ac46195e4e"
+  },
+  "runs": [
+    {
+      "snapshot": "mock-07-head-v1",
+      "module": "test_baseline",
+      "matched": true,
+      "tests": 2,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-07-head-v1",
+      "module": "test_probe",
+      "matched": true,
+      "tests": 2,
+      "failures": [
+        {
+          "id": "test_probe.Probe.test_shipping_is_not_discounted",
+          "trace": "Traceback (most recent call last):\n  File \"E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\examples\\mock\\07-order-discount\\tests\\test_probe.py\", line 11, in test_shipping_is_not_discounted\n    self.assertEqual(payable(150_000, 20_000), 155_000)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 153000 != 155000\n"
+        },
+        {
+          "id": "test_probe.Probe.test_threshold_is_inclusive",
+          "trace": "Traceback (most recent call last):\n  File \"E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\examples\\mock\\07-order-discount\\tests\\test_probe.py\", line 8, in test_threshold_is_inclusive\n    self.assertEqual(payable(100_000, 0), 90_000)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 100000 != 90000\n"
+        }
+      ],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-07-fixed-v1",
+      "module": "test_baseline",
+      "matched": true,
+      "tests": 2,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-07-fixed-v1",
+      "module": "test_probe",
+      "matched": true,
+      "tests": 2,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    }
+  ]
+}

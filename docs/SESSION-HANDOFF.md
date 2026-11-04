@@ -1,5 +1,9 @@
 # Bàn giao phiên 04/11/2026
 
+## MOCK-07 — nền `b7d84de`
+
+Theo hướng tiếp tục đã thống nhất, thêm case giảm giá để dùng lại bố cục được người dùng phản hồi tốt. Có requirement synthetic, head/fixed, 2 baseline/2 probe, runner riêng và hồ sơ `pilot/mock/MOCK-07-review.md`. Hai lỗi riêng: bỏ đúng ngưỡng 100.000 và giảm nhầm phí giao hàng. Head 2 pass/2 fail; fixed 4 pass; không errors/skipped, runner exit 0. Giữ nguyên các case/manifest/evidence cũ. Không coi case mới là holdout hoặc đánh giá độc lập. Bước tiếp: người dùng đọc hồ sơ mới và phản hồi hai lỗi/cách sửa có dễ phân biệt không; không hỏi lại độ dễ hiểu của MOCK-06 v2 đã được xác nhận.
+
 ## Phản hồi v2 — nền `fd3b8df`
 
 Người dùng xác nhận “hồ sơ v2 hợp lý, khá dễ hiểu”. Đã ghi tại REVIEWER-CHECK; giữ cách trình bày hiện tại, không lặp lại yêu cầu xác nhận dễ hiểu. Đây là phản hồi tích cực trong walkthrough có hỗ trợ; chưa đo khả năng truy evidence độc lập, effort hoặc effectiveness, không coi G1 đầy đủ hoặc approval đã đạt. Bước tiếp: áp dụng bố cục cho một case synthetic nhỏ khác theo implementation plan, ghi phạm vi/tiêu chí trước khi làm. Code/evidence giữ nguyên.

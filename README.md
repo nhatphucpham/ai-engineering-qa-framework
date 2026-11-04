@@ -40,3 +40,7 @@ Bước tiếp theo: dùng [phiếu thử review G1](docs/REVIEWER-CHECK.md) đ�
 ## MOCK-06 v2 — Sau khi chốt cách xử lý dấu cách
 
 Người dùng đã chọn toàn dấu cách là tất cả và bỏ dấu cách hai đầu khi tìm category. [Bản v2 riêng](examples/remediation/06-filter-pagination-v2/README.md) bổ sung 4 test bên cạnh 9 test cũ; [hồ sơ v2](pilot/mock/MOCK-06-v2.md) giải thích mong muốn, lý do, thay đổi và kết quả ngay tại chỗ. Các hồ sơ v1 vẫn giữ trạng thái tại thời điểm trước clarification.
+
+## MOCK-07 — Dùng lại bố cục với bài toán giảm giá
+
+[Case riêng](examples/mock/07-order-discount/README.md) có hai lỗi cố ý về ngưỡng giảm giá và phí giao hàng. [Hồ sơ MOCK-07](pilot/mock/MOCK-07-review.md) giải thích số tiền trước/sau ngay tại chỗ. Đây là ví dụ đã biết đáp án, runner riêng; không nằm trong manifest/runner MOCK-01–05.
