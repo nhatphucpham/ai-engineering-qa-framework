@@ -1,5 +1,9 @@
 # Bàn giao phiên 04/11/2026
 
+## E1-01 — hỗ trợ định hướng sau input `081b455`
+
+Phản hồi đầu của người dùng yêu cầu nêu tình trạng/vị trí hiện tại, chưa là nhận định behavior/action. Đã giữ nguyên INPUT và thêm ORIENTATION.md riêng: bối cảnh bàn giao, hai check đã chạy, phần chưa chốt và bước đang làm. Register lưu nguyên phản hồi và đánh dấu hỗ trợ; core/template/protocol frozen cùng code/evidence không đổi. Phút đọc chưa được cung cấp, không suy từ thời gian chat. Bước tiếp: lấy nhận định/action ban đầu cùng phút thực đọc; chưa gửi hồ sơ phân tích hoặc đáp án.
+
 ## E1-01 — nền `183b477`
 
 Người dùng chọn tự đọc/review với 10 phút tổng trước/sau hồ sơ. Case mới `examples/evaluation/e1-seat-cancellation` có requirement/base/head/diff, 2 baseline pass và input đọc ban đầu. Chưa gửi hồ sơ phân tích, chưa có phản hồi baseline. Task register ghi protocol/freeze/timebox và exposure đã biết; không ghi thời gian người dùng bằng thời gian trôi qua trong chat.

@@ -20,10 +20,10 @@ Không chứa task thật. “Đã có execution” chỉ nói fixture đã ch�
 | Case/requirement/snapshot version và vị trí input | e1-seat-req-v1, e1-seat-head-v1; [input](../examples/evaluation/e1-seat-cancellation/INPUT.md) |
 | Protocol commit / freeze | Protocol `183b477752ce819934896c03abd7bef74cd88dee`; freeze `8c03ad55f41811c2539c44cbcb049322530501a2` |
 | Người tạo, người đọc, người đối chiếu | Tác giả: trợ lý; người đọc: người dùng trong chat đã chọn tham gia; người đối chiếu độc lập chưa có |
-| Đã biết đáp án/hồ sơ trước đó, hỗ trợ | Người dùng từng đọc walkthrough 06/07; chưa xác nhận nguồn đã mở ở case mới. Input có giải thích từ Python; hồ sơ phân tích chưa gửi, câu trả lời baseline chưa có |
+| Đã biết đáp án/hồ sơ trước đó, hỗ trợ | Người dùng từng đọc walkthrough 06/07; chưa xác nhận nguồn đã mở ở case mới. Input có giải thích từ Python. Sau phản hồi đầu, cung cấp thêm ORIENTATION.md về vị trí/quy trình; hồ sơ phân tích chưa gửi. Nhận định tiếp theo là có hỗ trợ định hướng |
 | Timebox được chọn / overhead chấp nhận được | Người dùng chọn tổng 10 phút đọc trước/sau hồ sơ. Đây là ngân sách lượt thử, chưa là ngưỡng overhead chấp nhận được khi áp dụng thật |
 | Bắt đầu/kết thúc, thời gian theo từng hoạt động | Chưa có số đo người đọc; tự báo thời gian đọc, không tính thời gian chờ trợ lý. Effort chuẩn bị/triage chưa đo: unknown |
-| Nhận định/action trước/sau, nguồn tự tìm, ghi nhận hỗ trợ | Chưa thu thập |
+| Nhận định/action trước/sau, nguồn tự tìm, ghi nhận hỗ trợ | Phản hồi đầu: “cần nêu ra thêm tình trang hiện tại để dễ hình dung vị trí đứng hiện tại”. Chưa có nhận định behavior/action, nguồn tự tìm hoặc phút đọc. Đã chuẩn bị [hỗ trợ định hướng](../examples/evaluation/e1-seat-cancellation/ORIENTATION.md); nhận định sau hồ sơ chưa có |
 | Link execution, hồ sơ, adjudication và kết quả | [Baseline local](../examples/evaluation/e1-seat-cancellation/baseline.local.json): 2 pass, không errors/skipped; chưa có hồ sơ bổ sung hoặc kết quả review/adjudication |
 
 Ghi cả case được xét nhưng loại, không chỉ case thuận lợi. Với rerun sau sửa, dùng run ID/version riêng và giữ kết quả cũ. Xem [protocol E1](../docs/EVALUATION-PROTOCOL.md).
