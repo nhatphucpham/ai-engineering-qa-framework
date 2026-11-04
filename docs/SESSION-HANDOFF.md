@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## V2 — nền `1064b2f`
+
+Người dùng đã chọn toàn dấu cách nghĩa tất cả, bỏ dấu cách hai đầu khi tìm category. Requirement `mock-req-06-v2`, snapshot `mock-06-fixed-v2` nằm trong `examples/remediation/06-filter-pagination-v2`; service chỉ strip ASCII space. Có 4 test mới qua service/API/UI và reuse 9 cũ. Runner local exit 0: v2 13 pass; fixed-v1 9 pass/4 fail đúng thiết kế; không errors/skipped. Evidence mới có hashes; fixture/requirement/evidence cũ không đổi.
+
+Hồ sơ `pilot/mock/MOCK-06-v2.md` giải thích behavior và kết quả, verification complete trong scope v2; không phải approval hoặc xác nhận usefulness. Bước tiếp là người dùng phản hồi cách giải thích mới. G1 chưa xác nhận; không tiếp tục hỏi whitespace cho v1 như một blocker hiện hành vì đã được chốt tại v2.
+
 ## Cập nhật mới nhất — nền `dbf1582`
 
 Theo phản hồi tự diễn giải, đã tách hai lỗi trong hồ sơ sau sửa và thêm mong muốn/lý do/thực tế/cách sửa/kết quả ngay tại chỗ. Lý do reset lấy từ catalog mẫu; quy tắc từ AC-02. Lỗi cache có cách sửa riêng, không được gộp với reset. Template áp dụng cùng cách trình bày; phản hồi ghi tại REVIEWER-CHECK, quyết định D-04. Chỉ sửa Markdown, không chạy lại/ghi đè evidence. Bước tiếp: người dùng đọc phần mới; chưa xác nhận G1 hoặc chốt whitespace.

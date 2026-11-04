@@ -36,3 +36,7 @@ Runner này ghi execution local cùng hash input; xem [hướng dẫn case](exam
 [Snapshot sửa riêng](examples/remediation/06-filter-pagination/README.md) giữ nguyên fixture lỗi, chạy cùng baseline/historical/probe trên head gốc và bản sửa. [Hồ sơ sau sửa](pilot/mock/MOCK-06-remediation.md) ghi evidence mới và requirement còn chưa rõ; [decision log](docs/DECISION-LOG.md) nêu lý do chọn targeted checks thay vì automation tổng quát.
 
 Bước tiếp theo: dùng [phiếu thử review G1](docs/REVIEWER-CHECK.md) để kiểm tra người đọc có truy được claim và chọn hành động hay không. Phiếu đang chờ phản hồi thật, chưa phải kết quả usability.
+
+## MOCK-06 v2 — Sau khi chốt cách xử lý dấu cách
+
+Người dùng đã chọn toàn dấu cách là tất cả và bỏ dấu cách hai đầu khi tìm category. [Bản v2 riêng](examples/remediation/06-filter-pagination-v2/README.md) bổ sung 4 test bên cạnh 9 test cũ; [hồ sơ v2](pilot/mock/MOCK-06-v2.md) giải thích mong muốn, lý do, thay đổi và kết quả ngay tại chỗ. Các hồ sơ v1 vẫn giữ trạng thái tại thời điểm trước clarification.

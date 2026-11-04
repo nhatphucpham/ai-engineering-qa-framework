@@ -1,0 +1,120 @@
+{
+  "dataClassification": "synthetic-only",
+  "provenance": "Local execution of known authored fixtures; not CI, blind evaluation or approval.",
+  "executedAtUTC": "2026-11-04T11:56:51.448443+00:00",
+  "python": "3.14.8",
+  "requirement": "mock-req-06-v2",
+  "sha256": {
+    "examples/remediation/06-filter-pagination-v2/fixed/api.py": "4e53dbf3fd7bb69d5875a7e02712e87fab84e3c7e777aaebf9da9c55eb4ffae1",
+    "examples/remediation/06-filter-pagination-v2/fixed/data.py": "c1aa36e1a586b882c638966da2cf8b4925fa1b69adda6f766e57f116d7372314",
+    "examples/remediation/06-filter-pagination-v2/fixed/service.py": "c571f292994b481ca96a09270a38b8e1ed7ec1460791773de610212daae0747d",
+    "examples/remediation/06-filter-pagination-v2/fixed/ui.py": "05f9bde778bd49ae7ebe28b60ff2e80288aa8db3d56ac21929bba99cbccb8fd9",
+    "examples/remediation/06-filter-pagination-v2/run.py": "dc4fc76e43e2ceb2ccc4c982eb3d47235158a6fa440b680cb2c9b1278c8a5b71",
+    "examples/mock/06-filter-pagination/run.py": "d32a9d01d6dd2ebb8e1f74ce4fc744800938bf1caf2a765b138be8e54bc0a656",
+    "examples/mock/06-filter-pagination/requirements.md": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+    "examples/remediation/06-filter-pagination-v2/requirements.md": "bc6001f43345fb8c5a645f703a136aeec4e287b3870de1772716b880ba68673c",
+    "examples/remediation/06-filter-pagination-v2/tests/test_whitespace.py": "eb49b26edfb8902405d4da8acf15d6b7afa15697dc6cfb4e7a64e87fd7a8d45c",
+    "examples/remediation/06-filter-pagination/fixed/api.py": "4e53dbf3fd7bb69d5875a7e02712e87fab84e3c7e777aaebf9da9c55eb4ffae1",
+    "examples/remediation/06-filter-pagination/fixed/data.py": "c1aa36e1a586b882c638966da2cf8b4925fa1b69adda6f766e57f116d7372314",
+    "examples/remediation/06-filter-pagination/fixed/service.py": "c77a54a9a26ce80d8b4b8545f1fe4bb41fbe956f69631e2f7dbd0cf09336a4f3",
+    "examples/remediation/06-filter-pagination/fixed/ui.py": "05f9bde778bd49ae7ebe28b60ff2e80288aa8db3d56ac21929bba99cbccb8fd9",
+    "examples/mock/06-filter-pagination/head/api.py": "00c78310124c172daaca0d89a81b63f4a9f976c8d51c7072a171c3b666ad5c07",
+    "examples/mock/06-filter-pagination/head/data.py": "c1aa36e1a586b882c638966da2cf8b4925fa1b69adda6f766e57f116d7372314",
+    "examples/mock/06-filter-pagination/head/service.py": "c77a54a9a26ce80d8b4b8545f1fe4bb41fbe956f69631e2f7dbd0cf09336a4f3",
+    "examples/mock/06-filter-pagination/head/ui.py": "7f7e33b414049306ddc31d3070c958dd93126063dfa8c38a654f6bfca30b54a3",
+    "examples/mock/06-filter-pagination/tests/test_baseline.py": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+    "examples/mock/06-filter-pagination/tests/test_historical.py": "4234afad5bbda80bf1afe1db1f46ba52e2008dd30d5234a7d37c9db3375f74fc",
+    "examples/mock/06-filter-pagination/expected/test_probe.py": "23311f292e35e53af72449ab62e7f27e5e16e3c60e204ec2a2290851ba162fbb"
+  },
+  "runs": [
+    {
+      "snapshot": "mock-06-fixed-v1",
+      "module": "test_baseline",
+      "matched": true,
+      "tests": 6,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-fixed-v1",
+      "module": "test_historical",
+      "matched": true,
+      "tests": 1,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-fixed-v1",
+      "module": "test_probe",
+      "matched": true,
+      "tests": 2,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-fixed-v1",
+      "module": "test_whitespace",
+      "matched": true,
+      "tests": 4,
+      "failures": [
+        {
+          "id": "test_whitespace.Whitespace.test_api_mixed_categories",
+          "trace": "Traceback (most recent call last):\n  File \"E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\examples\\remediation\\06-filter-pagination-v2\\tests\\test_whitespace.py\", line 31, in test_api_mixed_categories\n    self.assertEqual(api.get_items(' books ', 1)['total'], 6)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 6\n"
+        },
+        {
+          "id": "test_whitespace.Whitespace.test_service_padded_category_and_pagination",
+          "trace": "Traceback (most recent call last):\n  File \"E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\examples\\remediation\\06-filter-pagination-v2\\tests\\test_whitespace.py\", line 23, in test_service_padded_category_and_pagination\n    self.assertEqual(ids(result), ['B3', 'B4'])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [] != ['B3', 'B4']\n\nSecond list contains 2 additional elements.\nFirst extra element 0:\n'B3'\n\n- []\n+ ['B3', 'B4']\n"
+        },
+        {
+          "id": "test_whitespace.Whitespace.test_service_spaces_mean_all",
+          "trace": "Traceback (most recent call last):\n  File \"E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\examples\\remediation\\06-filter-pagination-v2\\tests\\test_whitespace.py\", line 17, in test_service_spaces_mean_all\n    self.assertEqual(result, list_items('', 1, 2))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'items': [], 'total': 0, 'page': 1} != {'items': [{'id': 'B1', 'category': 'books'}, {'id':[47 chars]': 1}\n- {'items': [], 'page': 1, 'total': 0}\n+ {'items': [{'category': 'books', 'id': 'B1'},\n+            {'category': 'books', 'id': 'B2'}],\n+  'page': 1,\n+  'total': 8}\n"
+        },
+        {
+          "id": "test_whitespace.Whitespace.test_ui_spaces_and_padded_category",
+          "trace": "Traceback (most recent call last):\n  File \"E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\examples\\remediation\\06-filter-pagination-v2\\tests\\test_whitespace.py\", line 40, in test_ui_spaces_and_padded_category\n    self.assertEqual(ids(result), ['T1', 'T2'])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [] != ['T1', 'T2']\n\nSecond list contains 2 additional elements.\nFirst extra element 0:\n'T1'\n\n- []\n+ ['T1', 'T2']\n"
+        }
+      ],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-fixed-v2",
+      "module": "test_baseline",
+      "matched": true,
+      "tests": 6,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-fixed-v2",
+      "module": "test_historical",
+      "matched": true,
+      "tests": 1,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-fixed-v2",
+      "module": "test_probe",
+      "matched": true,
+      "tests": 2,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    },
+    {
+      "snapshot": "mock-06-fixed-v2",
+      "module": "test_whitespace",
+      "matched": true,
+      "tests": 4,
+      "failures": [],
+      "errors": [],
+      "skipped": 0
+    }
+  ]
+}
