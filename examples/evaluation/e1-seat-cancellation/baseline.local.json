@@ -1,0 +1,22 @@
+{
+  "classification": "synthetic-only",
+  "provenance": "Actual local execution, not CI or approval; initial checks only.",
+  "snapshot": "e1-seat-head-v1",
+  "requirement": "e1-seat-req-v1",
+  "executedAtUTC": "2026-11-04T14:26:49.714716+00:00",
+  "python": "3.14.8",
+  "sha256": {
+    "requirements.md": "2cc9be31f9e6d4a56f8cc9f7686b339754a22c99a4c795e7138529ebf9b42e03",
+    "base/booking.py": "9b9781bad5ed4386a8372bdac93e3a9227bfeeeca4786e3d2b7c24d5ac8c1954",
+    "head/booking.py": "b1bf27821929f2e9fe744f340a58f66c1676563262d2699197b9d838f95543f8",
+    "change.diff": "e105ca4c4480cf923bece1c03a4a83a99341f50646baa40b5518e328648efc49",
+    "tests/test_baseline.py": "f572c7baf5c17307e76d858884b5692c77e15108c3da5fecb26afa31817c6c51",
+    "run_baseline.py": "2348b37d05c7c9a3d288963321e6b2b52774ae5b5ad95495dca528cbc6f539c1"
+  },
+  "result": {
+    "tests": 2,
+    "failures": [],
+    "errors": [],
+    "skipped": 0
+  }
+}

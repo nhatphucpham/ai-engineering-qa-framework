@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## E1-01 — nền `183b477`
+
+Người dùng chọn tự đọc/review với 10 phút tổng trước/sau hồ sơ. Case mới `examples/evaluation/e1-seat-cancellation` có requirement/base/head/diff, 2 baseline pass và input đọc ban đầu. Chưa gửi hồ sơ phân tích, chưa có phản hồi baseline. Task register ghi protocol/freeze/timebox và exposure đã biết; không ghi thời gian người dùng bằng thời gian trôi qua trong chat.
+
+Bước tiếp: nhận nhận định/action/nguồn/phút đọc thực tế trước hồ sơ qua câu hỏi tự do. Sau đó mới chuẩn bị hồ sơ bằng core/template frozen và gửi để lấy nhận định sau trong thời gian còn lại. Không gợi ý đáp án hoặc sửa head trước khi lưu baseline; không ghi kết quả G1/E1 khi chưa có phản hồi.
+
 ## Chuẩn bị E1 — nền `8c03ad5`
 
 Đã chốt core/template tại full commit nền, manifest `pilot/e1-freeze.json` ghi blob/hash nội dung Git. Protocol tại `docs/EVALUATION-PROTOCOL.md`; task register và adjudication log tách walkthrough/feedback/self-check cũ khỏi đánh giá E1 chưa bắt đầu. Budget 20 phút là đề xuất chưa được duyệt; case/người đọc mới chưa chọn. Không thay code/fixture/evidence hoặc khai kết quả E1.

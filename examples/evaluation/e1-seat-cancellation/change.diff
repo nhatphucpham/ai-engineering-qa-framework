@@ -1,0 +1,10 @@
+--- base/booking.py
++++ head/booking.py
+@@ -3,3 +3,7 @@
+         self.available = available - quantity
+         self.quantity = quantity
+         self.status = 'active'
++
++    def cancel(self):
++        self.available += self.quantity
++        self.status = 'cancelled'
