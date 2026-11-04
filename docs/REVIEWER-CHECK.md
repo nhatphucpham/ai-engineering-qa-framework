@@ -1,6 +1,22 @@
 # Phiếu thử review hồ sơ — G1
 
-Ngày chuẩn bị: 04/11/2026. Synthetic-only. Trạng thái: **chưa thực hiện với reviewer thật**. Không nhập dữ liệu task thật vào phiếu này.
+Ngày chuẩn bị: 04/11/2026. Synthetic-only. Trạng thái: **đã nhận phản hồi người dùng qua câu hỏi có gợi ý; chưa xác nhận G1**. Không nhập dữ liệu task thật vào phiếu này.
+
+## Phản hồi thực nhận ngày 04/11/2026
+
+Artifact được gửi cho người dùng ở commit `17e8e4f`; chưa xác nhận chính xác các file họ đã mở. Vai trò chuyên môn, thời gian đọc và mức quen case: unknown. Người dùng đã thấy kết luận và diễn giải của tác giả trong chat; câu hỏi có các đáp án gợi ý. Đây là phản hồi có hỗ trợ, không phải phép thử độc lập theo protocol bên dưới.
+
+| Chủ đề hỏi trong chat | Đáp án người dùng chọn |
+|---|---|
+| Hiểu trạng thái hiện tại | “Hai lỗi đã sửa; còn yêu cầu whitespace chưa rõ nên hồ sơ chưa hoàn tất, chưa có approval” |
+| Truy requirement/test/execution | “Tìm được một phần nhưng còn khó đối chiếu” |
+| Hành động tiếp theo | “Chưa rõ hành động tiếp theo” |
+| Nguyên nhân khó đối chiếu | “Chưa quen cách đọc kết quả test” |
+| Thông tin cần làm rõ | “Thứ tự công việc và điều kiện hoàn thành” |
+
+Chưa thu được câu trả lời tự diễn giải hoặc nguồn cụ thể do người dùng tìm. Q3 của protocol chưa được hỏi riêng; chưa có phản hồi về thông tin có thể bỏ hoặc giá trị tăng thêm so với review hiện tại. Các ô chưa thu thập bên dưới không được tự điền bằng suy đoán từ đáp án trắc nghiệm.
+
+Hành động từ phản hồi: thêm phần đọc test bằng ngôn ngữ thường, chuỗi truy evidence cho AC-03 và bảng công việc theo thứ tự/điều kiện xong vào hồ sơ sau sửa. Chưa có phản hồi sau chỉnh sửa. Kết luận hiện tại: chưa đủ căn cứ xác nhận G1; tồn tại khó khăn người dùng tự báo cáo, không suy thành defect rate hoặc hiệu quả framework.
 
 ## Cách dùng
 
@@ -18,7 +34,7 @@ Trước phiên, ghi commit hồ sơ được đọc, vai trò người đọc, 
 | Q4 | Nêu hành động tiếp theo và vai trò cần xử lý; phân biệt verification với approval | Chưa thu thập | Chưa thu thập |
 | Q5 | Chỉ ra thông tin giúp quyết định, thông tin đã biết và chỗ khó hiểu hoặc có thể bỏ | Chưa thu thập | Chưa thu thập |
 
-## Ghi nhận sau phiên
+## Ghi nhận theo protocol — chưa thực hiện đầy đủ
 
 - Commit/version được đọc: chưa ghi nhận.
 - Vai trò reviewer / mức quen case: chưa ghi nhận.
@@ -40,4 +56,4 @@ Theo G1 trong [implementation plan](IMPLEMENTATION-PLAN.md), xem xét người �
 | Hồ sơ sau sửa nêu nhóm test nhưng thiếu link trực tiếp tới assertion | Thêm đường truy requirement → assertion → execution/snapshot | Người đọc có đối chiếu được mà không cần tác giả giải thích không? |
 | Finding là trường mẫu bắt buộc về hình thức dù case có thể đủ evidence | Ghi rõ chỉ thêm finding khi có; đồng bộ process observation với core | Có tránh được nhập liệu không cần thiết không? |
 
-Các chỉnh sửa chỉ là giả thuyết cải thiện bố cục. Chưa có số đo hoặc phản hồi độc lập xác nhận lợi ích.
+Các chỉnh sửa D-02 là giả thuyết cải thiện bố cục. Phản hồi có gợi ý sau đó được ghi riêng ở đầu tài liệu; chưa có số đo hoặc phản hồi độc lập xác nhận lợi ích.

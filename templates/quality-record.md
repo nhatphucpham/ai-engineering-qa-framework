@@ -8,7 +8,7 @@ Người chuẩn bị: <vai trò>. Người quyết định: <vai trò hoặc pe
 
 - Verification hiện tại: <complete / incomplete / failed trong scope; nếu failed và còn thiếu evidence, ghi cả hai>.
 - Điều thay đổi sau kiểm tra: <behavior/evidence mới, hoặc không có thông tin mới>.
-- Việc còn mở và hành động tiếp: <việc / vai trò xử lý / người nhận hoặc unknown>.
+- Việc còn mở và hành động tiếp: <làm gì trước → sau / phụ thuộc / điều kiện xong / vai trò xử lý / người nhận hoặc unknown>.
 - Human decision: <pending nếu chưa có quyết định thật; ghi riêng với verification>.
 
 ## Mục tiêu và risk
@@ -24,6 +24,8 @@ Checks/review bắt buộc theo phạm vi này: <...>.
 | AC-01 | ... | ... | verified / failed / unverified / not_applicable | ... |
 
 Evidence dẫn tới assertion/source và execution đúng snapshot, không chỉ tên suite. Phân biệt trạng thái trước và sau khi bổ sung check. Evidence giả lập chỉ minh họa input; kết quả chạy local trên code synthetic chỉ chứng minh behavior của ví dụ đó.
+
+Nếu người đọc chưa quen test, thêm diễn giải ngắn: check kiểm tra behavior gì, trước/sau khác nhau thế nào và kết quả còn giới hạn gì. Không chỉ đưa số pass/fail; phân biệt error và skipped. Chọn một chuỗi requirement → assertion → execution đúng snapshot để chỉ cách đọc khi cần.
 
 ## Finding và quyết định
 
