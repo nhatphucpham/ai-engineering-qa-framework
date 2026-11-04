@@ -1,6 +1,12 @@
 # Phiếu thử review hồ sơ — G1
 
-Ngày chuẩn bị: 04/11/2026. Synthetic-only. Trạng thái: **đã nhận phản hồi người dùng qua câu hỏi có gợi ý; chưa xác nhận G1**. Không nhập dữ liệu task thật vào phiếu này.
+Ngày chuẩn bị: 04/11/2026. Synthetic-only. Trạng thái: **người dùng xác nhận hồ sơ v2 hợp lý, khá dễ hiểu; G1 đầy đủ chưa xác nhận**. Không nhập dữ liệu task thật vào phiếu này. Các phần dưới lưu phản hồi theo từng phiên bản.
+
+## Phản hồi mới nhất — hồ sơ v2 tại `fd3b8df`
+
+Người dùng nhận xét trực tiếp trong chat: “hồ sơ v2 hợp lý, khá dễ hiểu”. Đây là phản hồi tích cực về tính dễ hiểu và hợp lý của cách trình bày mới. Người dùng đã tham gia clarification và được tác giả giải thích trước đó; không coi đây là phép thử độc lập hoặc đánh giá của nhiều reviewer.
+
+Giữ bố cục mong muốn → lý do → thực tế → cách sửa → kết quả, cùng thứ tự công việc và điều kiện hoàn thành. Chưa thu được bằng chứng mới về việc tự truy requirement/test/execution, tự chọn hành động trên case mới, effort hoặc giá trị tăng thêm so với review hiện tại. Không suy lời nhận xét thành approval, hiệu quả giảm lỗi hay G1 đầy đủ đã đạt. Không cần hỏi lại liệu hồ sơ v2 có dễ hiểu không; bước phát triển tiếp là áp dụng bố cục đã được phản hồi tốt cho một case synthetic khác có phạm vi nhỏ.
 
 ## Phản hồi thực nhận ngày 04/11/2026
 

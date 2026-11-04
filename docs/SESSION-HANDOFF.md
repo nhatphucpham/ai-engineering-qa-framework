@@ -1,5 +1,9 @@
 # Bàn giao phiên 04/11/2026
 
+## Phản hồi v2 — nền `fd3b8df`
+
+Người dùng xác nhận “hồ sơ v2 hợp lý, khá dễ hiểu”. Đã ghi tại REVIEWER-CHECK; giữ cách trình bày hiện tại, không lặp lại yêu cầu xác nhận dễ hiểu. Đây là phản hồi tích cực trong walkthrough có hỗ trợ; chưa đo khả năng truy evidence độc lập, effort hoặc effectiveness, không coi G1 đầy đủ hoặc approval đã đạt. Bước tiếp: áp dụng bố cục cho một case synthetic nhỏ khác theo implementation plan, ghi phạm vi/tiêu chí trước khi làm. Code/evidence giữ nguyên.
+
 ## V2 — nền `1064b2f`
 
 Người dùng đã chọn toàn dấu cách nghĩa tất cả, bỏ dấu cách hai đầu khi tìm category. Requirement `mock-req-06-v2`, snapshot `mock-06-fixed-v2` nằm trong `examples/remediation/06-filter-pagination-v2`; service chỉ strip ASCII space. Có 4 test mới qua service/API/UI và reuse 9 cũ. Runner local exit 0: v2 13 pass; fixed-v1 9 pass/4 fail đúng thiết kế; không errors/skipped. Evidence mới có hashes; fixture/requirement/evidence cũ không đổi.
