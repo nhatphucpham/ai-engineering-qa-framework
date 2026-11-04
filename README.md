@@ -34,3 +34,5 @@ Runner này ghi execution local cùng hash input; xem [hướng dẫn case](exam
 ## Vòng sửa và kiểm chứng MOCK-06
 
 [Snapshot sửa riêng](examples/remediation/06-filter-pagination/README.md) giữ nguyên fixture lỗi, chạy cùng baseline/historical/probe trên head gốc và bản sửa. [Hồ sơ sau sửa](pilot/mock/MOCK-06-remediation.md) ghi evidence mới và requirement còn chưa rõ; [decision log](docs/DECISION-LOG.md) nêu lý do chọn targeted checks thay vì automation tổng quát.
+
+Bước tiếp theo: dùng [phiếu thử review G1](docs/REVIEWER-CHECK.md) để kiểm tra người đọc có truy được claim và chọn hành động hay không. Phiếu đang chờ phản hồi thật, chưa phải kết quả usability.

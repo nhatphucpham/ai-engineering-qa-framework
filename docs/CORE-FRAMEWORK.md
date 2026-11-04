@@ -32,7 +32,11 @@ Một AC có phần rõ và phần mơ hồ nên tách thành các dòng con. N�
 
 ## 4. Finding và output
 
-Dùng [template](../templates/quality-record.md). Hồ sơ cần có scope/revision, bảng AC, finding, checks, action và giới hạn. Finding phân biệt:
+Dùng [template](../templates/quality-record.md). Hồ sơ cần có scope/revision, bảng AC, checks, action, giới hạn và finding nếu có.
+
+Đặt verification hiện tại, thay đổi sau check, việc còn mở/action/owner và human decision ở đầu hồ sơ. Bảng AC dẫn tới assertion/source và execution tương ứng; tên suite đơn thuần chưa giúp truy claim. Finding chỉ thêm khi có vấn đề thực sự. Đây là bố cục đề xuất sau tự rà tài liệu, chưa xác nhận giảm effort với người dùng.
+
+Phân biệt các loại finding:
 
 - **Defect:** vi phạm expected behavior có nguồn; ghi impact, reproduction/source và verdict candidate/confirmed trong mock/disputed/rejected.
 - **Requirement ambiguity:** owner chưa chốt expected behavior; ghi câu hỏi và nhánh quyết định, chưa gán defect.
@@ -52,3 +56,5 @@ Reviewer phải truy được claim quan trọng tới requirement + source/test
 ## 6. Trạng thái S1 hiện tại
 
 Đã có hướng dẫn v0 và hồ sơ nhiều file chạy offline. G1 về reviewer hiểu nguồn/trạng thái và thấy hành động hữu ích **chưa được xác nhận với người thật**. Bước tiếp theo là review các artifact này và giản lược trường không giúp quyết định. Chưa có căn cứ đầu tư automation hoặc tuyên bố giảm defect/effort. Không cần đưa dữ liệu thật vào repo để tiếp tục phát triển synthetic.
+
+Dùng [phiếu thử review](REVIEWER-CHECK.md) để ghi câu trả lời, nguồn người đọc tìm được và phần cần tác giả giải thích. Phiếu chưa điền không phải kết quả G1.

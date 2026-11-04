@@ -6,6 +6,8 @@ Ngày 04/11/2026. Synthetic-only, walkthrough đã biết đáp án; người ch
 
 Hai defect trong [hồ sơ gốc](MOCK-06-review.md) được sửa tại [snapshot mock-06-fixed-v1](../../examples/remediation/06-filter-pagination/fixed/). Kiểm tra lại cùng assertions trên head lỗi và bản sửa cho kết quả phân biệt đúng. Requirement whitespace vẫn chưa rõ: verification tổng thể **incomplete**, không có approval thật.
 
+Hành động còn mở: Product/domain owner chốt nghĩa whitespace và developer thêm check sau khi requirement được xác nhận; Reviewer/TL đối chiếu evidence của fixed trước quyết định tiếp. Đây là vai trò đề xuất, người nhận thật unknown. Hai lỗi đã sửa không còn là hành động sửa code đang mở trong snapshot này.
+
 Risk medium trong mô phỏng: UI state và API cache qua nhiều request, có thể hiển thị sai/rỗng; catalog public giả lập, phạm vi nhỏ, dễ revert. Giữ checks chuyển category từ page=3 và cache chung qua category. Không xét invalid inputs, TTL, concurrency, response mutation, auth hoặc triển khai thật.
 
 ## Evidence mới
@@ -27,6 +29,12 @@ Cả hai exit 0. [Execution mới](../../examples/remediation/06-filter-paginati
 | mock-06-fixed-v1 | 6 pass | 1 pass | 2 pass | 0/0 |
 
 Hai assertion failures ở probe gốc xác nhận request reset vẫn page=3 và category tools nhận items books. Historical fail cũng thuộc cùng defect reset, không phải issue thứ ba. Trên bản sửa, probe reset xác nhận request `('tools', 1, 2)`; historical xác nhận view.page=1 và items T1/T2; probe cache xác nhận books B1/B2 rồi tools T1/T2, total=2 trên cùng instance.
+
+Đường truy assertion (execution JSON phân biệt bằng `snapshot`, `module`):
+
+- AC-02: [Historical.test_reset_from_third_page](../../examples/mock/06-filter-pagination/tests/test_historical.py) và [Probe.test_reset_with_recorded_api_call](../../examples/mock/06-filter-pagination/expected/test_probe.py).
+- AC-03: [Probe.test_cache_across_categories](../../examples/mock/06-filter-pagination/expected/test_probe.py).
+- AC-01/04 và phần chuỗi rỗng của AC-05: [Baseline](../../examples/mock/06-filter-pagination/tests/test_baseline.py), lần lượt `test_service_category_and_case`, `test_service_pagination_and_out_of_range`/`test_api_page_and_size`, `test_empty_category`. Phạm vi assertion vẫn giới hạn ở input được test.
 
 ## Trạng thái và hành động
 
