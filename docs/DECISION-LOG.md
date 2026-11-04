@@ -1,5 +1,11 @@
 # Decision log
 
+## D-07 — 04/11/2026: chốt bản dùng thử E1 trước đánh giá
+
+Đóng băng core/template tại commit `8c03ad55f41811c2539c44cbcb049322530501a2` bằng Git blob ID và hash nội dung Git trong `pilot/e1-freeze.json`. Tạo protocol, task register và adjudication log theo plan; các walkthrough cũ được ghi đúng vai trò design/self-check, không thành holdout hoặc adjudication độc lập.
+
+Chọn một lượt/case mới để giới hạn vòng E1; budget 20 phút là đề xuất cần chốt trước chạy, không giả làm budget người dùng duyệt. Người đọc/case mới chưa chỉ định. Acceptance phiên chuẩn bị: phiên bản frozen truy lại được và hash khớp, protocol ghi tiêu chí/exposure/effort trước-sau, sổ phân biệt dữ liệu đã có với chưa thực hiện. Chưa tạo thêm case hay automation; bước tiếp là bố trí lượt E1 hoặc hoàn thành results/proposal với giới hạn nếu thiếu điều kiện.
+
 ## D-06 — 04/11/2026: dùng lại bố cục trên MOCK-07
 
 Nền `b7d84de`. Sau phản hồi hồ sơ v2 hợp lý/dễ hiểu và người dùng đồng ý tiếp tục, chọn một case hàm thuần về giảm giá. H2 là bottleneck giả lập: baseline bỏ boundary và phí giao hàng; H3 là câu hỏi về khả năng dùng lại cách giải thích. Không kết luận về workflow tổ chức.

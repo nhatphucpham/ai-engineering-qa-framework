@@ -1,0 +1,21 @@
+{
+  "version": "qa-manual-e1",
+  "classification": "synthetic-only",
+  "freezeCommit": "8c03ad55f41811c2539c44cbcb049322530501a2",
+  "hashBasis": "Raw Git blob content, not working-tree line endings",
+  "artifacts": [
+    {
+      "path": "docs/CORE-FRAMEWORK.md",
+      "gitBlob": "615eb8009e6ebb932cbf9a7ee7da445117b77210",
+      "sha256GitContent": "dd159fb6ce1bb494f45b25049b25bf2f4e3751d8c1abcf357ec1c9ff4eda3a16"
+    },
+    {
+      "path": "templates/quality-record.md",
+      "gitBlob": "4e93f40ebb4fb2c6cd510865faa173c26ff30747",
+      "sha256GitContent": "181cedf0c43e9ee78f99c58190b38c4a08bd8e126fff082c3e122be6681f0775"
+    }
+  ],
+  "evaluationStatus": "not_started",
+  "protocolPath": "docs/EVALUATION-PROTOCOL.md",
+  "protocolCommit": "Record the commit introducing this protocol in each run before starting"
+}

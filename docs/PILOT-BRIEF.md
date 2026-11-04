@@ -1,5 +1,7 @@
 # Pilot brief — S0 bằng mock
 
+Ghi chú phiên bản: phần dưới lưu S0 ngày 03/11/2026. Vòng chuẩn bị hiện tại là [protocol E1](EVALUATION-PROTOCOL.md), có [task register](../pilot/task-register.md) và [adjudication log](../pilot/adjudication-log.md). Không diễn giải kế hoạch E1 là lượt đánh giá đã chạy.
+
 Ngày: 03/11/2026. Phân loại: **synthetic-only**. Trạng thái: S0 có artifact để review; chưa có pilot thật hoặc xác nhận của reviewer thật.
 
 Cơ sở: [kế hoạch triển khai](IMPLEMENTATION-PLAN.md), [template](../templates/quality-record.md), [hướng dẫn mock](../examples/mock/README.md) và nội dung SESSION-01-HANDOFF do người dùng cung cấp trong chat. File `docs/SESSION-01-HANDOFF.md` chưa có tại commit nền `063d25f0577d7bcbbba534073bc5b8dcc3cd8976`; không suy ra yêu cầu bổ sung ngoài nội dung đã cung cấp.

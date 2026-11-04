@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Chuẩn bị E1 — nền `8c03ad5`
+
+Đã chốt core/template tại full commit nền, manifest `pilot/e1-freeze.json` ghi blob/hash nội dung Git. Protocol tại `docs/EVALUATION-PROTOCOL.md`; task register và adjudication log tách walkthrough/feedback/self-check cũ khỏi đánh giá E1 chưa bắt đầu. Budget 20 phút là đề xuất chưa được duyệt; case/người đọc mới chưa chọn. Không thay code/fixture/evidence hoặc khai kết quả E1.
+
+Bước tiếp: chốt người đọc/timebox và đăng ký một case mới trước lượt E1; nếu thiếu điều kiện, vẫn viết `pilot/results.md` và `docs/MANAGEMENT-PROPOSAL.md` nêu đúng giới hạn. Không tạo mock vô hạn, không tự nâng feedback dễ hiểu thành G1 đầy đủ.
+
 ## MOCK-07 — nền `b7d84de`
 
 Theo hướng tiếp tục đã thống nhất, thêm case giảm giá để dùng lại bố cục được người dùng phản hồi tốt. Có requirement synthetic, head/fixed, 2 baseline/2 probe, runner riêng và hồ sơ `pilot/mock/MOCK-07-review.md`. Hai lỗi riêng: bỏ đúng ngưỡng 100.000 và giảm nhầm phí giao hàng. Head 2 pass/2 fail; fixed 4 pass; không errors/skipped, runner exit 0. Giữ nguyên các case/manifest/evidence cũ. Không coi case mới là holdout hoặc đánh giá độc lập. Bước tiếp: người dùng đọc hồ sơ mới và phản hồi hai lỗi/cách sửa có dễ phân biệt không; không hỏi lại độ dễ hiểu của MOCK-06 v2 đã được xác nhận.
