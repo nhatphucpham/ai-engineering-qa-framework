@@ -10,7 +10,9 @@ Không chứa task thật. “Đã có execution” chỉ nói fixture đã ch�
 | MOCK-06 fixed-v2 | Clarification dấu cách | [Hồ sơ v2](mock/MOCK-06-v2.md), [feedback](../docs/REVIEWER-CHECK.md) | 13 test pass, người dùng nhận xét hợp lý/dễ hiểu; không phải review độc lập, không thuộc E1 |
 | MOCK-07 | Dùng lại bố cục, biết đáp án | [Hồ sơ 07](mock/MOCK-07-review.md) | Có execution, chưa thu feedback; không là holdout E1 |
 
-## Đăng ký lượt E1-01 — đã chuẩn bị input, chờ nhận định ban đầu
+## Lượt E1-01 — kết thúc chưa đánh giá được mục tiêu do thiếu bối cảnh đầu vào
+
+Sau hỗ trợ định hướng, người dùng hỏi developer đã tự test và qua QC chưa, rồi nhận xét input chỉ dừng ở feature/unit test. Chưa thu nhận định trước/sau hồ sơ; không tiếp tục coi đây là lượt đánh giá hiệu quả hồ sơ. Kết quả/giới hạn tại [results](results.md). Input, code, evidence và protocol E1 giữ nguyên. Những dòng dưới lưu việc chuẩn bị và phản hồi theo diễn tiến, không phải trạng thái chờ hiện tại.
 
 Đã chọn case hủy đặt chỗ vì có requirement/source/checks nhỏ, cùng họ behavior change Python. Không có candidate mới khác được xét rồi loại trong lượt này. Input được tạo sau khi chốt protocol; tác giả biết thiết kế, chưa gọi là đánh giá mù hoặc độc lập.
 

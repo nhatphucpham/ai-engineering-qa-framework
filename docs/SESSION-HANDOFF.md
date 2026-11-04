@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Kết thúc E1-01 — thiếu bối cảnh bàn giao
+
+Người dùng hỏi self-test/QC và nhận xét input chỉ có feature/unit test. Đã đồng ý ghi nhận E1 chưa đánh giá được mục tiêu và thiết kế lại lượt mới. `pilot/results.md` lưu phản hồi/giới hạn; register đổi trạng thái kết thúc, không thu tiếp baseline như chưa có vấn đề. Phút thực đọc unknown; không kết luận hết thời gian hoặc G1 fail. Code/evidence/protocol E1 không đổi.
+
+Bước tiếp là chốt điểm bàn giao/quyết định cho E2 trước khi viết case: developer → QC để nhận kiểm thử hay QC → Reviewer/TL để quyết định tiếp. Đây là lựa chọn mô phỏng, không tự áp quy trình thật; trạng thái self-test/QC và provenance phải rõ. Không tự giả lập QC approval thật, không yêu cầu người dùng tiếp tục tìm lỗi code trong E1.
+
 ## E1-01 — hỗ trợ định hướng sau input `081b455`
 
 Phản hồi đầu của người dùng yêu cầu nêu tình trạng/vị trí hiện tại, chưa là nhận định behavior/action. Đã giữ nguyên INPUT và thêm ORIENTATION.md riêng: bối cảnh bàn giao, hai check đã chạy, phần chưa chốt và bước đang làm. Register lưu nguyên phản hồi và đánh dấu hỗ trợ; core/template/protocol frozen cùng code/evidence không đổi. Phút đọc chưa được cung cấp, không suy từ thời gian chat. Bước tiếp: lấy nhận định/action ban đầu cùng phút thực đọc; chưa gửi hồ sơ phân tích hoặc đáp án.

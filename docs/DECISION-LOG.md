@@ -1,5 +1,11 @@
 # Decision log
 
+## D-08 — 04/11/2026: ghi nhận giới hạn E1 và thiết kế lại điểm bàn giao
+
+Người dùng nhận xét E1 chỉ có feature/unit test, hỏi developer self-test và QC. Đánh giá lại: input thiếu điểm bàn giao và quyết định cần hỗ trợ, không đủ để thử mục tiêu Reviewer/TL như dự định. QC không bắt buộc đi trước mọi review; không tự thêm gate tổ chức chưa được xác nhận.
+
+Kết thúc E1-01 với kết quả chưa đánh giá được mục tiêu, giữ input/evidence/protocol frozen và feedback trong `pilot/results.md`. Không coi người dùng thiếu kỹ năng hoặc framework thất bại. Lượt thiết kế mới là E2, phải chốt điểm bàn giao, vai trò, provenance self-test/QC và quyết định trước khi tạo thêm case. Không gán QC pass thật cho evidence synthetic. Người dùng đã đồng ý hướng điều chỉnh này; chưa chọn điểm bàn giao cụ thể cho E2.
+
 ## D-07 — 04/11/2026: chốt bản dùng thử E1 trước đánh giá
 
 Đóng băng core/template tại commit `8c03ad55f41811c2539c44cbcb049322530501a2` bằng Git blob ID và hash nội dung Git trong `pilot/e1-freeze.json`. Tạo protocol, task register và adjudication log theo plan; các walkthrough cũ được ghi đúng vai trò design/self-check, không thành holdout hoặc adjudication độc lập.
