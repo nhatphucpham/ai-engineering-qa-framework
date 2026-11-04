@@ -18,6 +18,12 @@ Chưa thu được câu trả lời tự diễn giải hoặc nguồn cụ thể
 
 Hành động từ phản hồi: thêm phần đọc test bằng ngôn ngữ thường, chuỗi truy evidence cho AC-03 và bảng công việc theo thứ tự/điều kiện xong vào hồ sơ sau sửa. Chưa có phản hồi sau chỉnh sửa. Kết luận hiện tại: chưa đủ căn cứ xác nhận G1; tồn tại khó khăn người dùng tự báo cáo, không suy thành defect rate hoặc hiệu quả framework.
 
+## Phản hồi tự diễn giải sau bản `dbf1582`
+
+Người dùng nêu bản gốc có 9 test, 3 fail (historical và hai probe), nhưng hiểu ba test được sửa cùng bằng reset trang và không biết vì sao cần reset; muốn hiểu phải mở file khác. Đây là phản hồi tự diễn giải trong chat sau các gợi ý trước đó, chưa phải đánh giá độc lập. Tác giả sau đó giải thích hai lỗi và lý do reset; người dùng yêu cầu sửa hồ sơ theo cấu trúc mong muốn → lý do → thực tế → cách sửa → kết quả.
+
+Thay đổi đáp ứng: thêm hai phần giải thích riêng ngay trong hồ sơ và quy tắc tương ứng ở template. Chưa có phản hồi về bản sửa mới; không đánh dấu Q2/Q3/Q4 hoàn thành hoặc G1 đạt từ việc tác giả đã giải thích.
+
 ## Cách dùng
 
 Chọn [hồ sơ sau sửa MOCK-06](../pilot/mock/MOCK-06-remediation.md). Reviewer đọc hồ sơ và mở các nguồn cần thiết; không cần chạy code. Đây là thử khả năng đọc và sử dụng hồ sơ đã công khai đáp án, không phải blind bug-finding evaluation. Không dùng chính trợ lý tác giả để giả lập phản hồi người thật.

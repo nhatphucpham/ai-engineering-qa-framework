@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Cập nhật mới nhất — nền `dbf1582`
+
+Theo phản hồi tự diễn giải, đã tách hai lỗi trong hồ sơ sau sửa và thêm mong muốn/lý do/thực tế/cách sửa/kết quả ngay tại chỗ. Lý do reset lấy từ catalog mẫu; quy tắc từ AC-02. Lỗi cache có cách sửa riêng, không được gộp với reset. Template áp dụng cùng cách trình bày; phản hồi ghi tại REVIEWER-CHECK, quyết định D-04. Chỉ sửa Markdown, không chạy lại/ghi đè evidence. Bước tiếp: người dùng đọc phần mới; chưa xác nhận G1 hoặc chốt whitespace.
+
+## Lượt trước
+
 Commit nền phiên mới nhất: `17e8e4f`. Phạm vi: ghi phản hồi người dùng có gợi ý và chỉnh cách đọc kết quả/thứ tự hành động; không thay code, fixture hoặc execution evidence.
 
 Phản hồi: người dùng chọn đúng trạng thái nhưng truy evidence còn khó, chưa rõ action; lý do là chưa quen đọc test và cần thứ tự việc/điều kiện xong. Đã lưu tại `docs/REVIEWER-CHECK.md`, thêm diễn giải và bảng hành động vào hồ sơ, cập nhật template và D-03. Câu hỏi có đáp án gợi ý, chưa đủ chứng minh đọc độc lập. Requirement whitespace giữ pending.

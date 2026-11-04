@@ -31,6 +31,9 @@ Nếu người đọc chưa quen test, thêm diễn giải ngắn: check kiểm 
 
 - Finding nếu có: <ID, defect / ambiguity / verification gap / process observation, impact, evidence, cách tái hiện>. Không tạo finding giả khi evidence đủ.
 - Trạng thái finding nếu có: <candidate / confirmed trong mock / disputed / rejected>.
+
+Với mỗi defect, giải thích ngay tại hồ sơ theo thứ tự: **Mong muốn → Lý do → Thực tế bị sai → Cách sửa hoặc đề xuất sửa → Kết quả kiểm tra**. Ghi nguồn của mong muốn; nếu lý do là diễn giải từ ví dụ thì đánh dấu, không tự biến nó thành requirement. Phân biệt sửa đã thực hiện với đề xuất. Link giúp kiểm chứng chi tiết; không để người đọc phải mở file khác mới hiểu nguyên nhân và tác động. Nhiều test cùng một lỗi được nhóm chung; các lỗi có cách sửa khác nhau cần trình bày riêng.
+
 - Giới hạn/context chưa kiểm tra: <...>.
 - Effort: <phút thực đo hoặc unknown; không tự đặt số giả làm số đo>.
 

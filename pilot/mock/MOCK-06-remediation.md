@@ -10,7 +10,29 @@ Hành động còn mở: Product/domain owner chốt nghĩa whitespace và devel
 
 Risk medium trong mô phỏng: UI state và API cache qua nhiều request, có thể hiển thị sai/rỗng; catalog public giả lập, phạm vi nhỏ, dễ revert. Giữ checks chuyển category từ page=3 và cache chung qua category. Không xét invalid inputs, TTL, concurrency, response mutation, auth hoặc triển khai thật.
 
-## Đọc kết quả mà không cần đọc log test
+## Hai lỗi đã sửa và vì sao cần sửa
+
+Bản gốc có **9 test: 6 đạt, 3 không đạt**. Ba test không đạt kiểm tra **hai lỗi khác nhau**. Trên bản sửa, **cả 9 test đều đạt**.
+
+### F-06-01 — Đổi category nhưng vẫn giữ trang cũ
+
+- **Mong muốn:** mỗi lần đổi category (nhóm sản phẩm), màn hình về trang 1 trước khi lấy dữ liệu, theo AC-02 của requirement v1.
+- **Lý do:** trong catalog mẫu, books có 6 món, mỗi trang 2 món nên có trang 3; tools chỉ có 2 món nên chỉ có trang 1. Giữ trang 3 khi chuyển từ books sang tools sẽ hiển thị trống dù tools có dữ liệu. Đây là lý do minh họa từ catalog; quy tắc reset mỗi lần đổi category được requirement quy định, không phải quy tắc bắt buộc cho mọi sản phẩm.
+- **Thực tế bản lỗi:** bắt đầu ở books/trang 3, chọn tools thì màn hình và request vẫn ở trang 3; kết quả không có món nào.
+- **Cách sửa:** đặt page về 1 trước khi gọi API lấy dữ liệu. Category vẫn đổi từ books sang tools; chỉ số trang được đưa về 1.
+- **Kết quả kiểm tra:** historical kiểm tra trang trên màn hình và kết quả T1/T2; probe reset kiểm tra request thực sự gửi trang 1. Cả hai fail ở bản gốc và pass ở bản sửa. Hai test là hai bằng chứng cho cùng lỗi reset.
+
+### F-06-02 — Cache dùng nhầm kết quả giữa hai category
+
+- **Mong muốn:** kết quả được lưu tạm (cache) phải phân biệt category, số trang và số món mỗi trang, theo AC-03.
+- **Lý do:** books/trang 1 và tools/trang 1 là hai danh sách khác nhau. Cùng số trang và kích thước trang không có nghĩa có thể dùng chung kết quả.
+- **Thực tế bản lỗi:** gọi books/trang 1 rồi tools/trang 1 trên cùng API; request tools nhận B1/B2 của books thay vì T1/T2. Nguyên nhân là khóa nhận diện cache chỉ có số trang và kích thước trang, thiếu category.
+- **Cách sửa:** thêm category vào khóa cache thành `(category, page, page_size)`. Sửa này độc lập với reset trang; cả hai request trong test cache vốn đã ở trang 1.
+- **Kết quả kiểm tra:** probe cache xác nhận request đầu trả B1/B2, request sau trả T1/T2 và total=2. Test fail ở bản gốc và pass ở bản sửa.
+
+Các mô tả trên giải thích hai lỗi ngay tại hồ sơ. Link ở phần Evidence bên dưới dành cho đối chiếu chi tiết với requirement, code, test và execution.
+
+## Đọc kết quả test chi tiết
 
 Một test là một phép kiểm tra có kết quả mong đợi cụ thể. `pass` nghĩa kết quả khớp mong đợi ở những tình huống đã kiểm tra; không chứng minh mọi tình huống đều đúng. `fail` nghĩa một assertion không khớp. `error` nghĩa check không thực hiện bình thường, ví dụ lỗi import; `skipped` nghĩa check bị bỏ qua.
 
@@ -77,4 +99,4 @@ F-06-01/02: defect confirmed trong mock, đã sửa và targeted checks pass t�
 
 MOCK-01–05 vẫn khớp manifest, kể cả failure cố ý. Fixture MOCK-06 gốc và evidence đã commit được giữ nguyên. Đây là 18 lượt thực thi test trên hai snapshot, không phải 18 behavior độc lập hay phép đo recall.
 
-Chưa đo effort/cost, usefulness, giảm defect hoặc lợi ích hơn review hiện tại. [Phản hồi qua câu hỏi có gợi ý](../../docs/REVIEWER-CHECK.md) cho thấy người dùng còn khó đọc kết quả test và cần thứ tự công việc/điều kiện hoàn thành. Phần hướng dẫn trên được bổ sung sau phản hồi, chưa được thử lại. G1 vẫn chưa xác nhận; không xây automation để bù thiếu evidence.
+Chưa đo effort/cost, usefulness, giảm defect hoặc lợi ích hơn review hiện tại. [Phản hồi qua câu hỏi có gợi ý](../../docs/REVIEWER-CHECK.md) cho thấy người dùng còn khó đọc kết quả test và cần thứ tự công việc/điều kiện hoàn thành. Người dùng đã thử diễn giải bản trước nhưng còn nhầm hai cách sửa và chưa rõ lý do reset; phần Hai lỗi đã sửa được thêm sau phản hồi đó, chưa được thử lại. G1 vẫn chưa xác nhận; không xây automation để bù thiếu evidence.
