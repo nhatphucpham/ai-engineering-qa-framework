@@ -1,0 +1,380 @@
+[
+  {
+    "id": "finding-confirm-with-basis",
+    "entity": "finding",
+    "from": "candidate",
+    "to": "confirmed",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "finding-cannot-self-confirm-pending-basis",
+    "entity": "finding",
+    "from": "candidate",
+    "to": "confirmed",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "pending",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "FINDING_BASIS_REQUIRED"
+    ]
+  },
+  {
+    "id": "finding-confirm-without-reference",
+    "entity": "finding",
+    "from": "candidate",
+    "to": "confirmed",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "FINDING_BASIS_REQUIRED"
+    ]
+  },
+  {
+    "id": "unauthorized-transition",
+    "entity": "finding",
+    "from": "candidate",
+    "to": "confirmed",
+    "context": {
+      "authorized": false,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "ACTOR_NOT_AUTHORIZED"
+    ]
+  },
+  {
+    "id": "duplicate-with-canonical",
+    "entity": "finding",
+    "from": "candidate",
+    "to": "duplicate",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "duplicate-without-canonical",
+    "entity": "finding",
+    "from": "candidate",
+    "to": "duplicate",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": null,
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "CANONICAL_FINDING_REQUIRED"
+    ]
+  },
+  {
+    "id": "rejected-needs-reasoned-source",
+    "entity": "finding",
+    "from": "candidate",
+    "to": "rejected",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "confirmed-reopened-for-dispute",
+    "entity": "finding",
+    "from": "confirmed",
+    "to": "disputed",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "confirmed-cannot-silently-reject",
+    "entity": "finding",
+    "from": "confirmed",
+    "to": "rejected",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "TRANSITION_NOT_ALLOWED"
+    ]
+  },
+  {
+    "id": "assign-action",
+    "entity": "action",
+    "from": "proposed",
+    "to": "assigned",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "assignment-needs-person",
+    "entity": "action",
+    "from": "proposed",
+    "to": "assigned",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": null,
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "ASSIGNEE_REQUIRED"
+    ]
+  },
+  {
+    "id": "action-starts",
+    "entity": "action",
+    "from": "assigned",
+    "to": "in_progress",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "done-needs-proof-not-claim",
+    "entity": "action",
+    "from": "in_progress",
+    "to": "done",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "COMPLETION_BASIS_REQUIRED"
+    ]
+  },
+  {
+    "id": "done-needs-predicate",
+    "entity": "action",
+    "from": "in_progress",
+    "to": "done",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": false
+    },
+    "expectedErrors": [
+      "COMPLETION_BASIS_REQUIRED"
+    ]
+  },
+  {
+    "id": "done-needs-assignee",
+    "entity": "action",
+    "from": "in_progress",
+    "to": "done",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": null,
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "ASSIGNEE_REQUIRED"
+    ]
+  },
+  {
+    "id": "action-complete-with-basis",
+    "entity": "action",
+    "from": "in_progress",
+    "to": "done",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "cannot-skip-action-to-done",
+    "entity": "action",
+    "from": "proposed",
+    "to": "done",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "TRANSITION_NOT_ALLOWED"
+    ]
+  },
+  {
+    "id": "action-blocked-and-resumed",
+    "entity": "action",
+    "from": "blocked",
+    "to": "in_progress",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "done-may-reopen-with-reason",
+    "entity": "action",
+    "from": "done",
+    "to": "assigned",
+    "context": {
+      "authorized": true,
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": []
+  },
+  {
+    "id": "authorization-string-is-not-boolean",
+    "entity": "action",
+    "from": "in_progress",
+    "to": "done",
+    "context": {
+      "authorized": "true",
+      "rationale": "Synthetic accepted lifecycle basis",
+      "basisState": "accepted",
+      "basisRefs": [
+        "proof"
+      ],
+      "assigneeRef": "person",
+      "canonicalFindingRef": "canonical",
+      "donePredicateMet": true
+    },
+    "expectedErrors": [
+      "TRANSITION_CONTEXT_INVALID"
+    ]
+  }
+]

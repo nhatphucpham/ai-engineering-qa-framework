@@ -1,5 +1,11 @@
 # Decision log
 
+## D-18 — 05/11/2026: P2 rules và conditional assessment offline
+
+Nền `2463cc0`. Tiếp plan thiết kế trước: thêm rules v1, assessment sidecar schema, coverage obligations/comparison contexts có nguồn, eligibility và precedence, constraint review, finding/action transition predicates. Không đổi P1 v2 hoặc fixture/evidence cũ. Python chỉ reference tooling, chưa chốt stack sản phẩm.
+
+55 decision scenarios và 20 lifecycle cases kiểm logic trên supplied facts; accepted/integrity/authorization không phải trust thực đã được xác minh. Không lấy record-only để cấp behavior gate; humanDecision luôn pending. P3 phải thiết kế trusted assessment boundary và mapping assessment sang P1 report, auth/proof/audit cùng server/worker/desktop. Không model/API/container/pilot hoặc publish.
+
 ## D-17 — 05/11/2026: sửa audit P1 bằng contract v2
 
 Người dùng yêu cầu sửa sáu nhóm finding sau review GPT-6 Astra high. Version hóa thành 2.0.0 vì thêm task identity/task-scoped source-diff, decisive/context evidence và rerun lineage; active validator từ chối v1, giữ nguyên schema/JSON v1. Khép source/evidence revision contradiction cho conclusive status, assessment provenance, exact-run progress, unique accepted event→run, assignee done và duplicate cycle; thêm report_ready exactly-one ID sau vòng review tiếp.

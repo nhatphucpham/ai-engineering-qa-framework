@@ -22,7 +22,7 @@ Artifact trong repo này chỉ synthetic. Các ví dụ contract là **specimen 
 |---|---|---|
 | Shape | Field, type, enum, required, lengths, timestamp, không nhận field tùy ý | JSON Schema + format checker trong công cụ P1 |
 | Reference consistency | ID trùng, foreign reference/project, AC mapping, revision/version, summary tự mâu thuẫn | Công cụ [validate_contracts.py](../tools/validate_contracts.py) |
-| QA reasoning/sufficiency | Evidence có thực chứng minh expected behavior, risk, domain finding/constraint policy | **Chưa có engine**; P2 thiết kế, agent reasoning phải có nguồn |
+| QA reasoning/sufficiency | Evidence có thực chứng minh expected behavior, risk, domain finding/constraint policy | **Chưa có product engine**; [P2 rules/reference](VERIFICATION-RULES.md) trên supplied judgments, agent reasoning phải có nguồn |
 | Runtime enforcement | Authentication, authorization, secret lookup, file containment/symlink, image/runtime checks, lease expiry, idempotency atomicity | **Chưa hiện thực**; contract hành vi bên dưới là yêu cầu P3/P4 |
 
 Schema đúng không nghĩa claim đúng, permission hợp lệ, command được phép thực thi hoặc report được phê duyệt. Không dùng validator specimen như security boundary của server.
@@ -206,4 +206,4 @@ Nguồn kỹ thuật: [JSON Schema 2020-12](https://json-schema.org/draft/2020-1
 
 P1 v2 có resource shapes/ownership, auth permission matrix, event identity, commands/progress/worker-result, lifecycle, provenance và valid/invalid examples kiểm được. **Không coi đây là protocol production hoàn chỉnh**: admin/auth/query transport, atomic persistence, secret/container/network enforcement và provider/GitHub bindings chưa có code, sẽ phải được map/test ở P3/P4.
 
-Bước P2 là bảng quyết định sufficiency/status/constraint/finding/action và expected scenarios, không bắt đầu triển khai desktop/server từ schema. Nếu P2 phát hiện field thiếu, tăng contract version và giữ specimen/test lịch sử; không sửa âm thầm nghĩa version đã được dùng.
+[P2 rules v1](VERIFICATION-RULES.md) đã có bảng quyết định sufficiency/status/constraint/finding/action và expected scenarios; không bắt đầu triển khai desktop/server từ schema. Nếu P2 phát hiện field thiếu, tăng contract version và giữ specimen/test lịch sử; không sửa âm thầm nghĩa version đã được dùng.

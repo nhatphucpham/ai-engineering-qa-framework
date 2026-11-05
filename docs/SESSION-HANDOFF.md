@@ -1,5 +1,13 @@
 # Bàn giao phiên 04/11/2026
 
+## P2 rules v1 — 05/11/2026, nền `2463cc0`
+
+Đã thêm VERIFICATION-RULES, qa-assessment-v1 schema, examples/rules/v1 và evaluate_rules/test_rules. Reference evaluator phân biệt coverage thiếu, counterexample/conflict theo context, stale/trust gaps, N/A, risk/plan, mandatory constraint và approval; lifecycle helper kiểm supplied context facts, không authorize hoặc resolve proof thật.
+
+Kiểm tra: 55 decision scenarios + 20 lifecycle cases qua 4 methods (kèm CLI/repeatability/no-mutation) pass; P1 regression cũng pass. Chỉ test dev tooling, không chạy model/API/container hoặc QA project. P1 contract/specimens và mọi fixture/evidence/frozen protocol giữ nguyên. Không có review độc lập model cao cho P2 trong phiên này.
+
+Tiếp P3 TARGET-ARCHITECTURE và ADR: trusted assessment intake/acceptance, report projection, server/auth/project, queue/worker/container, GitHub ingress, provider/agent adapters, storage/event/audit và desktop. Chưa chọn stack, target agent, pilot hoặc public publish.
+
 ## P1 audit fixed — contract v2, nền `872c498`, 05/11/2026
 
 Sau yêu cầu sửa, v2 thêm stable tasks/taskRef, scoped source/diff, source-evidence revision check, decisive/context evidence, execution provenance guard, exact report-run progress, event initial-run uniqueness/manual rerun lineage, done assignee và duplicate cycle. Schema/JSON v1 giữ nguyên; archive doc/readme ghi rõ legacy, active validator chỉ nhận2.0.0. P1-REVIEW-FIXES trace sáu finding và review độc lập.

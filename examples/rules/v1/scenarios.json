@@ -1,0 +1,2518 @@
+[
+  {
+    "id": "scoped-integration-coverage",
+    "changes": [],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": [
+        "SCOPED_COVERAGE_SATISFIED"
+      ],
+      "hasOpenMandatoryCoverage": false
+    }
+  },
+  {
+    "id": "unit-pass-not-integration",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/0/level",
+        "op": "set",
+        "value": "unit"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/level",
+        "op": "set",
+        "value": "unit"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "REQUIRED_COVERAGE_MISSING"
+      ]
+    }
+  },
+  {
+    "id": "missing-required-obligation",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/bindings",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "REQUIRED_COVERAGE_MISSING"
+      ]
+    }
+  },
+  {
+    "id": "binding-candidate",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/bindings/1/judgment",
+        "op": "set",
+        "value": "candidate"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "JUDGMENT_PENDING"
+      ]
+    }
+  },
+  {
+    "id": "binding-disputed",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/bindings/1/judgment",
+        "op": "set",
+        "value": "disputed"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "JUDGMENT_DISPUTED"
+      ]
+    }
+  },
+  {
+    "id": "review-not-provided",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews",
+        "op": "set",
+        "value": [
+          {
+            "evidenceId": "ev-unit",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "EVIDENCE_REVIEW_MISSING"
+      ]
+    }
+  },
+  {
+    "id": "integrity-mismatch",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews/1/integrity",
+        "op": "set",
+        "value": "mismatch"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "INTEGRITY_UNRESOLVED"
+      ]
+    }
+  },
+  {
+    "id": "integrity-unknown",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews/1/integrity",
+        "op": "set",
+        "value": "unknown"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "INTEGRITY_UNRESOLVED"
+      ]
+    }
+  },
+  {
+    "id": "attribution-unknown",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews/1/attribution",
+        "op": "set",
+        "value": "unknown"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "ATTRIBUTION_UNRESOLVED"
+      ]
+    }
+  },
+  {
+    "id": "attribution-disputed",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews/1/attribution",
+        "op": "set",
+        "value": "disputed"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "ATTRIBUTION_UNRESOLVED"
+      ]
+    }
+  },
+  {
+    "id": "scope-mismatch",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews/1/scope",
+        "op": "set",
+        "value": "mismatch"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "SCOPE_UNRESOLVED"
+      ]
+    }
+  },
+  {
+    "id": "stale-only-remains-context",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/artifacts",
+        "op": "set",
+        "value": [
+          {
+            "id": "req",
+            "projectId": "proj",
+            "kind": "requirement",
+            "revision": "req-v1",
+            "relativePath": "docs/requirements.md",
+            "sha256": null,
+            "taskRef": "task"
+          },
+          {
+            "id": "testlog",
+            "projectId": "proj",
+            "kind": "test_output",
+            "revision": "candidate-r12",
+            "relativePath": "evidence/test-output.json",
+            "sha256": null,
+            "taskRef": "task"
+          },
+          {
+            "id": "checkcfg",
+            "projectId": "proj",
+            "kind": "check_config",
+            "revision": "config-v1",
+            "relativePath": "qa/checks.json",
+            "sha256": null,
+            "taskRef": null
+          },
+          {
+            "id": "old-log",
+            "projectId": "proj",
+            "kind": "test_output",
+            "revision": "candidate-r11",
+            "relativePath": "evidence/old.json",
+            "sha256": null,
+            "taskRef": "task"
+          }
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/revision",
+        "op": "set",
+        "value": "candidate-r11"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/sourceArtifactId",
+        "op": "set",
+        "value": "old-log"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "STALE_EVIDENCE"
+      ]
+    }
+  },
+  {
+    "id": "error-not-defect",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "error"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Synthetic inconclusive outcome"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "OUTCOME_ERROR"
+      ]
+    }
+  },
+  {
+    "id": "skipped-not-defect",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "skipped"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Synthetic inconclusive outcome"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "OUTCOME_SKIPPED"
+      ]
+    }
+  },
+  {
+    "id": "blocked-not-defect",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "blocked"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Synthetic inconclusive outcome"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "OUTCOME_BLOCKED"
+      ]
+    }
+  },
+  {
+    "id": "not_run-not-defect",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "not_run"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Synthetic inconclusive outcome"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "OUTCOME_NOT_RUN"
+      ]
+    }
+  },
+  {
+    "id": "unknown-not-defect",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "unknown"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Synthetic inconclusive outcome"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "OUTCOME_UNKNOWN"
+      ]
+    }
+  },
+  {
+    "id": "accepted-current-counterexample",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "fail"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Accepted counterexample in stated context"
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings/1/relation",
+        "op": "set",
+        "value": "violates"
+      }
+    ],
+    "expected": {
+      "verification": "failed",
+      "statuses": {
+        "AC-1": "failed"
+      },
+      "codes": [
+        "CURRENT_BEHAVIOR_VIOLATION"
+      ],
+      "hasOpenMandatoryCoverage": false
+    }
+  },
+  {
+    "id": "fail-with-wrong-binding",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "fail"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Accepted counterexample in stated context"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "OUTCOME_RELATION_MISMATCH"
+      ]
+    }
+  },
+  {
+    "id": "unaccepted-fail-stays-candidate",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "fail"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Accepted counterexample in stated context"
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings/1/relation",
+        "op": "set",
+        "value": "violates"
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings/1/judgment",
+        "op": "set",
+        "value": "candidate"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "JUDGMENT_PENDING"
+      ]
+    }
+  },
+  {
+    "id": "fail-does-not-wait-full-risk-plan",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "fail"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Accepted counterexample in stated context"
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings/1/relation",
+        "op": "set",
+        "value": "violates"
+      },
+      {
+        "target": "assessment",
+        "path": "/risk/tier",
+        "op": "set",
+        "value": "unknown"
+      }
+    ],
+    "expected": {
+      "verification": "failed",
+      "statuses": {
+        "AC-1": "failed"
+      },
+      "codes": [
+        "CURRENT_BEHAVIOR_VIOLATION",
+        "COVERAGE_PLAN_PENDING"
+      ],
+      "hasOpenMandatoryCoverage": true
+    }
+  },
+  {
+    "id": "draft-positive-plan-not-complete",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/planState",
+        "op": "set",
+        "value": "draft"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "COVERAGE_PLAN_PENDING"
+      ]
+    }
+  },
+  {
+    "id": "unknown-risk-not-auto-low",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/risk/tier",
+        "op": "set",
+        "value": "unknown"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "COVERAGE_PLAN_PENDING"
+      ]
+    }
+  },
+  {
+    "id": "requirement-conflict",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/criteria/0/clarification",
+        "op": "set",
+        "value": "conflict"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "REQUIREMENT_CONFLICT"
+      ]
+    }
+  },
+  {
+    "id": "requirement-ambiguous",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/criteria/0/clarification",
+        "op": "set",
+        "value": "ambiguous"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "REQUIREMENT_AMBIGUOUS"
+      ]
+    }
+  },
+  {
+    "id": "scoped-na-with-owner",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/applicability",
+        "op": "set",
+        "value": "not_applicable_requested"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/naDecision",
+        "op": "set",
+        "value": {
+          "state": "accepted",
+          "actorRef": "owner",
+          "sourceArtifactId": "req",
+          "candidateRevision": "candidate-r12",
+          "rationale": "Owner scoped N/A decision in synthetic assessment"
+        }
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings",
+        "op": "set",
+        "value": []
+      }
+    ],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "not_applicable"
+      },
+      "codes": [
+        "NA_ACCEPTED"
+      ],
+      "hasOpenMandatoryCoverage": false
+    }
+  },
+  {
+    "id": "na-missing-valid-state",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/applicability",
+        "op": "set",
+        "value": "not_applicable_requested"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/naDecision",
+        "op": "set",
+        "value": {
+          "state": "pending",
+          "actorRef": "owner",
+          "sourceArtifactId": "req",
+          "candidateRevision": "candidate-r12",
+          "rationale": "Owner scoped N/A decision in synthetic assessment"
+        }
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "NA_PENDING"
+      ]
+    }
+  },
+  {
+    "id": "na-missing-valid-actorRef",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/applicability",
+        "op": "set",
+        "value": "not_applicable_requested"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/naDecision",
+        "op": "set",
+        "value": {
+          "state": "accepted",
+          "actorRef": null,
+          "sourceArtifactId": "req",
+          "candidateRevision": "candidate-r12",
+          "rationale": "Owner scoped N/A decision in synthetic assessment"
+        }
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "NA_PENDING"
+      ]
+    }
+  },
+  {
+    "id": "na-missing-valid-candidateRevision",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/applicability",
+        "op": "set",
+        "value": "not_applicable_requested"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/naDecision",
+        "op": "set",
+        "value": {
+          "state": "accepted",
+          "actorRef": "owner",
+          "sourceArtifactId": "req",
+          "candidateRevision": "candidate-r11",
+          "rationale": "Owner scoped N/A decision in synthetic assessment"
+        }
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "NA_PENDING"
+      ]
+    }
+  },
+  {
+    "id": "rejected-na-checked-as-applicable",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/applicability",
+        "op": "set",
+        "value": "not_applicable_requested"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/naDecision",
+        "op": "set",
+        "value": {
+          "state": "rejected",
+          "actorRef": "owner",
+          "sourceArtifactId": "req",
+          "candidateRevision": "candidate-r12",
+          "rationale": "Owner scoped N/A decision in synthetic assessment"
+        }
+      }
+    ],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": [
+        "NA_REJECTED_CHECK_AS_APPLICABLE"
+      ]
+    }
+  },
+  {
+    "id": "na-contradicts-current-counterexample",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "fail"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Accepted counterexample in stated context"
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings/1/relation",
+        "op": "set",
+        "value": "violates"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/applicability",
+        "op": "set",
+        "value": "not_applicable_requested"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/naDecision",
+        "op": "set",
+        "value": {
+          "state": "accepted",
+          "actorRef": "owner",
+          "sourceArtifactId": "req",
+          "candidateRevision": "candidate-r12",
+          "rationale": "Owner scoped N/A decision in synthetic assessment"
+        }
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "NA_CONTRADICTED"
+      ]
+    }
+  },
+  {
+    "id": "comparable-evidence-conflict",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence",
+        "op": "set",
+        "value": [
+          {
+            "id": "ev-unit",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-unit",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "developer",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:00:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": null,
+            "executionRef": "specimen-exec-1"
+          },
+          {
+            "id": "ev-qc",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-qc",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "qc",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:01:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": null,
+            "executionRef": "specimen-exec-2"
+          },
+          {
+            "id": "ev-opposite",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-qc",
+            "level": "integration",
+            "outcome": "fail",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "qc",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:01:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": "Opposite result for same accepted comparison context",
+            "executionRef": "specimen-exec-2"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews",
+        "op": "set",
+        "value": [
+          {
+            "evidenceId": "ev-unit",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          },
+          {
+            "evidenceId": "ev-qc",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          },
+          {
+            "evidenceId": "ev-opposite",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-qc",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-opposite",
+            "relation": "violates",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-api"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "EVIDENCE_CONFLICT"
+      ]
+    }
+  },
+  {
+    "id": "different-input-counterexample-is-failure",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence",
+        "op": "set",
+        "value": [
+          {
+            "id": "ev-unit",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-unit",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "developer",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:00:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": null,
+            "executionRef": "specimen-exec-1"
+          },
+          {
+            "id": "ev-qc",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-qc",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "qc",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:01:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": null,
+            "executionRef": "specimen-exec-2"
+          },
+          {
+            "id": "ev-opposite",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-qc",
+            "level": "integration",
+            "outcome": "fail",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "qc",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:01:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": "Opposite result for same accepted comparison context",
+            "executionRef": "specimen-exec-2"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/evidenceReviews",
+        "op": "set",
+        "value": [
+          {
+            "evidenceId": "ev-unit",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          },
+          {
+            "evidenceId": "ev-qc",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          },
+          {
+            "evidenceId": "ev-opposite",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-qc",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-opposite",
+            "relation": "violates",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-retry"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "op": "set",
+        "path": "/criteria/0/comparisonContexts",
+        "value": [
+          {
+            "id": "manager-api",
+            "description": "Manager direct export request under the stated candidate/environment",
+            "sourceArtifactId": "testlog",
+            "locator": "manager-api"
+          },
+          {
+            "id": "employee-api",
+            "description": "Employee direct export request under the same declared policy",
+            "sourceArtifactId": "testlog",
+            "locator": "employee-api"
+          },
+          {
+            "id": "employee-retry",
+            "description": "A separate repeated-request condition, not the passing normal request",
+            "sourceArtifactId": "testlog",
+            "locator": "employee retry"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "failed",
+      "statuses": {
+        "AC-1": "failed"
+      },
+      "codes": [
+        "CURRENT_BEHAVIOR_VIOLATION"
+      ]
+    }
+  },
+  {
+    "id": "mock-cannot-verify-execution",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/kind",
+        "op": "set",
+        "value": "authored_mock"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/observedAt",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/executionRef",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/kind",
+        "op": "set",
+        "value": "authored_mock"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/observedAt",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/executionRef",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/allowedProvenance",
+        "op": "set",
+        "value": [
+          "authored_mock"
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified"
+      },
+      "codes": [
+        "RECORD_IS_NOT_EXECUTION"
+      ]
+    }
+  },
+  {
+    "id": "explicit-record-scope-only",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/kind",
+        "op": "set",
+        "value": "authored_mock"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/observedAt",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/executionRef",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/kind",
+        "op": "set",
+        "value": "authored_mock"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/observedAt",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/executionRef",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/allowedProvenance",
+        "op": "set",
+        "value": [
+          "authored_mock"
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/evaluationMode",
+        "op": "set",
+        "value": "record_review"
+      }
+    ],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": [
+        "RECORD_SCOPE_ONLY"
+      ],
+      "statusScope": "record_only"
+    }
+  },
+  {
+    "id": "source-proof-does-not-require-test-fail",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/artifacts",
+        "op": "set",
+        "value": [
+          {
+            "id": "req",
+            "projectId": "proj",
+            "kind": "requirement",
+            "revision": "req-v1",
+            "relativePath": "docs/requirements.md",
+            "sha256": null,
+            "taskRef": "task"
+          },
+          {
+            "id": "testlog",
+            "projectId": "proj",
+            "kind": "test_output",
+            "revision": "candidate-r12",
+            "relativePath": "evidence/test-output.json",
+            "sha256": null,
+            "taskRef": "task"
+          },
+          {
+            "id": "checkcfg",
+            "projectId": "proj",
+            "kind": "check_config",
+            "revision": "config-v1",
+            "relativePath": "qa/checks.json",
+            "sha256": null,
+            "taskRef": null
+          },
+          {
+            "id": "source",
+            "projectId": "proj",
+            "taskRef": "task",
+            "kind": "source",
+            "revision": "candidate-r12",
+            "relativePath": "src/export.py",
+            "sha256": null
+          }
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/sourceArtifactIds",
+        "op": "set",
+        "value": [
+          "source"
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/sourceArtifactId",
+        "op": "set",
+        "value": "source"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/kind",
+        "op": "set",
+        "value": "source_reasoning"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/executionRef",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/observedAt",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/level",
+        "op": "set",
+        "value": "source_review"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "fail"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Accepted counterexample in stated context"
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings/1/relation",
+        "op": "set",
+        "value": "violates"
+      }
+    ],
+    "expected": {
+      "verification": "failed",
+      "statuses": {
+        "AC-1": "failed"
+      },
+      "codes": [
+        "CURRENT_BEHAVIOR_VIOLATION"
+      ],
+      "hasOpenMandatoryCoverage": true
+    }
+  },
+  {
+    "id": "source-proof-with-accepted-scope",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/artifacts",
+        "op": "set",
+        "value": [
+          {
+            "id": "req",
+            "projectId": "proj",
+            "kind": "requirement",
+            "revision": "req-v1",
+            "relativePath": "docs/requirements.md",
+            "sha256": null,
+            "taskRef": "task"
+          },
+          {
+            "id": "testlog",
+            "projectId": "proj",
+            "kind": "test_output",
+            "revision": "candidate-r12",
+            "relativePath": "evidence/test-output.json",
+            "sha256": null,
+            "taskRef": "task"
+          },
+          {
+            "id": "checkcfg",
+            "projectId": "proj",
+            "kind": "check_config",
+            "revision": "config-v1",
+            "relativePath": "qa/checks.json",
+            "sha256": null,
+            "taskRef": null
+          },
+          {
+            "id": "source",
+            "projectId": "proj",
+            "taskRef": "task",
+            "kind": "source",
+            "revision": "candidate-r12",
+            "relativePath": "src/export.py",
+            "sha256": null
+          }
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/sourceArtifactIds",
+        "op": "set",
+        "value": [
+          "source"
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria/0/requiredLevels",
+        "op": "set",
+        "value": [
+          "source_review"
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/sourceArtifactId",
+        "op": "set",
+        "value": "source"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/kind",
+        "op": "set",
+        "value": "source_reasoning"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/executionRef",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/observedAt",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/level",
+        "op": "set",
+        "value": "source_review"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/sourceArtifactId",
+        "op": "set",
+        "value": "source"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/kind",
+        "op": "set",
+        "value": "source_reasoning"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/executionRef",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/provenance/observedAt",
+        "op": "set",
+        "value": null
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/level",
+        "op": "set",
+        "value": "source_review"
+      }
+    ],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": [
+        "SCOPED_COVERAGE_SATISFIED"
+      ]
+    }
+  },
+  {
+    "id": "behavior-green-mandatory-review-pending",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/constraints",
+        "op": "set",
+        "value": [
+          {
+            "id": "P-05",
+            "description": "Domain review required",
+            "mandatory": true,
+            "state": "pending",
+            "sourceArtifactId": "req"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": [],
+      "pendingConstraintIds": [
+        "P-05"
+      ]
+    }
+  },
+  {
+    "id": "optional-constraint-not-required-gate",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/constraints",
+        "op": "set",
+        "value": [
+          {
+            "id": "P-05",
+            "description": "Domain review required",
+            "mandatory": false,
+            "state": "pending",
+            "sourceArtifactId": "req"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": [],
+      "pendingConstraintIds": []
+    }
+  },
+  {
+    "id": "satisfied-claim-without-review",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/constraints",
+        "op": "set",
+        "value": [
+          {
+            "id": "P-05",
+            "description": "Domain review required",
+            "mandatory": true,
+            "state": "satisfied",
+            "sourceArtifactId": "req"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": [],
+      "pendingConstraintIds": [
+        "P-05"
+      ]
+    }
+  },
+  {
+    "id": "mandatory-review-satisfied-and-bound",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/constraints",
+        "op": "set",
+        "value": [
+          {
+            "id": "P-05",
+            "description": "Domain review required",
+            "mandatory": true,
+            "state": "satisfied",
+            "sourceArtifactId": "req"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/constraintReviews",
+        "op": "set",
+        "value": [
+          {
+            "constraintId": "P-05",
+            "judgment": "accepted",
+            "actorRef": "domain-reviewer",
+            "sourceArtifactId": "req",
+            "candidateRevision": "candidate-r12",
+            "rationale": "Accepted scoped review input, not actual authorization"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": []
+    }
+  },
+  {
+    "id": "old-review-not-current-gate",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/constraints",
+        "op": "set",
+        "value": [
+          {
+            "id": "P-05",
+            "description": "Domain review required",
+            "mandatory": true,
+            "state": "satisfied",
+            "sourceArtifactId": "req"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/constraintReviews",
+        "op": "set",
+        "value": [
+          {
+            "constraintId": "P-05",
+            "judgment": "accepted",
+            "actorRef": "domain-reviewer",
+            "sourceArtifactId": "req",
+            "candidateRevision": "candidate-r11",
+            "rationale": "Accepted scoped review input, not actual authorization"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": []
+    }
+  },
+  {
+    "id": "constraint-na-needs-accepted-review",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/constraints",
+        "op": "set",
+        "value": [
+          {
+            "id": "P-05",
+            "description": "Domain review required",
+            "mandatory": true,
+            "state": "not_applicable",
+            "sourceArtifactId": "req"
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/constraintReviews",
+        "op": "set",
+        "value": [
+          {
+            "constraintId": "P-05",
+            "judgment": "accepted",
+            "actorRef": "domain-reviewer",
+            "sourceArtifactId": "req",
+            "candidateRevision": "candidate-r12",
+            "rationale": "Accepted scoped review input, not actual authorization"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "complete",
+      "statuses": {
+        "AC-1": "verified"
+      },
+      "codes": []
+    }
+  },
+  {
+    "id": "conflict-does-not-block-independent-ac",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/criteria",
+        "op": "set",
+        "value": [
+          {
+            "id": "AC-1",
+            "expected": "Manager allowed and employee denied at export API",
+            "mandatory": true,
+            "claims": [
+              {
+                "artifactId": "req",
+                "locator": "AC-1",
+                "statement": "Only managers may export"
+              }
+            ],
+            "clarification": "clear",
+            "ownerRole": "domain-owner"
+          },
+          {
+            "id": "AC-2",
+            "expected": "Manager allowed and employee denied at export API",
+            "mandatory": true,
+            "claims": [
+              {
+                "artifactId": "req",
+                "locator": "AC-1",
+                "statement": "Only managers may export"
+              }
+            ],
+            "clarification": "clear",
+            "ownerRole": "domain-owner"
+          }
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/criterionIds",
+        "op": "set",
+        "value": [
+          "AC-1",
+          "AC-2"
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              },
+              {
+                "id": "employee",
+                "description": "Employee cannot export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 employee",
+                "requiredComparisonKeys": [
+                  "employee-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          },
+          {
+            "criterionId": "AC-2",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-qc",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-api"
+          },
+          {
+            "criterionId": "AC-2",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          }
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/criteria/0/clarification",
+        "op": "set",
+        "value": "conflict"
+      }
+    ],
+    "expected": {
+      "verification": "incomplete",
+      "statuses": {
+        "AC-1": "unverified",
+        "AC-2": "verified"
+      },
+      "codes": [
+        "REQUIREMENT_CONFLICT"
+      ]
+    }
+  },
+  {
+    "id": "failed-plus-mandatory-unverified",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/handoffs/0/criteria",
+        "op": "set",
+        "value": [
+          {
+            "id": "AC-1",
+            "expected": "Manager allowed and employee denied at export API",
+            "mandatory": true,
+            "claims": [
+              {
+                "artifactId": "req",
+                "locator": "AC-1",
+                "statement": "Only managers may export"
+              }
+            ],
+            "clarification": "clear",
+            "ownerRole": "domain-owner"
+          },
+          {
+            "id": "AC-2",
+            "expected": "Manager allowed and employee denied at export API",
+            "mandatory": true,
+            "claims": [
+              {
+                "artifactId": "req",
+                "locator": "AC-1",
+                "statement": "Only managers may export"
+              }
+            ],
+            "clarification": "clear",
+            "ownerRole": "domain-owner"
+          }
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/0/criterionIds",
+        "op": "set",
+        "value": [
+          "AC-1",
+          "AC-2"
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              },
+              {
+                "id": "employee",
+                "description": "Employee cannot export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 employee",
+                "requiredComparisonKeys": [
+                  "employee-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          },
+          {
+            "criterionId": "AC-2",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-qc",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-api"
+          },
+          {
+            "criterionId": "AC-2",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          }
+        ]
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/outcome",
+        "op": "set",
+        "value": "fail"
+      },
+      {
+        "target": "bundle",
+        "path": "/evidence/1/reason",
+        "op": "set",
+        "value": "Accepted counterexample in stated context"
+      },
+      {
+        "target": "assessment",
+        "path": "/bindings/1/relation",
+        "op": "set",
+        "value": "violates"
+      },
+      {
+        "target": "assessment",
+        "path": "/criteria",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              },
+              {
+                "id": "employee",
+                "description": "Employee cannot export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 employee",
+                "requiredComparisonKeys": [
+                  "employee-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          },
+          {
+            "criterionId": "AC-2",
+            "planState": "draft",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "verification": "failed",
+      "statuses": {
+        "AC-1": "failed",
+        "AC-2": "unverified"
+      },
+      "codes": [
+        "CURRENT_BEHAVIOR_VIOLATION"
+      ],
+      "hasUnverifiedMandatory": true
+    }
+  },
+  {
+    "id": "assessment-for-other-candidate",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/candidateRevision",
+        "op": "set",
+        "value": "candidate-r11"
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_VERSION"
+  },
+  {
+    "id": "missing-criterion-plan",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              },
+              {
+                "id": "employee",
+                "description": "Employee cannot export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 employee",
+                "requiredComparisonKeys": [
+                  "employee-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          },
+          {
+            "criterionId": "AC-1",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              },
+              {
+                "id": "employee",
+                "description": "Employee cannot export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 employee",
+                "requiredComparisonKeys": [
+                  "employee-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_COVERAGE"
+  },
+  {
+    "id": "binding-to-unknown-obligation",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/bindings/0/obligationId",
+        "op": "set",
+        "value": "absent"
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_REFERENCE"
+  },
+  {
+    "id": "support-unknown-comparison",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/bindings/0/comparisonKey",
+        "op": "set",
+        "value": "undeclared"
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_REFERENCE"
+  },
+  {
+    "id": "duplicate-binding",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/bindings",
+        "op": "set",
+        "value": [
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-qc",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          }
+        ]
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_BINDING"
+  },
+  {
+    "id": "source-reference-fabricated",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/obligations/0/sourceArtifactId",
+        "op": "set",
+        "value": "absent"
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_REFERENCE"
+  },
+  {
+    "id": "raw-approval-field",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/approved",
+        "op": "set",
+        "value": true
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_SCHEMA"
+  },
+  {
+    "id": "na-on-applicable-plan",
+    "changes": [
+      {
+        "target": "assessment",
+        "path": "/criteria/0/naDecision",
+        "op": "set",
+        "value": {
+          "state": "accepted",
+          "actorRef": "owner",
+          "sourceArtifactId": "req",
+          "candidateRevision": "candidate-r12",
+          "rationale": "Owner scoped N/A decision in synthetic assessment"
+        }
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_APPLICABILITY"
+  },
+  {
+    "id": "contract-error-before-assessment",
+    "changes": [
+      {
+        "target": "bundle",
+        "path": "/evidence/0/provenance/sourceArtifactId",
+        "op": "set",
+        "value": "absent"
+      }
+    ],
+    "expectedError": "E_REFERENCE"
+  },
+  {
+    "id": "violation-context-must-be-described",
+    "changes": [
+      {
+        "target": "assessment",
+        "op": "set",
+        "path": "/bindings/1/comparisonKey",
+        "value": "unregistered-context"
+      },
+      {
+        "target": "assessment",
+        "op": "set",
+        "path": "/bindings/1/relation",
+        "value": "violates"
+      }
+    ],
+    "expectedError": "E_ASSESSMENT_CONTEXT"
+  }
+]
