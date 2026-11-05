@@ -2,19 +2,27 @@
 
 Ngày 05/11/2026, nền `e40d4e3`. Người dùng muốn plugin cùng ứng dụng desktop có dashboard và kỹ thuật phù hợp để tối ưu; đã chọn **Windows trước, giữ khả năng mở rộng macOS/Linux**. Đây là định hướng để P1/P3 lựa chọn, **chưa là ADR chốt stack hoặc implementation**. Agent target còn chưa chọn, không hứa cả ba OS ở bản đầu.
 
+## Yêu cầu bổ sung sau khảo sát
+
+[PRODUCT-DECISIONS](PRODUCT-DECISIONS.md) cập nhật runtime local agent hoặc API theo project, hai intake, GitHub events và outbound data policy. Không còn giới hạn phần reasoning chỉ dùng host agent; local-first là lưu trữ/triển khai bản đầu, không đồng nghĩa tuyệt đối offline khi người dùng chọn API. Người dùng đã chọn OpenAI/Anthropic adapter riêng và worker/server xử lý khi app đóng. Worker self-host và config/repo/data/secret store theo project trên server đã chốt; đã chọn multi-user/project RBAC, container theo project/run và polling+webhook; auth nội bộ do admin quản lý, fixed roles Admin/Owner/Runner/Viewer, SSO sau đã chốt; local-first trước đó không còn nghĩa run gắn desktop process.
+
+## Cập nhật phạm vi triển khai
+
+Lựa chọn server self-host nhiều người/project RBAC thay giới hạn local-only ở bản định hướng trước. Dashboard Windows là client; một core dùng cho UI/plugin/server. Candidate SQLite local phía dưới là nghiên cứu trước mở rộng server, **chưa là lựa chọn storage cho server đa người**. P3 phải đánh giá storage/queue/concurrency, auth/tenant-project boundary và secrets cho phạm vi mới; không giữ khẳng định chưa có server/RBAC ở bản đầu.
+
 ## 1. Một sản phẩm, hai cách dùng
 
 ```mermaid
 flowchart TB
   AG["Agent host"] --> AD["Agent adapter"]
   UI["Desktop dashboard"] --> IPC["Desktop bridge có quyền giới hạn"]
-  AD --> APP["QA application interface dùng chung"]
+  AD --> APP["Server self-host: application interface + auth/project RBAC"]
   IPC --> APP
   APP --> CORE["Core contracts / validation / bounded rules / report"]
   APP --> JOB["Run orchestration / budget / cancel / trạng thái"]
-  JOB --> CON["Agent connector cho reasoning khi cần"]
-  JOB --> EX["Check executor trong project được phép"]
-  CORE --> STORE["Run metadata + evidence reference + history"]
+  JOB --> CON["Agent local connector hoặc OpenAI/Anthropic adapters"]
+  JOB --> EX["Container executor riêng project/run"]
+  CORE --> STORE["Server storage: run/evidence/project/secret references"]
   EX --> STORE
   CON --> STORE
   STORE --> APP
@@ -23,7 +31,7 @@ flowchart TB
   EVT --> AD
 ```
 
-UI không chứa bộ rule thứ hai và không trực tiếp có shell/filesystem không giới hạn. Plugin hoạt động headless, không bắt buộc mở desktop. Desktop có thể xem/import evidence và chạy phần deterministic của core mà chưa có agent; phần cần reasoning phải qua connector agent đã cấu hình. Nếu thiếu connector thì trả waiting/unsupported có lý do, không giả vờ dashboard tự có AI.
+UI không chứa bộ rule thứ hai và không trực tiếp có shell/filesystem không giới hạn. Plugin hoạt động headless, không bắt buộc mở desktop. Desktop có thể xem/import evidence và chạy phần deterministic của core mà chưa có agent; phần cần reasoning phải qua connector agent hoặc API adapter đã cấu hình theo project. Nếu thiếu connector thì trả waiting/unsupported có lý do, không giả vờ dashboard tự có AI.
 
 Core/workflow có interface chung; cùng input/rule version cho kết luận rule tương đương giữa desktop và plugin. Reasoning host không hứa deterministic. Cần ownership của run và command ID để tránh cả UI/agent chạy cùng một check hai lần; chi tiết ở P1/P3.
 
@@ -39,7 +47,7 @@ Tối ưu theo nhu cầu đo được: startup/idle memory/package size, UI resp
 
 Ưu tiên thiết kế:
 
-- Local-first, không bắt buộc server/cloud/account; chỉ thêm network khi có use case/connector và quyền rõ.
+- Self-host server có tài khoản nội bộ và quyền project; desktop Windows là client, không bắt buộc dịch vụ cloud do sản phẩm vận hành. Network/provider calls theo project/data policy, không giữ giả định offline/local-only trước đó.
 - Một core/rule contract; hai client không tự nhân đôi business logic.
 - Check chạy ở worker/process riêng để UI phản hồi; UI virtualization/pagination/log batching khi dữ liệu thực đo cần, không render toàn bộ evidence lớn.
 - Persist run metadata và references có version, lưu evidence file riêng theo thiết kế; không serialize file lớn vào UI state mỗi lần progress.

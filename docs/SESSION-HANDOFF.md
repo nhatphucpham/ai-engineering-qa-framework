@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Chốt yêu cầu qua câu hỏi — 05/11/2026, nền `303b85a`
+
+PRODUCT-DECISIONS ghi toàn bộ lựa chọn: hai intake chung pipeline; agent local/API theo project, OpenAI/Anthropic adapter riêng; read-check-report/đề xuất, không sửa code/test; QA requirement/nghiệp vụ/code review/unit-integration; manual + bàn giao Dev/QC/PR chờ review, GitHub; outbound scope theo project; conflict AC hỏi owner, phần độc lập tiếp tục. Local trước/team sau ban đầu được mở rộng bởi worker/server xử lý khi desktop đóng, UI theo dõi.
+
+Đã chốt worker self-host, project config/repo/data/secret store trên server, multi-user với auth nội bộ admin quản lý/SSO sau, fixed roles Admin/Owner/Runner/Viewer, container project/run và GitHub polling+webhook. P1/P3 cần project config, source/runtime/provider/event/capability/data policy và run lifecycle UI-worker. Không thêm implementation/API calls/pilot trong lượt hỏi đáp.
+
 ## Desktop + plugin — 05/11/2026, nền `e40d4e3`
 
 Người dùng muốn desktop dashboard càng tốt, tối ưu kỹ thuật; chọn Windows trước, mở rộng macOS/Linux sau. Scope/plan/skill cập nhật hai client dùng chung core/application interface. TECHNOLOGY-DIRECTION có sơ đồ định hướng, UI flows, performance/concurrency/cache/permission principles và shortlist Tauri/Electron/SQLite dựa docs chính thức. Chưa chốt stack hoặc implementation; không có desktop/plugin chạy được.

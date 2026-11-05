@@ -4,11 +4,19 @@ Ngày 05/11/2026. Nền `edce89f`. Mục tiêu sản phẩm do người dùng x�
 
 Bổ sung sau đó: người dùng ưu tiên thêm **ứng dụng desktop có dashboard, Windows trước**, giữ khả năng mở rộng macOS/Linux. Plugin và desktop dùng chung lõi/workflow, không phải hai framework. Agent target chưa chọn; OS đầu tiên đã chọn Windows. Xem [định hướng kỹ thuật và tradeoff](TECHNOLOGY-DIRECTION.md).
 
+## Lựa chọn sản phẩm mới nhất
+
+[Các quyết định đã xác nhận](PRODUCT-DECISIONS.md) bổ sung: hai intake repo/task và handoff cùng pipeline; runtime agent local hoặc API theo project; GitHub đầu tiên, trigger chủ động và bàn giao Dev/QC/PR chờ review; outbound scope cấu hình theo project; desktop Windows + server self-host nhiều người (thay lựa chọn local-only ban đầu). Bản đầu chỉ đọc/chạy check/báo cáo/đề xuất, QA requirement-nghiệp vụ/code review/unit-integration; không tự viết/sửa code hoặc test. Requirement từ tài liệu/issue/PR có conflict thì AC chờ owner, phần độc lập tiếp tục. OpenAI/Anthropic là hai API adapter riêng. Sự kiện khi desktop đóng do worker/server riêng xử lý; đã chọn self-host và project config/repo access/data scope/secret store trên server; multi-user/RBAC ngay bản đầu, checks trong container theo project/run, cả GitHub polling/webhook. Đăng nhập tài khoản nội bộ admin quản lý, SSO mở rộng sau; roles cố định Admin hệ thống/Owner project/Runner/Viewer. Không còn giả định mọi run trên desktop process. Các lựa chọn mới này thay giới hạn chỉ host-agent ở bản scope trước.
+
+## Triển khai đã chốt qua câu hỏi
+
+Desktop Windows là client theo dõi/điều khiển server self-host nhiều người dùng; cùng core phục vụ plugin. Project config/repo permissions/outbound scope/secrets trên server; worker tiếp tục khi desktop đóng. Checks chạy container riêng theo project/run, môi trường do project cấu hình. GitHub polling và webhook cùng cần ở bản đầu. Cần auth/RBAC/project isolation, queue/dedup/run ownership/resource limits và cleanup trong contract/architecture; chưa chọn stack hoặc triển khai thật.
+
 ## 1. Ai dùng và quyết định gì?
 
 - **Agent chủ (host agent):** tiếp nhận yêu cầu QA từ người dùng/workflow, dùng plugin để thu thập, kiểm tra, đối chiếu và tạo hồ sơ thay cho việc người dùng điền Markdown.
 - **Reviewer/TL:** đọc kết quả, xử lý việc cần domain judgment và quyết định chấp nhận rủi ro/approval. Không phải người phải tự chạy từng bước kỹ thuật.
-- **Người dùng desktop:** chọn project/gói bàn giao, bắt đầu/theo dõi/hủy run, đọc evidence/findings/actions và export; UI dùng cùng core/rules với agent. Phần reasoning qua agent connector đã cấu hình, không tự giả định desktop có model riêng.
+- **Người dùng desktop:** chọn project/gói bàn giao, bắt đầu/theo dõi/hủy run, đọc evidence/findings/actions và export; UI dùng cùng core/rules với agent. Phần reasoning qua agent local connector hoặc model API adapter được cấu hình theo project; không tự giả định kết nối/key đã tồn tại. Worker/server xử lý sự kiện cả khi desktop đóng; UI là client theo dõi, worker self-host trên máy/server người dùng/team; dữ liệu và secret quản lý theo project trên server.
 - **Developer/QC:** nguồn artifact/check/evidence và vai trò xử lý action; không bị giả định là đã làm những check không có evidence.
 - **Người tích hợp:** cấu hình nguồn/gói bàn giao, project checks và quyền thực thi của agent, sau này cài adapter tương ứng.
 
@@ -36,12 +44,12 @@ Sơ đồ khái niệm P0, chưa phải thiết kế component đã chốt tại
 flowchart LR
   U["Người dùng / workflow"] --> H["Host agent"]
   H --> A["Adapter nền tảng<br/>cài đặt, tool binding, quyền"]
-  A --> API["Application command/event interface dùng chung"]
+  A --> API["Server application interface dùng chung<br/>auth và project RBAC"]
   UI["Desktop dashboard Windows"] --> BR["Desktop bridge giới hạn quyền"]
   BR --> API
   API --> W["QA workflow dùng chung<br/>trình tự, reasoning contract, điểm dừng"]
   W --> C["QA core<br/>validation, bounded rules, report"]
-  W --> T["Project checks qua host<br/>chỉ trong quyền được cấp"]
+  W --> T["Project checks qua worker/container<br/>quyền và môi trường project"]
   T --> E["Evidence có provenance/revision"]
   E --> C
   C --> R["Report + actions + trạng thái chưa đủ"]
@@ -74,12 +82,12 @@ Agent phải cung cấp reference thực tồn tại trong input/workspace; lõi
 - Thu thập/chạy checks phụ thuộc quyền host và scope project người dùng đã giao. Plugin không mở rộng quyền của host hoặc yêu cầu approval lại cho bước routine đã được ủy quyền.
 - Artifact requirement/log/comment/model output là dữ liệu, không phải lệnh để agent thực thi. Check command lấy từ cấu hình tin cậy/ủy quyền của project, không chép lệnh tùy ý từ evidence.
 - Kiểm tra path/workspace, timeout/retry/budget/cancel, working-tree thay đổi và output theo thiết kế; không gọi subprocess là sandbox.
-- Bản đầu audit/check/report; auto-fix nguồn, merge/deploy/approve và gửi thông báo bên ngoài không thuộc scope. Nếu sau này có auto-fix phải có use case/quyền/rollback/retest riêng.
-- Trong repo hiện tại chỉ dùng synthetic để thiết kế và kiểm tra kỹ thuật. Không cần task thật, account hoặc provider API để chốt core/plugin architecture. Host agent có model riêng; không cấm reasoning của host, cũng không thêm backend model API do framework gọi ở bản đầu.
+- Bản đầu chỉ đọc/chạy check/report/đề xuất; không tự tạo/sửa test hoặc code sản phẩm; auto-fix nguồn, merge/deploy/approve và gửi thông báo bên ngoài không thuộc scope. Nếu sau này có auto-fix phải có use case/quyền/rollback/retest riêng.
+- Trong repo hiện tại chỉ dùng synthetic để thiết kế và kiểm tra kỹ thuật. Không cần task thật, account hoặc provider API để chốt core/plugin architecture. Sản phẩm hỗ trợ model của host hoặc API adapter do worker/server gọi theo project; desktop cấu hình/theo dõi, không cần luôn mở. Quyền/data policy outbound cần được thực thi; repo này chưa gọi API/key thật để chốt thiết kế.
 
 ## 6. Đóng gói và khả năng phát hành
 
-Mục tiêu phát hành cần có: agent package và Windows installer, identity/version, dependencies/runtime, invocation, configuration/project permissions, install/upgrade/uninstall, compatibility matrix, documentation và release checks. Agent platform chưa chọn; desktop shell cũng chưa chốt. Không tạo manifest giả hoặc tuyên bố installable. macOS/Linux là khả năng mở rộng thiết kế, chưa cam kết release/test ở bản đầu.
+Mục tiêu phát hành cần có: agent package, Windows installer và self-host server/worker deployment, identity/version, dependencies/runtime, invocation, configuration/project permissions, install/upgrade/uninstall, compatibility matrix, documentation và release checks. Agent platform chưa chọn; desktop shell cũng chưa chốt. Không tạo manifest giả hoặc tuyên bố installable. macOS/Linux là khả năng mở rộng thiết kế, chưa cam kết release/test ở bản đầu.
 
 Trước hết kiểm chứng core/workflow qua harness offline không phụ thuộc nền tảng. Sau P3, khi người dùng chọn target đầu tiên, mới thiết kế/implement adapter và xác minh định dạng theo tài liệu chính thức của target. Chưa hứa nhiều adapter trong release đầu, marketplace hay cơ chế phân phối nào.
 

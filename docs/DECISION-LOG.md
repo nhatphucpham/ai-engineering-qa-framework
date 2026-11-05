@@ -1,5 +1,15 @@
 # Decision log
 
+## D-15 — 05/11/2026: chốt topology, execution và identity
+
+Người dùng chọn self-host worker/server trên máy/server của mình/team, cấu hình quyền repo/data scope/secrets theo project trên server, chạy khi desktop đóng. Bản đầu multi-user với tài khoản nội bộ admin quản lý, thêm SSO sau; fixed roles System Admin/Project Owner/Runner/Viewer. Tests trong container project/run theo config môi trường project; GitHub polling+webhook cùng có ở bản đầu. Lựa chọn mới thay local-only/no-server-RBAC trước đó; không tự thành SaaS do sản phẩm vận hành.
+
+P1/P3 phải có server/UI/worker identity/permissions, job lifecycle, container boundary, data/secret policy và adapters. Chưa chọn stack/API/SDK versions, chưa triển khai dịch vụ hay gọi credentials thật. PRODUCT-DECISIONS lưu lựa chọn thống nhất; tiếp contract thay vì tiếp hỏi lại các lựa chọn đã trả lời.
+
+## D-14 — 05/11/2026: ghi yêu cầu nền từ câu hỏi sản phẩm
+
+Lưu lựa chọn tại PRODUCT-DECISIONS: hai intake, hai chế độ runtime/project, phạm vi QA/can thiệp read-check-report-only, GitHub trigger bàn giao/PR chờ review, data scope project, requirement conflict chờ owner, OpenAI/Anthropic adapter riêng. Desktop theo dõi worker/server chạy cả khi đóng app; topology/data-secrets còn chờ trả lời. Thay các giới hạn chỉ host model/local process cũ, chưa chọn công nghệ hoặc triển khai. Không suy lựa chọn chức năng thành quyền dùng account/key/project thật.
+
 ## D-13 — 05/11/2026: thêm desktop dashboard Windows dùng chung core
 
 Người dùng muốn plugin hoặc desktop dashboard, desktop càng tốt; chọn Windows trước và mở rộng macOS/Linux sau. Scope thêm desktop client/bridge, application command/event interface và local run/history; không thêm bộ rules riêng. Agent target vẫn chưa chọn.

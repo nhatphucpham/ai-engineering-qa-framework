@@ -3,7 +3,7 @@ A practical framework for quality assurance in AI engineering systems, from eval
 
 ## Hướng phát triển hiện hành — 05/11/2026
 
-**Plugin QA cho agent và desktop dashboard, Windows trước; chưa pilot.** [Scope P0](docs/FRAMEWORK-SCOPE.md) tách core dùng chung, workflow, adapter và desktop client; agent target/transport/shell chưa chọn. [Định hướng kỹ thuật](docs/TECHNOLOGY-DIRECTION.md) nêu tiêu chí tối ưu/tradeoff. [Plan P0–P6](docs/IMPLEMENTATION-PLAN.md): scope → contract → rules → kiến trúc đích → core và desktop/headless flow → kỹ thuật → package/installer. Bước tiếp P1; chưa có plugin/desktop installable hoặc quyền publish. Walkthrough/feedback cũ là lịch sử.
+**Plugin QA + desktop Windows + server/worker self-host nhiều người; chưa pilot.** [Các lựa chọn đã chốt](docs/PRODUCT-DECISIONS.md) là nguồn yêu cầu từ người dùng: agent local hoặc OpenAI/Anthropic API, project data policy, container kiểm thử, GitHub polling/webhook, auth nội bộ và fixed roles. [Scope P0](docs/FRAMEWORK-SCOPE.md) và [plan P0–P6](docs/IMPLEMENTATION-PLAN.md) dùng một core chung; agent target/transport/stack chưa chọn. [Định hướng kỹ thuật](docs/TECHNOLOGY-DIRECTION.md) là shortlist chưa chốt. Bước tiếp P1; chưa có phần mềm installable hoặc quyền publish. Walkthrough/feedback cũ là lịch sử.
 
 ## Kiến trúc thực tế hiện tại
 

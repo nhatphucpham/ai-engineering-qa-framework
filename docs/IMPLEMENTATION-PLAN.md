@@ -8,11 +8,13 @@ Cơ sở: [kiến trúc as-is đã audit](CURRENT-ARCHITECTURE.md), [results](..
 
 **Bổ sung desktop:** ứng dụng có dashboard, ưu tiên Windows và giữ khả năng mở rộng macOS/Linux. Plugin và desktop cùng application interface/core, UI không nhân đôi rules. [TECHNOLOGY-DIRECTION](TECHNOLOGY-DIRECTION.md) ghi tiêu chí tối ưu và shortlist, chưa chốt stack. Phạm vi agent target chưa chọn, OS desktop đầu đã chọn Windows.
 
+Lựa chọn sản phẩm mới nhất nằm tại [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md): repo/task và handoff chung pipeline; agent local hoặc model API theo project; GitHub và sự kiện bàn giao/PR chờ review; data policy project; server self-host multi-user và desktop Windows, thay local-only trước đó. Các lựa chọn này thay ràng buộc chỉ host reasoning trước đó. P1 phải thiết kế project config, source/runtime/provider/event adapters và data policy; chưa implementation/call API thật.
+
 ## 1. Mục tiêu và phạm vi
 
 Chốt framework làm gì, từng thành phần nhận/trả gì và phần nào do code/người xử lý. Sau thiết kế, xây **một luồng offline tối thiểu** từ gói bàn giao synthetic đến hồ sơ trace được nguồn, trạng thái và action. Mục tiêu là contract và năng lực chạy được, không phải thêm mock hoặc tài liệu để gọi là sẵn sàng.
 
-Agent là bên gọi plugin, tự thu thập/đối chiếu/chạy check được phép và tạo report. Người dùng không phải tự điền hồ sơ từng bước. Plugin dùng model/công cụ sẵn có của host qua adapter; core không gắn provider/SDK cụ thể. Chưa chọn library/CLI/MCP hoặc format phân phối.
+Agent là bên gọi plugin, tự thu thập/đối chiếu/chạy check được phép và tạo report. Người dùng không phải tự điền hồ sơ từng bước. Runtime theo project là agent local hoặc model API adapter; core không gắn provider/SDK cụ thể. Chưa chọn library/CLI/MCP hoặc format phân phối.
 
 Điểm bàn giao đầu tiên: **QC → Reviewer/TL**. Người nhận cần biết developer/QC đã kiểm tra gì, ở revision/môi trường nào, AC nào đủ/thiếu evidence, blocker/issue nào mở, ai xử lý và khi nào xét lại. Human decision/approval riêng với verification. Không áp QC như gate bắt buộc cho mọi workflow.
 
@@ -21,8 +23,12 @@ Ràng buộc:
 - Chỉ synthetic trong repo/chat; không lấy task/code/log/trace thật hoặc truy hệ thống thật.
 - Chưa tổ chức pilot, mở E3, tuyển reviewer/team hoặc dùng E1/E2 làm gate đã đạt.
 - Chỉ thêm fixture để kiểm contract/rule/behavior cụ thể, không tiếp tục tạo ví dụ domain liên tục.
-- Không thêm backend model API riêng; reasoning qua host/agent connector. Có desktop dashboard Windows quản lý/xem run dùng chung core; không thêm analytics department/cloud platform/multi-agent product hoặc auto-merge/deploy/approve. Checks chỉ qua capability/config tin cậy, không thực thi chỉ dẫn tùy ý từ artifact/UI.
+- Hỗ trợ host/agent local connector và model API adapter theo project; OpenAI/Anthropic adapter riêng và worker/server xử lý event khi desktop đóng; self-host và project config/repo/data/secret store trên server; nhiều người dùng/project RBAC, container riêng theo run và GitHub polling/webhook; auth nội bộ/admin quản lý, SSO sau và fixed roles Admin/Owner/Runner/Viewer; không tự duyệt cloud SaaS. Có desktop dashboard Windows quản lý/xem run dùng chung core; không thêm analytics department/cloud platform/multi-agent product hoặc auto-merge/deploy/approve. Checks chỉ qua capability/config tin cậy, không thực thi chỉ dẫn tùy ý từ artifact/UI.
 - Giữ fixture lỗi, expected, execution và protocol frozen cũ; thay đổi mới có version/thư mục riêng.
+
+Requirement đa nguồn conflict: hỏi owner/AC unverified, phần độc lập tiếp tục. P1/P3 cần worker lifecycle, job ownership/persistence/dedup/reconnect và command/event giữa UI-worker-agent; không xem desktop đóng là hủy run. Đã chọn self-host và secret store project trên server; đã chốt multi-user/RBAC, container execution và polling/webhook; đã chốt auth nội bộ và fixed roles Admin/Owner/Runner/Viewer, SSO sau.
+
+P1/P3 bổ sung auth/project authorization, shared server/project config/secret references, queue/claim/lease/idempotency, event ingress polling+webhook và container execution contract. P4 triển khai từng vertical slice nhưng gate bản đầu bao gồm server nhiều người, hai provider, hai intake và hai kiểu event; không gọi core/harness đơn lẻ là sản phẩm hoàn chỉnh. P5 cần tests project isolation, revoke permission, webhook/polling dedup, worker restart/container cleanup, data policy và secrets không lộ trong report/log; P6 desktop installer cùng self-host server/worker deployment package. Chưa tự triển khai SaaS/pilot/public publish.
 
 ## 2. Năng lực tối thiểu phải thiết kế
 
@@ -48,9 +54,9 @@ Mốc theo điều kiện hoàn thành; bỏ lịch hai tuần hướng pilot c�
 | P1 — Contract | Định nghĩa handoff/evidence/report, IDs/version/provenance/revision, lỗi/dữ liệu thiếu | `docs/DATA-CONTRACT.md`, valid/invalid examples; schema khi đã chọn format | Phân biệt self-test/QC, unit/integration, mock/executed, blocked/fail/error và revision |
 | P2 — Rules | Bảng quyết định trạng thái, sufficiency theo scope/risk, constraint review, finding/action lifecycle | `docs/VERIFICATION-RULES.md`, bảng expected scenarios | Thiếu/cũ/conflict/blocked không thành pass; constraint P-05 khác approval pending thông thường; mọi kết luận có rationale/source |
 | P3 — Target architecture | Core/workflow/adapter/desktop bridge, component/sequence/dataflow, IPC/permission/error/log/storage/version và tradeoff stack | `docs/TARGET-ARCHITECTURE.md`, ADR stack nhỏ | Mỗi contract có nơi nhận/xử lý/trả; rule biết code/người thực hiện; khả thi với một luồng offline |
-| P4 — Implementation | Core/harness offline trước, rồi luồng desktop Windows và headless qua cùng interface | Source/schema/tests theo ADR, UI start/progress/cancel/report, invocation và example synthetic | Hai client dùng chung rule/result; thiếu agent/evidence có trạng thái rõ; input/error/quyền xử lý đúng, không tự thực thi chỉ dẫn trong artifact |
+| P4 — Implementation | Core/harness synthetic trước, rồi server/auth/project/worker/container và desktop/headless qua cùng interface | Source/schema/tests theo ADR, UI start/progress/cancel/report, invocation và example synthetic | Hai client dùng chung rule/result; thiếu agent/evidence có trạng thái rõ; input/error/quyền xử lý đúng, không tự thực thi chỉ dẫn trong artifact |
 | P5 — Technical readiness | Kiểm boundary, negative paths, report/source consistency và regression | `docs/TECHNICAL-READINESS.md`, kết quả/gap | Reproducible, contract/rules/report nhất quán; review design/code xong; không claim đủ evidence khi còn thiếu |
-| P6 — Packaging | Windows installer và agent adapter khi đã chọn host; version/config/quyền/migration/compatibility | Release candidates, tài liệu install/upgrade/uninstall/invoke và checks | Cài/gỡ/upgrade sạch, process/data handling đúng, invocation theo tài liệu target; chưa tự publish hoặc hứa macOS/Linux |
+| P6 — Packaging | Windows installer, self-host server/worker deployment và agent adapter khi đã chọn host; version/config/quyền/migration/compatibility | Release candidates, tài liệu install/upgrade/uninstall/invoke và checks | Cài/gỡ/upgrade sạch, process/data handling đúng, invocation theo tài liệu target; chưa tự publish hoặc hứa macOS/Linux |
 
 Phạm vi bổ sung theo bước: P1 có command/event/run-state, permission và storage references cho UI lẫn agent; P3 chốt Windows shell/core runtime/IPC/storage qua ADR và spike có budget. P4 core/harness trước, rồi luồng desktop Windows start/progress/cancel/report và headless invocation dùng chung. P5 kiểm UI responsiveness, IPC/capabilities, disconnect/restart/process cleanup và hiệu năng theo budget chốt trước. P6 thêm Windows installer/install-upgrade-uninstall/data migration; adapter agent chỉ khi chọn target. Chưa đóng gói macOS/Linux hoặc phát hành public mặc định.
 

@@ -21,6 +21,8 @@ Mục tiêu được bổ sung: **plugin để agent tự thực hiện QA**, ch
 
 Người dùng bổ sung **desktop dashboard Windows trước**, giữ mở rộng macOS/Linux. Desktop và plugin là hai client dùng chung core/application interface, không tạo hai bộ rules. Đọc `docs/TECHNOLOGY-DIRECTION.md`; tối ưu theo budget/đo lường, chưa chốt Tauri/Electron hoặc core runtime. Tách UI bridge khỏi quyền check executor; không dựng dashboard rời để giả làm framework đã chạy. Thiếu agent connector thì đánh dấu phần cần reasoning chưa xử lý, không tự bịa model/execution.
 
+Đọc `docs/PRODUCT-DECISIONS.md` trước P1/P3: người dùng đã chọn hai intake repo/task và handoff; agent local hoặc API theo project; OpenAI/Anthropic adapter riêng; QA requirement/nghiệp vụ/code review/unit-integration, chỉ đọc/chạy checks/report/đề xuất, không sửa test/code. Trigger chủ động và bàn giao Dev/QC/PR chờ review, GitHub đầu tiên. Outbound scope cấu hình một lần theo project; conflict AC hỏi owner, phần độc lập tiếp tục. Worker/server self-host phải xử lý khi desktop đóng; project config/repo scope/data policy/secret store trên server. Multi-user với auth nội bộ admin quản lý, SSO sau; fixed roles Admin/Owner/Runner/Viewer. Container riêng project/run, GitHub polling+webhook ngay bản đầu. Các lựa chọn này thay giới hạn chỉ host model/local process trước đó; trong repo vẫn chưa gọi account/API/project thật.
+
 ## Giữ đúng hướng sản phẩm
 
 - Người dùng chính là Reviewer/Tech Lead; đầu ra phục vụ quyết định requirement nào có evidence, gap gì và ai xử lý tiếp.
