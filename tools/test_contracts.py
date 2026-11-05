@@ -11,7 +11,7 @@ import unittest
 from validate_contracts import ROOT, validate
 
 
-EXAMPLES = ROOT / 'examples/contracts/v1'
+EXAMPLES = ROOT / 'examples/contracts/v2'
 
 
 class ContractTests(unittest.TestCase):
@@ -21,10 +21,10 @@ class ContractTests(unittest.TestCase):
                 self.assertEqual(validate(json.loads(path.read_text(encoding='utf-8'))), [])
 
     def test_invalid_scenarios(self):
-        baseline = json.loads((EXAMPLES / 'valid-handoff.json').read_text(encoding='utf-8'))
         cases = json.loads((EXAMPLES / 'invalid-scenarios.json').read_text(encoding='utf-8'))
         for case in cases:
             with self.subTest(case=case['id']):
+                baseline = json.loads((EXAMPLES / case.get('base', 'valid-handoff.json')).read_text(encoding='utf-8'))
                 bundle = copy.deepcopy(baseline)
                 for change in case['changes']:
                     parts = change['path'].strip('/').split('/')
@@ -38,6 +38,10 @@ class ContractTests(unittest.TestCase):
                         target[key] = change['value']
                 codes = {error['code'] for error in validate(bundle)}
                 self.assertIn(case['expectedCode'], codes)
+
+    def test_legacy_version_rejected_explicitly(self):
+        legacy = json.loads((ROOT / 'examples/contracts/v1/valid-handoff.json').read_text(encoding='utf-8'))
+        self.assertEqual([error['code'] for error in validate(legacy)], ['E_CONTRACT_VERSION'])
 
     def test_cli_valid_invalid_and_unreadable(self):
         script = str(ROOT / 'tools/validate_contracts.py')

@@ -60,7 +60,7 @@ Mốc theo điều kiện hoàn thành; bỏ lịch hai tuần hướng pilot c�
 
 Phạm vi bổ sung theo bước: P1 có command/event/run-state, permission và storage references cho UI lẫn agent; P3 chốt Windows shell/core runtime/IPC/storage qua ADR và spike có budget. P4 core/harness trước, rồi luồng desktop Windows start/progress/cancel/report và headless invocation dùng chung. P5 kiểm UI responsiveness, IPC/capabilities, disconnect/restart/process cleanup và hiệu năng theo budget chốt trước. P6 thêm Windows installer/install-upgrade-uninstall/data migration; adapter agent chỉ khi chọn target. Chưa đóng gói macOS/Linux hoặc phát hành public mặc định.
 
-Trạng thái: P0 có [scope](FRAMEWORK-SCOPE.md); **P1 contract v1 đã có** tại [DATA-CONTRACT](DATA-CONTRACT.md), schema và specimen checks. Đây là resource/ownership/command-event/lifecycle design có kiểm shape/reference, không phải auth/server/worker runtime hoặc API transport đã triển khai. P2–P6 chưa hoàn tất. P2 tiếp semantics sufficiency/status; P3 map contract sang kiến trúc/SDK/storage/transport và enforce quyền/lease/secret/container. P6 agent adapter còn phụ thuộc target chưa chọn.
+Trạng thái: P0 có [scope](FRAMEWORK-SCOPE.md); **P1 contract v2 đã có sau audit** tại [DATA-CONTRACT](DATA-CONTRACT.md), schema và specimen checks; [audit/fix](P1-REVIEW-FIXES.md) ghi sáu nhóm lỗi v1 và regression. Đây là resource/ownership/command-event/lifecycle design có kiểm shape/reference, không phải auth/server/worker runtime hoặc API transport đã triển khai. P2–P6 chưa hoàn tất. P2 tiếp semantics sufficiency/status; P3 map contract sang kiến trúc/SDK/storage/transport và enforce quyền/lease/secret/container. P6 agent adapter còn phụ thuộc target chưa chọn.
 
 P0/P1 có thể đối chiếu qua lại. Không xây generic engine/chọn stack trước contract/rules. Review và sửa output trong scope đã giao, không hỏi duyệt từng thay đổi thường lệ; quyết định domain thiếu thì hỏi cụ thể và tiếp tục phần độc lập.
 
@@ -101,4 +101,4 @@ Nếu sau này chọn đánh giá sử dụng, cần mục tiêu/đối tượng
 
 ## 8. Bước tiếp theo
 
-P0 scope và P1 contract v1 đã được ghi. **Tiếp P2: VERIFICATION-RULES.md** — bảng sufficiency/status theo AC/scope/risk, constraint, conflict/blocked/stale và finding/action; không suy status đúng chỉ vì schema hợp lệ. Sau đó P3 kiến trúc dùng chung; không mở E3, publish hoặc tự chọn SDK/provider runtime trước ADR. P6 agent adapter chỉ sau quyết định target cụ thể.
+P0 scope và P1 contract v2 đã được ghi sau sửa audit. **Tiếp P2: VERIFICATION-RULES.md** — bảng sufficiency/status theo AC/scope/risk, constraint, conflict/blocked/stale và finding/action; không suy status đúng chỉ vì schema hợp lệ. Sau đó P3 kiến trúc dùng chung; không mở E3, publish hoặc tự chọn SDK/provider runtime trước ADR. P6 agent adapter chỉ sau quyết định target cụ thể.

@@ -10,7 +10,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = json.loads((ROOT / 'schemas/qa-contract-v1.schema.json').read_text(encoding='utf-8'))
+SCHEMA = json.loads((ROOT / 'schemas/qa-contract-v2.schema.json').read_text(encoding='utf-8'))
 Draft202012Validator.check_schema(SCHEMA)
 FORMATS = FormatChecker()
 
@@ -27,7 +27,7 @@ def utc_timestamp(value):
 
 
 VALIDATOR = Draft202012Validator(SCHEMA, format_checker=FORMATS)
-COLLECTIONS = ('projects', 'artifacts', 'handoffs', 'evidence', 'events', 'commands', 'runs', 'reports')
+COLLECTIONS = ('projects', 'tasks', 'artifacts', 'handoffs', 'evidence', 'events', 'commands', 'runs', 'reports')
 
 
 def validate(bundle):
@@ -35,6 +35,10 @@ def validate(bundle):
 
     def fail(code, path, message):
         errors.append({'code': code, 'path': path, 'message': message})
+
+    if isinstance(bundle, dict) and 'contractVersion' in bundle and bundle['contractVersion'] != '2.0.0':
+        fail('E_CONTRACT_VERSION', '/contractVersion', 'Active validator requires contract 2.0.0; legacy versions are archived')
+        return errors
 
     # Avoid echoing arbitrary input, potentially including secret-like values.
     for error in VALIDATOR.iter_errors(bundle):
@@ -71,6 +75,18 @@ def validate(bundle):
         if len(values) != len(set(values)):
             fail('E_DUPLICATE_ID', path, 'Duplicate local ID or reference')
 
+    def reject_cycles(edges, path, code):
+        checked = set()
+        for start in edges:
+            current, trail = start, set()
+            while current in edges and current not in checked:
+                if current in trail:
+                    fail(code, path, 'Reference chain contains a cycle and has no canonical root')
+                    break
+                trail.add(current)
+                current = edges[current]
+            checked.update(trail)
+
     for index, member in enumerate(bundle['memberships']):
         lookup('projects', member['projectId'], member['projectId'], f'/memberships/{index}')
     unique([(m['projectId'], m['principalId']) for m in bundle['memberships']], '/memberships')
@@ -83,6 +99,10 @@ def validate(bundle):
 
     for index, artifact in enumerate(bundle['artifacts']):
         safe_path(artifact['relativePath'], f'/artifacts/{index}/relativePath')
+        if artifact['taskRef']:
+            lookup('tasks', artifact['taskRef'], artifact['projectId'], f'/artifacts/{index}/taskRef')
+        if artifact['kind'] in ('source', 'diff', 'test_output', 'qc_record') and not artifact['taskRef']:
+            fail('E_TASK_BOUNDARY', f'/artifacts/{index}', 'Candidate-bound artifacts require task identity')
     for index, project in enumerate(bundle['projects']):
         runtime = project['runtime']
         if runtime['mode'] == 'model_api' and runtime['provider'] not in project['dataPolicy']['allowedProviders']:
@@ -99,6 +119,7 @@ def validate(bundle):
     for index, handoff in enumerate(bundle['handoffs']):
         at = f'/handoffs/{index}'
         project = handoff['projectId']
+        lookup('tasks', handoff['taskRef'], project, at + '/taskRef')
         unique([c['id'] for c in handoff['criteria']], at + '/criteria')
         unique([c['id'] for c in handoff['constraints']], at + '/constraints')
         stages = [s['stage'] for s in handoff['stageRecords']]
@@ -106,9 +127,24 @@ def validate(bundle):
             fail('E_STAGE_RECORD', at + '/stageRecords', 'Declare self-test and QC exactly once, even when unknown')
         for criterion in handoff['criteria']:
             for claim in criterion['claims']:
-                lookup('artifacts', claim['artifactId'], project, at + '/criteria/claims')
+                artifact = lookup('artifacts', claim['artifactId'], project, at + '/criteria/claims')
+                if artifact and artifact['taskRef'] not in (None, handoff['taskRef']):
+                    fail('E_TASK_BOUNDARY', at + '/criteria/claims', 'Claim source belongs to another task')
+        for field, kind in [('sourceArtifactIds', 'source'), ('diffArtifactIds', 'diff')]:
+            for aid in handoff[field]:
+                artifact = lookup('artifacts', aid, project, at + '/' + field)
+                if not artifact:
+                    continue
+                if artifact['kind'] != kind:
+                    fail('E_REFERENCE_TYPE', at + '/' + field, 'Handoff input artifact has the wrong kind')
+                if artifact['taskRef'] != handoff['taskRef']:
+                    fail('E_TASK_BOUNDARY', at + '/' + field, 'Source/diff belongs to another task')
+                if artifact['revision'] != handoff['candidateRevision']:
+                    fail('E_SOURCE_REVISION', at + '/' + field, 'Handoff source/diff differs from candidate')
         for source in handoff['constraints'] + handoff['knownIssues']:
-            lookup('artifacts', source['sourceArtifactId'], project, at + '/sourceArtifactId')
+            artifact = lookup('artifacts', source['sourceArtifactId'], project, at + '/sourceArtifactId')
+            if artifact and artifact['taskRef'] not in (None, handoff['taskRef']):
+                fail('E_TASK_BOUNDARY', at + '/sourceArtifactId', 'Constraint/issue source belongs to another task')
         for stage in handoff['stageRecords']:
             if (stage['state'] == 'provided') != bool(stage['evidenceIds']):
                 fail('E_STAGE_RECORD', at + '/stageRecords', 'Provided needs evidence; unknown/not_performed has none')
@@ -120,8 +156,12 @@ def validate(bundle):
     for index, ev in enumerate(bundle['evidence']):
         at = f'/evidence/{index}'
         handoff = lookup('handoffs', ev['handoffId'], ev['projectId'], at + '/handoffId')
-        lookup('artifacts', ev['provenance']['sourceArtifactId'], ev['projectId'], at + '/provenance/sourceArtifactId')
+        artifact = lookup('artifacts', ev['provenance']['sourceArtifactId'], ev['projectId'], at + '/provenance/sourceArtifactId')
+        if artifact and artifact['kind'] in ('source', 'diff', 'test_output', 'qc_record') and artifact['revision'] != ev['revision']:
+            fail('E_SOURCE_REVISION', at, 'Candidate-bound source revision contradicts evidence revision')
         if handoff:
+            if artifact and artifact['taskRef'] not in (None, handoff['taskRef']):
+                fail('E_TASK_BOUNDARY', at, 'Evidence source belongs to another task')
             criteria = {c['id'] for c in handoff['criteria']}
             if not set(ev['criterionIds']) <= criteria:
                 fail('E_REFERENCE', at + '/criterionIds', 'Criterion is absent from handoff')
@@ -163,6 +203,7 @@ def validate(bundle):
             if run and body['expectedRunVersion'] != run['stateVersion']:
                 fail('E_VERSION', at, 'Run version precondition differs')
 
+    accepted_triggers = set()
     for index, run in enumerate(bundle['runs']):
         at = f'/runs/{index}'
         handoff = lookup('handoffs', run['handoffId'], run['projectId'], at)
@@ -175,6 +216,18 @@ def validate(bundle):
             event = lookup('events', run['triggerEventId'], run['projectId'], at)
             if event and event['candidateRevision'] != run['candidateRevision']:
                 fail('E_REVISION', at, 'Trigger candidate differs from run')
+            trigger_key = (run['projectId'], run['triggerEventId'])
+            if trigger_key in accepted_triggers:
+                fail('E_EVENT_RUN_DUPLICATE', at, 'One accepted event may create only one initial run')
+            accepted_triggers.add(trigger_key)
+        if run['rerunOfRunId']:
+            prior = lookup('runs', run['rerunOfRunId'], run['projectId'], at + '/rerunOfRunId')
+            if run['triggerEventId']:
+                fail('E_EVENT_RUN_DUPLICATE', at, 'Explicit rerun must not consume the initial trigger again')
+            if prior and handoff:
+                prior_handoff = tables['handoffs'].get(prior['handoffId'])
+                if prior_handoff and prior_handoff['taskRef'] != handoff['taskRef']:
+                    fail('E_TASK_BOUNDARY', at, 'Rerun lineage belongs to another task')
         if run['state'] in ('completed', 'failed', 'cancelled') and run['lease'] is not None:
             fail('E_LEASE', at, 'Terminal run must not retain an active lease')
         active = run['state'] in ('claimed', 'collecting', 'validating', 'analyzing', 'checking')
@@ -190,6 +243,8 @@ def validate(bundle):
             report = lookup('reports', run['reportId'], run['projectId'], at)
             if report and report['runId'] != run['id']:
                 fail('E_REFERENCE', at, 'Report belongs to another run')
+
+    reject_cycles({r['id']: r['rerunOfRunId'] for r in bundle['runs'] if r['rerunOfRunId']}, '/runs/rerunOfRunId', 'E_RERUN_LINEAGE')
 
     for index, report in enumerate(bundle['reports']):
         at = f'/reports/{index}'
@@ -214,12 +269,25 @@ def validate(bundle):
                 fail('E_ASSESSMENT', at + '/criteria', 'Insufficient assessment cannot be conclusive')
             if criterion['clarification'] != 'clear' and result['status'] != 'unverified':
                 fail('E_CLARIFICATION', at + '/criteria', 'Unresolved requirement cannot receive a conclusive status')
-            for eid in result['evidenceIds']:
+            decisive = []
+            unique(result['evidenceIds'] + result['contextEvidenceIds'], at + '/criteria/evidenceIds')
+            for eid in result['evidenceIds'] + result['contextEvidenceIds']:
                 ev = lookup('evidence', eid, report['projectId'], at + '/criteria/evidenceIds')
                 if ev and (ev['handoffId'] != handoff['id'] or result['criterionId'] not in ev['criterionIds']):
                     fail('E_REFERENCE', at + '/criteria', 'Cited evidence does not map to this handoff/criterion')
-                if ev and result['status'] == 'verified' and ev['revision'] != report['candidateRevision']:
-                    fail('E_REPORT_STALE', at + '/criteria', 'Verified cannot rely on evidence for another revision')
+                if ev and eid in result['evidenceIds']:
+                    decisive.append(ev)
+                    if result['status'] in ('verified', 'failed') and ev['revision'] != report['candidateRevision']:
+                        fail('E_REPORT_STALE', at + '/criteria', 'Conclusive assessment cannot rely on decisive evidence for another revision')
+            if result['assessmentKind'] == 'execution_supported' and not any(
+                    e['provenance']['kind'] == 'execution' and e['executionRef']
+                    and e['provenance']['observedAt'] and e['revision'] == report['candidateRevision']
+                    for e in decisive):
+                fail('E_ASSESSMENT_PROVENANCE', at + '/criteria', 'Execution-supported requires current execution provenance among decisive evidence')
+            if result['assessmentKind'] == 'source_reasoning' and not any(
+                    e['provenance']['kind'] == 'source_reasoning' and e['revision'] == report['candidateRevision']
+                    for e in decisive):
+                fail('E_ASSESSMENT_PROVENANCE', at + '/criteria', 'Source-reasoning assessment requires matching decisive provenance')
             if result['status'] in ('verified', 'failed') and not result['evidenceIds']:
                 fail('E_REFERENCE', at + '/criteria', 'Conclusive criterion needs an evidence reference')
         if unverified != report['hasUnverifiedMandatory']:
@@ -245,6 +313,9 @@ def validate(bundle):
         for action in report['actions']:
             if not set(action['findingIds']) <= set(finding_ids):
                 fail('E_REFERENCE', at + '/actions', 'Action finding is absent from report')
+            if action['state'] == 'done' and action['assigneeRef'] is None:
+                fail('E_ACTION_STATE', at + '/actions', 'Done requires a named assignee; completion proof still belongs to P2/runtime')
+        reject_cycles({f['id']: f['duplicateOf'] for f in report['findings'] if f['duplicateOf']}, at + '/findings', 'E_DUPLICATE_FINDING')
 
     unique([r['id'] for r in bundle['workerResults']], '/workerResults')
     for index, result in enumerate(bundle['workerResults']):
@@ -281,6 +352,8 @@ def validate(bundle):
                 target = lookup(collection, rid, event['projectId'], f'/progress/{index}')
                 if target and run and target['handoffId'] != run['handoffId']:
                     fail('E_REFERENCE', f'/progress/{index}', 'Progress reference belongs to another handoff')
+                if target and event['type'] == 'report_ready' and target['runId'] != event['runId']:
+                    fail('E_PROGRESS_RUN', f'/progress/{index}', 'Report-ready must reference this exact run, not merely its handoff')
     return errors
 
 

@@ -1,5 +1,11 @@
 # Decision log
 
+## D-17 — 05/11/2026: sửa audit P1 bằng contract v2
+
+Người dùng yêu cầu sửa sáu nhóm finding sau review GPT-6 Astra high. Version hóa thành 2.0.0 vì thêm task identity/task-scoped source-diff, decisive/context evidence và rerun lineage; active validator từ chối v1, giữ nguyên schema/JSON v1. Khép source/evidence revision contradiction cho conclusive status, assessment provenance, exact-run progress, unique accepted event→run, assignee done và duplicate cycle; thêm report_ready exactly-one ID sau vòng review tiếp.
+
+9 positive bundles, 58 negative scenarios, CLI và legacy rejection pass. Subagent high-model replay độc lập và rà docs/code lần cuối, xác nhận có thể đóng gate sửa P1 trong phạm vi offline contract/self-consistency. Trace tại P1-REVIEW-FIXES. Không claim P2 sufficiency hoặc runtime enforcement đã xong. Tiếp P2 bằng v2, không dùng v1 chưa vá làm nền.
+
 ## D-16 — 05/11/2026: P1 contract v1 và kiểm specimen offline
 
 Nền `e87e15b`. Chọn JSON Schema Draft 2020-12 cho resource shapes, không chốt product runtime. DATA-CONTRACT mô tả handoff/evidence/project/config, fixed-role permission matrix, idempotency/event identity, commands/progress, run lifecycle và worker fencing. Schema/3 valid bundles/39 negative mutation scenarios được kiểm bằng jsonschema 4.26.0 và CLI; tool P1 chỉ shape/reference/self-consistency, không là QA engine/security enforcement.

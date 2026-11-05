@@ -1,6 +1,10 @@
-# P1 — Contract dữ liệu và giao tiếp v1
+# P1 — Contract dữ liệu và giao tiếp v2
 
-Ngày 05/11/2026, nền `e87e15b`. Trạng thái: **bản thiết kế contract v1 có schema và kiểm tra specimen offline**, chưa có product runtime/server/API/worker/desktop. Phù hợp [quyết định sản phẩm](PRODUCT-DECISIONS.md), [scope](FRAMEWORK-SCOPE.md) và plan P1. Semantics sufficiency/risk chi tiết thuộc P2; topology/SDK/transport/storage thuộc P3.
+Ngày 05/11/2026, nền `872c498`. Trạng thái: **bản thiết kế contract v2 có schema và kiểm tra specimen offline**, chưa có product runtime/server/API/worker/desktop. Phù hợp [quyết định sản phẩm](PRODUCT-DECISIONS.md), [scope](FRAMEWORK-SCOPE.md) và plan P1. Semantics sufficiency/risk chi tiết thuộc P2; topology/SDK/transport/storage thuộc P3.
+
+## Thay đổi sau audit P1
+
+V1 tại commit `872c498` đạt có điều kiện, chưa đóng gate vì 6 nhóm lỗi graph/provenance. V2 là thay đổi không tương thích: thêm `tasks`, `handoff.taskRef`, source/diff refs, `artifact.taskRef`, `criterionResult.contextEvidenceIds`, `run.rerunOfRunId`; validator đang hoạt động chỉ nhận `2.0.0`. [Schema v1](../schemas/qa-contract-v1.schema.json), [specimen v1](../examples/contracts/v1/README.md) và [tài liệu v1](DATA-CONTRACT-v1.md) giữ làm lịch sử; không âm thầm nâng cấp hoặc tiếp tục chấp nhận v1 như đã vá.
 
 ## 1. Phạm vi và nguyên tắc
 
@@ -12,7 +16,7 @@ Artifact trong repo này chỉ synthetic. Các ví dụ contract là **specimen 
 
 ## 2. Định dạng và lớp kiểm tra
 
-[JSON Schema v1](../schemas/qa-contract-v1.schema.json) dùng Draft 2020-12, `$defs`, object strict `additionalProperties=false`. [Specimen bundles](../examples/contracts/v1/README.md) đóng gói các resource liên quan để kiểm tham chiếu offline. Envelope `contractVersion=1.0.0`, `classification=synthetic-only`, `specimenNotice` là định dạng bundle kiểm thiết kế, **không phải HTTP/MCP envelope production**. Các `$defs` là resource shapes dự kiến được reuse khi P3 chọn transport.
+[JSON Schema v2](../schemas/qa-contract-v2.schema.json) dùng Draft 2020-12, `$defs`, object strict `additionalProperties=false`. [Specimen bundles](../examples/contracts/v2/README.md) đóng gói các resource liên quan để kiểm tham chiếu offline. Envelope `contractVersion=2.0.0`, `classification=synthetic-only`, `specimenNotice` là định dạng bundle kiểm thiết kế, **không phải HTTP/MCP envelope production**. Các `$defs` là resource shapes dự kiến được reuse khi P3 chọn transport.
 
 | Lớp | Kiểm gì | Hiện trạng |
 |---|---|---|
@@ -27,11 +31,12 @@ Schema đúng không nghĩa claim đúng, permission hợp lệ, command đượ
 
 - ID opaque, case-sensitive, tối đa 96 ký tự, bắt đầu chữ; unique trong loại resource của bundle. Scope uniqueness production: `(project_id, resource_kind, id)`; server không dựa tính khó đoán của ID để cấp quyền. Bundle giới hạn một snapshot config cho mỗi project, một resource ID không đại diện nhiều version.
 - Project config và outbound data policy có version integer tăng. Run giữ **snapshot chính xác** của hai version; không tự thay cấu hình giữa run. Revoke permission/secret/data scope phải được kiểm lại trước side effect dù đã snapshot.
+- `task.id` ổn định trong project qua nhiều revision/handoff, khác `handoff.id` là snapshot bàn giao. Hai task có thể chung candidate; một task có nhiều handoff. `task.externalRef` là correlation metadata, không tự được fetch. Artifact có taskRef rõ; requirement/project config có thể shared (`taskRef=null`), nhưng source/diff/test_output/qc_record phải thuộc task. Không đổi task của artifact cũ để chuyển sang task mới.
 - Candidate revision là immutable reference sau intake; GitHub adapter phải resolve commit SHA thật trong runtime, không dùng branch name biến động làm snapshot. Ví dụ `candidate-r12` chỉ là nhãn synthetic. Requirement version độc lập candidate revision, không bắt buộc SHA.
-- Artifact có ID/project/kind/revision/relativePath/hash hoặc null khi chưa có. Evidence dùng `sourceArtifactId`, claim dùng `artifactId + locator`; không nhúng đường dẫn tùy ý vào command cho worker chạy.
+- Artifact có ID/project/taskRef/kind/revision/relativePath/hash hoặc null khi chưa có. Evidence dùng `sourceArtifactId`, claim dùng `artifactId + locator`; không nhúng đường dẫn tùy ý vào command cho worker chạy.
 - Path bundle chuẩn hóa POSIX tương đối; không absolute/drive/backslash/dot-segment. `allowedPaths`/`deniedPaths` là path hoặc prefix theo ranh giới segment, không shell glob. Runtime cần canonical containment/symlink checks, không chỉ regex. Artifact ref không tự cho phép tải URL hoặc đọc file ngoài workspace.
 - Hash nếu có chỉ là nhận dạng nội dung, không là chứng nhận người chạy. Hash null phải được hiện ra là thiếu, không tự suy integrity verified.
-- Timestamp canonical UTC `YYYY-MM-DDTHH:MM:SS[.fraction]Z`, ngày thực tồn tại; v1 không hỗ trợ leap second. Adapter normalize source time hoặc giữ `observedAt=null` nếu không biết; không gán thời điểm thu thập thay thời điểm thực thi.
+- Timestamp canonical UTC `YYYY-MM-DDTHH:MM:SS[.fraction]Z`, ngày thực tồn tại; v2 không hỗ trợ leap second. Adapter normalize source time hoặc giữ `observedAt=null` nếu không biết; không gán thời điểm thu thập thay thời điểm thực thi.
 - Version contract/resource dùng major khi đổi nghĩa/required field không tương thích; không silently accept major lạ. Thêm field cần negotiated schema version vì object strict. Core/rules/workflow/adapter versions đi cùng report; bản thiết kế không hứa wire compatibility khi chưa có implementation.
 
 ## 4. Resource shapes và ownership
@@ -41,7 +46,8 @@ Schema đúng không nghĩa claim đúng, permission hợp lệ, command đượ
 | project | configVersion, runtime, dataPolicy, triggers, budgets, checks | Project Owner theo quyền; System Admin quản trị hệ thống/project. Không nhận config từ artifact như lệnh |
 | membership | projectId, principalId, owner/runner/viewer | Admin/Owner qua interface quản trị được authorization, không qua QA report |
 | artifact | kind, revision, path, sha256 | Intake/worker đăng ký trong scope được cấp |
-| handoff | intake, candidate, decisionMoment, requirementVersion, actors, criteria/constraints, self-test/QC, knownIssues | Intake chuẩn hóa; source claims giữ provenance |
+| task | Stable ID, project, title, externalRef hoặc null | Intake đăng ký correlation theo project, không tạo task mới cho mỗi handoff |
+| handoff | taskRef, sourceArtifactIds/diffArtifactIds, intake, candidate, decisionMoment, requirementVersion, actors, criteria/constraints, self-test/QC, knownIssues | Intake chuẩn hóa; source claims giữ provenance |
 | evidence | handoff/criterion IDs, revision, checkId, level, outcome, provenance, reason, executionRef | Intake/provider/worker ghi theo evidence type; server gắn quyền/scope, không tin self-claimed actor |
 | event | kind, ingress, subject/occurrence/revision, normalizedKey | Event normalizer sau xác thực source; polling/webhook cùng identity |
 | command | start/cancel, project, idempotencyKey, typed body, expected version | Client đề nghị; server xác thực/authorize rồi mới accepted |
@@ -56,7 +62,7 @@ Schema bundle có collections tương ứng. Principal identities, credentials/p
 
 `runtime` là union: `agent_local` có `connectorRef`; `model_api` có `provider=openai|anthropic`, model ID và `credentialRef`. Không được cùng lúc ngầm fallback sang provider khác ngoài cấu hình. Secrets là opaque references đến secret store server; raw key/password không được đưa vào config export/report/progress.
 
-`repository` dẫn GitHub repository/credential references đã đăng ký server, không nhận clone URL arbitrary từ model. `requirementConflictPolicy` cố định hỏi owner và tiếp phần độc lập; `editPolicy` cấm sửa source/test ở v1.
+`repository` dẫn GitHub repository/credential references đã đăng ký server, không nhận clone URL arbitrary từ model. `requirementConflictPolicy` cố định hỏi owner và tiếp phần độc lập; `editPolicy` cấm sửa source/test ở v2.
 
 `dataPolicy` có version, allowed artifact kinds/paths, denied paths và allowed providers. Deny thắng allow; thiếu policy/provider/path match thì outbound phần đó bị chặn, không gửi trước rồi ghi warning. Policy áp dụng cả đường model API và connector agent có thể gửi dữ liệu ra ngoài; chưa có khả năng enforce connector thì không coi nó policy-compliant. Model output là dữ liệu có nguồn, không phải authority thực thi command.
 
@@ -65,6 +71,8 @@ Schema bundle có collections tương ứng. Principal identities, credentials/p
 `checks` có check ID, config artifact, image pinned digest, timeout và network policy reference. Không nhận raw shell/privileged flags trong lệnh start từ client/model. Cấu hình môi trường do project cung cấp nhưng chỉ chạy khi thỏa capability/trust policy server; không mount host secrets hoặc cho Docker socket/privileged tùy ý. Contract không tự chứng minh container an toàn.
 
 ### Handoff / requirement
+
+`handoff.taskRef` bắt buộc dẫn task trong cùng project; sourceArtifactIds/diffArtifactIds là arrays (rỗng nếu chưa cung cấp), chỉ dẫn đúng kind/task/candidate. Không dò artifact project-wide để đoán source của task. Claims/constraint/issue/evidence không được dẫn artifact task khác; source dùng chung phải khai taskRef=null hợp lệ với kind đó.
 
 AC có expected, mandatory, claims, clarification `clear|conflict|ambiguous`, ownerRole. Khi conflict/ambiguous chưa được giải đáp, trạng thái kết luận phải unverified; tiếp tục AC độc lập. Không tự chọn tài liệu/PR thắng. Owner clarification là quyết định có nguồn/version; nếu đổi expected/candidate thì materialize handoff snapshot/run mới, không đổi đầu vào run cũ.
 
@@ -76,11 +84,13 @@ Constraints giữ mandatory/state/source, ví dụ domain review P-05 pending c�
 
 Outcome: `pass|fail|error|skipped|blocked|not_run|unknown`. Non-pass phải có reason. Level tách unit/integration/source_review/qc_scenario. Provenance: `authored_mock|execution|reported|source_reasoning`. Execution claim phải có observedAt + executionRef; authored_mock không được claim executionRef. Reference tồn tại chưa chứng minh nội dung log/actor đúng: P4 cần nhận và kiểm manifest/execution record thực.
 
-Evidence cũ được giữ như context, không phải input invalid chỉ vì stale. Report không được cite evidence sai revision như verified cho candidate. Schema/checker không suy tất cả pass → verified. AssessmentKind `record_only|execution_supported|source_reasoning|insufficient` và limitations giữ mức kết luận; `insufficient` không đi với verified/failed. Record-only không được trình bày như thực thi kiểm chứng hệ thống thật.
+Candidate-bound source artifact (`source`, `diff`, `test_output`, `qc_record`) phải có revision bằng evidence mà nó chứng minh. Không tin `evidence.revision` nếu artifact nguồn nói revision khác; requirement/issue có version riêng nên không ép bằng candidate. Evidence cũ được giữ hợp lệ nếu source cũng đúng revision cũ.
 
-Report phải account mọi AC, deduplicate IDs, dẫn sources. `hasUnverifiedMandatory` chỉ đếm AC mandatory unverified; constraint pending kiểm riêng. Self-consistency v1: có AC failed → tổng failed, vẫn giữ flag phần chưa kiểm chứng; nếu không failed mà còn mandatory unverified/constraint pending → incomplete; còn lại complete trong scope. Đây là kiểm summary theo status **đã được cung cấp**, chưa chứng minh status đúng; điều kiện N/A/sufficiency/defect confirmation chi tiết ở P2.
+Report dùng `evidenceIds` cho bằng chứng quyết định và `contextEvidenceIds` cho bối cảnh; không lặp cùng ID ở cả hai. Với cả verified **và failed**, mọi decisive evidence phải đúng candidate. Stale evidence không được dùng làm căn cứ verified/failed của candidate mới; phải để context khi giải thích các kết luận này. Với unverified, có thể dẫn evidence cũ để giải thích gap, nhưng không chuyển nó thành decisive execution hiện tại. Cả hai nhóm vẫn phải map đúng handoff/AC/project/task. Assessment `execution_supported` phải có ít nhất một decisive evidence hiện tại loại execution, có executionRef và observedAt; `source_reasoning` phải có decisive provenance source_reasoning đúng candidate. Execution chỉ nằm ở context không đủ cho nhãn execution_supported. Các kiểm tra này là tính nhất quán claim, không chứng minh log thật hoặc coverage đủ. Schema/checker không suy tất cả pass → verified. AssessmentKind `record_only|execution_supported|source_reasoning|insufficient` và limitations giữ mức kết luận; `insufficient` không đi với verified/failed. Record-only không được trình bày như thực thi kiểm chứng hệ thống thật.
 
-Findings có category, verdict và rationale; duplicateOf dẫn finding khác, không tự đếm thành issue mới. Action có ownerRole, assignee hoặc null, doneWhen/state; thiếu người nhận không được đổi thành done. `humanDecision` output luôn pending trong v1: review/approval là record riêng được người có quyền thực hiện ngoài bộ command QA đầu tiên, không suy từ role Runner hoặc report complete.
+Report phải account mọi AC, deduplicate IDs, dẫn sources. `hasUnverifiedMandatory` chỉ đếm AC mandatory unverified; constraint pending kiểm riêng. Self-consistency v2: có AC failed → tổng failed, vẫn giữ flag phần chưa kiểm chứng; nếu không failed mà còn mandatory unverified/constraint pending → incomplete; còn lại complete trong scope. Đây là kiểm summary theo status **đã được cung cấp**, chưa chứng minh status đúng; điều kiện N/A/sufficiency/defect confirmation chi tiết ở P2.
+
+Findings có category, verdict và rationale; duplicateOf dẫn finding khác, chuỗi phải kết thúc ở finding gốc không duplicate và không có cycle/dangling reference; không tự đếm thành issue mới. Action có ownerRole, assignee hoặc null, doneWhen/state; thiếu người nhận không được đổi thành done. `humanDecision` output luôn pending trong v2: review/approval là record riêng được người có quyền thực hiện ngoài bộ command QA đầu tiên, không suy từ role Runner hoặc report complete.
 
 ## 5. Authentication và permission contract
 
@@ -101,11 +111,13 @@ Server authenticates bằng tài khoản nội bộ; password/token/session prot
 
 ## 6. Commands, queries và response boundary
 
-Schema v1 serialize hai command thay đổi run; mỗi command có projectId, idempotencyKey và typed body, **không có actor/role/password**. Server lấy principal từ kênh authenticated. `start_run`: handoffId, exact candidateRevision, expectedProjectVersion. `cancel_run`: runId, expectedRunVersion.
+Schema v2 serialize hai command thay đổi run; mỗi command có projectId, idempotencyKey và typed body, **không có actor/role/password**. Server lấy principal từ kênh authenticated. `start_run`: handoffId, exact candidateRevision, expectedProjectVersion. `cancel_run`: runId, expectedRunVersion.
 
 Idempotency scope `(project, authenticated principal hoặc integration identity, key)`: cùng normalized type/body thì trả kết quả cũ, khác body → `IDEMPOTENCY_CONFLICT`; compare-and-set version không khớp → `VERSION_CONFLICT`. Checker specimen chỉ so body trong bundle, **không có principal authentication/atomic database**. Start accepted chỉ nghĩa đã enqueue, không nghĩa test/QA pass. Server trả resource/run ID và stateVersion; transport status codes thuộc P3.
 
 Read interfaces thiết kế: list projects người dùng có quyền; get project snapshot/capabilities; get run/report/artifact reference; subscribe progress bằng `(projectId, runId, afterSequence)` hoặc get snapshot khi cursor đã hết hạn. Error envelope dự kiến: code, safe message, requestId, retryable, field paths khi được phép; không echo arbitrary request body/secret/raw provider errors. JSON Schema bundle chưa là OpenAPI/MCP spec đầy đủ cho queries/auth/admin; P3 cần map resource shapes sang transport mà không đổi domain contract ngầm.
+
+`rerunOfRunId` là lineage cho lượt chạy lại chủ động từ user hoặc integration được ủy quyền (khác redelivery), cùng task và không cycle. Rerun có ID mới, `triggerEventId=null`, không tiêu thụ lại occurrence cũ; root run giữ event association ban đầu. Cập nhật attempt do retry lease nằm trong cùng run, khác manual rerun. Trường không đủ context thì lỗi reference, không coi là đã dedup atomically.
 
 Resume không mutate terminal run. Waiting run có thể được requeue sau khi scope/identity/candidate còn hợp lệ và reason đã giải quyết; material change tạo run/handoff mới có audit link. Command/API cụ thể cho configuration/membership/clarification sẽ thiết kế ở P3, không dùng raw model instructions để thay API quản trị.
 
@@ -113,9 +125,9 @@ Resume không mutate terminal run. Waiting run có thể được requeue sau kh
 
 Các event domain được chọn: `dev_handoff`, `qc_handoff`, `pr_ready`. Ingress `internal|polling|webhook`; GitHub adapter phải map sự kiện provider được xác thực sang domain event. Hành động GitHub cụ thể/subscription permissions chưa được chốt bằng API code tại P1.
 
-Identity canonical: `projectId|kind|subjectRef|occurrenceRef|candidateRevision`; cấm delimiter trong từng thành phần của v1. `externalDeliveryId` dùng audit/replay transport, **không là identity domain** vì polling và webhook không chung delivery ID. Một transition “ready lần nữa” trên cùng commit có occurrence khác; không gộp mọi event cùng candidate vĩnh viễn.
+Identity canonical: `projectId|kind|subjectRef|occurrenceRef|candidateRevision`; cấm delimiter trong từng thành phần của v2. `externalDeliveryId` dùng audit/replay transport, **không là identity domain** vì polling và webhook không chung delivery ID. Một transition “ready lần nữa” trên cùng commit có occurrence khác; không gộp mọi event cùng candidate vĩnh viễn.
 
-Server phải lưu atomic event receipt/normalization/run-create: delivery trùng cùng occurrence không tạo run kép; polling cursor chỉ advance sau persist, webhook chỉ ack theo durability policy. Chính sách coalescing khi candidate đổi không sửa run đang có; đánh dấu superseded/cancel hoặc tạo run mới theo P2/P3. Bundle `events` là normalized accepted identities (unique), không là raw receipt stream. Không hứa exactly-once test execution: crash/retry vẫn cần idempotent side effects và fencing.
+Server phải lưu atomic event receipt/normalization/run-create: delivery trùng cùng occurrence không tạo run kép; trong bundle, một triggerEventId chỉ thuộc một initial run, không có hai accepted run cùng event; polling cursor chỉ advance sau persist, webhook chỉ ack theo durability policy. Chính sách coalescing khi candidate đổi không sửa run đang có; đánh dấu superseded/cancel hoặc tạo run mới theo P2/P3. Bundle `events` là normalized accepted identities (unique), không là raw receipt stream. Không hứa exactly-once test execution: crash/retry vẫn cần idempotent side effects và fencing.
 
 Polling có thể không quan sát được transition bị bỏ qua giữa hai lần đọc nếu provider không cung cấp lịch sử; adapter phải công bố khả năng đó, không bịa occurrence. P3 cần chiến lược catch-up/cursor/reconciliation dựa trên API GitHub chính thức. Webhook cần xác minh signature/delivery/repo/project và giới hạn replay; chưa có listener hoặc public endpoint triển khai.
 
@@ -163,7 +175,7 @@ Sơ đồ là đường phổ biến; transition table đầy đủ dưới đâ
 
 Run giữ execution budgets riêng với token budget. Waiting clarification không chặn AC độc lập; nếu đã làm hết phần còn làm được, có thể completed với report incomplete thay vì giữ lease vô hạn. Khi waiting, lease phải được release theo thiết kế runtime; worker không được giữ container/secret không cần thiết. Cancel là request đến server, không chỉ đổi UI; desktop đóng không là cancel, worker vẫn chạy.
 
-Progress là server event theo run: sequence tăng, runStateVersion, type `run_state|check_completed|report_ready`, time, IDs tham chiếu. Không stream raw secret/artifact lớn. Client reconnect lấy snapshot và replay sau cursor; duplicate event ignore theo sequence; gap/retention expired yêu cầu snapshot. Progress không tự là state source of truth.
+Progress là server event theo run: sequence tăng, runStateVersion, type `run_state|check_completed|report_ready`, time, IDs tham chiếu. Không stream raw secret/artifact lớn. Client reconnect lấy snapshot và replay sau cursor; duplicate event ignore theo sequence; gap/retention expired yêu cầu snapshot. `report_ready` phải dẫn đúng một report ID (không rỗng/nhiều), `check_completed` phải có ít nhất một evidence ID; report_ready phải dẫn report có runId **đúng run của progress**, không chỉ cùng handoff. Hai manual runs cùng handoff vẫn có reports riêng. Progress không tự là state source of truth.
 
 ## 9. Container và capability contract
 
@@ -175,23 +187,23 @@ Không có API “shell arbitrary” cho model/UI, không expose Docker socket v
 
 ## 10. Errors và kiểm tra specimen
 
-Nhóm lỗi P1: `E_SCHEMA`, `E_INPUT`, `E_REFERENCE`, `E_REFERENCE_TYPE`, `E_PROJECT_BOUNDARY`, `E_DUPLICATE_ID`, `E_PATH`, `E_VERSION`, `E_REVISION`, `E_PROVENANCE`, `E_OUTCOME_REASON`, `E_STAGE_RECORD`, `E_DATA_POLICY`, `E_EVENT_KEY`, `E_IDEMPOTENCY`, `E_REPORT_STALE`, `E_CLARIFICATION`, `E_ASSESSMENT`, `E_REPORT_SUMMARY`, `E_DUPLICATE_FINDING`, `E_RUN_STATE`, `E_LEASE`, `E_FENCING`. Path/format errors là contract errors, không defect behavior; check error/blocked ở evidence là dữ liệu hợp lệ, không tự là malformed contract.
+Nhóm lỗi P1: `E_SCHEMA`, `E_INPUT`, `E_REFERENCE`, `E_REFERENCE_TYPE`, `E_PROJECT_BOUNDARY`, `E_DUPLICATE_ID`, `E_PATH`, `E_VERSION`, `E_REVISION`, `E_PROVENANCE`, `E_OUTCOME_REASON`, `E_STAGE_RECORD`, `E_DATA_POLICY`, `E_EVENT_KEY`, `E_IDEMPOTENCY`, `E_REPORT_STALE`, `E_CLARIFICATION`, `E_ASSESSMENT`, `E_REPORT_SUMMARY`, `E_DUPLICATE_FINDING`, `E_RUN_STATE`, `E_LEASE`, `E_FENCING`, `E_CONTRACT_VERSION`, `E_TASK_BOUNDARY`, `E_SOURCE_REVISION`, `E_ASSESSMENT_PROVENANCE`, `E_PROGRESS_RUN`, `E_EVENT_RUN_DUPLICATE`, `E_RERUN_LINEAGE`, `E_ACTION_STATE`. Path/format errors là contract errors, không defect behavior; check error/blocked ở evidence là dữ liệu hợp lệ, không tự là malformed contract.
 
 Từ root repo, dùng Python 3.10+ có [dependency kiểm contract](../tools/requirements-contracts.txt):
 
 ```text
-py -3 -X utf8 -B tools/validate_contracts.py examples/contracts/v1/valid-handoff.json
+py -3 -X utf8 -B tools/validate_contracts.py examples/contracts/v2/valid-handoff.json
 py -3 -X utf8 -B tools/test_contracts.py -v
 ```
 
-CLI exit 0 valid; 1 schema/reference inconsistency; 2 unreadable/malformed UTF-8 JSON. Không ghi output report hoặc sửa input, không network/API/subprocess project. Test harness dùng subprocess chỉ để kiểm CLI trên JSON.
+CLI exit 0 valid; 1 schema/reference inconsistency hoặc version cũ không được hỗ trợ; 2 unreadable/malformed UTF-8 JSON. Không ghi output report hoặc sửa input, không network/API/subprocess project. Test harness dùng subprocess chỉ để kiểm CLI trên JSON.
 
-Đã kiểm 3 bundles hợp lệ, 39 negative scenarios và CLI valid/invalid/malformed/missing. Một failure ban đầu phát hiện dependency format tùy chọn không kiểm timestamp; đã sửa checker UTC/calendar rõ và có regression cho ngày không tồn tại. `unittest` hiển thị 3 test methods có subtests; không gọi 3 method là chỉ 3 tình huống hoặc các kiểm tra này là QA engine đã hoàn tất.
+Đã kiểm 9 bundles hợp lệ, 58 negative scenarios và CLI valid/invalid/malformed/missing. Một failure ban đầu phát hiện dependency format tùy chọn không kiểm timestamp; đã sửa checker UTC/calendar rõ và có regression cho ngày không tồn tại. `unittest` hiển thị 4 test methods có subtests (thêm legacy-version rejection); không gọi 4 method là chỉ 4 tình huống hoặc các kiểm tra này là QA engine đã hoàn tất.
 
 Nguồn kỹ thuật: [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core), [jsonschema validator/format checking](https://python-jsonschema.readthedocs.io/en/stable/validate/). Đây là lựa chọn định dạng/tooling thiết kế P1, không chốt runtime/SDK/database của sản phẩm.
 
 ## 11. Gate P1 và phần tiếp theo
 
-P1 v1 có resource shapes/ownership, auth permission matrix, event identity, commands/progress/worker-result, lifecycle, provenance và valid/invalid examples kiểm được. **Không coi đây là protocol production hoàn chỉnh**: admin/auth/query transport, atomic persistence, secret/container/network enforcement và provider/GitHub bindings chưa có code, sẽ phải được map/test ở P3/P4.
+P1 v2 có resource shapes/ownership, auth permission matrix, event identity, commands/progress/worker-result, lifecycle, provenance và valid/invalid examples kiểm được. **Không coi đây là protocol production hoàn chỉnh**: admin/auth/query transport, atomic persistence, secret/container/network enforcement và provider/GitHub bindings chưa có code, sẽ phải được map/test ở P3/P4.
 
-Bước P2 là bảng quyết định sufficiency/status/constraint/finding/action và expected scenarios, không bắt đầu triển khai desktop/server từ schema. Nếu P2 phát hiện field thiếu, tăng contract version và giữ specimen/test lịch sử; không sửa âm thầm nghĩa v1 đã được dùng.
+Bước P2 là bảng quyết định sufficiency/status/constraint/finding/action và expected scenarios, không bắt đầu triển khai desktop/server từ schema. Nếu P2 phát hiện field thiếu, tăng contract version và giữ specimen/test lịch sử; không sửa âm thầm nghĩa version đã được dùng.

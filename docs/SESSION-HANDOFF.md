@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## P1 audit fixed — contract v2, nền `872c498`, 05/11/2026
+
+Sau yêu cầu sửa, v2 thêm stable tasks/taskRef, scoped source/diff, source-evidence revision check, decisive/context evidence, execution provenance guard, exact report-run progress, event initial-run uniqueness/manual rerun lineage, done assignee và duplicate cycle. Schema/JSON v1 giữ nguyên; archive doc/readme ghi rõ legacy, active validator chỉ nhận2.0.0. P1-REVIEW-FIXES trace sáu finding và review độc lập.
+
+Tests: 9 valid bundles/58 negative scenarios, 4 methods với subtests/CLI/legacy rejection đều pass. GPT-6 Astra high đã kiểm bản sửa hai vòng, bổ sung report_ready exactly-one và kết luận đóng targeted P1 correction gate. Không thay fixtures/evidence/frozen protocols hoặc triển khai runtime. Tiếp P2 VERIFICATION-RULES.md với v2; gate chỉ contract offline, chưa domain sufficiency/security/runtime/readiness.
+
 ## P1 contract v1 — 05/11/2026, nền `e87e15b`
 
 Đã tạo DATA-CONTRACT.md, schemas/qa-contract-v1.schema.json, 3 valid bundles + 39 negative mutation scenarios tại examples/contracts/v1 và tools/validate_contracts.py/test_contracts.py. Dev dependency jsonschema 4.26.0 đã có trên máy, không phải product stack. Tests kiểm schema/reference/version/project/lease/report và CLI; không chạy test app/container/model/network hoặc thay fixture/evidence cũ.

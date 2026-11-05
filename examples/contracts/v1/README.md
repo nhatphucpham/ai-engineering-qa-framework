@@ -1,5 +1,7 @@
 # P1 contract specimens — không phải execution
 
+**LỊCH SỬ tại commit `872c498`, còn các lỗ hổng đã được audit.** [V2](../v2/README.md) là bản đang dùng. Schema và JSON v1 không sửa; lệnh validator v1 bên dưới chỉ áp dụng khi checkout commit lịch sử. Active validator hiện trả `E_CONTRACT_VERSION` cho v1.
+
 Mọi ID, principal, model, credential/image/network reference, timestamp và budget trong JSON là dữ liệu tác giả soạn. Không có account/key/image/container hoặc test thật được dùng. [Contract](../../../docs/DATA-CONTRACT.md) mô tả ownership và giới hạn; [schema](../../../schemas/qa-contract-v1.schema.json) chứa shapes.
 
 - `valid-handoff.json`: handoff bundle, API mode, unit pass record/QC blocked, run completed nhưng verification incomplete.
