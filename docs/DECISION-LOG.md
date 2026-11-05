@@ -1,5 +1,11 @@
 # Decision log
 
+## D-13 — 05/11/2026: thêm desktop dashboard Windows dùng chung core
+
+Người dùng muốn plugin hoặc desktop dashboard, desktop càng tốt; chọn Windows trước và mở rộng macOS/Linux sau. Scope thêm desktop client/bridge, application command/event interface và local run/history; không thêm bộ rules riêng. Agent target vẫn chưa chọn.
+
+Tra tài liệu chính thức Tauri/Electron/SQLite để ghi shortlist/tradeoff tại TECHNOLOGY-DIRECTION, chưa chốt stack hoặc claim tối ưu. P1/P3 bổ sung IPC/capability/run-state/storage/agent connector; P4 core trước rồi desktop/headless flow; P5 checks/benchmark có budget; P6 Windows installer/adapter target đã chọn. Không dựng UI demo tách core, không pilot/publish hoặc giả định app tự có model khi chưa có connector.
+
 ## D-12 — 05/11/2026: mục tiêu plugin tự động cho agent, chưa chọn nền tảng
 
 Người dùng muốn framework có thể publish thành plugin cho các agent tự thực hiện QA; chọn chốt kiến trúc dùng chung trước, chưa chọn target. Tạo P0 FRAMEWORK-SCOPE: agent là consumer/caller, core/workflow/adapter tách biệt, checks theo quyền host, inference có nguồn và human decision riêng. Không còn coi người điền Markdown là luồng sản phẩm chính.

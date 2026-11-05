@@ -1,11 +1,14 @@
-# P0 — Scope framework QA dạng plugin cho agent
+# P0 — Scope framework QA cho agent và ứng dụng desktop
 
 Ngày 05/11/2026. Nền `edce89f`. Mục tiêu sản phẩm do người dùng xác nhận: **framework có thể đóng gói/phát hành thành plugin để agent thực hiện quy trình QA tự động**. Người dùng chọn chốt kiến trúc dùng chung trước, chưa chọn nền tảng. Tài liệu này chốt scope sản phẩm, không khẳng định plugin/runtime/adapter đã tồn tại. [As-is](CURRENT-ARCHITECTURE.md) vẫn mô tả hiện trạng.
+
+Bổ sung sau đó: người dùng ưu tiên thêm **ứng dụng desktop có dashboard, Windows trước**, giữ khả năng mở rộng macOS/Linux. Plugin và desktop dùng chung lõi/workflow, không phải hai framework. Agent target chưa chọn; OS đầu tiên đã chọn Windows. Xem [định hướng kỹ thuật và tradeoff](TECHNOLOGY-DIRECTION.md).
 
 ## 1. Ai dùng và quyết định gì?
 
 - **Agent chủ (host agent):** tiếp nhận yêu cầu QA từ người dùng/workflow, dùng plugin để thu thập, kiểm tra, đối chiếu và tạo hồ sơ thay cho việc người dùng điền Markdown.
 - **Reviewer/TL:** đọc kết quả, xử lý việc cần domain judgment và quyết định chấp nhận rủi ro/approval. Không phải người phải tự chạy từng bước kỹ thuật.
+- **Người dùng desktop:** chọn project/gói bàn giao, bắt đầu/theo dõi/hủy run, đọc evidence/findings/actions và export; UI dùng cùng core/rules với agent. Phần reasoning qua agent connector đã cấu hình, không tự giả định desktop có model riêng.
 - **Developer/QC:** nguồn artifact/check/evidence và vai trò xử lý action; không bị giả định là đã làm những check không có evidence.
 - **Người tích hợp:** cấu hình nguồn/gói bàn giao, project checks và quyền thực thi của agent, sau này cài adapter tương ứng.
 
@@ -25,7 +28,7 @@ Một lần người dùng gọi workflow QA, agent tự đi hết các bước 
 
 Tự động **không** nghĩa mọi requirement đều kiểm chứng được, agent tự cấp approval hoặc phải có model thứ hai. Chưa có runner/check phù hợp thì output gap/action, không giả lập execution để khép luồng. Hết budget/timebox trả partial/error có lý do; không retry vô hạn hoặc báo complete khi còn pending bắt buộc.
 
-## 3. Ba phần của sản phẩm đích
+## 3. Core dùng chung, agent workflow và hai cách sử dụng
 
 Sơ đồ khái niệm P0, chưa phải thiết kế component đã chốt tại P3:
 
@@ -33,13 +36,17 @@ Sơ đồ khái niệm P0, chưa phải thiết kế component đã chốt tại
 flowchart LR
   U["Người dùng / workflow"] --> H["Host agent"]
   H --> A["Adapter nền tảng<br/>cài đặt, tool binding, quyền"]
-  A --> W["QA workflow dùng chung<br/>trình tự, reasoning contract, điểm dừng"]
+  A --> API["Application command/event interface dùng chung"]
+  UI["Desktop dashboard Windows"] --> BR["Desktop bridge giới hạn quyền"]
+  BR --> API
+  API --> W["QA workflow dùng chung<br/>trình tự, reasoning contract, điểm dừng"]
   W --> C["QA core<br/>validation, bounded rules, report"]
   W --> T["Project checks qua host<br/>chỉ trong quyền được cấp"]
   T --> E["Evidence có provenance/revision"]
   E --> C
   C --> R["Report + actions + trạng thái chưa đủ"]
   R --> H
+  R --> UI
   H --> D["Reviewer/TL quyết định"]
 ```
 
@@ -48,8 +55,11 @@ flowchart LR
 | Core | Contract validation, references/revision, rules/outcome có thể xác định, lưu run/evidence, report | Không tự hiểu mọi domain hoặc coi hash là attestation |
 | Shared agent workflow | Input discovery, reasoning có nguồn, chọn checks, cập nhật evidence, orchestration/termination | Không dùng prose skill thay implementation/rules; reasoning không tự thành execution |
 | Platform adapter | Map công cụ/quyền/workspace của host sang interface chung; packaging/installation/invocation | Chưa chọn format plugin, không hứa một package chạy nguyên trạng mọi agent |
+| Desktop shell/UI | Import project/input, start/cancel/progress/history, AC/evidence/findings/actions/export | Không có rule engine thứ hai; không trực tiếp cấp shell quyền rộng cho renderer; Windows là target đầu |
 
 Core không phụ thuộc tên model/provider hoặc SDK của một agent. Interface core ↔ workflow ↔ adapter phải được thiết kế ở P1/P3. Local library, CLI hoặc MCP chỉ là phương án để so tradeoff, **chưa chọn transport**. Không mặc định MCP là toàn bộ plugin hoặc SKILL.md đơn lẻ là sản phẩm hoàn chỉnh.
+
+Desktop không thay host reasoning bằng giả lập. Nếu chưa có connector, vẫn xem/import và chạy rule xác định được; phần cần agent reasoning giữ waiting/unsupported hoặc unverified có lý do. Plugin hoạt động headless không bắt buộc mở UI. Version/run ownership/cancel/event interface phải nhất quán giữa hai client.
 
 ## 4. Input và output tối thiểu
 
@@ -69,7 +79,7 @@ Agent phải cung cấp reference thực tồn tại trong input/workspace; lõi
 
 ## 6. Đóng gói và khả năng phát hành
 
-Mục tiêu phát hành cần có: package identity/version, dependencies/runtime, invocation, configuration/project permissions, install/upgrade/uninstall, compatibility matrix, documentation và release checks. Chưa chọn platform thì những phần phụ thuộc platform phải ghi undecided, không tạo manifest giả hoặc tuyên bố installable.
+Mục tiêu phát hành cần có: agent package và Windows installer, identity/version, dependencies/runtime, invocation, configuration/project permissions, install/upgrade/uninstall, compatibility matrix, documentation và release checks. Agent platform chưa chọn; desktop shell cũng chưa chốt. Không tạo manifest giả hoặc tuyên bố installable. macOS/Linux là khả năng mở rộng thiết kế, chưa cam kết release/test ở bản đầu.
 
 Trước hết kiểm chứng core/workflow qua harness offline không phụ thuộc nền tảng. Sau P3, khi người dùng chọn target đầu tiên, mới thiết kế/implement adapter và xác minh định dạng theo tài liệu chính thức của target. Chưa hứa nhiều adapter trong release đầu, marketplace hay cơ chế phân phối nào.
 
@@ -77,12 +87,14 @@ Build package/release candidate để review nằm trong lộ trình. **Publish 
 
 ## 7. Tiêu chí thành công của bản tối thiểu
 
+Desktop Windows: import input, start run, xem progress/kết quả/evidence/action, cancel và export qua interface chung; check không làm UI mất phản hồi, lỗi/thiếu connector được hiển thị đúng. Plugin/headless invocation không đòi mở UI. Các hành vi và ngân sách hiệu năng cụ thể được chốt ở contract/ADR trước implementation, không tự coi dashboard đã có.
+
 Một invocation chạy input synthetic hợp lệ → thu/validate → reasoning/mapping có nguồn → check được phép hoặc gap có lý do → update evidence → report, không yêu cầu người dùng điền tay từng bảng. Trường hợp thiếu/sai/stale/conflict/blocked phải kết thúc đúng, không bịa nguồn hoặc evidence.
 
 Core/rules/format cho kết quả tương đương với cùng input/version; host reasoning được ghi provenance và không hứa tính tất định. Harness kiểm được timeout/cancel/error và quyền/path. Không làm hỏng fixture/evidence cũ. Khi có adapter được chọn, package cài/upgrade/uninstall/invoke được trong môi trường kiểm tra kỹ thuật; trước đó chỉ được gọi là core/harness, chưa là plugin phát hành.
 
 ## 8. Trạng thái và bước tiếp
 
-Scope này đã bao quát mục tiêu plugin/automation, actors/decision, input-output, non-goals và giới hạn đa nền tảng. Chưa chọn host, SDK, runtime/language, transport hoặc distribution. Đây là quyết định thiết kế mở ở P1/P3, không chặn thiết kế contract dùng chung.
+Scope này bao quát plugin/automation và dashboard desktop Windows, actors/decision, input-output và giới hạn. Chưa chọn host, SDK, runtime/language, desktop shell, transport hoặc distribution. Đây là quyết định mở ở P1/P3, không chặn contract dùng chung. “Tối ưu” phải có tiêu chí/budget và kết quả đo, không mặc định một stack tốt nhất.
 
 Bước tiếp P1: contract handoff/evidence/report **và interface host capabilities/check execution**, P2 rules/agent inference contract, P3 target architecture chia core/workflow/adapter. Chưa implementation, pilot, E3 hoặc publish trong lượt ghi scope này.

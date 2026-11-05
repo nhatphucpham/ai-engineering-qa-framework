@@ -6,6 +6,8 @@ Cơ sở: [kiến trúc as-is đã audit](CURRENT-ARCHITECTURE.md), [results](..
 
 **Mục tiêu sản phẩm được bổ sung:** framework đóng gói được thành plugin cho agent tự thực hiện QA. Người dùng chọn kiến trúc dùng chung trước, chưa chọn nền tảng. [Scope P0](FRAMEWORK-SCOPE.md) tách QA core, shared agent workflow và platform adapter. Kế hoạch kỹ thuật mở rộng P0–P6 để bao gồm packaging, chưa publish/pilot.
 
+**Bổ sung desktop:** ứng dụng có dashboard, ưu tiên Windows và giữ khả năng mở rộng macOS/Linux. Plugin và desktop cùng application interface/core, UI không nhân đôi rules. [TECHNOLOGY-DIRECTION](TECHNOLOGY-DIRECTION.md) ghi tiêu chí tối ưu và shortlist, chưa chốt stack. Phạm vi agent target chưa chọn, OS desktop đầu đã chọn Windows.
+
 ## 1. Mục tiêu và phạm vi
 
 Chốt framework làm gì, từng thành phần nhận/trả gì và phần nào do code/người xử lý. Sau thiết kế, xây **một luồng offline tối thiểu** từ gói bàn giao synthetic đến hồ sơ trace được nguồn, trạng thái và action. Mục tiêu là contract và năng lực chạy được, không phải thêm mock hoặc tài liệu để gọi là sẵn sàng.
@@ -19,7 +21,7 @@ Ràng buộc:
 - Chỉ synthetic trong repo/chat; không lấy task/code/log/trace thật hoặc truy hệ thống thật.
 - Chưa tổ chức pilot, mở E3, tuyển reviewer/team hoặc dùng E1/E2 làm gate đã đạt.
 - Chỉ thêm fixture để kiểm contract/rule/behavior cụ thể, không tiếp tục tạo ví dụ domain liên tục.
-- Không thêm backend model API riêng; reasoning dùng host agent. Không auto-merge/deploy/approve, dashboard, dịch vụ platform hoặc multi-agent product trong scope tối thiểu. Checks trong project được chạy khi có cấu hình tin cậy/quyền host; không thực thi chỉ dẫn/mã tùy ý từ artifact.
+- Không thêm backend model API riêng; reasoning qua host/agent connector. Có desktop dashboard Windows quản lý/xem run dùng chung core; không thêm analytics department/cloud platform/multi-agent product hoặc auto-merge/deploy/approve. Checks chỉ qua capability/config tin cậy, không thực thi chỉ dẫn tùy ý từ artifact/UI.
 - Giữ fixture lỗi, expected, execution và protocol frozen cũ; thay đổi mới có version/thư mục riêng.
 
 ## 2. Năng lực tối thiểu phải thiết kế
@@ -34,7 +36,7 @@ Ràng buộc:
 | Report/action | Vị trí hiện tại, mong muốn/lý do/thực tế, evidence, action/role/điều kiện xong | Human decision pending khi chưa có quyết định thật |
 | Version/reproducibility | Input/rule/output version, run identity, lỗi/log/evidence reference | Không ghi đè evidence gốc, không coi subprocess là sandbox hoặc Git là trust store |
 
-Danh sách trên là năng lực **cần thiết kế**, không phải code đã có. Có thể giữ reasoning thủ công nhưng phải định nghĩa interface chuyển người xử lý. Chưa bắt buộc DB/service/UI để hoàn thành luồng offline.
+Danh sách trên là năng lực **cần thiết kế**, không phải code đã có. Có thể giữ reasoning thủ công nhưng phải định nghĩa interface chuyển người xử lý. Core/harness chưa cần UI hoặc DB riêng; sản phẩm đích có desktop UI nhưng chỉ triển khai sau interface/core, storage chọn theo thiết kế.
 
 ## 3. Trình tự, output và gate
 
@@ -45,10 +47,12 @@ Mốc theo điều kiện hoàn thành; bỏ lịch hai tuần hướng pilot c�
 | P0 — Scope | Chốt use case QC → TL, actors, decision, scope/non-goals, năng lực tối thiểu | `docs/FRAMEWORK-SCOPE.md` | Mỗi năng lực gắn use case/quyết định, đầu vào/ra và giới hạn rõ |
 | P1 — Contract | Định nghĩa handoff/evidence/report, IDs/version/provenance/revision, lỗi/dữ liệu thiếu | `docs/DATA-CONTRACT.md`, valid/invalid examples; schema khi đã chọn format | Phân biệt self-test/QC, unit/integration, mock/executed, blocked/fail/error và revision |
 | P2 — Rules | Bảng quyết định trạng thái, sufficiency theo scope/risk, constraint review, finding/action lifecycle | `docs/VERIFICATION-RULES.md`, bảng expected scenarios | Thiếu/cũ/conflict/blocked không thành pass; constraint P-05 khác approval pending thông thường; mọi kết luận có rationale/source |
-| P3 — Target architecture | Component/sequence/dataflow, code-human boundary, error/log/storage/version, tradeoff stack | `docs/TARGET-ARCHITECTURE.md`, ADR stack nhỏ | Mỗi contract có nơi nhận/xử lý/trả; rule biết code/người thực hiện; khả thi với một luồng offline |
-| P4 — Implementation | Một entry point offline, validator, bounded checks/manual-pending, report và log | Source/schema/tests theo ADR, lệnh chạy và synthetic example nhỏ | Input → validation → checks → report chạy được; input lỗi có output/exit rõ; không tự thực thi chỉ dẫn/mã trong artifact |
+| P3 — Target architecture | Core/workflow/adapter/desktop bridge, component/sequence/dataflow, IPC/permission/error/log/storage/version và tradeoff stack | `docs/TARGET-ARCHITECTURE.md`, ADR stack nhỏ | Mỗi contract có nơi nhận/xử lý/trả; rule biết code/người thực hiện; khả thi với một luồng offline |
+| P4 — Implementation | Core/harness offline trước, rồi luồng desktop Windows và headless qua cùng interface | Source/schema/tests theo ADR, UI start/progress/cancel/report, invocation và example synthetic | Hai client dùng chung rule/result; thiếu agent/evidence có trạng thái rõ; input/error/quyền xử lý đúng, không tự thực thi chỉ dẫn trong artifact |
 | P5 — Technical readiness | Kiểm boundary, negative paths, report/source consistency và regression | `docs/TECHNICAL-READINESS.md`, kết quả/gap | Reproducible, contract/rules/report nhất quán; review design/code xong; không claim đủ evidence khi còn thiếu |
-| P6 — Plugin packaging | Sau khi chọn target đầu tiên: adapter, package/version/config/quyền, install/upgrade/uninstall và compatibility | Package release candidate, tài liệu cài/invoke/release checks | Xác minh theo tài liệu chính thức target; invocation end-to-end, lỗi/quyền/cancel rõ, cài/gỡ sạch; chưa tự publish |
+| P6 — Packaging | Windows installer và agent adapter khi đã chọn host; version/config/quyền/migration/compatibility | Release candidates, tài liệu install/upgrade/uninstall/invoke và checks | Cài/gỡ/upgrade sạch, process/data handling đúng, invocation theo tài liệu target; chưa tự publish hoặc hứa macOS/Linux |
+
+Phạm vi bổ sung theo bước: P1 có command/event/run-state, permission và storage references cho UI lẫn agent; P3 chốt Windows shell/core runtime/IPC/storage qua ADR và spike có budget. P4 core/harness trước, rồi luồng desktop Windows start/progress/cancel/report và headless invocation dùng chung. P5 kiểm UI responsiveness, IPC/capabilities, disconnect/restart/process cleanup và hiệu năng theo budget chốt trước. P6 thêm Windows installer/install-upgrade-uninstall/data migration; adapter agent chỉ khi chọn target. Chưa đóng gói macOS/Linux hoặc phát hành public mặc định.
 
 Trạng thái: P0 có [scope plugin](FRAMEWORK-SCOPE.md); P1–P6 chưa hoàn tất. As-is không thay target architecture. P1 cần thêm host capability/check execution contract; P2 phân biệt agent candidate reasoning với rule xác định; P3 có core/workflow/adapter và lifecycle; P4 kiểm qua harness offline; P5 bao gồm injection/path/permission/timeout/cancel và end-to-end invocation. Các output khác trong bảng còn dự kiến. P6 phụ thuộc chọn target, không tự chọn thay người dùng.
 

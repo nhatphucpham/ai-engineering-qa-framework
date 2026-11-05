@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Desktop + plugin — 05/11/2026, nền `e40d4e3`
+
+Người dùng muốn desktop dashboard càng tốt, tối ưu kỹ thuật; chọn Windows trước, mở rộng macOS/Linux sau. Scope/plan/skill cập nhật hai client dùng chung core/application interface. TECHNOLOGY-DIRECTION có sơ đồ định hướng, UI flows, performance/concurrency/cache/permission principles và shortlist Tauri/Electron/SQLite dựa docs chính thức. Chưa chốt stack hoặc implementation; không có desktop/plugin chạy được.
+
+Tiếp P1 contract cho handoff/evidence/report và commands/events/capabilities/run-state/storage references dùng chung agent/UI; sau đó P2/P3. Desktop thiếu agent connector thì không tự có reasoning. Không tự chọn host/transport, không analytics cloud/platform, không pilot/E3/public publish. As-is/fixture/evidence frozen giữ nguyên.
+
 ## Mục tiêu plugin — 05/11/2026, nền `edce89f`
 
 Người dùng muốn framework publish được thành plugin cho agents thực hiện tự động; đã chọn kiến trúc dùng chung trước, chưa chọn nền tảng. P0 `docs/FRAMEWORK-SCOPE.md` có actors/decision, core/shared workflow/adapter, input-output, automation/permission/termination và packaging goal. Plan mở P0–P6, README/skill đồng bộ. Không sửa as-is hoặc coi thành phần đích đã tồn tại; chưa chọn host/SDK/transport/language/distribution.

@@ -19,11 +19,13 @@ Ngày 05/11/2026, người dùng thay hướng bằng **thiết kế framework v
 
 Mục tiêu được bổ sung: **plugin để agent tự thực hiện QA**, chốt kiến trúc dùng chung trước, chưa chọn nền tảng. Đọc `docs/FRAMEWORK-SCOPE.md`; core/workflow/adapter là thiết kế đích, chưa phải code có sẵn. Plan thêm P6 packaging sau khi chọn target; chưa tự publish. Không tự chọn Codex/Claude Code, SDK, library/CLI/MCP hoặc distribution.
 
+Người dùng bổ sung **desktop dashboard Windows trước**, giữ mở rộng macOS/Linux. Desktop và plugin là hai client dùng chung core/application interface, không tạo hai bộ rules. Đọc `docs/TECHNOLOGY-DIRECTION.md`; tối ưu theo budget/đo lường, chưa chốt Tauri/Electron hoặc core runtime. Tách UI bridge khỏi quyền check executor; không dựng dashboard rời để giả làm framework đã chạy. Thiếu agent connector thì đánh dấu phần cần reasoning chưa xử lý, không tự bịa model/execution.
+
 ## Giữ đúng hướng sản phẩm
 
 - Người dùng chính là Reviewer/Tech Lead; đầu ra phục vụ quyết định requirement nào có evidence, gap gì và ai xử lý tiếp.
 - Repo này chỉ dùng mock/synthetic. Không yêu cầu đưa task/code/log/trace thật vào đây, không gọi model/API hoặc hệ thống thật để chạy walkthrough. Pilot thật thuộc môi trường riêng của người dùng.
-- Theo P0 scope → P1 contract/capabilities → P2 rules và agent inference → P3 core/workflow/adapter → P4 harness offline → P5 kỹ thuật → P6 package target đã chọn. Agent tự đi quy trình trong quyền/budget, không yêu cầu người dùng điền từng bảng hoặc duyệt từng bước đã được ủy quyền. Reasoning dùng host model, phải có nguồn; core không gắn provider. Không dùng prose skill thay implementation, không mở rộng thành platform/dashboard/auto-approval.
+- Theo P0 scope → P1 contract/capabilities → P2 rules và agent inference → P3 core/workflow/adapter/desktop bridge → P4 core/harness rồi desktop/headless flow → P5 kỹ thuật/hiệu năng → P6 package target và Windows installer. Agent tự đi quy trình trong quyền/budget, không yêu cầu điền từng bảng hoặc duyệt bước routine đã ủy quyền. Không dùng prose skill thay implementation; không mở rộng thành cloud platform/department analytics/auto-approval.
 - Chưa pilot/E3/tuyển reviewer hoặc đề xuất dùng thử thật làm bước mặc định. P5 chỉ là gate năng lực kỹ thuật, không tự cấp quyền pilot. Không cần chứng minh benefit pilot trước khi thiết kế năng lực tối thiểu đã được giao.
 
 ## Thay đổi và bảo toàn bộ mẫu
