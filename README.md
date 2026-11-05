@@ -1,23 +1,27 @@
 # ai-engineering-qa-framework
 A practical framework for quality assurance in AI engineering systems, from evaluation and testing to safety and release readiness.
 
+## Hướng phát triển hiện hành — 05/11/2026
+
+**Thiết kế framework và năng lực tối thiểu trước, chưa pilot.** [Plan P0–P5](docs/IMPLEMENTATION-PLAN.md): scope → contract dữ liệu → rules → kiến trúc đích → một luồng offline → kiểm tra năng lực kỹ thuật. Bước tiếp theo là P0, chưa có các gate P0–P5 được đánh dấu hoàn tất. Walkthrough/feedback bên dưới là lịch sử tham khảo.
+
 ## Kiến trúc thực tế hiện tại
 
 [Sơ đồ và khảo sát kiến trúc as-is](docs/CURRENT-ARCHITECTURE.md) phân biệt phương pháp thủ công, runner minh họa, evidence và phần mềm chưa được xây. Có audit subagent model cao. Các tài liệu đề xuất bên dưới chưa chứng minh repo sẵn sàng pilot vận hành.
 
 ## Kết quả hiện tại và đề xuất
 
-[Tổng kết](pilot/results.md) tách fixture, phản hồi người dùng, giới hạn E1 và kết quả E2. [Đề xuất vòng sau](docs/MANAGEMENT-PROPOSAL.md) giữ prototype thủ công và thử tiếp có giới hạn khi có owner/budget; chưa có approval pilot thật, số đo hiệu quả hoặc cơ sở rollout.
+[Tổng kết](pilot/results.md) tách fixture, phản hồi người dùng, giới hạn E1 và kết quả E2. [Proposal trước audit](docs/MANAGEMENT-PROPOSAL.md) là lịch sử đã bị thay bởi plan thiết kế trước, chưa pilot.
 
 ## Bản dùng thử E1
 
-[Protocol đánh giá](docs/EVALUATION-PROTOCOL.md) chốt core/template theo commit cùng [manifest](pilot/e1-freeze.json). [Task register](pilot/task-register.md) và [adjudication log](pilot/adjudication-log.md) ghi rõ phần đã có từ walkthrough và phần đánh giá mới chưa bắt đầu. Chưa có kết quả E1 hoặc pilot task thật.
+[Protocol E1](docs/EVALUATION-PROTOCOL.md) và [manifest](pilot/e1-freeze.json) giữ version frozen lịch sử. [Task register](pilot/task-register.md) và [results](pilot/results.md) ghi E1 kết thúc chưa đánh giá được mục tiêu, E2 có phản hồi chung; không có pilot task thật. Không đọc nhãn “chưa bắt đầu” trong artifact frozen như trạng thái hiện tại.
 
 ## Implementation plan
 
-Xem [kế hoạch phát triển framework và thử nghiệm trong hai tuần](docs/IMPLEMENTATION-PLAN.md): người dùng, quyết định cần hỗ trợ, artifact dùng thử sớm, lựa chọn prototype, stage gates và cách đo giá trị.
+Xem [kế hoạch thiết kế và xây năng lực tối thiểu](docs/IMPLEMENTATION-PLAN.md). [Plan hai tuần cũ](docs/IMPLEMENTATION-PLAN-2026-11-03.md) chỉ để truy lịch sử.
 
-Repo đang ở giai đoạn lập kế hoạch và thử bằng dữ liệu synthetic. Công cụ và stack sản phẩm sẽ được chọn theo bottleneck quan sát được; chưa có framework tự động hoặc kết quả pilot thật.
+Repo đang ở giai đoạn thiết kế framework, chỉ dùng synthetic. Chưa chốt stack sản phẩm; chọn sau contract/rules và kiến trúc đích. Chưa có runtime QA chung hoặc kết quả pilot thật.
 
 ## Mẫu thử offline
 

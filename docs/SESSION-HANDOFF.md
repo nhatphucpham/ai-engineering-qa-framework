@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Plan mới — 05/11/2026, nền `5e5d340`
+
+Người dùng xác nhận thiết kế framework/năng lực tối thiểu trước, chưa pilot. `docs/IMPLEMENTATION-PLAN.md` là source kế hoạch hiện hành P0–P5; plan S0–S5 lưu nguyên file lịch sử, proposal pilot có banner superseded. Repo skill/README đã đồng bộ. Không thay core/template/fixture/execution/protocol frozen hoặc gắn readiness từ feedback.
+
+Bước tiếp **P0: docs/FRAMEWORK-SCOPE.md** cho QC → Reviewer/TL: use case/actors/decision/input-output/non-goals/năng lực tối thiểu. Sau P0 mới contract/rules, target architecture/ADR rồi implement một luồng offline. Các output còn dự kiến chưa được tạo, P0–P5 chưa hoàn tất. Không mở E3/pilot hoặc tự chọn stack trước contract/architecture.
+
 ## Audit kiến trúc hiện tại — 05/11/2026, nền `c95086f`
 
 Người dùng yêu cầu kiến trúc đầy đủ/chi tiết và subagent model cao kiểm sai sót; chưa đồng ý thử vận hành. Đã tạo `docs/CURRENT-ARCHITECTURE.md` cùng sơ đồ tổng thể PNG, mô tả phương pháp thủ công, sáu runner, evidence, workflow E1/E2 và phần chưa có. Subagent GPT-6 Astra high đọc độc lập và review draft; đã sửa các cạnh/thứ tự gây nhầm tự động hóa, constraint review bắt buộc và trạng thái snapshot. Audit tĩnh, không thay code/fixture/protocol frozen hoặc chạy pilot.

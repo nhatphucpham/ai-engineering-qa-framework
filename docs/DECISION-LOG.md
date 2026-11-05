@@ -1,5 +1,11 @@
 # Decision log
 
+## D-11 — 05/11/2026: thay plan bằng thiết kế và năng lực tối thiểu, chưa pilot
+
+Người dùng xác nhận điều chỉnh theo kiến trúc as-is đã audit: thiết kế framework/năng lực tối thiểu trước. Lưu nguyên plan S0–S5 thành `IMPLEMENTATION-PLAN-2026-11-03.md`, thay plan hiện hành bằng P0 scope, P1 contract, P2 rules, P3 kiến trúc đích/ADR, P4 luồng offline, P5 kỹ thuật. Không tự đánh dấu gate đã đạt hoặc chốt stack trong lượt đổi plan.
+
+Proposal pilot trước audit chuyển lịch sử, không có quyền khởi động pilot/E3. Cập nhật repo skill/README để phiên sau không quay lại vòng mock/feedback liên tục. Giữ nguyên core/template, fixture, execution, freeze/protocol E1/E2 và kết quả đã ghi. Bước kế tiếp P0 FRAMEWORK-SCOPE, không triển khai runtime trước design.
+
 ## D-10 — 05/11/2026: tổng kết E2 và đề xuất vòng sau
 
 Sau hồ sơ E2, người dùng trả lời “đã ổn”. Lưu nguyên văn, không suy benefit/action thay đổi/approval hoặc effort. Kết thúc một lượt phản hồi, cập nhật results và hoàn thành MANAGEMENT-PROPOSAL theo plan thay vì tạo thêm mock. Đề xuất tiếp tục có giới hạn nếu có owner/budget; các nguồn lực là con số thương lượng, chưa đo từ vòng synthetic. Chưa triển khai pilot thật hoặc automation.

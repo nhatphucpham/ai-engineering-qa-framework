@@ -1,5 +1,7 @@
 # Đề xuất bước tiếp theo cho QA framework v0
 
+**LỊCH SỬ — không còn là hướng triển khai hiện hành.** Ngày 05/11/2026, sau audit kiến trúc, người dùng chọn thiết kế framework/năng lực tối thiểu trước và chưa pilot. [Plan P0–P5](IMPLEMENTATION-PLAN.md) thay hướng đề xuất thử giới hạn dưới đây. Giữ nội dung cũ để truy lịch sử, không dùng làm ủy quyền tuyển team, chạy pilot hoặc mở E3.
+
 Ngày 05/11/2026. **Bản đề xuất, chưa được phê duyệt.** Phạm vi evidence hiện tại: synthetic và phản hồi một người dùng có hỗ trợ trong chat. Không có task thật, số đo effort, adjudication độc lập hoặc ROI.
 
 ## Quyết định đề xuất
