@@ -1,5 +1,13 @@
 # Decision log
 
+## D-19 — 05/11/2026: kiến trúc P3-A và review sau mỗi step
+
+Nền `337ab82`. Người dùng yêu cầu tiếp như cũ và sau mỗi step dùng subagent kiểm tra lại. Áp dụng cho các step tiếp theo: independent review, sửa findings, kiểm lại trước commit/push; không chỉ tự review rồi gọi độc lập.
+
+Thiết kế P3-A đặt pure core/projector, trusted assessment acceptance, modular control service và worker/container boundary; API HTTPS JSON/SSE, auth/service identities, transactional metadata/outbox + immutable blobs. Không chấp nhận accepted/authorized từ model/client. Local connector chỉ enable khi enforce được project outbound policy; event chưa resolve common occurrence/exact revision không tạo run phỏng đoán.
+
+Tách P3-B spike/chốt stack để không giả đo tối ưu hoặc runtime khả thi: Node/PostgreSQL/Tauri/rootless Linux là candidates, chưa chốt/benchmark; P3 vẫn partial. Không đổi P1/P2/fixture/evidence; chưa model/account/container/pilot/publish. Review scope/findings/results được lưu P3-REVIEW, handoff ghi việc tiếp.
+
 ## D-18 — 05/11/2026: P2 rules và conditional assessment offline
 
 Nền `2463cc0`. Tiếp plan thiết kế trước: thêm rules v1, assessment sidecar schema, coverage obligations/comparison contexts có nguồn, eligibility và precedence, constraint review, finding/action transition predicates. Không đổi P1 v2 hoặc fixture/evidence cũ. Python chỉ reference tooling, chưa chốt stack sản phẩm.

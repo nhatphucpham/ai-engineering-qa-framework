@@ -1,5 +1,15 @@
 # Bàn giao phiên 04/11/2026
 
+## P3-A — kiến trúc đích đã review, 05/11/2026, nền `337ab82`
+
+Người dùng yêu cầu sau mỗi step dùng subagent kiểm tra lại; đã ghi thành quy trình trong IMPLEMENTATION-PLAN/D-19, áp dụng cho các bước tiếp theo. Step này thêm TARGET-ARCHITECTURE, ADR-001/002 accepted design, ADR-003 proposed stack/spikes và P3-REVIEW traceability. Không triển khai server/plugin/desktop hoặc chọn stack như đã benchmark.
+
+GPT-6 Astra high review độc lập, tìm bốn nhóm: P1 declared vs P2 effective constraint collision; hostile output collection; log taint/secret đọc hoặc export; cùng GitHub occurrence/two SHA. Đã sửa design/cases và gửi re-review; kết luận đóng P3-A design, P3 overall vẫn partial. Review không thay runtime tests/security certification.
+
+Kiểm tra thực: relative links/code fences/whitespace diff pass; replay collision in-memory xác nhận P2 incomplete nhưng P1 E_REPORT_SUMMARY, còn complete được P1 nhận nhưng trái P2. Không sửa code/schema/examples/evidence/protocol cũ (diff đối chiếu nền sạch ở các vùng đó). Không chạy model/API/DB/container/native shell hoặc benchmark; Node/npm sẵn, Rust/Docker chưa tìm thấy qua PATH.
+
+Tiếp P3-B theo ADR-003: bounded spikes/core parity, DB queue/concurrency, Windows shell comparison, executor/network/output controls, GitHub occurrence/revision reconciliation, secret/identity backend. Kết quả chưa có phải giữ unknown; không cài toàn máy ngầm hoặc giả số đo. P4-A còn prerequisite versioned report/constraint contract trước full projection: hiện phải projection_unsupported + no report/completed ở collision, không mutate frozen handoff/P2 status. Chưa pilot/E3/public publish; agent host chưa chọn.
+
 ## P2 rules v1 — 05/11/2026, nền `2463cc0`
 
 Đã thêm VERIFICATION-RULES, qa-assessment-v1 schema, examples/rules/v1 và evaluate_rules/test_rules. Reference evaluator phân biệt coverage thiếu, counterexample/conflict theo context, stale/trust gaps, N/A, risk/plan, mandatory constraint và approval; lifecycle helper kiểm supplied context facts, không authorize hoặc resolve proof thật.

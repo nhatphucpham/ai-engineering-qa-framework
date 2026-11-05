@@ -2,6 +2,10 @@
 
 Ngày 05/11/2026, nền `e40d4e3`. Người dùng muốn plugin cùng ứng dụng desktop có dashboard và kỹ thuật phù hợp để tối ưu; đã chọn **Windows trước, giữ khả năng mở rộng macOS/Linux**. Đây là định hướng để P1/P3 lựa chọn, **chưa là ADR chốt stack hoặc implementation**. Agent target còn chưa chọn, không hứa cả ba OS ở bản đầu.
 
+## Trạng thái P3 mới nhất
+
+[Kiến trúc đích P3-A](TARGET-ARCHITECTURE.md) cụ thể hóa boundaries/flows/owners; ADR-001/002 là design, [ADR-003](adr/003-stack-and-spikes.md) giữ stack candidates và spike gate. Chưa chọn Tauri/Electron/Node/PostgreSQL thành stack đã kiểm chứng; P3 còn partial. Shortlist dưới đây giữ làm rationale lịch sử, không thay ADR mới nhất.
+
 ## Yêu cầu bổ sung sau khảo sát
 
 [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md) cập nhật runtime local agent hoặc API theo project, hai intake, GitHub events và outbound data policy. Không còn giới hạn phần reasoning chỉ dùng host agent; local-first là lưu trữ/triển khai bản đầu, không đồng nghĩa tuyệt đối offline khi người dùng chọn API. Người dùng đã chọn OpenAI/Anthropic adapter riêng và worker/server xử lý khi app đóng. Worker self-host và config/repo/data/secret store theo project trên server đã chốt; đã chọn multi-user/project RBAC, container theo project/run và polling+webhook; auth nội bộ do admin quản lý, fixed roles Admin/Owner/Runner/Viewer, SSO sau đã chốt; local-first trước đó không còn nghĩa run gắn desktop process.
