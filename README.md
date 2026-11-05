@@ -1,6 +1,10 @@
 # ai-engineering-qa-framework
 A practical framework for quality assurance in AI engineering systems, from evaluation and testing to safety and release readiness.
 
+## Kết quả hiện tại và đề xuất
+
+[Tổng kết](pilot/results.md) tách fixture, phản hồi người dùng, giới hạn E1 và kết quả E2. [Đề xuất vòng sau](docs/MANAGEMENT-PROPOSAL.md) giữ prototype thủ công và thử tiếp có giới hạn khi có owner/budget; chưa có approval pilot thật, số đo hiệu quả hoặc cơ sở rollout.
+
 ## Bản dùng thử E1
 
 [Protocol đánh giá](docs/EVALUATION-PROTOCOL.md) chốt core/template theo commit cùng [manifest](pilot/e1-freeze.json). [Task register](pilot/task-register.md) và [adjudication log](pilot/adjudication-log.md) ghi rõ phần đã có từ walkthrough và phần đánh giá mới chưa bắt đầu. Chưa có kết quả E1 hoặc pilot task thật.

@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Tổng kết E2 và proposal — 05/11/2026
+
+Sau hồ sơ tại `486ff6c`, người dùng phản hồi “đã ổn”. Lưu tại observations; kết thúc E2 với phản hồi chấp nhận chung, chưa xác nhận benefit tăng thêm/decision change/effort/G1 đầy đủ. Đã cập nhật results và tạo MANAGEMENT-PROPOSAL: giữ prototype thủ công, thử tiếp giới hạn có điều kiện owner/budget, chưa rollout/automation. Budget đề xuất vòng sau chưa đo/chưa được duyệt.
+
+Các deliverable tài liệu cuối vòng đã có. Bước tiếp là người dùng xem tổng kết/proposal và chọn tiếp tục có giới hạn/đổi/dừng; không mặc định tạo thêm case hoặc chạy pilot thật. Code, evidence và protocol frozen giữ nguyên.
+
 ## E2-01 — nhận baseline, chuẩn bị hồ sơ bổ sung ngày 05/11/2026
 
 Người dùng đề xuất quản lý tài khoản cấp user cho QC và Frontend sửa UI-17 trước bước tiếp. Đã lưu nguyên văn ở `pilot/e2-01-observations.md`; thời gian/nguồn cụ thể chưa cung cấp. Hồ sơ `pilot/e2-01-review.md` dùng core/template frozen, chỉ tổng hợp record cũ và làm rõ phụ thuộc/retest/current revision. Không thêm execution/fix/evidence, không nâng severity UI-17 hoặc tự ghi approval.

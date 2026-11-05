@@ -1,5 +1,9 @@
 # Decision log
 
+## D-10 — 05/11/2026: tổng kết E2 và đề xuất vòng sau
+
+Sau hồ sơ E2, người dùng trả lời “đã ổn”. Lưu nguyên văn, không suy benefit/action thay đổi/approval hoặc effort. Kết thúc một lượt phản hồi, cập nhật results và hoàn thành MANAGEMENT-PROPOSAL theo plan thay vì tạo thêm mock. Đề xuất tiếp tục có giới hạn nếu có owner/budget; các nguồn lực là con số thương lượng, chưa đo từ vòng synthetic. Chưa triển khai pilot thật hoặc automation.
+
 ## D-09 — 05/11/2026: E2 tại điểm QC → Reviewer/TL
 
 Người dùng chọn QC → Reviewer/TL. Chuẩn bị protocol E2 và gói xuất CSV với vị trí, self-test, QC/revision/môi trường, issue/blocked và quyết định cần đưa ra. Evidence do tác giả soạn được đánh dấu mô phỏng; không dựng thêm app/runner rồi giả làm QC thật. Core/template frozen và E1 giữ nguyên.

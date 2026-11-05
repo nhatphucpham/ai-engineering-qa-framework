@@ -1,6 +1,6 @@
 # Tổng kết hiện tại — synthetic và phản hồi người dùng
 
-Ngày 04/11/2026. Không có pilot task thật. Không có adjudication độc lập, effort người đọc hoặc ROI đã đo. Kết quả dưới tách rõ fixture kỹ thuật, phản hồi cách trình bày và thiết kế thử chưa đạt mục tiêu.
+Ngày cập nhật 05/11/2026. Không có pilot task thật. Không có adjudication độc lập, effort người đọc hoặc ROI đã đo. Kết quả dưới tách rõ fixture kỹ thuật, phản hồi cách trình bày và thiết kế thử chưa đạt mục tiêu.
 
 ## Những gì đã thực hiện
 
@@ -11,6 +11,7 @@ Ngày 04/11/2026. Không có pilot task thật. Không có adjudication độc l
 | MOCK-06 v2 | [Hồ sơ v2](mock/MOCK-06-v2.md), [feedback](../docs/REVIEWER-CHECK.md) | Clarification người dùng được version hóa; 13 test pass. Người dùng nhận xét hồ sơ hợp lý/khá dễ hiểu sau các giải thích trong chat |
 | MOCK-07 | [Hồ sơ 07](mock/MOCK-07-review.md) | Bố cục áp dụng được vào ví dụ giảm giá; head 2 pass/2 fail, fixed 4 pass. Chưa có feedback người đọc trên case này |
 | E1-01 | [Đăng ký](task-register.md), [input](../examples/evaluation/e1-seat-cancellation/INPUT.md), [định hướng](../examples/evaluation/e1-seat-cancellation/ORIENTATION.md) | Đã gửi input và nhận phản hồi về thiếu bối cảnh; chưa thực hiện so sánh trước/sau hồ sơ |
+| E2-01 | [Input](../examples/evaluation/e2-qc-handoff/INPUT.md), [hồ sơ](e2-01-review.md), [nhận định trước/sau](e2-01-observations.md) | Điểm bàn giao QC → TL rõ hơn; trước đã chọn cấp tài khoản và sửa UI, sau phản hồi “đã ổn”. Benefit tăng thêm chưa xác nhận |
 
 ## E1-01: điều thực sự quan sát được
 
@@ -30,7 +31,15 @@ Input review code có thể đủ cho bài tập code nhỏ, nhưng mục tiêu 
 
 Giữ bố cục hồ sơ đã được phản hồi tốt. Lượt mới cần chốt: bàn giao từ ai sang ai; developer tự kiểm tra gì; QC đã làm/chưa làm/không thuộc bước này; evidence của ai, snapshot/môi trường nào; quyết định người đọc cần đưa ra. Trạng thái chưa biết phải ghi rõ, không tạo QC pass giả làm execution thật.
 
-Theo protocol frozen, thay thiết kế ở **E2**, giữ kết quả E1. Chưa bắt đầu lượt E2 hoặc tạo dữ liệu mới. Không mặc định tất cả feature phải qua QC trước review. Việc QC có cần hoàn tất phụ thuộc điểm bàn giao được chọn.
+Theo protocol frozen, đã thay thiết kế ở **E2**, giữ kết quả E1. Không mặc định tất cả feature phải qua QC trước review. Việc QC có cần hoàn tất phụ thuộc điểm bàn giao được chọn.
+
+## E2-01: quyết định và giới hạn quan sát
+
+Người dùng chọn QC → Reviewer/TL. Input cung cấp self-test developer 4 pass, QC 3 pass/1 blocked ở r12, auth check cũ r11 và issue UI low. Đây hoàn toàn là record do tác giả soạn, không phải test đã thực chạy như fixture MOCK-06/07.
+
+Trước hồ sơ, người dùng đề xuất quản lý tài khoản cấp tài khoản cho QC và Frontend sửa UI-17 trước bước tiếp. Sau hồ sơ tổng hợp bằng core/template frozen, trả lời “đã ổn”. Có thể ghi nhận cách trình bày được chấp nhận ở mức chung; chưa có lời xác nhận action thay đổi, hiểu revision/evidence độc lập hoặc thông tin mới ngoài baseline. Không nói hồ sơ cải thiện quyết định khi dữ liệu chưa cho thấy điều đó.
+
+Thời gian thực đọc, overhead chuẩn bị, nguồn tự truy và action thực hiện đều unknown. Lượt thu phản hồi kết thúc; không hỏi thêm chỉ để có kết quả thuận lợi. G1 có tín hiệu từng phần, chưa xác nhận đầy đủ; chưa có effectiveness hoặc pilot thật. Bước tiếp chuyển sang [đề xuất vòng sau](../docs/MANAGEMENT-PROPOSAL.md), không tiếp tục sinh case mặc định.
 
 ## Phần còn thiếu
 

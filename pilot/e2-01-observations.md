@@ -19,7 +19,9 @@ Input đã cung cấp quy tắc/record mô phỏng và giải thích provenance;
 
 [Hồ sơ E2-01](e2-01-review.md) chỉ tổng hợp/đối chiếu dữ liệu input và phản hồi trước, không bổ sung execution, test pass mới hoặc fix. Phần action/điều kiện xong bổ sung là reasoning của người chuẩn bị, chưa phải hành động đã thực hiện.
 
-## Sau hồ sơ — chưa thu thập
+## Sau hồ sơ — phản hồi ngày 05/11/2026
+
+Người dùng trả lời nguyên văn: “đã ổn”. Hồ sơ được gửi ở commit `486ff6c`. Ghi nhận đây là phản hồi chấp nhận cách trình bày ở mức tổng quát; chưa phải xác nhận lợi ích tăng thêm, quyết định chuyển bước hoặc action đã được thực hiện.
 
 - Quyết định và lý do: chưa thu thập.
 - Thông tin mới hoặc đã biết: chưa thu thập.
@@ -27,4 +29,4 @@ Input đã cung cấp quy tắc/record mô phỏng và giải thích provenance;
 - Phút thực đọc trước/sau: unknown; không tính thời gian chờ trợ lý.
 - Action đã thực hiện / verdict thật: chưa có.
 
-Không tuyên bố benefit tăng thêm trước khi có phản hồi sau. Có thể hồ sơ chỉ lặp lại điều người dùng đã biết; nếu vậy ghi đúng và không đầu tư automation theo giả định lợi ích.
+Kết thúc lượt thu phản hồi E2-01 ở đây; không lặp câu hỏi để ép ra benefit. Baseline đã có hai hành động chính, nhưng phản hồi sau chưa cho biết có thay đổi quyết định hay không. Chưa xác nhận hồ sơ chỉ lặp lại, cũng chưa xác nhận có thông tin mới hữu ích. Không đầu tư automation dựa trên giả định lợi ích; tổng hợp dữ liệu hiện có vào results/proposal.
