@@ -1,5 +1,14 @@
 # Task register — synthetic
 
+## E2-01 — chuẩn bị bàn giao QC → Reviewer/TL, chờ nhận định trước
+
+- Điểm bàn giao do người dùng chọn ngày 05/11/2026: xem self-test, kết quả QC và lỗi còn mở để quyết định tiếp.
+- Case xuất CSV: [input](../examples/evaluation/e2-qc-handoff/INPUT.md), `e2-export-req-v1`, candidate `export-r12`, record cũ `export-r11`. Chọn case vì có self-test/QC/blocked/issue và quyết định chuyển bước cụ thể; không xét/loại case mới khác ở lượt này.
+- Tác giả: trợ lý, biết thiết kế; người đọc: người dùng. Không có developer/QC hoặc adjudicator độc lập thật. Evidence do tác giả soạn, **không phải execution**.
+- Protocol: [E2](../docs/EVALUATION-PROTOCOL-E2.md), phiên bản tại commit giới thiệu file; ghi full SHA khi lưu phản hồi. Core/template vẫn theo manifest E1; không thay E1 frozen.
+- Budget đọc dự kiến tiếp tục 10 phút như lựa chọn gần nhất; đã thông báo cho người đọc có thể đổi trước khi đọc. Phút thực tế, exposure case mới và chi phí chuẩn bị chưa đo: unknown.
+- Nhận định trước/sau, action người đọc, usefulness và verdict: chưa thu thập. Chưa gửi hồ sơ phân tích. Không dùng record pass mô phỏng để tuyên bố app đã được kiểm chứng.
+
 Không chứa task thật. “Đã có execution” chỉ nói fixture đã chạy; không phải completed pilot. Snapshot IDs là nhãn synthetic. Các case cũ không được relabel thành holdout E1.
 
 | ID / phiên bản | Vai trò trong phát triển | Nguồn | Tình trạng / thuộc E1? |

@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## E2-01 — 05/11/2026
+
+Người dùng chọn QC → Reviewer/TL. Đã chuẩn bị protocol E2 và input xuất CSV, tự chứa vị trí/quyết định, self-test/QC, revision/môi trường, issue low và blocked. Tất cả record là authored synthetic, không có execution/app/QC thật. E1/core/template frozen không đổi. Input thông báo tiếp tục budget 10 phút gần nhất và cho phép điều chỉnh trước lượt; phút thực đọc unknown.
+
+Bước tiếp: gửi input và lấy nhận định trước/nguồn/action/điều kiện xong bằng câu hỏi tự do, rồi mới tạo hồ sơ phân tích. Ghi protocol commit giới thiệu E2 khi lưu phản hồi. Không biến số pass giả lập thành bằng chứng thực thi; không gợi ý quyết định trước baseline.
+
 ## Kết thúc E1-01 — thiếu bối cảnh bàn giao
 
 Người dùng hỏi self-test/QC và nhận xét input chỉ có feature/unit test. Đã đồng ý ghi nhận E1 chưa đánh giá được mục tiêu và thiết kế lại lượt mới. `pilot/results.md` lưu phản hồi/giới hạn; register đổi trạng thái kết thúc, không thu tiếp baseline như chưa có vấn đề. Phút thực đọc unknown; không kết luận hết thời gian hoặc G1 fail. Code/evidence/protocol E1 không đổi.

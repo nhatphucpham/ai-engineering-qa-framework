@@ -1,5 +1,11 @@
 # Decision log
 
+## D-09 — 05/11/2026: E2 tại điểm QC → Reviewer/TL
+
+Người dùng chọn QC → Reviewer/TL. Chuẩn bị protocol E2 và gói xuất CSV với vị trí, self-test, QC/revision/môi trường, issue/blocked và quyết định cần đưa ra. Evidence do tác giả soạn được đánh dấu mô phỏng; không dựng thêm app/runner rồi giả làm QC thật. Core/template frozen và E1 giữ nguyên.
+
+Acceptance thiết kế: input đủ để biết ai test/cái gì/ở revision nào, phần còn mở và tiêu chí chuyển bước của case; số liệu khớp record; chưa có nhận định người đọc bị điền giả. Đánh giá H3 về quyết định trên artifact, không là đánh giá behavior app hoặc effectiveness thật. Chưa gửi hồ sơ phân tích trước khi lưu nhận định đầu.
+
 ## D-08 — 04/11/2026: ghi nhận giới hạn E1 và thiết kế lại điểm bàn giao
 
 Người dùng nhận xét E1 chỉ có feature/unit test, hỏi developer self-test và QC. Đánh giá lại: input thiếu điểm bàn giao và quyết định cần hỗ trợ, không đủ để thử mục tiêu Reviewer/TL như dự định. QC không bắt buộc đi trước mọi review; không tự thêm gate tổ chức chưa được xác nhận.

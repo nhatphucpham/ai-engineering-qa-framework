@@ -1,0 +1,21 @@
+{
+  "classification": "synthetic-only",
+  "provenance": "Authored fictional handoff records, not executed tests, CI, actual developer or independent QC results.",
+  "records": [
+    {"id": "DEV-12", "role": "developer (fictional)", "revision": "export-r12", "environment": "local-mock", "checks": [
+      {"id": "D1", "criterion": "AC-01", "check": "date and status filter", "outcome": "pass"},
+      {"id": "D2", "criterion": "AC-02", "check": "columns and CSV escaping", "outcome": "pass"},
+      {"id": "D3", "criterion": "AC-03", "check": "API role guard unit test", "outcome": "pass"},
+      {"id": "D4", "criterion": "AC-04", "check": "empty export serializer", "outcome": "pass"}
+    ]},
+    {"id": "QC-12", "role": "QC (fictional)", "revision": "export-r12", "environment": "qc-mock", "checks": [
+      {"id": "Q1", "criterion": "AC-01", "check": "manager export with date/status filter", "outcome": "pass"},
+      {"id": "Q2", "criterion": "AC-02", "check": "open CSV containing comma and newline", "outcome": "pass"},
+      {"id": "Q3", "criterion": "AC-04", "check": "no rows produces headers and UI message", "outcome": "pass"},
+      {"id": "Q4", "criterion": "AC-03", "check": "employee account directly calls export API", "outcome": "blocked", "reason": "employee test account unavailable; manager account only"}
+    ]},
+    {"id": "QC-11-AUTH", "role": "QC (fictional)", "revision": "export-r11", "environment": "qc-mock", "checks": [
+      {"id": "Q0", "criterion": "AC-03", "check": "employee API denied, manager API allowed", "outcome": "pass"}
+    ]}
+  ]
+}
