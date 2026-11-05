@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## E2-01 — nhận baseline, chuẩn bị hồ sơ bổ sung ngày 05/11/2026
+
+Người dùng đề xuất quản lý tài khoản cấp user cho QC và Frontend sửa UI-17 trước bước tiếp. Đã lưu nguyên văn ở `pilot/e2-01-observations.md`; thời gian/nguồn cụ thể chưa cung cấp. Hồ sơ `pilot/e2-01-review.md` dùng core/template frozen, chỉ tổng hợp record cũ và làm rõ phụ thuộc/retest/current revision. Không thêm execution/fix/evidence, không nâng severity UI-17 hoặc tự ghi approval.
+
+Bước tiếp: gửi hồ sơ lấy quyết định sau, điều mới/đã biết, nguồn và phút đọc. Nếu hồ sơ chỉ lặp lại điều đã biết thì ghi đúng; không kéo dài thêm case. Sau đó cập nhật results/proposal theo plan. Input/protocol E2 giữ nguyên.
+
 ## E2-01 — 05/11/2026
 
 Người dùng chọn QC → Reviewer/TL. Đã chuẩn bị protocol E2 và input xuất CSV, tự chứa vị trí/quyết định, self-test/QC, revision/môi trường, issue low và blocked. Tất cả record là authored synthetic, không có execution/app/QC thật. E1/core/template frozen không đổi. Input thông báo tiếp tục budget 10 phút gần nhất và cho phép điều chỉnh trước lượt; phút thực đọc unknown.

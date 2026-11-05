@@ -7,7 +7,7 @@
 - Tác giả: trợ lý, biết thiết kế; người đọc: người dùng. Không có developer/QC hoặc adjudicator độc lập thật. Evidence do tác giả soạn, **không phải execution**.
 - Protocol: [E2](../docs/EVALUATION-PROTOCOL-E2.md), phiên bản tại commit giới thiệu file; ghi full SHA khi lưu phản hồi. Core/template vẫn theo manifest E1; không thay E1 frozen.
 - Budget đọc dự kiến tiếp tục 10 phút như lựa chọn gần nhất; đã thông báo cho người đọc có thể đổi trước khi đọc. Phút thực tế, exposure case mới và chi phí chuẩn bị chưa đo: unknown.
-- Nhận định trước/sau, action người đọc, usefulness và verdict: chưa thu thập. Chưa gửi hồ sơ phân tích. Không dùng record pass mô phỏng để tuyên bố app đã được kiểm chứng.
+- Nhận định trước đã thu: cấp tài khoản cho QC và Frontend sửa UI-17 trước bước tiếp; [nguyên văn/giới hạn](e2-01-observations.md). Protocol commit `98171e1a4361779a8aeca13b710d002fa98c4292`. Đã chuẩn bị [hồ sơ bổ sung](e2-01-review.md), chưa thu nhận định sau hoặc benefit. Phút đọc/nguồn đã mở unknown. Không dùng record pass mô phỏng để tuyên bố app đã được kiểm chứng.
 
 Không chứa task thật. “Đã có execution” chỉ nói fixture đã chạy; không phải completed pilot. Snapshot IDs là nhãn synthetic. Các case cũ không được relabel thành holdout E1.
 
