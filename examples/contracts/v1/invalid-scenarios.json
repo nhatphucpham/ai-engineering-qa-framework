@@ -1,0 +1,678 @@
+[
+  {
+    "id": "missing-candidate",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "remove",
+        "path": "/handoffs/0/candidateRevision"
+      }
+    ]
+  },
+  {
+    "id": "raw-model-key",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/projects/0/runtime/apiKey",
+        "value": "not-a-real-secret"
+      }
+    ]
+  },
+  {
+    "id": "unsupported-provider",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/projects/0/runtime/provider",
+        "value": "invented"
+      }
+    ]
+  },
+  {
+    "id": "invalid-timestamp",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/events/0/observedAt",
+        "value": "not-a-date"
+      }
+    ]
+  },
+  {
+    "id": "absolute-path",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/artifacts/0/relativePath",
+        "value": "/etc/passwd"
+      }
+    ]
+  },
+  {
+    "id": "parent-traversal",
+    "expectedCode": "E_PATH",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/artifacts/0/relativePath",
+        "value": "docs/../outside"
+      }
+    ]
+  },
+  {
+    "id": "windows-drive-path",
+    "expectedCode": "E_PATH",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/artifacts/0/relativePath",
+        "value": "C:/outside"
+      }
+    ]
+  },
+  {
+    "id": "duplicate-evidence-id",
+    "expectedCode": "E_DUPLICATE_ID",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/evidence/1/id",
+        "value": "ev-unit"
+      }
+    ]
+  },
+  {
+    "id": "unknown-project",
+    "expectedCode": "E_REFERENCE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/handoffs/0/projectId",
+        "value": "absent"
+      }
+    ]
+  },
+  {
+    "id": "missing-claim-source",
+    "expectedCode": "E_REFERENCE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/handoffs/0/criteria/0/claims/0/artifactId",
+        "value": "absent"
+      }
+    ]
+  },
+  {
+    "id": "duplicate-stage",
+    "expectedCode": "E_STAGE_RECORD",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/handoffs/0/stageRecords/1/stage",
+        "value": "developer_self_test"
+      }
+    ]
+  },
+  {
+    "id": "unknown-stage-claims-evidence",
+    "expectedCode": "E_STAGE_RECORD",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/handoffs/0/stageRecords/1/state",
+        "value": "unknown"
+      }
+    ]
+  },
+  {
+    "id": "blocked-without-reason",
+    "expectedCode": "E_OUTCOME_REASON",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/evidence/1/reason",
+        "value": null
+      }
+    ]
+  },
+  {
+    "id": "mock-pretends-execution",
+    "expectedCode": "E_PROVENANCE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/evidence/0/executionRef",
+        "value": "fake-execution"
+      }
+    ]
+  },
+  {
+    "id": "execution-missing-timestamp",
+    "expectedCode": "E_PROVENANCE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/evidence/0/provenance/kind",
+        "value": "execution"
+      },
+      {
+        "op": "set",
+        "path": "/evidence/0/executionRef",
+        "value": "exec-1"
+      }
+    ]
+  },
+  {
+    "id": "blocked-becomes-pass-summary",
+    "expectedCode": "E_REPORT_SUMMARY",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/reports/0/verification",
+        "value": "complete"
+      }
+    ]
+  },
+  {
+    "id": "insufficient-conclusive",
+    "expectedCode": "E_ASSESSMENT",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/reports/0/criteria/0/status",
+        "value": "verified"
+      }
+    ]
+  },
+  {
+    "id": "stale-verified",
+    "expectedCode": "E_REPORT_STALE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/evidence/0/revision",
+        "value": "candidate-r11"
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/criteria/0/status",
+        "value": "verified"
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/criteria/0/assessmentKind",
+        "value": "record_only"
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/criteria/0/evidenceIds",
+        "value": [
+          "ev-unit"
+        ]
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/hasUnverifiedMandatory",
+        "value": false
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/verification",
+        "value": "complete"
+      }
+    ]
+  },
+  {
+    "id": "conflict-marked-verified",
+    "expectedCode": "E_CLARIFICATION",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/handoffs/0/criteria/0/clarification",
+        "value": "conflict"
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/criteria/0/status",
+        "value": "verified"
+      }
+    ]
+  },
+  {
+    "id": "start-wrong-revision",
+    "expectedCode": "E_REVISION",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/commands/0/body/candidateRevision",
+        "value": "candidate-r11"
+      }
+    ]
+  },
+  {
+    "id": "wrong-config-version",
+    "expectedCode": "E_VERSION",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/commands/0/body/expectedProjectVersion",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "claimed-role-in-command",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/commands/0/role",
+        "value": "system_admin"
+      }
+    ]
+  },
+  {
+    "id": "pending-approval-forged",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/reports/0/humanDecision",
+        "value": "approved"
+      }
+    ]
+  },
+  {
+    "id": "event-key-includes-transport",
+    "expectedCode": "E_EVENT_KEY",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/events/0/normalizedKey",
+        "value": "webhook:proj|pr_ready|github:repo:pr:42|ready-transition-1|candidate-r12"
+      }
+    ]
+  },
+  {
+    "id": "terminal-run-retains-lease",
+    "expectedCode": "E_LEASE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/runs/0/lease",
+        "value": {
+          "workerId": "worker",
+          "fencingToken": 1,
+          "expiresAt": "2026-11-05T04:00:00Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "waiting-without-reason",
+    "expectedCode": "E_RUN_STATE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/runs/0/state",
+        "value": "waiting_input"
+      }
+    ]
+  },
+  {
+    "id": "report-wrong-project",
+    "expectedCode": "E_PROJECT_BOUNDARY",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/reports/0/projectId",
+        "value": "another-project"
+      }
+    ]
+  },
+  {
+    "id": "finding-ref-not-found",
+    "expectedCode": "E_REFERENCE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/reports/0/actions/0/findingIds",
+        "value": [
+          "absent"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "duplicate-self-reference",
+    "expectedCode": "E_DUPLICATE_FINDING",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/reports/0/findings/0/verdict",
+        "value": "duplicate"
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/findings/0/duplicateOf",
+        "value": "gap"
+      }
+    ]
+  },
+  {
+    "id": "idempotency-key-different-body",
+    "expectedCode": "E_IDEMPOTENCY",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/commands",
+        "value": [
+          {
+            "id": "command",
+            "projectId": "proj",
+            "type": "start_run",
+            "idempotencyKey": "synthetic-start-1",
+            "body": {
+              "handoffId": "handoff",
+              "candidateRevision": "candidate-r12",
+              "expectedProjectVersion": 1
+            }
+          },
+          {
+            "id": "command-two",
+            "projectId": "proj",
+            "type": "start_run",
+            "idempotencyKey": "synthetic-start-1",
+            "body": {
+              "handoffId": "handoff",
+              "candidateRevision": "candidate-r11",
+              "expectedProjectVersion": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "impossible-calendar-date",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/events/0/observedAt",
+        "value": "2026-02-30T03:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "late-worker-result-after-complete",
+    "expectedCode": "E_FENCING",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/workerResults",
+        "value": [
+          {
+            "id": "result",
+            "projectId": "proj",
+            "runId": "run",
+            "attempt": 1,
+            "fencingToken": 4,
+            "observedRunVersion": 4,
+            "candidateRevision": "candidate-r12",
+            "evidenceIds": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "old-fencing-token",
+    "expectedCode": "E_FENCING",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/runs/0/state",
+        "value": "checking"
+      },
+      {
+        "op": "set",
+        "path": "/runs/0/lease",
+        "value": {
+          "workerId": "worker",
+          "fencingToken": 5,
+          "expiresAt": "2026-11-05T03:10:00Z"
+        }
+      },
+      {
+        "op": "set",
+        "path": "/workerResults",
+        "value": [
+          {
+            "id": "result",
+            "projectId": "proj",
+            "runId": "run",
+            "attempt": 1,
+            "fencingToken": 4,
+            "observedRunVersion": 4,
+            "candidateRevision": "candidate-r12",
+            "evidenceIds": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "progress-future-version",
+    "expectedCode": "E_VERSION",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/progress",
+        "value": [
+          {
+            "id": "progress",
+            "projectId": "proj",
+            "runId": "run",
+            "sequence": 1,
+            "runStateVersion": 99,
+            "type": "run_state",
+            "occurredAt": "2026-11-05T03:00:00Z",
+            "referenceIds": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "source-mutation-enabled",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/projects/0/editPolicy/sourceEdits",
+        "value": true
+      }
+    ]
+  },
+  {
+    "id": "active-phase-without-claim",
+    "expectedCode": "E_LEASE",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/runs/0/state",
+        "value": "checking"
+      }
+    ]
+  },
+  {
+    "id": "system-admin-cannot-be-project-claim",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/memberships/0/role",
+        "value": "system_admin"
+      }
+    ]
+  },
+  {
+    "id": "container-image-without-digest",
+    "expectedCode": "E_SCHEMA",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/projects/0/checks/0/imageDigest",
+        "value": "synthetic/checks:latest"
+      }
+    ]
+  },
+  {
+    "id": "existing-other-project-reference",
+    "expectedCode": "E_PROJECT_BOUNDARY",
+    "changes": [
+      {
+        "op": "set",
+        "path": "/projects",
+        "value": [
+          {
+            "id": "proj",
+            "configVersion": 1,
+            "name": "Synthetic project",
+            "runtime": {
+              "mode": "model_api",
+              "provider": "openai",
+              "model": "synthetic-model",
+              "credentialRef": "secret-model"
+            },
+            "dataPolicy": {
+              "version": 1,
+              "allowedArtifactKinds": [
+                "requirement",
+                "test_output"
+              ],
+              "allowedPaths": [
+                "docs",
+                "evidence"
+              ],
+              "deniedPaths": [
+                ".env"
+              ],
+              "allowedProviders": [
+                "openai",
+                "anthropic"
+              ]
+            },
+            "triggers": {
+              "manual": true,
+              "kinds": [
+                "qc_handoff",
+                "pr_ready"
+              ],
+              "githubIngress": [
+                "polling",
+                "webhook"
+              ]
+            },
+            "budgets": {
+              "runTimeoutSeconds": 600,
+              "maxAttempts": 2,
+              "maxConcurrentRuns": 1,
+              "maxModelInputTokens": 8000,
+              "maxModelOutputTokens": 2000
+            },
+            "checks": [
+              {
+                "id": "unit",
+                "configArtifactId": "checkcfg",
+                "imageDigest": "synthetic/checks@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "timeoutSeconds": 120,
+                "networkPolicyRef": "network-project"
+              }
+            ],
+            "repository": {
+              "provider": "github",
+              "repositoryRef": "repo-github",
+              "credentialRef": "secret-repo"
+            },
+            "requirementConflictPolicy": "ask_owner_continue_independent",
+            "editPolicy": {
+              "sourceEdits": false,
+              "testEdits": false
+            }
+          },
+          {
+            "id": "other",
+            "configVersion": 1,
+            "name": "Synthetic project",
+            "runtime": {
+              "mode": "model_api",
+              "provider": "openai",
+              "model": "synthetic-model",
+              "credentialRef": "secret-model"
+            },
+            "dataPolicy": {
+              "version": 1,
+              "allowedArtifactKinds": [
+                "requirement",
+                "test_output"
+              ],
+              "allowedPaths": [
+                "docs",
+                "evidence"
+              ],
+              "deniedPaths": [
+                ".env"
+              ],
+              "allowedProviders": [
+                "openai",
+                "anthropic"
+              ]
+            },
+            "triggers": {
+              "manual": true,
+              "kinds": [
+                "qc_handoff",
+                "pr_ready"
+              ],
+              "githubIngress": [
+                "polling",
+                "webhook"
+              ]
+            },
+            "budgets": {
+              "runTimeoutSeconds": 600,
+              "maxAttempts": 2,
+              "maxConcurrentRuns": 1,
+              "maxModelInputTokens": 8000,
+              "maxModelOutputTokens": 2000
+            },
+            "checks": [],
+            "repository": {
+              "provider": "github",
+              "repositoryRef": "repo-github",
+              "credentialRef": "secret-repo"
+            },
+            "requirementConflictPolicy": "ask_owner_continue_independent",
+            "editPolicy": {
+              "sourceEdits": false,
+              "testEdits": false
+            }
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": "/reports/0/projectId",
+        "value": "other"
+      }
+    ]
+  }
+]

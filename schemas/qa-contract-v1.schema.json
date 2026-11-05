@@ -1,0 +1,1688 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-framework:contract-bundle:1.0.0",
+  "title": "QA P1 synthetic contract bundle",
+  "description": "Contract design specimen, not production protocol implementation or proof of execution.",
+  "type": "object",
+  "properties": {
+    "contractVersion": {
+      "const": "1.0.0"
+    },
+    "classification": {
+      "const": "synthetic-only"
+    },
+    "specimenNotice": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/project"
+      },
+      "minItems": 1
+    },
+    "memberships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/membership"
+      },
+      "minItems": 0
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "minItems": 0
+    },
+    "handoffs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/handoff"
+      },
+      "minItems": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      },
+      "minItems": 0
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      },
+      "minItems": 0
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/command"
+      },
+      "minItems": 0
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/run"
+      },
+      "minItems": 0
+    },
+    "reports": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/report"
+      },
+      "minItems": 0
+    },
+    "workerResults": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/workerResult"
+      }
+    },
+    "progress": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/progress"
+      }
+    }
+  },
+  "required": [
+    "contractVersion",
+    "classification",
+    "specimenNotice",
+    "projects",
+    "memberships",
+    "artifacts",
+    "handoffs",
+    "evidence",
+    "events",
+    "commands",
+    "runs",
+    "reports",
+    "workerResults",
+    "progress"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*\\\\)[^\\u0000]+$"
+    },
+    "runtime": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "const": "agent_local"
+            },
+            "connectorRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            }
+          },
+          "required": [
+            "mode",
+            "connectorRef"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "const": "model_api"
+            },
+            "provider": {
+              "enum": [
+                "openai",
+                "anthropic"
+              ]
+            },
+            "model": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "credentialRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            }
+          },
+          "required": [
+            "mode",
+            "provider",
+            "model",
+            "credentialRef"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "configVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "runtime": {
+          "$ref": "#/$defs/runtime"
+        },
+        "dataPolicy": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "allowedArtifactKinds": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "requirement",
+                  "source",
+                  "diff",
+                  "test_output",
+                  "qc_record",
+                  "issue"
+                ]
+              },
+              "minItems": 1
+            },
+            "allowedPaths": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/path"
+              },
+              "minItems": 1
+            },
+            "deniedPaths": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/path"
+              },
+              "minItems": 0
+            },
+            "allowedProviders": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "openai",
+                  "anthropic"
+                ]
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "version",
+            "allowedArtifactKinds",
+            "allowedPaths",
+            "deniedPaths",
+            "allowedProviders"
+          ],
+          "additionalProperties": false
+        },
+        "triggers": {
+          "type": "object",
+          "properties": {
+            "manual": {
+              "type": "boolean"
+            },
+            "kinds": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "dev_handoff",
+                  "qc_handoff",
+                  "pr_ready"
+                ]
+              },
+              "uniqueItems": true
+            },
+            "githubIngress": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "polling",
+                  "webhook"
+                ]
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "manual",
+            "kinds",
+            "githubIngress"
+          ],
+          "additionalProperties": false
+        },
+        "budgets": {
+          "type": "object",
+          "properties": {
+            "runTimeoutSeconds": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "maxAttempts": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "maxConcurrentRuns": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "maxModelInputTokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "maxModelOutputTokens": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "runTimeoutSeconds",
+            "maxAttempts",
+            "maxConcurrentRuns",
+            "maxModelInputTokens",
+            "maxModelOutputTokens"
+          ],
+          "additionalProperties": false
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              },
+              "configArtifactId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              },
+              "imageDigest": {
+                "type": "string",
+                "pattern": "^[^ @]+@sha256:[0-9a-f]{64}$"
+              },
+              "timeoutSeconds": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "networkPolicyRef": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              }
+            },
+            "required": [
+              "id",
+              "configArtifactId",
+              "imageDigest",
+              "timeoutSeconds",
+              "networkPolicyRef"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "repository": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "const": "github"
+            },
+            "repositoryRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "credentialRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            }
+          },
+          "required": [
+            "provider",
+            "repositoryRef",
+            "credentialRef"
+          ],
+          "additionalProperties": false
+        },
+        "requirementConflictPolicy": {
+          "const": "ask_owner_continue_independent"
+        },
+        "editPolicy": {
+          "type": "object",
+          "properties": {
+            "sourceEdits": {
+              "const": false
+            },
+            "testEdits": {
+              "const": false
+            }
+          },
+          "required": [
+            "sourceEdits",
+            "testEdits"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "configVersion",
+        "name",
+        "runtime",
+        "dataPolicy",
+        "triggers",
+        "budgets",
+        "checks",
+        "repository",
+        "requirementConflictPolicy",
+        "editPolicy"
+      ],
+      "additionalProperties": false
+    },
+    "membership": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "principalId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "role": {
+          "enum": [
+            "owner",
+            "runner",
+            "viewer"
+          ]
+        }
+      },
+      "required": [
+        "projectId",
+        "principalId",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "kind": {
+          "enum": [
+            "requirement",
+            "source",
+            "diff",
+            "test_output",
+            "qc_record",
+            "issue",
+            "check_config"
+          ]
+        },
+        "revision": {
+          "$ref": "#/$defs/revision"
+        },
+        "relativePath": {
+          "$ref": "#/$defs/path"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "kind",
+        "revision",
+        "relativePath",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "sourceClaim": {
+      "type": "object",
+      "properties": {
+        "artifactId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "artifactId",
+        "locator",
+        "statement"
+      ],
+      "additionalProperties": false
+    },
+    "criterion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "expected": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourceClaim"
+          },
+          "minItems": 1
+        },
+        "clarification": {
+          "enum": [
+            "clear",
+            "conflict",
+            "ambiguous"
+          ]
+        },
+        "ownerRole": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 96
+        }
+      },
+      "required": [
+        "id",
+        "expected",
+        "mandatory",
+        "claims",
+        "clarification",
+        "ownerRole"
+      ],
+      "additionalProperties": false
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "intake": {
+          "enum": [
+            "repo_task",
+            "handoff_bundle"
+          ]
+        },
+        "candidateRevision": {
+          "$ref": "#/$defs/revision"
+        },
+        "requirementVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "decisionMoment": {
+          "const": "qc_to_reviewer"
+        },
+        "requestedDecision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "actors": {
+          "type": "object",
+          "properties": {
+            "developerRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "qcRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reviewerRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "developerRef",
+            "qcRef",
+            "reviewerRef"
+          ],
+          "additionalProperties": false
+        },
+        "riskRationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/criterion"
+          },
+          "minItems": 1
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "mandatory": {
+                "type": "boolean"
+              },
+              "state": {
+                "enum": [
+                  "satisfied",
+                  "pending",
+                  "not_applicable"
+                ]
+              },
+              "sourceArtifactId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "mandatory",
+              "state",
+              "sourceArtifactId"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "stageRecords": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "stage": {
+                "enum": [
+                  "developer_self_test",
+                  "qc"
+                ]
+              },
+              "state": {
+                "enum": [
+                  "provided",
+                  "not_performed",
+                  "unknown"
+                ]
+              },
+              "evidenceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "minItems": 0
+              }
+            },
+            "required": [
+              "stage",
+              "state",
+              "evidenceIds"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2
+        },
+        "knownIssues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "severity": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown"
+                ]
+              },
+              "state": {
+                "enum": [
+                  "open",
+                  "resolved",
+                  "deferred"
+                ]
+              },
+              "sourceArtifactId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "severity",
+              "state",
+              "sourceArtifactId"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "intake",
+        "candidateRevision",
+        "requirementVersion",
+        "decisionMoment",
+        "requestedDecision",
+        "actors",
+        "riskRationale",
+        "criteria",
+        "constraints",
+        "stageRecords",
+        "knownIssues"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "handoffId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "criterionIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "minItems": 1
+        },
+        "revision": {
+          "$ref": "#/$defs/revision"
+        },
+        "checkId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "level": {
+          "enum": [
+            "unit",
+            "integration",
+            "source_review",
+            "qc_scenario"
+          ]
+        },
+        "outcome": {
+          "enum": [
+            "pass",
+            "fail",
+            "error",
+            "skipped",
+            "blocked",
+            "not_run",
+            "unknown"
+          ]
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "authored_mock",
+                "execution",
+                "reported",
+                "source_reasoning"
+              ]
+            },
+            "actorRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "environment": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "observedAt": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sourceArtifactId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            }
+          },
+          "required": [
+            "kind",
+            "actorRef",
+            "environment",
+            "observedAt",
+            "sourceArtifactId"
+          ],
+          "additionalProperties": false
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "executionRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "handoffId",
+        "criterionIds",
+        "revision",
+        "checkId",
+        "level",
+        "outcome",
+        "provenance",
+        "reason",
+        "executionRef"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "kind": {
+          "enum": [
+            "dev_handoff",
+            "qc_handoff",
+            "pr_ready"
+          ]
+        },
+        "ingress": {
+          "enum": [
+            "polling",
+            "webhook",
+            "internal"
+          ]
+        },
+        "externalDeliveryId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subjectRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "occurrenceRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "candidateRevision": {
+          "$ref": "#/$defs/revision"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        },
+        "normalizedKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "kind",
+        "ingress",
+        "externalDeliveryId",
+        "subjectRef",
+        "occurrenceRef",
+        "candidateRevision",
+        "observedAt",
+        "normalizedKey"
+      ],
+      "additionalProperties": false
+    },
+    "command": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "projectId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "type": {
+              "const": "start_run"
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "handoffId": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "candidateRevision": {
+                  "$ref": "#/$defs/revision"
+                },
+                "expectedProjectVersion": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "handoffId",
+                "candidateRevision",
+                "expectedProjectVersion"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "projectId",
+            "type",
+            "idempotencyKey",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "projectId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "type": {
+              "const": "cancel_run"
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "body": {
+              "type": "object",
+              "properties": {
+                "runId": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "expectedRunVersion": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "runId",
+                "expectedRunVersion"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "projectId",
+            "type",
+            "idempotencyKey",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "run": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "handoffId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "candidateRevision": {
+          "$ref": "#/$defs/revision"
+        },
+        "projectConfigVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dataPolicyVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "state": {
+          "enum": [
+            "queued",
+            "claimed",
+            "collecting",
+            "validating",
+            "analyzing",
+            "checking",
+            "waiting_input",
+            "waiting_permission",
+            "cancelling",
+            "completed",
+            "failed",
+            "cancelled"
+          ]
+        },
+        "stateVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "triggerEventId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lease": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "workerId": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "fencingToken": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                }
+              },
+              "required": [
+                "workerId",
+                "fencingToken",
+                "expiresAt"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "waitingReasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 0
+        },
+        "terminalReason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reportId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "initiator": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "user",
+                "integration"
+              ]
+            },
+            "principalRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            }
+          },
+          "required": [
+            "kind",
+            "principalRef"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "handoffId",
+        "candidateRevision",
+        "projectConfigVersion",
+        "dataPolicyVersion",
+        "state",
+        "stateVersion",
+        "attempt",
+        "triggerEventId",
+        "lease",
+        "waitingReasons",
+        "terminalReason",
+        "reportId",
+        "initiator"
+      ],
+      "additionalProperties": false
+    },
+    "criterionResult": {
+      "type": "object",
+      "properties": {
+        "criterionId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "status": {
+          "enum": [
+            "verified",
+            "failed",
+            "unverified",
+            "not_applicable"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "minItems": 0
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "assessmentKind": {
+          "enum": [
+            "record_only",
+            "execution_supported",
+            "source_reasoning",
+            "insufficient"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "criterionId",
+        "status",
+        "evidenceIds",
+        "rationale",
+        "assessmentKind",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "finding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "category": {
+          "enum": [
+            "defect",
+            "ambiguity",
+            "verification_gap",
+            "process_observation"
+          ]
+        },
+        "criterionIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "minItems": 0
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "minItems": 0
+        },
+        "verdict": {
+          "enum": [
+            "candidate",
+            "confirmed",
+            "rejected",
+            "duplicate",
+            "disputed",
+            "pending"
+          ]
+        },
+        "duplicateOf": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "id",
+        "category",
+        "criterionIds",
+        "evidenceIds",
+        "verdict",
+        "duplicateOf",
+        "summary",
+        "rationale"
+      ],
+      "additionalProperties": false
+    },
+    "action": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "findingIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "minItems": 0
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "ownerRole": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 96
+        },
+        "assigneeRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "doneWhen": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "state": {
+          "enum": [
+            "proposed",
+            "assigned",
+            "in_progress",
+            "done",
+            "blocked"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "findingIds",
+        "description",
+        "ownerRole",
+        "assigneeRef",
+        "doneWhen",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "report": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "runId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "handoffId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "candidateRevision": {
+          "$ref": "#/$defs/revision"
+        },
+        "versions": {
+          "type": "object",
+          "properties": {
+            "core": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "rules": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "workflow": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "adapter": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            }
+          },
+          "required": [
+            "core",
+            "rules",
+            "workflow",
+            "adapter"
+          ],
+          "additionalProperties": false
+        },
+        "verification": {
+          "enum": [
+            "complete",
+            "incomplete",
+            "failed"
+          ]
+        },
+        "hasUnverifiedMandatory": {
+          "type": "boolean"
+        },
+        "humanDecision": {
+          "const": "pending"
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/criterionResult"
+          },
+          "minItems": 1
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/finding"
+          },
+          "minItems": 0
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/action"
+          },
+          "minItems": 0
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 0
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "runId",
+        "handoffId",
+        "candidateRevision",
+        "versions",
+        "verification",
+        "hasUnverifiedMandatory",
+        "humanDecision",
+        "criteria",
+        "findings",
+        "actions",
+        "limitations",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "workerResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "runId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fencingToken": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "observedRunVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "candidateRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "runId",
+        "attempt",
+        "fencingToken",
+        "observedRunVersion",
+        "candidateRevision",
+        "evidenceIds"
+      ],
+      "additionalProperties": false
+    },
+    "progress": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "runId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "runStateVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "type": {
+          "enum": [
+            "run_state",
+            "check_completed",
+            "report_ready"
+          ]
+        },
+        "occurredAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        },
+        "referenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "projectId",
+        "runId",
+        "sequence",
+        "runStateVersion",
+        "type",
+        "occurredAt",
+        "referenceIds"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

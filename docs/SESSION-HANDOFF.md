@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## P1 contract v1 — 05/11/2026, nền `e87e15b`
+
+Đã tạo DATA-CONTRACT.md, schemas/qa-contract-v1.schema.json, 3 valid bundles + 39 negative mutation scenarios tại examples/contracts/v1 và tools/validate_contracts.py/test_contracts.py. Dev dependency jsonschema 4.26.0 đã có trên máy, không phải product stack. Tests kiểm schema/reference/version/project/lease/report và CLI; không chạy test app/container/model/network hoặc thay fixture/evidence cũ.
+
+P1 v1 bao quát resource/ownership/permissions/start-cancel/progress/worker-result/lifecycle; admin/auth/query wire transport và atomic enforcement chưa có code, thuộc P3/P4. Run completed có thể report incomplete; approval pending riêng. Budget/key/image/actor trong examples là specimen. Tiếp **P2 VERIFICATION-RULES.md**, không xây desktop/server từ schema rồi coi đã đủ runtime hoặc pilot-ready.
+
 ## Chốt yêu cầu qua câu hỏi — 05/11/2026, nền `303b85a`
 
 PRODUCT-DECISIONS ghi toàn bộ lựa chọn: hai intake chung pipeline; agent local/API theo project, OpenAI/Anthropic adapter riêng; read-check-report/đề xuất, không sửa code/test; QA requirement/nghiệp vụ/code review/unit-integration; manual + bàn giao Dev/QC/PR chờ review, GitHub; outbound scope theo project; conflict AC hỏi owner, phần độc lập tiếp tục. Local trước/team sau ban đầu được mở rộng bởi worker/server xử lý khi desktop đóng, UI theo dõi.

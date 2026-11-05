@@ -1,0 +1,2 @@
+# Development-only P1 schema checking; not a product runtime stack decision.
+jsonschema==4.26.0

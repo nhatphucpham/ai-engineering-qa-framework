@@ -1,5 +1,11 @@
 # Decision log
 
+## D-16 — 05/11/2026: P1 contract v1 và kiểm specimen offline
+
+Nền `e87e15b`. Chọn JSON Schema Draft 2020-12 cho resource shapes, không chốt product runtime. DATA-CONTRACT mô tả handoff/evidence/project/config, fixed-role permission matrix, idempotency/event identity, commands/progress, run lifecycle và worker fencing. Schema/3 valid bundles/39 negative mutation scenarios được kiểm bằng jsonschema 4.26.0 và CLI; tool P1 chỉ shape/reference/self-consistency, không là QA engine/security enforcement.
+
+Tách run completed khỏi verification complete và approval. Khi có source conflict thì unverified; stale evidence được giữ context nhưng không cite như verified candidate. Worker-result match attempt/token/version được kiểm theo snapshot, chưa có atomic claim/expiry/auth code. Runner cancel chỉ run của mình, Owner/Admin theo quyền project; initiator phải do server gắn. Examples chứa dummy references/budget/timestamp, không là execution hay permission thật. P2 tiếp bảng sufficiency/status; P3/P4 mới bindings/transport/enforcement.
+
 ## D-15 — 05/11/2026: chốt topology, execution và identity
 
 Người dùng chọn self-host worker/server trên máy/server của mình/team, cấu hình quyền repo/data scope/secrets theo project trên server, chạy khi desktop đóng. Bản đầu multi-user với tài khoản nội bộ admin quản lý, thêm SSO sau; fixed roles System Admin/Project Owner/Runner/Viewer. Tests trong container project/run theo config môi trường project; GitHub polling+webhook cùng có ở bản đầu. Lựa chọn mới thay local-only/no-server-RBAC trước đó; không tự thành SaaS do sản phẩm vận hành.
