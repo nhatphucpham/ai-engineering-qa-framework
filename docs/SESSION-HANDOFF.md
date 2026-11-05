@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Mục tiêu plugin — 05/11/2026, nền `edce89f`
+
+Người dùng muốn framework publish được thành plugin cho agents thực hiện tự động; đã chọn kiến trúc dùng chung trước, chưa chọn nền tảng. P0 `docs/FRAMEWORK-SCOPE.md` có actors/decision, core/shared workflow/adapter, input-output, automation/permission/termination và packaging goal. Plan mở P0–P6, README/skill đồng bộ. Không sửa as-is hoặc coi thành phần đích đã tồn tại; chưa chọn host/SDK/transport/language/distribution.
+
+Tiếp P1 DATA-CONTRACT gồm handoff/evidence/report và host capabilities/check execution. P2 rules/inference, P3 target architecture/ADR, P4 harness offline, P5 technical checks, P6 adapter/package khi đã chọn target. Chưa pilot/E3, chưa public publish/cài môi trường thật. Core không cần backend model API; host agent reasoning không bị cấm, nhưng không thay code/rules/contracts.
+
 ## Plan mới — 05/11/2026, nền `5e5d340`
 
 Người dùng xác nhận thiết kế framework/năng lực tối thiểu trước, chưa pilot. `docs/IMPLEMENTATION-PLAN.md` là source kế hoạch hiện hành P0–P5; plan S0–S5 lưu nguyên file lịch sử, proposal pilot có banner superseded. Repo skill/README đã đồng bộ. Không thay core/template/fixture/execution/protocol frozen hoặc gắn readiness từ feedback.

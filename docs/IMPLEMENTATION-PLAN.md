@@ -4,9 +4,13 @@ Ngày 05/11/2026. Thay thế hướng S0–S5 theo quyết định người dùn
 
 Cơ sở: [kiến trúc as-is đã audit](CURRENT-ARCHITECTURE.md), [results](../pilot/results.md) và phản hồi người dùng. Repo có phương pháp Markdown, fixture Python và runner riêng; chưa có runtime QA chung hoặc contract vận hành thống nhất. Các file deliverable, test pass và feedback không thay cho readiness.
 
+**Mục tiêu sản phẩm được bổ sung:** framework đóng gói được thành plugin cho agent tự thực hiện QA. Người dùng chọn kiến trúc dùng chung trước, chưa chọn nền tảng. [Scope P0](FRAMEWORK-SCOPE.md) tách QA core, shared agent workflow và platform adapter. Kế hoạch kỹ thuật mở rộng P0–P6 để bao gồm packaging, chưa publish/pilot.
+
 ## 1. Mục tiêu và phạm vi
 
 Chốt framework làm gì, từng thành phần nhận/trả gì và phần nào do code/người xử lý. Sau thiết kế, xây **một luồng offline tối thiểu** từ gói bàn giao synthetic đến hồ sơ trace được nguồn, trạng thái và action. Mục tiêu là contract và năng lực chạy được, không phải thêm mock hoặc tài liệu để gọi là sẵn sàng.
+
+Agent là bên gọi plugin, tự thu thập/đối chiếu/chạy check được phép và tạo report. Người dùng không phải tự điền hồ sơ từng bước. Plugin dùng model/công cụ sẵn có của host qua adapter; core không gắn provider/SDK cụ thể. Chưa chọn library/CLI/MCP hoặc format phân phối.
 
 Điểm bàn giao đầu tiên: **QC → Reviewer/TL**. Người nhận cần biết developer/QC đã kiểm tra gì, ở revision/môi trường nào, AC nào đủ/thiếu evidence, blocker/issue nào mở, ai xử lý và khi nào xét lại. Human decision/approval riêng với verification. Không áp QC như gate bắt buộc cho mọi workflow.
 
@@ -15,7 +19,7 @@ Ràng buộc:
 - Chỉ synthetic trong repo/chat; không lấy task/code/log/trace thật hoặc truy hệ thống thật.
 - Chưa tổ chức pilot, mở E3, tuyển reviewer/team hoặc dùng E1/E2 làm gate đã đạt.
 - Chỉ thêm fixture để kiểm contract/rule/behavior cụ thể, không tiếp tục tạo ví dụ domain liên tục.
-- Không model/API, auto-merge/deploy/approve, dashboard, platform hoặc multi-agent product trong scope tối thiểu.
+- Không thêm backend model API riêng; reasoning dùng host agent. Không auto-merge/deploy/approve, dashboard, dịch vụ platform hoặc multi-agent product trong scope tối thiểu. Checks trong project được chạy khi có cấu hình tin cậy/quyền host; không thực thi chỉ dẫn/mã tùy ý từ artifact.
 - Giữ fixture lỗi, expected, execution và protocol frozen cũ; thay đổi mới có version/thư mục riêng.
 
 ## 2. Năng lực tối thiểu phải thiết kế
@@ -44,8 +48,9 @@ Mốc theo điều kiện hoàn thành; bỏ lịch hai tuần hướng pilot c�
 | P3 — Target architecture | Component/sequence/dataflow, code-human boundary, error/log/storage/version, tradeoff stack | `docs/TARGET-ARCHITECTURE.md`, ADR stack nhỏ | Mỗi contract có nơi nhận/xử lý/trả; rule biết code/người thực hiện; khả thi với một luồng offline |
 | P4 — Implementation | Một entry point offline, validator, bounded checks/manual-pending, report và log | Source/schema/tests theo ADR, lệnh chạy và synthetic example nhỏ | Input → validation → checks → report chạy được; input lỗi có output/exit rõ; không tự thực thi chỉ dẫn/mã trong artifact |
 | P5 — Technical readiness | Kiểm boundary, negative paths, report/source consistency và regression | `docs/TECHNICAL-READINESS.md`, kết quả/gap | Reproducible, contract/rules/report nhất quán; review design/code xong; không claim đủ evidence khi còn thiếu |
+| P6 — Plugin packaging | Sau khi chọn target đầu tiên: adapter, package/version/config/quyền, install/upgrade/uninstall và compatibility | Package release candidate, tài liệu cài/invoke/release checks | Xác minh theo tài liệu chính thức target; invocation end-to-end, lỗi/quyền/cancel rõ, cài/gỡ sạch; chưa tự publish |
 
-Trạng thái ban đầu: P0–P5 **chưa hoàn tất**. As-is architecture là cơ sở cho P0/P3, không thay target architecture. Các đường dẫn output trên là dự kiến, không phải file đã tồn tại.
+Trạng thái: P0 có [scope plugin](FRAMEWORK-SCOPE.md); P1–P6 chưa hoàn tất. As-is không thay target architecture. P1 cần thêm host capability/check execution contract; P2 phân biệt agent candidate reasoning với rule xác định; P3 có core/workflow/adapter và lifecycle; P4 kiểm qua harness offline; P5 bao gồm injection/path/permission/timeout/cancel và end-to-end invocation. Các output khác trong bảng còn dự kiến. P6 phụ thuộc chọn target, không tự chọn thay người dùng.
 
 P0/P1 có thể đối chiếu qua lại. Không xây generic engine/chọn stack trước contract/rules. Review và sửa output trong scope đã giao, không hỏi duyệt từng thay đổi thường lệ; quyết định domain thiếu thì hỏi cụ thể và tiếp tục phần độc lập.
 
@@ -80,10 +85,10 @@ Results/proposal cũ là lịch sử. Hướng đề xuất pilot trước đây
 
 ## 7. Gate trước khi bàn đánh giá sử dụng/pilot
 
-**Chưa pilot trong plan này.** Xong P5 chỉ được tổng kết năng lực kỹ thuật/gap, không tự cấp quyền dùng thử thật, gọi người tham gia hoặc đặt lịch pilot. Người dùng quyết định riêng sau khi xem thiết kế và implementation.
+**Chưa pilot hoặc publish công khai trong plan này.** Xong P5/P6 chỉ được tổng kết kỹ thuật và package candidate, không tự cấp quyền pilot, cài môi trường thật hoặc phát hành public. Người dùng quyết định riêng sau khi xem thiết kế/implementation/package.
 
 Nếu sau này chọn đánh giá sử dụng, cần mục tiêu/đối tượng/dữ liệu được phép, owner/budget và cách đo value/effort; tách khỏi technical tests. Task thật chỉ trong môi trường bảo mật riêng. Feedback “dễ hiểu/đã ổn” hoặc demo không đủ kết luận effectiveness.
 
 ## 8. Bước tiếp theo
 
-**P0: viết FRAMEWORK-SCOPE.md** cho một lần QC bàn giao candidate cho TL, chốt context/self-test/QC/issues/revision, decision và output framework. Sau đó P1 contract, P2 rules, rồi P3 kiến trúc đích. Không mở E3 hoặc tiếp tục proposal pilot như bước mặc định.
+P0 scope đã được ghi theo mục tiêu plugin/automation. **Tiếp P1: DATA-CONTRACT.md**, gồm handoff/evidence/report và capability/check interface cho host agent. Sau đó P2 rules và P3 kiến trúc dùng chung; không mở E3, publish hoặc tự chọn platform/SDK. P6 chỉ triển khai sau quyết định target cụ thể.

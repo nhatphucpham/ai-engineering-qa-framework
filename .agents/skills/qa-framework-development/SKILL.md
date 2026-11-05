@@ -11,17 +11,19 @@ Xác định repo root từ Git; mọi đường dẫn bên dưới tính từ r
 
 1. Đọc `git status --short`, nhánh và commit hiện tại. Giữ nguyên thay đổi của người dùng. Khi được yêu cầu cập nhật code, dùng fast-forward; nếu có xung đột hoặc phân nhánh, báo trạng thái và chọn cách xử lý theo quyền đã có, không tự reset/clean/stash.
 2. Đọc `docs/IMPLEMENTATION-PLAN.md`, `docs/CORE-FRAMEWORK.md`, decision log và ghi chú phiên gần nhất nếu có. Chỉ đọc case/template liên quan đến công việc được chọn. Thiếu tài liệu thì ghi thiếu; không suy ra nội dung.
-3. Trước khi sửa, nêu mục tiêu phiên, phạm vi, file đầu ra và điều kiện hoàn thành kiểm tra được. Chọn một bước trong plan P0–P5 hiện hành; H1–H5 cũ chỉ là giả thuyết tham khảo. Phân biệt đề xuất trong chat với quyết định đã được ghi nhận; yêu cầu mới của người dùng được ưu tiên, cập nhật lý do đổi hướng vào decision log.
+3. Trước khi sửa, nêu mục tiêu phiên, phạm vi, file đầu ra và điều kiện hoàn thành kiểm tra được. Chọn một bước trong plan P0–P6 hiện hành; H1–H5 cũ chỉ là giả thuyết tham khảo. Phân biệt đề xuất trong chat với quyết định đã được ghi nhận; yêu cầu mới của người dùng được ưu tiên, cập nhật lý do đổi hướng vào decision log.
 
 Mốc tham chiếu ban đầu là `4b5de04`: core v0, MOCK-01–06 và walkthrough S0/S1 đã có; G1 với reviewer thật chưa xác nhận. Luôn đối chiếu checkout hiện tại thay vì coi mốc này là trạng thái vĩnh viễn.
 
 Ngày 05/11/2026, người dùng thay hướng bằng **thiết kế framework và năng lực tối thiểu trước, chưa pilot**. Plan P0–P5 thay S0–S5; `docs/IMPLEMENTATION-PLAN-2026-11-03.md`, proposal pilot và E1/E2 là lịch sử, không là quyền khởi động thử vận hành. Đọc `docs/CURRENT-ARCHITECTURE.md` để không nhầm runner fixture với runtime framework.
 
+Mục tiêu được bổ sung: **plugin để agent tự thực hiện QA**, chốt kiến trúc dùng chung trước, chưa chọn nền tảng. Đọc `docs/FRAMEWORK-SCOPE.md`; core/workflow/adapter là thiết kế đích, chưa phải code có sẵn. Plan thêm P6 packaging sau khi chọn target; chưa tự publish. Không tự chọn Codex/Claude Code, SDK, library/CLI/MCP hoặc distribution.
+
 ## Giữ đúng hướng sản phẩm
 
 - Người dùng chính là Reviewer/Tech Lead; đầu ra phục vụ quyết định requirement nào có evidence, gap gì và ai xử lý tiếp.
 - Repo này chỉ dùng mock/synthetic. Không yêu cầu đưa task/code/log/trace thật vào đây, không gọi model/API hoặc hệ thống thật để chạy walkthrough. Pilot thật thuộc môi trường riêng của người dùng.
-- Theo P0 scope → P1 contract → P2 rules → P3 target architecture/ADR → P4 một luồng offline → P5 kiểm tra kỹ thuật. Ghi build/reuse/manual và phạm vi code/người xử lý. Không coi mọi bước phải có engine; cũng không dùng trợ lý reasoning thay contract hoặc implementation. Không mở rộng thành platform, generic verifier, dashboard hay auto-approval.
+- Theo P0 scope → P1 contract/capabilities → P2 rules và agent inference → P3 core/workflow/adapter → P4 harness offline → P5 kỹ thuật → P6 package target đã chọn. Agent tự đi quy trình trong quyền/budget, không yêu cầu người dùng điền từng bảng hoặc duyệt từng bước đã được ủy quyền. Reasoning dùng host model, phải có nguồn; core không gắn provider. Không dùng prose skill thay implementation, không mở rộng thành platform/dashboard/auto-approval.
 - Chưa pilot/E3/tuyển reviewer hoặc đề xuất dùng thử thật làm bước mặc định. P5 chỉ là gate năng lực kỹ thuật, không tự cấp quyền pilot. Không cần chứng minh benefit pilot trước khi thiết kế năng lực tối thiểu đã được giao.
 
 ## Thay đổi và bảo toàn bộ mẫu

@@ -3,7 +3,7 @@ A practical framework for quality assurance in AI engineering systems, from eval
 
 ## Hướng phát triển hiện hành — 05/11/2026
 
-**Thiết kế framework và năng lực tối thiểu trước, chưa pilot.** [Plan P0–P5](docs/IMPLEMENTATION-PLAN.md): scope → contract dữ liệu → rules → kiến trúc đích → một luồng offline → kiểm tra năng lực kỹ thuật. Bước tiếp theo là P0, chưa có các gate P0–P5 được đánh dấu hoàn tất. Walkthrough/feedback bên dưới là lịch sử tham khảo.
+**Thiết kế plugin QA cho agent thực hiện tự động, chưa pilot.** [Scope P0](docs/FRAMEWORK-SCOPE.md) tách core dùng chung, agent workflow và adapter; chưa chọn nền tảng/transport. [Plan P0–P6](docs/IMPLEMENTATION-PLAN.md): scope → contract → rules → kiến trúc đích → harness offline → kỹ thuật → đóng gói cho target được chọn. Scope đã ghi, bước tiếp là P1; chưa có plugin installable hoặc quyền publish. Walkthrough/feedback bên dưới là lịch sử tham khảo.
 
 ## Kiến trúc thực tế hiện tại
 

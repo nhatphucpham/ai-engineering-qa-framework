@@ -1,5 +1,11 @@
 # Decision log
 
+## D-12 — 05/11/2026: mục tiêu plugin tự động cho agent, chưa chọn nền tảng
+
+Người dùng muốn framework có thể publish thành plugin cho các agent tự thực hiện QA; chọn chốt kiến trúc dùng chung trước, chưa chọn target. Tạo P0 FRAMEWORK-SCOPE: agent là consumer/caller, core/workflow/adapter tách biệt, checks theo quyền host, inference có nguồn và human decision riêng. Không còn coi người điền Markdown là luồng sản phẩm chính.
+
+Plan thêm P6 packaging sau khi chọn target; P1/P2/P3 cần capability, reasoning và execution interfaces. Chưa chọn SDK/runtime/transport/distribution, không tự tuyên bố hỗ trợ Codex/Claude/MCP hoặc publish package. Giữ hướng chưa pilot và bảo toàn as-is/fixture/evidence cũ. Tiếp P1 DATA-CONTRACT cho handoff/evidence/report và host capabilities.
+
 ## D-11 — 05/11/2026: thay plan bằng thiết kế và năng lực tối thiểu, chưa pilot
 
 Người dùng xác nhận điều chỉnh theo kiến trúc as-is đã audit: thiết kế framework/năng lực tối thiểu trước. Lưu nguyên plan S0–S5 thành `IMPLEMENTATION-PLAN-2026-11-03.md`, thay plan hiện hành bằng P0 scope, P1 contract, P2 rules, P3 kiến trúc đích/ADR, P4 luồng offline, P5 kỹ thuật. Không tự đánh dấu gate đã đạt hoặc chốt stack trong lượt đổi plan.
