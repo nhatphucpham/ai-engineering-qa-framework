@@ -1,5 +1,11 @@
 # Bàn giao phiên 04/11/2026
 
+## Audit kiến trúc hiện tại — 05/11/2026, nền `c95086f`
+
+Người dùng yêu cầu kiến trúc đầy đủ/chi tiết và subagent model cao kiểm sai sót; chưa đồng ý thử vận hành. Đã tạo `docs/CURRENT-ARCHITECTURE.md` cùng sơ đồ tổng thể PNG, mô tả phương pháp thủ công, sáu runner, evidence, workflow E1/E2 và phần chưa có. Subagent GPT-6 Astra high đọc độc lập và review draft; đã sửa các cạnh/thứ tự gây nhầm tự động hóa, constraint review bắt buộc và trạng thái snapshot. Audit tĩnh, không thay code/fixture/protocol frozen hoặc chạy pilot.
+
+Hướng tiếp theo là thảo luận contract/trách nhiệm/kiến trúc đích dựa trên bản as-is; không tự coi file deliverable/test fixture pass là readiness hoặc tiếp tục đề xuất pilot khi người dùng chưa chấp nhận mức độ hoàn thiện.
+
 ## Tổng kết E2 và proposal — 05/11/2026
 
 Sau hồ sơ tại `486ff6c`, người dùng phản hồi “đã ổn”. Lưu tại observations; kết thúc E2 với phản hồi chấp nhận chung, chưa xác nhận benefit tăng thêm/decision change/effort/G1 đầy đủ. Đã cập nhật results và tạo MANAGEMENT-PROPOSAL: giữ prototype thủ công, thử tiếp giới hạn có điều kiện owner/budget, chưa rollout/automation. Budget đề xuất vòng sau chưa đo/chưa được duyệt.
