@@ -1,5 +1,13 @@
 # Bàn giao phiên — mới nhất ở đầu
 
+## Chuyển session — 10/11/2026, baseline `d35ae6b`
+
+Người dùng yêu cầu mang tiến độ các phase và cách làm sang session mới để tiếp tục. **S1 đã DONE và đã commit/push** tại `d35ae6b337d1450f911d388adce2ee1bd0e3efd8` trên master; trạng thái “chưa commit/push” ở entry lịch sử bên dưới là tại thời điểm trước commit đó, không trạng thái hiện hành.
+
+Đọc [NEXT-SESSION](NEXT-SESSION.md) để khởi động: file cần đọc, trạng thái P0–P6, decisions/giới hạn, mục tiêu P4-A và quy trình reviewer mô hình cao → sửa → kiểm chứng → re-review đến clean → DONE trong scope. **Tiếp P4-A versioned runtime report/constraint integration và module core Python**, không chạy lại S1 hoặc chọn lại stack toàn hệ thống. Chưa triển khai phần P4-A mới trong session bàn giao này.
+
+**Bản bàn giao DONE:** Astra high review hai vòng, NS-RV-01 (mandatory/optional constraint và failed precedence) cùng NS-RV-02 (tracked source so với ignored runtime/dependencies) đã đóng; quyền Git chỉ trong scope đã được giao/cấp. Links/code fences của hai tài liệu và diff whitespace pass, không cần rerun code tests cho thay đổi chỉ tài liệu.
+
 ## S1 cross-runtime parity — 10/11/2026, nền `c4149bd`
 
 Đã triển khai `spikes/s1` native TypeScript candidate (P1/P2 v1/v2/lifecycle/report + strict lossless JSON boundary), local pinned Node 26.13.0/TypeScript7.0.2/Ajv8.20.0 và `tools/run_s1.py`/oracle worker. Candidate không gọi Python hoặc đọc expected answers. `.cache/s1`/build/dependencies được ignore, không đổi runtime global hoặc fixture/reference cũ.
