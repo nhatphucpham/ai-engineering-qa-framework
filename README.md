@@ -3,11 +3,11 @@ A practical framework for quality assurance in AI engineering systems, from eval
 
 ## Hướng phát triển hiện hành — 10/11/2026
 
-**Mục đích: giúp Reviewer/Tech Lead biết requirement nào có evidence đúng revision, gap gì còn mở và ai xử lý tiếp.** Sản phẩm đích là plugin QA + desktop Windows + server/worker self-host nhiều người; chưa pilot. [Các lựa chọn đã chốt](docs/PRODUCT-DECISIONS.md) là nguồn yêu cầu: agent local hoặc OpenAI/Anthropic API, project data policy, container kiểm thử, GitHub polling/webhook, auth nội bộ và fixed roles. [Scope P0](docs/FRAMEWORK-SCOPE.md) và [plan P0–P6](docs/IMPLEMENTATION-PLAN.md) dùng một core chung; agent target và product stack chưa chọn. Transport HTTPS JSON/SSE là thiết kế tại ADR-002, chưa có server. P1 contract v2, P2 rules v2 và reference report/harness đã có; P3-A design đã review. **Bước tiếp: P3-B/S1 parity spike trên oracle mới**, rồi quyết định stack theo actual results. Chưa có phần mềm installable hoặc quyền publish. Walkthrough/feedback cũ là lịch sử.
+**Mục đích: giúp Reviewer/Tech Lead biết requirement nào có evidence đúng revision, gap gì còn mở và ai xử lý tiếp.** Sản phẩm đích là plugin QA + desktop Windows + server/worker self-host nhiều người; chưa pilot. [Các lựa chọn đã chốt](docs/PRODUCT-DECISIONS.md) là nguồn yêu cầu: agent local hoặc OpenAI/Anthropic API, project data policy, container kiểm thử, GitHub polling/webhook, auth nội bộ và fixed roles. [Scope P0](docs/FRAMEWORK-SCOPE.md) và [plan P0–P6](docs/IMPLEMENTATION-PLAN.md) dùng một core chung; agent target và stack control/worker/desktop chưa chọn; pure core chọn baseline Python sau S1. Transport HTTPS JSON/SSE là thiết kế tại ADR-002, chưa có server. P1 contract v2, P2 rules v2 và reference report/harness đã có; P3-A design đã review. **S1 đã PASS 356 cases + 28 CLI; bước tiếp P4-A runtime report/constraint integration và module pure core Python** theo [ADR-004](docs/adr/004-core-baseline-after-s1.md). Chưa có phần mềm installable hoặc quyền publish. Walkthrough/feedback cũ là lịch sử.
 
 ## Kiến trúc thực tế hiện tại
 
-P1 hiện có [contract v2](docs/DATA-CONTRACT.md), [JSON Schema v2](schemas/qa-contract-v2.schema.json) và [specimen valid/invalid](examples/contracts/v2/README.md), kèm công cụ kiểm schema/reference offline. Chưa có QA engine/server/worker/auth/container runtime; [P2 rules](docs/VERIFICATION-RULES.md) có strict schemas v1/v2 và reference evaluator: corpus 55 decision scenarios, 20 lifecycle cases cùng v2 regression. Công cụ tính trạng thái từ judgment được cung cấp, chưa tự xác thực trust/domain truth; [P3-A kiến trúc đích](docs/TARGET-ARCHITECTURE.md) có component/sequence/dataflow và ADRs; P3 tổng thể còn partial vì stack/spikes chưa kiểm chứng. Python là dev/reference tooling, không chốt stack sản phẩm. [Audit và bản sửa P1](docs/P1-REVIEW-FIXES.md) ghi lý do version hóa; P1 v1 giữ lịch sử và không còn được active validator chấp nhận.
+P1 hiện có [contract v2](docs/DATA-CONTRACT.md), [JSON Schema v2](schemas/qa-contract-v2.schema.json) và [specimen valid/invalid](examples/contracts/v2/README.md), kèm công cụ kiểm schema/reference offline. Chưa có QA engine/server/worker/auth/container runtime; [P2 rules](docs/VERIFICATION-RULES.md) có strict schemas v1/v2 và reference evaluator: corpus 55 decision scenarios, 20 lifecycle cases cùng v2 regression. Công cụ tính trạng thái từ judgment được cung cấp, chưa tự xác thực trust/domain truth; [P3-A kiến trúc đích](docs/TARGET-ARCHITECTURE.md) có component/sequence/dataflow và ADRs; P3 tổng thể còn partial vì stack/spikes chưa kiểm chứng. Python reference được chọn làm baseline pure core/report sau S1; đây chưa là production server/worker. [Audit và bản sửa P1](docs/P1-REVIEW-FIXES.md) ghi lý do version hóa; P1 v1 giữ lịch sử và không còn được active validator chấp nhận.
 
 [Sơ đồ và khảo sát kiến trúc as-is](docs/CURRENT-ARCHITECTURE.md) phân biệt phương pháp thủ công, runner minh họa, evidence và phần mềm chưa được xây. Có audit subagent model cao. Các tài liệu đề xuất bên dưới chưa chứng minh repo sẵn sàng pilot vận hành.
 
@@ -25,7 +25,7 @@ P1 hiện có [contract v2](docs/DATA-CONTRACT.md), [JSON Schema v2](schemas/qa-
 
 Xem [kế hoạch thiết kế và xây năng lực tối thiểu](docs/IMPLEMENTATION-PLAN.md). [Plan hai tuần cũ](docs/IMPLEMENTATION-PLAN-2026-11-03.md) chỉ để truy lịch sử.
 
-Repo đang ở giai đoạn thiết kế framework, chỉ dùng synthetic. Chưa chốt stack sản phẩm; chọn sau contract/rules và kiến trúc đích. Chưa có runtime QA chung hoặc kết quả pilot thật.
+Repo đang ở giai đoạn thiết kế và kiểm chứng implementation, chỉ dùng synthetic. [S1 results](docs/S1-RESULTS.md) ghi actual parity/metrics và giới hạn; [native spike](spikes/s1/README.md) là công cụ conformance. Pure-core baseline đã chọn, các runtime boundaries khác còn cần spike. Chưa có runtime sản phẩm đầy đủ hoặc kết quả pilot thật.
 
 ## Mẫu thử offline
 
@@ -39,7 +39,7 @@ python3 -B examples/mock/run.py
 
 Hai probe cố ý thất bại để tái hiện bug. Exit 0 của runner chỉ xác nhận bộ mẫu có kết quả đúng thiết kế, không phải approval hay đánh giá hiệu quả framework.
 
-## S1 — Review một thay đổi nhiều file
+## Walkthrough lịch sử — Review một thay đổi nhiều file
 
 Đọc [hồ sơ MOCK-06](pilot/mock/MOCK-06-review.md) để xem một thay đổi đi qua UI state, API giả lập, cache và service: baseline xanh, hai lỗi tái hiện được, evidence cũ và một yêu cầu chưa rõ. [Core framework v0](docs/CORE-FRAMEWORK.md) hướng dẫn cách đi từ yêu cầu đến hành động review. Đây là walkthrough đã biết đáp án, chưa đánh giá độc lập hoặc xác nhận usefulness với reviewer thật.
 

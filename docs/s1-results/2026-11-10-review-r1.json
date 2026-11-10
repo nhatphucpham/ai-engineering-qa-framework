@@ -1,0 +1,155 @@
+{
+  "snapshotId": "s1-final-review-2026-11-10-r1",
+  "phase": "before_administrative_done",
+  "baselineCommit": "c4149bd52a6b0658a78fe8988207f636a50c58b5",
+  "createdAtUTC": "2026-11-10T15:45:59.095303+00:00",
+  "measurementEvidence": {
+    "path": "docs/s1-results/2026-11-10-r1.json",
+    "sha256": "8302ba0156d8a829dc9201ffc3c0b4123101a7160f5a13e8786d0404eb3b2932"
+  },
+  "excluded": [
+    "docs/s1-results/2026-11-10-review-r1.json"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 115,
+      "sha256": "425b80be52aca448ba0df86b406b1a462901fd1788bc16e04a12763eb3e63888"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7725,
+      "sha256": "0d989eda4beab9b96486add78474b8e8d2f258c987ceb56ebf43d537fc556bdb"
+    },
+    {
+      "path": "docs/DECISION-LOG.md",
+      "bytes": 23298,
+      "sha256": "9b89cb712dc613eb1882a018180ba234faccb7d7cee9d7dec4e2501613fa9b3a"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-PLAN.md",
+      "bytes": 14947,
+      "sha256": "aba06242fb8d4ea55f5e4b32f3105521ca2f7ab898394b8aacbfc7153f68f1c9"
+    },
+    {
+      "path": "docs/OFFLINE-REPORT.md",
+      "bytes": 7712,
+      "sha256": "56eda0d59277f885dfaa407c3a251602128e7d956a36d1b7d0f5e8563eef39e7"
+    },
+    {
+      "path": "docs/S1-PROTOCOL.md",
+      "bytes": 3377,
+      "sha256": "7bb9b9463f085dfb9487510135e44738bd322e38aa12f86ab9cef8bd6a07e1d6"
+    },
+    {
+      "path": "docs/S1-RESULTS.md",
+      "bytes": 6955,
+      "sha256": "76f2b920807f1f5c9e63732fb518fce2339f8da3e9a46cbbafe3d45b3e5cec33"
+    },
+    {
+      "path": "docs/S1-REVIEW.md",
+      "bytes": 4425,
+      "sha256": "5ebf36bc78b77d6794af2c3826f5a0a1b4c901234f4f90aed8b2fa5b59060957"
+    },
+    {
+      "path": "docs/SESSION-HANDOFF.md",
+      "bytes": 26433,
+      "sha256": "cd20f09741ae24d3a7c7f023377b0e4185972866be760965ee31a464d6ac0cd4"
+    },
+    {
+      "path": "docs/TARGET-ARCHITECTURE.md",
+      "bytes": 40149,
+      "sha256": "db1643dabd9b8a495b9cc61fd5b999b5ba47009ea1b4ccc604be74b121f0982b"
+    },
+    {
+      "path": "docs/VERIFICATION-RULES.md",
+      "bytes": 21162,
+      "sha256": "36e4570080d82b3c16e39d9d051c93591c5f57da0ce2e1d0e122b7c7b202ffa5"
+    },
+    {
+      "path": "docs/adr/003-stack-and-spikes.md",
+      "bytes": 9558,
+      "sha256": "107ca9ed4ecb4f85be14a5343180811e50a9a96cc0154399d33a1b566015c230"
+    },
+    {
+      "path": "docs/adr/004-core-baseline-after-s1.md",
+      "bytes": 3037,
+      "sha256": "8bced7bd95e3d07f9cae9b60f7bb6b4052aaa47c2fe4849964674aa21e4b1308"
+    },
+    {
+      "path": "docs/s1-results/2026-11-10-r1.json",
+      "bytes": 124766,
+      "sha256": "8302ba0156d8a829dc9201ffc3c0b4123101a7160f5a13e8786d0404eb3b2932"
+    },
+    {
+      "path": "spikes/s1/README.md",
+      "bytes": 2855,
+      "sha256": "def89df316391734123c0046d0d1094a7bb58641ecaf1f9c3ed87afb561250c1"
+    },
+    {
+      "path": "spikes/s1/package-lock.json",
+      "bytes": 15457,
+      "sha256": "7a86aef4050bd7d2a13e6aa69d04fe184c143234797c45345df43e9d7af153aa"
+    },
+    {
+      "path": "spikes/s1/package.json",
+      "bytes": 310,
+      "sha256": "11408f01c10f9e8e4fe8c04096434ee08f0e2d94bb569b90b41140962b6a3780"
+    },
+    {
+      "path": "spikes/s1/src/cli.ts",
+      "bytes": 2922,
+      "sha256": "20823fa4dd292beea43b90781502ee78bc916d62ff785299d987dc291ae413ee"
+    },
+    {
+      "path": "spikes/s1/src/contract.ts",
+      "bytes": 15590,
+      "sha256": "96a2ef4015061d2c6a5c31e3b32e798e305fdcf17906af114499d670633f0d7b"
+    },
+    {
+      "path": "spikes/s1/src/dispatch.ts",
+      "bytes": 1890,
+      "sha256": "c87c49e921050f22ad651ea6edbeed3dde502f2149cc9a216af2988562191134"
+    },
+    {
+      "path": "spikes/s1/src/json.ts",
+      "bytes": 7720,
+      "sha256": "b8c33b0a6d220fd66d547c4acbc09ad20d8b5f21b1ee762cdeb1b32245cf1c01"
+    },
+    {
+      "path": "spikes/s1/src/report.ts",
+      "bytes": 8456,
+      "sha256": "799d1b416c3b4b473d4d94afe3c1521a8bb4a52a0576df216681a8a400bbbcbe"
+    },
+    {
+      "path": "spikes/s1/src/rules.ts",
+      "bytes": 12168,
+      "sha256": "c5c7e1313135e3f111803b956bbfd80620c1dd4d060293abd1ef88a88cc31062"
+    },
+    {
+      "path": "spikes/s1/src/schema.ts",
+      "bytes": 3006,
+      "sha256": "03e8de538ce472fed17ab50159f66c0da3d1c4726d142b91978e84609d20cfc7"
+    },
+    {
+      "path": "spikes/s1/tsconfig.json",
+      "bytes": 287,
+      "sha256": "e760ade1f36e7d4def879ec93518b1bdcb37ba2937176d7106fa57b2111fe907"
+    },
+    {
+      "path": "tools/run_s1.py",
+      "bytes": 21029,
+      "sha256": "5371e7310f1a2ad13bd1f315560691638858804568985b9c4f2798abc93ee023"
+    },
+    {
+      "path": "tools/s1_reference.py",
+      "bytes": 5267,
+      "sha256": "1eaaf1e91beeebf1430b1f7231ef485f0b1bfa818455c4428eadd1f549726d97"
+    },
+    {
+      "path": "tools/test_s1_harness.py",
+      "bytes": 1337,
+      "sha256": "8c928a9de0e155ed7123b717e9d7d4f97e1daf7e4569ab5891234435ebc26370"
+    }
+  ]
+}

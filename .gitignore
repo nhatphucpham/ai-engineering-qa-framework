@@ -1,0 +1,4 @@
+# Local-only S1 toolchain, downloads, build and package cache.
+/.cache/s1/
+spikes/s1/node_modules/
+spikes/s1/dist/

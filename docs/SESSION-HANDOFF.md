@@ -1,5 +1,15 @@
 # Bàn giao phiên — mới nhất ở đầu
 
+## S1 cross-runtime parity — 10/11/2026, nền `c4149bd`
+
+Đã triển khai `spikes/s1` native TypeScript candidate (P1/P2 v1/v2/lifecycle/report + strict lossless JSON boundary), local pinned Node 26.13.0/TypeScript7.0.2/Ajv8.20.0 và `tools/run_s1.py`/oracle worker. Candidate không gọi Python hoặc đọc expected answers. `.cache/s1`/build/dependencies được ignore, không đổi runtime global hoặc fixture/reference cũ.
+
+[Official evidence](s1-results/2026-11-10-r1.json) **PASS 356/356 + 28/28 CLI, 0 skip**, ba engine trials/runtime; hashes trước/sau 58 source/fixture files khớp. Reviewer Astra high tự rehash 58 files và chạy 26 methods pass (20.603s); root full suite 26 methods pass (19.554s). **Output S1 DONE**: [S1 review](S1-REVIEW.md) đóng S1-RV-01..09, final clean xác nhận đủ 28 payload files theo manifest và không có finding mới. Sau reset chỉ kiểm hash/docs rồi ghi trạng thái hành chính; không sửa code/evidence hoặc giả đã chạy lại benchmark/tests.
+
+[Results](S1-RESULTS.md) ghi versions/measurements/limits; [ADR-004](adr/004-core-baseline-after-s1.md) chọn Python làm baseline pure shared core/report, TS giữ conformance spike. Node nhanh hơn trong workload này nhưng không có service SLA buộc migration, Python giữ semantics sẵn có và tránh second production rules engine/compat layer. Không chọn server/worker/DB/desktop shell từ S1.
+
+**Việc kế tiếp: P4-A versioned runtime report/constraint integration + tách module core Python**. Legacy P1 exporter vẫn projection_unsupported, không report_ready/completed của server. S2–S6/P3-B tổng thể vẫn mở; chưa server/auth/worker/container/adapters/desktop installer, pilot hoặc model/API project thật. Chưa commit/push output S1 ở thời điểm ghi entry này.
+
 ## Review lặp bắt buộc — 10/11/2026, nền `9237018`
 
 Yêu cầu mới: luôn chỉ định ít nhất một reviewer độc lập mô hình cao; đưa output hiện tại vào review độ chính xác/tính thực dụng và reasoning cải thiện; sửa → kiểm chứng → re-review bản mới đến vòng sạch rồi mark DONE. Đã ghi vào AGENTS.md, [REVIEW-WORKFLOW](REVIEW-WORKFLOW.md) và plan. Reviewer hiện tại Astra high, root sửa, stable finding ledger tại [OUTPUT-REVIEW-LOOP](OUTPUT-REVIEW-LOOP.md).

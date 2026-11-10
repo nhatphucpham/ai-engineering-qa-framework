@@ -1,5 +1,11 @@
 # Decision log
 
+## D-23 — 10/11/2026: S1 parity và pure-core baseline Python
+
+Người dùng yêu cầu tiến hành S1 sau `c4149bd`. Đã dựng native TypeScript/Node candidate riêng, pinned local Node LTS/deps, không gọi Python từ candidate hoặc sửa fixture/reference để khớp. Official workload 356/356 + 28/28 CLI, ba trials mỗi runtime và source/fixture immutable; evidence tại S1-RESULTS. Reviewer high-model kiểm độc lập và dùng stable S1-RV IDs; output chưa DONE trước final verdict.
+
+ADR-004 chọn Python làm implementation baseline cho pure shared core/report P4-A kế tiếp, dựa trên reuse semantics/versioned artifacts và không cần duy trì second rules engine/compat layer ở production. Node nhanh hơn ở workload official và tốn RSS cao hơn; không dùng performance number để suy service SLA/ROI hoặc khẳng định Python tối ưu. Đây là reversible engineering direction, không chọn server/worker/DB/shell/agent target. Tiếp versioned runtime report/constraint integration; S2–S6 và P3-B tổng thể vẫn mở, không pilot/API thật.
+
 ## D-22 — 10/11/2026: reviewer thường trực và vòng sửa đến clean
 
 Người dùng yêu cầu luôn có một agent review output hiện tại về độ chính xác/tính thực dụng, kèm suy luận cải thiện; sửa findings rồi lặp trên bản mới đến khi không còn lỗi cũ/lặp/mới được tìm, sau đó mark done. Ghi thành quy tắc repo trong AGENTS.md và REVIEW-WORKFLOW; plan/handoff phải dùng cùng gate. Dùng ít nhất một reviewer độc lập mô hình cao, stable finding IDs, không dừng theo số vòng tùy ý hoặc lấy suite xanh thay clean verdict.

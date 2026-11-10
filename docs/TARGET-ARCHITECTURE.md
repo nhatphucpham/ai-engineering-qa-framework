@@ -4,6 +4,8 @@ Ngày 05/11/2026, nền `337ab82`, cập nhật reference integration 10/11/2026
 
 P3 chia hai phần kiểm chứng được: **P3-A thiết kế ranh giới/luồng/trách nhiệm** tại đây; **P3-B quyết định stack sau spike** tại [ADR-003](adr/003-stack-and-spikes.md). P3 chưa đóng toàn bộ khi spike chưa chạy. Không lấy lựa chọn đề xuất thành công nghệ đã được người dùng chọn hoặc số đo tối ưu.
 
+Cập nhật S1 10/11: [native parity workload PASS](S1-RESULTS.md); [ADR-004](adr/004-core-baseline-after-s1.md) chọn Python baseline cho pure core/report P4-A kế tiếp. Control/worker/DB/engine/shell chưa được chọn bởi kết quả này, S2–S6 vẫn mở. Không thêm Node↔Python process bridge hoặc production rules engine thứ hai; runtime composition phải được xét riêng.
+
 ## 1. Toàn cảnh và đơn vị triển khai
 
 ```mermaid
@@ -265,7 +267,7 @@ Budget/spike tại ADR-003 là **engineering targets**, chưa số đo hoặc SL
 
 ## 12. Trình tự P3-B/P4 và tiêu chí bàn giao
 
-1. Prerequisite P4-A reference report/oracle trước S1 theo plan cập nhật 10/11; sau đó P3-B bounded spikes chọn runtime/schema parity, transactional queue, desktop shell và container host; xác minh GitHub common occurrence/revision khả thi. Ghi actual environment/output hoặc chưa chạy, không điền benchmark giả. Reference Python không chốt product stack hoặc đóng P3-B.
+1. Prerequisite report/oracle và S1 parity đã có actual results; pure core dùng baseline Python theo ADR-004. Tiếp các P3-B spikes S2–S6 khi prerequisite riêng sẵn để chọn queue, identity/policy, desktop shell, container host và GitHub normalization. S1 không tự đóng P3-B hoặc quyết định toàn stack.
 2. P4-A: khép report/constraint collision bằng versioned contract trước full projection; pure core + partial projector fail-closed rồi synthetic headless harness, no model/network; typed internal assessment/export manifest trước persistence.
 3. P4-B: auth/project/config + intake/API/DB/immutable blob/outbox, tests RBAC/revoke/concurrency; admin/secret interfaces spec trước exposed endpoint.
 4. P4-C: worker enrollment/lease/check container/cleanup; fake providers và fake local connector; trusted assessment pipeline, policy/budgets/audit. Fake không là actual execution/provider readiness.

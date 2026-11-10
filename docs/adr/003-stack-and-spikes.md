@@ -2,6 +2,8 @@
 
 Ngày 05/11/2026. Status: **proposed — chưa chốt stack**. P3-A design không đủ thay spike gate P3-B. Lựa chọn dưới đây là đề xuất kỹ thuật để kiểm chứng trong plan, không phải preference mới được gán cho người dùng. Không cài toolchain toàn máy hoặc chạy account/project thật trong phiên tài liệu này.
 
+Cập nhật 10/11: **S1 workload PASS**, [results](../S1-RESULTS.md) có native parity/actual metrics. [ADR-004](004-core-baseline-after-s1.md) chọn Python baseline riêng pure core/report; các candidate rows dưới đây là shortlist ban đầu, không còn hàm ý TypeScript đã thắng core. S2–S6 chưa chạy, stack toàn hệ thống chưa chốt. Tiếp runtime report integration/module core, không chạy lại S1 chỉ vì paragraph lịch sử nói chưa có số đo.
+
 ## Candidates và tiêu chí chọn
 
 | Boundary | Candidate ưu tiên cho spike | Phương án so | Lý do dự án / điều chưa biết |
