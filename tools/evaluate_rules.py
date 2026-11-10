@@ -6,12 +6,16 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
+from json_input import load_json
 from validate_contracts import ROOT, validate
 
 
 SCHEMA = json.loads((ROOT / 'schemas/qa-assessment-v1.schema.json').read_text(encoding='utf-8'))
 Draft202012Validator.check_schema(SCHEMA)
 ASSESSMENT_VALIDATOR = Draft202012Validator(SCHEMA)
+SCHEMA_V2 = json.loads((ROOT / 'schemas/qa-assessment-v2.schema.json').read_text(encoding='utf-8'))
+Draft202012Validator.check_schema(SCHEMA_V2)
+ASSESSMENT_VALIDATOR_V2 = Draft202012Validator(SCHEMA_V2)
 LIFECYCLE_VALIDATOR = Draft202012Validator({'$ref': '#/$defs/lifecycleContext', '$defs': SCHEMA['$defs']})
 RULES_VERSION = 'p2-rules-1.0.0'
 
@@ -23,8 +27,10 @@ class AssessmentError(ValueError):
 
 
 def evaluate(bundle, assessment):
+    v2 = isinstance(assessment, dict) and assessment.get('assessmentVersion') == '2.0.0'
+    validator = ASSESSMENT_VALIDATOR_V2 if v2 else ASSESSMENT_VALIDATOR
     errors = validate(bundle)
-    for error in ASSESSMENT_VALIDATOR.iter_errors(assessment):
+    for error in validator.iter_errors(assessment):
         errors.append({'code': 'E_ASSESSMENT_SCHEMA', 'path': '/' + '/'.join(map(str, error.absolute_path)),
                        'message': 'Assessment schema constraint failed: ' + str(error.validator)})
     if errors:
@@ -102,6 +108,12 @@ def evaluate(bundle, assessment):
         raise AssessmentError(errors)
 
     record_mode = assessment['evaluationMode'] == 'record_review'
+
+    def effective_level(ev):
+        if v2 and ev['provenance']['kind'] == 'source_reasoning':
+            return 'source_review'
+        return ev['level']
+
     results = []
     for cid, criterion in criteria.items():
         plan = plans[cid]
@@ -151,13 +163,15 @@ def evaluate(bundle, assessment):
                 matches = supports[oid].get(key, [])
                 checked = matches + violates[oid].get(key, [])
                 required = set(plan['requiredLevels'])
-                if not matches or not required <= {e['level'] for e in matches}:
+                if not matches or not required <= {effective_level(e) for e in matches}:
                     missing.add((oid, key))
-                if not checked or not required <= {e['level'] for e in checked}:
+                if not checked or not required <= {effective_level(e) for e in checked}:
                     open_checks.add((oid, key))
         plan_pending = (plan['planState'] != 'accepted' or assessment['risk']['state'] != 'accepted'
                         or assessment['risk']['tier'] == 'unknown')
         open_parts = bool(open_checks or conflicts or plan_pending)
+        if v2 and conflicts:
+            reasons.add('EVIDENCE_CONFLICT')
         if plan_pending:
             reasons.add('COVERAGE_PLAN_PENDING')
         na = plan['naDecision']
@@ -213,7 +227,7 @@ def evaluate(bundle, assessment):
     open_mandatory_parts = any(criteria[r['criterionId']]['mandatory'] and r['hasOpenCoverage'] for r in results)
     failed = any(r['status'] == 'failed' for r in results)
     summary = 'failed' if failed else ('incomplete' if unverified or pending_constraints else 'complete')
-    return {'rulesVersion': RULES_VERSION, 'processingStatus': 'evaluated', 'evaluationMode': assessment['evaluationMode'],
+    return {'rulesVersion': 'p2-rules-2.0.0' if v2 else RULES_VERSION, 'processingStatus': 'evaluated', 'evaluationMode': assessment['evaluationMode'],
             'statusScope': 'record_only' if record_mode else 'candidate_scoped_assessment',
             'verification': summary, 'hasUnverifiedMandatory': unverified,
             'hasOpenMandatoryCoverage': open_mandatory_parts, 'pendingConstraintIds': pending_constraints,
@@ -262,9 +276,8 @@ def main():
     parser.add_argument('assessment', type=Path)
     args = parser.parse_args()
     try:
-        result = evaluate(json.loads(args.bundle.read_text(encoding='utf-8')),
-                          json.loads(args.assessment.read_text(encoding='utf-8')))
-    except (OSError, ValueError) as error:
+        result = evaluate(load_json(args.bundle), load_json(args.assessment))
+    except (OSError, ValueError, RecursionError) as error:
         details = error.errors if isinstance(error, AssessmentError) else [{'code': 'E_INPUT', 'message': 'Cannot read input JSON'}]
         print(json.dumps({'processingStatus': 'input_error', 'errors': details}, indent=2))
         return 2

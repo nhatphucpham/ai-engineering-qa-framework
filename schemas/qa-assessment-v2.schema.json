@@ -1,0 +1,537 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-framework:assessment-plan:2.0.0",
+  "title": "P2 trusted-assessment design specimen, not raw model output",
+  "type": "object",
+  "properties": {
+    "assessmentVersion": {
+      "const": "2.0.0"
+    },
+    "rulesVersion": {
+      "const": "p2-rules-2.0.0"
+    },
+    "classification": {
+      "const": "synthetic-only"
+    },
+    "specimenNotice": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+    },
+    "handoffId": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+    },
+    "candidateRevision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "evaluationMode": {
+      "enum": [
+        "execution_review",
+        "record_review"
+      ]
+    },
+    "risk": {
+      "type": "object",
+      "properties": {
+        "tier": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical",
+            "unknown"
+          ]
+        },
+        "state": {
+          "enum": [
+            "accepted",
+            "candidate"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "tier",
+        "state",
+        "rationale"
+      ],
+      "additionalProperties": false
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterionId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "planState": {
+            "enum": [
+              "accepted",
+              "draft"
+            ]
+          },
+          "scopeDescription": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "requiredLevels": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "unit",
+                "integration",
+                "source_review",
+                "qc_scenario"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "allowedProvenance": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "authored_mock",
+                "reported",
+                "execution",
+                "source_reasoning"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "obligations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "sourceArtifactId": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "requiredComparisonKeys": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "id",
+                "description",
+                "sourceArtifactId",
+                "locator",
+                "requiredComparisonKeys"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "applicability": {
+            "enum": [
+              "applicable",
+              "not_applicable_requested"
+            ]
+          },
+          "naDecision": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "accepted",
+                      "pending",
+                      "rejected"
+                    ]
+                  },
+                  "actorRef": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "sourceArtifactId": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "candidateRevision": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "state",
+                  "actorRef",
+                  "sourceArtifactId",
+                  "candidateRevision",
+                  "rationale"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "comparisonContexts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "sourceArtifactId": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                }
+              },
+              "required": [
+                "id",
+                "description",
+                "sourceArtifactId",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "criterionId",
+          "planState",
+          "scopeDescription",
+          "requiredLevels",
+          "allowedProvenance",
+          "obligations",
+          "applicability",
+          "naDecision",
+          "comparisonContexts"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "evidenceReviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidenceId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "integrity": {
+            "enum": [
+              "matched",
+              "unknown",
+              "mismatch"
+            ]
+          },
+          "attribution": {
+            "enum": [
+              "accepted",
+              "unknown",
+              "disputed"
+            ]
+          },
+          "scope": {
+            "enum": [
+              "accepted",
+              "unknown",
+              "mismatch"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "evidenceId",
+          "integrity",
+          "attribution",
+          "scope",
+          "rationale"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterionId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "obligationId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "evidenceId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "relation": {
+            "enum": [
+              "supports",
+              "violates",
+              "inconclusive"
+            ]
+          },
+          "judgment": {
+            "enum": [
+              "accepted",
+              "candidate",
+              "disputed"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "comparisonKey": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          }
+        },
+        "required": [
+          "criterionId",
+          "obligationId",
+          "evidenceId",
+          "relation",
+          "judgment",
+          "rationale",
+          "comparisonKey"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "policySourceArtifactId": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+    },
+    "assessorRef": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+    },
+    "projectConfigVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "dataPolicyVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "constraintReviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "constraintId": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          },
+          "judgment": {
+            "enum": [
+              "accepted",
+              "candidate",
+              "disputed"
+            ]
+          },
+          "actorRef": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sourceArtifactId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "candidateRevision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "constraintId",
+          "judgment",
+          "actorRef",
+          "sourceArtifactId",
+          "candidateRevision",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "assessmentVersion",
+    "rulesVersion",
+    "classification",
+    "specimenNotice",
+    "projectId",
+    "handoffId",
+    "candidateRevision",
+    "evaluationMode",
+    "risk",
+    "criteria",
+    "evidenceReviews",
+    "bindings",
+    "policySourceArtifactId",
+    "assessorRef",
+    "projectConfigVersion",
+    "dataPolicyVersion",
+    "constraintReviews"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "lifecycleContext": {
+      "type": "object",
+      "properties": {
+        "authorized": {
+          "type": "boolean"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "basisState": {
+          "enum": [
+            "accepted",
+            "pending",
+            "disputed"
+          ]
+        },
+        "basisRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          }
+        },
+        "assigneeRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "canonicalFindingRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "donePredicateMet": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authorized",
+        "rationale",
+        "basisState",
+        "basisRefs",
+        "assigneeRef",
+        "canonicalFindingRef",
+        "donePredicateMet"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

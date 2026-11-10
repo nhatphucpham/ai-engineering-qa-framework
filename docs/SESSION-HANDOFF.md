@@ -1,4 +1,28 @@
-# Bàn giao phiên 04/11/2026
+# Bàn giao phiên — mới nhất ở đầu
+
+## Review lặp bắt buộc — 10/11/2026, nền `9237018`
+
+Yêu cầu mới: luôn chỉ định ít nhất một reviewer độc lập mô hình cao; đưa output hiện tại vào review độ chính xác/tính thực dụng và reasoning cải thiện; sửa → kiểm chứng → re-review bản mới đến vòng sạch rồi mark DONE. Đã ghi vào AGENTS.md, [REVIEW-WORKFLOW](REVIEW-WORKFLOW.md) và plan. Reviewer hiện tại Astra high, root sửa, stable finding ledger tại [OUTPUT-REVIEW-LOOP](OUTPUT-REVIEW-LOOP.md).
+
+Mở lại review output phiên trước; reviewer tìm RV-01 JSON parser CLI không nhất quán, RV-02 action routing/doneWhen sai loại gap, RV-03 current docs stale. Vòng 2 đóng RV-01/RV-03 nhưng giữ RV-02 vì multiple blockers bị priority branches che mất. Đã refactor independent reason groups/dedup và thêm regression simultaneous check/conflict/plan, cùng các nhánh mismatch/NA/risk; root suite **24 methods pass (14.201s)**. Goldens và valid legacy replay giữ nguyên.
+
+**Output hiện tại: DONE sau vòng 3.** Astra high đối chiếu đủ 31 file của snapshot `offline-review-r3-2026-11-10`, tự chạy **24 methods pass (13.910s)**, đóng RV-02 và giữ RV-01/RV-03 đã đóng; không còn finding mở hoặc finding mới được tìm trong scope. Root đối chiếu lại sau reset: manifest/payload hashes và file inventory vẫn khớp; chỉ ghi nhận verdict/DONE hành chính, không thay code hoặc manifest và không giả đã rerun suite. Scope DONE là P2 v2/reference report/current docs/review workflow; P3-B/S1 chưa chạy và full runtime chưa hoàn tất. Tiếp S1 cross-runtime parity theo plan. Không commit/push/pilot/API thật.
+
+## P4-A prerequisite và plan — 10/11/2026, nền `9237018`
+
+Mục tiêu phiên: tiếp tục sau P3-A, kiểm phần đã làm bằng subagent mô hình cao, hoàn thiện bước nối report offline và làm rõ mục đích plan. Checkout `master` sạch khi bắt đầu. P3-B chưa có spike results; không tự chốt stack hoặc gọi design là runtime.
+
+Đã kiểm baseline bằng `py -3 -B -m unittest discover -s tools -p 'test_*.py' -v`: 8 methods pass, gồm 9 valid/58 negative P1, 55 decision/20 lifecycle P2 cùng checks CLI/repeatability. Python 3.14.8 chạy được; Node 26.12.1 hiện có, không là product pins. Không chạy fixture runners ghi execution.
+
+Plan được hợp nhất theo mục đích sản phẩm → phạm vi bản đầu → trạng thái/acceptance P0–P6 → dependencies/việc kế tiếp → verification/review. README, TARGET, ADR-003 và D-20 đồng bộ lý do ưu tiên reference report oracle trước S1; Python vẫn reference tooling. Full bản đầu vẫn gồm self-host multi-user/worker/container, hai intake/providers/ingress và Windows client, không hạ scope thành core đơn lẻ.
+
+Hoàn tất reference slice: `tools/evaluate_rules.py` dispatch strict v1/v2; schema/assessment v2 sửa source_reasoning tự gán integration coverage và mixed violation/conflict mất reason. V1 giữ replay lịch sử, không làm oracle corrected flow. `tools/project_report.py`, schema report v1 và tests/goldens mới tạo report từ v2, giữ declared/effective constraints, stages/risk/bindings/source/provenance, proposed actions và input digests; `--check` recompute phát hiện tamper. [Hướng dẫn chạy](OFFLINE-REPORT.md), [P2 audit/fix](P2-V2-REVIEW.md), [review phiên](P4-A-REFERENCE-REVIEW.md) ghi contract/CLI/digest/giới hạn.
+
+Ba subagents high-model tham gia: Astra audit rules và độc lập review report (7 tests pass 5.884s); Terra review patch v2/report sau fixes (không tự chạy); Astra plan reviewer cuối đã đọc plan, hướng dẫn OFFLINE-REPORT và handoff, không blocker sau sửa nit trạng thái P3-B. Reviewer này không đối chiếu độc lập toàn PRODUCT-DECISIONS/skill hoặc tự chạy tests. Root viết code sau tool ghi subagent bị treo/hủy. Đã xử lý các findings: stages/binding/risk trace, pending-declaration action, duplicate/recursion parser và serialized 1/1.0 tamper.
+
+Kiểm cuối: full suite **20 methods pass (10.171s)** sau duplicate-valid-report regression; P1/P2 legacy corpus và v2/report checks cùng pass. Links/fences ở 12 docs pass, diff whitespace pass; đối chiếu nền xác nhận fixture/evidence/protocol/schema/corpus lịch sử giữ nguyên. Không chạy fixture runners ghi execution, model/API, DB/container/native-shell hoặc benchmark.
+
+Trạng thái: P2 v2 và prerequisite P4-A reference report completed trong scope offline. **P3-B chưa chạy; P4 mới hoàn tất prerequisite report offline của P4-A.** Tiếp **S1 cross-runtime parity** trên v1 legacy + v2 corrected/report oracle, ghi numeric serialization/precision/version behavior, runtime/dependencies và số đo thực rồi quyết định core stack theo ADR-003. Full runtime report/persistence còn cần versioned contract/schema/graph/lifecycle integration; legacy exporter vẫn projection_unsupported, không report_ready/completed. DB/engine/secrets/GitHub/native spikes và plugin target còn mở. Chưa commit/push, pilot/E3/account/API thật/public publish.
 
 ## P3-A — kiến trúc đích đã review, 05/11/2026, nền `337ab82`
 

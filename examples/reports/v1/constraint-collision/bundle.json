@@ -1,0 +1,229 @@
+{
+  "contractVersion": "2.0.0",
+  "classification": "synthetic-only",
+  "specimenNotice": "P2 design specimen: execution-shaped records and assessment judgments are authored, not real execution or trust verification.",
+  "projects": [
+    {
+      "id": "proj",
+      "configVersion": 1,
+      "name": "Synthetic project",
+      "runtime": {
+        "mode": "model_api",
+        "provider": "openai",
+        "model": "synthetic-model",
+        "credentialRef": "secret-model"
+      },
+      "dataPolicy": {
+        "version": 1,
+        "allowedArtifactKinds": [
+          "requirement",
+          "test_output"
+        ],
+        "allowedPaths": [
+          "docs",
+          "evidence"
+        ],
+        "deniedPaths": [
+          ".env"
+        ],
+        "allowedProviders": [
+          "openai",
+          "anthropic"
+        ]
+      },
+      "triggers": {
+        "manual": true,
+        "kinds": [
+          "qc_handoff",
+          "pr_ready"
+        ],
+        "githubIngress": [
+          "polling",
+          "webhook"
+        ]
+      },
+      "budgets": {
+        "runTimeoutSeconds": 600,
+        "maxAttempts": 2,
+        "maxConcurrentRuns": 1,
+        "maxModelInputTokens": 8000,
+        "maxModelOutputTokens": 2000
+      },
+      "checks": [
+        {
+          "id": "unit",
+          "configArtifactId": "checkcfg",
+          "imageDigest": "synthetic/checks@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "timeoutSeconds": 120,
+          "networkPolicyRef": "network-project"
+        }
+      ],
+      "repository": {
+        "provider": "github",
+        "repositoryRef": "repo-github",
+        "credentialRef": "secret-repo"
+      },
+      "requirementConflictPolicy": "ask_owner_continue_independent",
+      "editPolicy": {
+        "sourceEdits": false,
+        "testEdits": false
+      }
+    }
+  ],
+  "memberships": [
+    {
+      "projectId": "proj",
+      "principalId": "user",
+      "role": "runner"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "req",
+      "projectId": "proj",
+      "kind": "requirement",
+      "revision": "req-v1",
+      "relativePath": "docs/requirements.md",
+      "sha256": null,
+      "taskRef": "task"
+    },
+    {
+      "id": "testlog",
+      "projectId": "proj",
+      "kind": "test_output",
+      "revision": "candidate-r12",
+      "relativePath": "evidence/test-output.json",
+      "sha256": null,
+      "taskRef": "task"
+    },
+    {
+      "id": "checkcfg",
+      "projectId": "proj",
+      "kind": "check_config",
+      "revision": "config-v1",
+      "relativePath": "qa/checks.json",
+      "sha256": null,
+      "taskRef": null
+    }
+  ],
+  "handoffs": [
+    {
+      "id": "handoff",
+      "projectId": "proj",
+      "intake": "handoff_bundle",
+      "candidateRevision": "candidate-r12",
+      "requirementVersion": "req-v1",
+      "decisionMoment": "qc_to_reviewer",
+      "requestedDecision": "Determine missing checks before next step",
+      "actors": {
+        "developerRef": "developer",
+        "qcRef": "qc",
+        "reviewerRef": null
+      },
+      "riskRationale": "Permission check in synthetic task",
+      "criteria": [
+        {
+          "id": "AC-1",
+          "expected": "Manager allowed and employee denied at export API",
+          "mandatory": true,
+          "claims": [
+            {
+              "artifactId": "req",
+              "locator": "AC-1",
+              "statement": "Only managers may export"
+            }
+          ],
+          "clarification": "clear",
+          "ownerRole": "domain-owner"
+        }
+      ],
+      "constraints": [
+        {
+          "id": "P-05",
+          "description": "Domain review required",
+          "mandatory": true,
+          "state": "satisfied",
+          "sourceArtifactId": "req"
+        }
+      ],
+      "stageRecords": [
+        {
+          "stage": "developer_self_test",
+          "state": "provided",
+          "evidenceIds": [
+            "ev-unit"
+          ]
+        },
+        {
+          "stage": "qc",
+          "state": "provided",
+          "evidenceIds": [
+            "ev-qc"
+          ]
+        }
+      ],
+      "knownIssues": [],
+      "taskRef": "task",
+      "sourceArtifactIds": [],
+      "diffArtifactIds": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-unit",
+      "projectId": "proj",
+      "handoffId": "handoff",
+      "criterionIds": [
+        "AC-1"
+      ],
+      "revision": "candidate-r12",
+      "checkId": "ev-unit",
+      "level": "integration",
+      "outcome": "pass",
+      "provenance": {
+        "kind": "execution",
+        "actorRef": "developer",
+        "environment": "contract-specimen",
+        "observedAt": "2026-11-05T03:00:00Z",
+        "sourceArtifactId": "testlog"
+      },
+      "reason": null,
+      "executionRef": "specimen-exec-1"
+    },
+    {
+      "id": "ev-qc",
+      "projectId": "proj",
+      "handoffId": "handoff",
+      "criterionIds": [
+        "AC-1"
+      ],
+      "revision": "candidate-r12",
+      "checkId": "ev-qc",
+      "level": "integration",
+      "outcome": "pass",
+      "provenance": {
+        "kind": "execution",
+        "actorRef": "qc",
+        "environment": "contract-specimen",
+        "observedAt": "2026-11-05T03:01:00Z",
+        "sourceArtifactId": "testlog"
+      },
+      "reason": null,
+      "executionRef": "specimen-exec-2"
+    }
+  ],
+  "events": [],
+  "commands": [],
+  "runs": [],
+  "reports": [],
+  "workerResults": [],
+  "progress": [],
+  "tasks": [
+    {
+      "id": "task",
+      "projectId": "proj",
+      "title": "Synthetic export task",
+      "externalRef": "github:issue:42"
+    }
+  ]
+}

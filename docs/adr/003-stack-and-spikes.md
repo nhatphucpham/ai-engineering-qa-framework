@@ -39,6 +39,12 @@ S2/S4 need actual DB/engine; mock tests alone cannot close them. S5 fixtures can
 
 05/11/2026: command discovery found Node `v26.12.1`, npm `11.20.0`; `rustc`, `cargo`, `docker` not found in PATH. This does not prove absent software/services elsewhere. No Rust/native/container/DB spike executed, no dependencies installed, no benchmark claimed. Python P1/P2 tooling remains development reference.
 
+### Cập nhật thứ tự 10/11/2026
+
+Trước S1 cross-runtime parity, xây [reference report offline](../OFFLINE-REPORT.md) bằng tooling Python hiện có để tạo oracle giữ P2 effective constraints và input lineage. Audit phát hiện hai lỗi P2 v1, nên oracle corrected flow chỉ nhận [assessment/rules v2](../P2-V2-REVIEW.md); v1 dùng replay lịch sử riêng. Output có version riêng, không phải P1 v2 report hoặc production contract. Việc này không chốt Python/stack, không đóng S1 và không thay số đo CPU/memory/native/DB/engine bằng unit tests. Legacy P1 v2 collision vẫn `projection_unsupported`; full runtime report/persistence còn cần contract tích hợp có version. Lý do và thứ tự tại IMPLEMENTATION-PLAN/D-20/D-21.
+
+S1 cần so cả report envelope và failure semantics với oracle, ngoài corpus P1/P2 gốc; validators không chỉ so shape mà phải phát hiện report bị sửa status/reasons/refs hoặc bound sang input khác. Có regression tests trên reference không đồng nghĩa đã đạt parity với runtime candidate.
+
 ## Decision after spikes
 
 Publish actual commands, locked dependency/runtime versions, environment, output and limits; compare candidates on the same workload. Promote individual ADR decisions only when relevant checks meet criteria or documented tradeoff is accepted within engineering scope. Stack gate remains open while evidence absent; do not mark P3 complete from docs alone. Missing agent host choice blocks platform manifest/package P6, not shared core/API design. No installer/public release/pilot authorization follows automatically.

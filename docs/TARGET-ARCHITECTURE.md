@@ -1,6 +1,6 @@
 # P3 — Kiến trúc đích v1
 
-Ngày 05/11/2026, nền `337ab82`. Đây là thiết kế đích, **chưa có các dịch vụ/runtime trong sơ đồ**. Hiện trạng chạy được chỉ gồm fixture và P1/P2 reference tooling. Yêu cầu: [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md); contracts: [P1 v2](DATA-CONTRACT.md); semantics: [P2 v1](VERIFICATION-RULES.md). Synthetic trong repo, chưa pilot/publish.
+Ngày 05/11/2026, nền `337ab82`, cập nhật reference integration 10/11/2026. Đây là thiết kế đích, **chưa có các dịch vụ/runtime trong sơ đồ**. Hiện trạng chạy được gồm fixture và reference tooling; [P2 v2](P2-V2-REVIEW.md) sửa hai lỗi audit, v1 chỉ giữ replay lịch sử. Yêu cầu: [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md); contracts: [P1 v2](DATA-CONTRACT.md); semantics: [P2](VERIFICATION-RULES.md). Synthetic trong repo, chưa pilot/publish.
 
 P3 chia hai phần kiểm chứng được: **P3-A thiết kế ranh giới/luồng/trách nhiệm** tại đây; **P3-B quyết định stack sau spike** tại [ADR-003](adr/003-stack-and-spikes.md). P3 chưa đóng toàn bộ khi spike chưa chạy. Không lấy lựa chọn đề xuất thành công nghệ đã được người dùng chọn hoặc số đo tối ưu.
 
@@ -126,6 +126,8 @@ Execution proof envelope nội bộ cần worker identity, project/run/attempt/t
 
 ## 5. Report projection giữ semantics P1/P2
 
+Cập nhật 10/11/2026: [reference report offline](OFFLINE-REPORT.md) chỉ nhận assessment/rules v2, là output có version riêng để giữ assessment/effective constraints và làm oracle cho parity. Đây là bước prerequisite P4-A, không thay P1 v2 wire report, lifecycle hoặc persistence trong section này. Full integration vẫn cần versioned runtime contract; không gọi report envelope offline là report_ready/completed của server.
+
 P2 output không phải P1 report. Projector v2 chỉ hỗ trợ subset mà P1 shape/graph và P2-derived consistency cùng biểu diễn được; không phải total mapping. Validate cả hai trước persist:
 
 | P2/input | P1 projection |
@@ -178,7 +180,7 @@ Blob filesystem đầu có thể server-local volume, mọi worker upload qua sc
 
 ## 7. API, desktop bridge và phiên bản
 
-Design chọn HTTPS JSON application API + replayable SSE progress, không gắn agent platform ([ADR-002](adr/002-transport-identity-and-execution.md)). Routes dưới đây là **interface inventory**, chưa là OpenAPI/server code. API version `/api/v1` khác domain contract `2.0.0` và rules `p2-rules-1.0.0`.
+Design chọn HTTPS JSON application API + replayable SSE progress, không gắn agent platform ([ADR-002](adr/002-transport-identity-and-execution.md)). Routes dưới đây là **interface inventory**, chưa là OpenAPI/server code. API version `/api/v1` khác domain contract `2.0.0` và current rules `p2-rules-2.0.0` (v1 chỉ replay lịch sử).
 
 | Nhóm interface | Nội dung | Quyền |
 |---|---|---|
@@ -263,7 +265,7 @@ Budget/spike tại ADR-003 là **engineering targets**, chưa số đo hoặc SL
 
 ## 12. Trình tự P3-B/P4 và tiêu chí bàn giao
 
-1. P3-B: bounded spikes chọn runtime/schema parity, transactional queue, desktop shell và container host; xác minh GitHub common occurrence/revision khả thi. Ghi actual environment/output hoặc chưa chạy, không điền benchmark giả.
+1. Prerequisite P4-A reference report/oracle trước S1 theo plan cập nhật 10/11; sau đó P3-B bounded spikes chọn runtime/schema parity, transactional queue, desktop shell và container host; xác minh GitHub common occurrence/revision khả thi. Ghi actual environment/output hoặc chưa chạy, không điền benchmark giả. Reference Python không chốt product stack hoặc đóng P3-B.
 2. P4-A: khép report/constraint collision bằng versioned contract trước full projection; pure core + partial projector fail-closed rồi synthetic headless harness, no model/network; typed internal assessment/export manifest trước persistence.
 3. P4-B: auth/project/config + intake/API/DB/immutable blob/outbox, tests RBAC/revoke/concurrency; admin/secret interfaces spec trước exposed endpoint.
 4. P4-C: worker enrollment/lease/check container/cleanup; fake providers và fake local connector; trusted assessment pipeline, policy/budgets/audit. Fake không là actual execution/provider readiness.

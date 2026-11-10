@@ -1,10 +1,10 @@
-# P2 — Quy tắc kiểm chứng, finding và action v1
+# P2 — Quy tắc kiểm chứng, finding và action
 
-Ngày 05/11/2026, nền `2463cc0`. Rules `p2-rules-1.0.0`, dùng [contract v2](DATA-CONTRACT.md). Đây là **semantics và reference evaluator offline**, không có server, model, container, authentication, execution attestation hoặc workflow production. Ví dụ chỉ synthetic.
+Semantics nền ngày 05/11/2026, cập nhật 10/11/2026 từ `9237018`. Current assessment `2.0.0` / rules `p2-rules-2.0.0`, dùng [contract P1 v2](DATA-CONTRACT.md). [Audit và regression v2](P2-V2-REVIEW.md) ghi hai lỗi đã tìm: source reasoning tự gán integration level và mixed violation/conflict mất reason. V1 giữ semantics/corpus lịch sử để replay, có known limitations; không dùng làm oracle corrected report. Đây là **semantics và reference evaluator offline**, không có server, model, container, authentication, execution attestation hoặc workflow production. Ví dụ chỉ synthetic.
 
 ## 1. Rule nhận gì và không thể tự chứng minh gì?
 
-Reference evaluator nhận bundle P1 v2 và assessment sidecar theo [schema](../schemas/qa-assessment-v1.schema.json). Bundle giữ requirement/source/evidence/revision. Sidecar giữ coverage plan, risk/context, mappings và judgment đã được cung cấp. Không lấy verdict trong report cũ làm đầu vào quyết định; report cũ nếu có chỉ được P1 kiểm cấu trúc.
+Reference evaluator nhận bundle P1 v2 và assessment sidecar theo [schema v2](../schemas/qa-assessment-v2.schema.json). [Schema v1](../schemas/qa-assessment-v1.schema.json) chỉ phục vụ replay explicit v1, không silent upgrade. Bundle giữ requirement/source/evidence/revision. Sidecar giữ coverage plan, risk/context, mappings và judgment đã được cung cấp. Không lấy verdict trong report cũ làm đầu vào quyết định; report cũ nếu có chỉ được P1 kiểm cấu trúc.
 
 Rule xác định được logic từ các dữ liệu đó. Rule **không** tự đọc code rồi chứng minh semantic correctness, xác thực người chạy, kiểm source hash thật hoặc biết judgment của model đúng. Sidecar không được coi là API công khai cho model tự gắn `accepted` rồi lấy status verified.
 
@@ -77,6 +77,8 @@ Một pass trong tình huống A không phủ định counterexample ở tình h
 
 `requiredLevels` áp dụng cho từng required context của obligation. Không đếm 10 unit test thành một integration test. Source reasoning có thể chứng minh lỗi mà không cần assertion fail; để verify positive bằng source reasoning, plan phải chấp nhận source_review và coverage đủ, không thay required integration bằng một nhận xét source.
 
+V2 thực thi quy tắc này bằng effective level `source_review` cho provenance `source_reasoning`, kể cả metadata tự gán level `integration`/`unit`. Áp dụng cho cả positive coverage và open-check accounting, không loại bỏ source counterexample hợp lệ. Conflict reason được giữ độc lập với status precedence, nên violation rõ + conflict cùng AC vẫn failed/open và có cả hai reason.
+
 ## 6. Coverage chưa đủ và tổng thể
 
 Reference output có:
@@ -137,19 +139,22 @@ P3 phải thiết kế nơi trusted context hình thành/được kiểm, nơi s
 
 ## 10. Scenarios, công cụ và kết quả
 
-[Bộ tình huống](../examples/rules/v1/README.md) gồm 55 decision scenarios và 20 lifecycle cases; [reference evaluator](../tools/evaluate_rules.py), [tests](../tools/test_rules.py). Dependency dev dùng lại `tools/requirements-contracts.txt`, không chốt product language/stack.
+[Bộ tình huống v1](../examples/rules/v1/README.md) gồm 55 decision scenarios và 20 lifecycle cases, giữ replay lịch sử. [V2](../examples/rules/v2/README.md) và [tests v2](../tools/test_rules_v2.py) kiểm corrected semantics, legacy compatibility, version mismatch và no-mutation. [Reference evaluator](../tools/evaluate_rules.py) dispatch theo assessment version; không silent upgrade. Dependency dev dùng lại `tools/requirements-contracts.txt`, không chốt product language/stack.
 
 ```text
 py -3 -X utf8 -B tools/test_rules.py -v
-py -3 -X utf8 -B tools/evaluate_rules.py examples/rules/v1/base-bundle.json examples/rules/v1/base-assessment.json
+py -3 -X utf8 -B tools/test_rules_v2.py -v
+py -3 -X utf8 -B tools/evaluate_rules.py examples/rules/v1/base-bundle.json examples/rules/v2/base-assessment.json
 ```
 
 CLI: exit 0 evaluated + verification complete; exit 1 evaluated nhưng failed/incomplete; exit 2 input_error, không có status QA. Reference result và reason codes hiển thị rõ để không nhầm exit 1 là process crash. Không network/model/container/test project hoặc ghi đè input/report.
 
-Bốn unittest methods dùng subtests: decision table, lifecycle, repeatable/no-mutation và CLI semantics. Tests đã pass cho requirement conflict/independent AC, coverage thiếu, same-context conflict vs different-context counterexample, source proof, record-only, stale/trust gaps, N/A accepted/rejected/contradicted, P-05 và lifecycle. Không tính số case thành effectiveness hoặc số lỗi app đã phát hiện.
+Evaluator và report CLI dùng chung strict JSON intake tại `tools/json_input.py`: duplicate members, NaN/Infinity hoặc deep recursion bị từ chối thành input_error, không traceback/raw-value diagnostics. Valid v1 replay vẫn giữ semantics; JSON mơ hồ/lỗi không được coi là historical compatibility cần giữ.
+
+Bốn unittest methods v1 (`tools/test_rules.py`) dùng subtests: decision table, lifecycle, repeatable/no-mutation và CLI semantics. V2 và report/shared-parser tests có methods riêng, không gộp vào con số bốn này. Tests đã pass cho requirement conflict/independent AC, coverage thiếu, same-context conflict vs different-context counterexample, source proof, record-only, stale/trust gaps, N/A accepted/rejected/contradicted, P-05 và lifecycle. Không tính số case thành effectiveness hoặc số lỗi app đã phát hiện.
 
 ## 11. Gate P2 và bước tiếp
 
-P2 v1 có precedence/sufficiency theo scope, mode/provenance/risk, mandatory constraint, finding/action lifecycle và reference scenarios kiểm được. P1 v2/schema/specimens được giữ nguyên, không thay identity hay field P1 ngầm. Không claim domain truth, independent evaluation hoặc runtime readiness.
+P2 có precedence/sufficiency theo scope, mode/provenance/risk, mandatory constraint, finding/action lifecycle và reference scenarios kiểm được; v2 sửa hai lỗi audit, v1 chỉ replay lịch sử. P1 v2/schema/specimens được giữ nguyên, không thay identity hay field P1 ngầm. Không claim domain truth hoặc runtime readiness từ independent code review/reference tests.
 
-Tiếp P3: `TARGET-ARCHITECTURE.md` và ADR cho shared core/workflow, trusted assessment boundary, server/auth/project, worker/container, agent/API adapters, GitHub ingress, storage/run/event và desktop client. Chưa chọn stack bằng việc Python reference tools tồn tại; không pilot/E3/public publish.
+Prerequisite [reference report P4-A](OFFLINE-REPORT.md) đã hoàn tất trong scope offline. Việc tiếp theo là P3-B/S1 parity và stack spikes theo [plan hiện hành](IMPLEMENTATION-PLAN.md). P3-A đã có target/ADRs; trusted acceptance và runtime enforcement vẫn cần implementation riêng. Không chọn stack bằng việc Python reference tools tồn tại; không pilot/E3/public publish.

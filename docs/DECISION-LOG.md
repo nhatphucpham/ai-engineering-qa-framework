@@ -1,5 +1,25 @@
 # Decision log
 
+## D-22 — 10/11/2026: reviewer thường trực và vòng sửa đến clean
+
+Người dùng yêu cầu luôn có một agent review output hiện tại về độ chính xác/tính thực dụng, kèm suy luận cải thiện; sửa findings rồi lặp trên bản mới đến khi không còn lỗi cũ/lặp/mới được tìm, sau đó mark done. Ghi thành quy tắc repo trong AGENTS.md và REVIEW-WORKFLOW; plan/handoff phải dùng cùng gate. Dùng ít nhất một reviewer độc lập mô hình cao, stable finding IDs, không dừng theo số vòng tùy ý hoặc lấy suite xanh thay clean verdict.
+
+Áp dụng ngay cho output P2 v2/reference report/plan đang có, mở lại review dù phiên trước đã pass targeted checks. Record tại OUTPUT-REVIEW-LOOP. DONE chỉ cho scope output đã kiểm, không claim toàn sản phẩm hoàn tất hoặc quyền publish/commit/push. Reviewer hiện tại Astra high; root xử lý fixes và kiểm chứng rồi gửi bản mới để đóng findings, không tự đóng chỉ từ lời tác giả.
+
+## D-21 — 10/11/2026: rules v2 sau independent audit
+
+Review GPT-6 Astra high tìm hai lỗi trong P2 v1; root đã replay bằng synthetic copies trong memory. (1) Scenario source-proof đổi requiredLevels và evidence.level sang integration vẫn được v1 đánh verified/complete dù provenance chỉ source_reasoning, không có execution. (2) Có clear violation và comparable conflict cùng lúc thì v1 giữ failed/open coverage nhưng thiếu reason EVIDENCE_CONFLICT.
+
+Sửa bằng assessment/rules v2 explicit, không đổi nghĩa v1 hoặc sửa corpus lịch sử: source_reasoning chỉ tính source_review cho positive/open coverage; source counterexample vẫn có thể chứng minh violation có nguồn. Conflict reason độc lập với status precedence. Shape migration chỉ đổi version fields, không tự nâng authority/trust hoặc chấp nhận domain judgment. Reference report mới chỉ nhận v2; v1 chỉ để replay lịch sử có known limitations, không làm oracle corrected flow. Kiểm tra/review kết quả tại P2-V2-REVIEW và P4-A-REFERENCE-REVIEW; chưa coi bản sửa có tests là production readiness.
+
+## D-20 — 10/11/2026: hoàn thiện reference report trước parity spike
+
+Nền `9237018`. Người dùng yêu cầu tiếp tục chỗ dừng, dùng subagent mô hình cao kiểm tra/cải thiện phần đã làm và làm rõ mục đích plan. Kiểm tra ban đầu thấy P3-A design đã đóng, P3-B chưa có results; P1/P2 có regression tooling nhưng còn declared/effective constraint collision khi nối report.
+
+Ưu tiên prerequisite P4-A: report offline có version riêng, tách declared/effective constraints, giữ references/reasons/limitations và bindings về immutable input; dùng làm oracle cho S1 cross-runtime parity. Sau audit D-21, report mới dùng P2 v2, giữ v1 để replay lịch sử. Python chỉ là reference tooling hiện có, không chốt runtime/stack đích. Không mutate frozen handoff/P1 v2/P2 corpus hoặc nâng verification để hợp schema. Output riêng không tự là P1 report/persistence: collision export v2 vẫn fail-closed, không report_ready/completed. Runtime integration cần versioned contract/schema/graph tests tiếp theo.
+
+Đổi thứ tự vì cần oracle không mất semantics trước so parity và có thể hoàn thành bằng tooling hiện có, không cần DB/engine/native shell. Giữ P3-B mở và kiểm từng boundary bằng spike actual; không dùng unit tests để đóng DB/container/native/provider gate. Plan thêm mục đích người dùng, trạng thái thực, phụ thuộc/acceptance theo slice và phân biệt reference/prototype/product/package. Review độc lập mô hình cao và kết quả thực chạy lưu tại record phiên, không ghi trước verdict. Chưa pilot, account/API/project thật, commit/push hoặc public publish.
+
 ## D-19 — 05/11/2026: kiến trúc P3-A và review sau mỗi step
 
 Nền `337ab82`. Người dùng yêu cầu tiếp như cũ và sau mỗi step dùng subagent kiểm tra lại. Áp dụng cho các step tiếp theo: independent review, sửa findings, kiểm lại trước commit/push; không chỉ tự review rồi gọi độc lập.

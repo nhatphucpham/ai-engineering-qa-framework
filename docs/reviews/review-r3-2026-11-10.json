@@ -1,0 +1,167 @@
+{
+  "snapshotId": "offline-review-r3-2026-11-10",
+  "phase": "review_input_before_administrative_closure",
+  "baselineCommit": "9237018a9ce5b0dd28d26984e1db5182adad0b2c",
+  "createdAtUTC": "2026-11-10T07:41:45.193858+00:00",
+  "scope": "Current synthetic offline implementation, tests, docs and persistent review policy",
+  "excluded": [
+    "docs/reviews/review-r3-2026-11-10.json"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 1810,
+      "sha256": "de1b596f19bcc8c26ad03574bcdb88cd6c9156dfc0420f93de0ef215f16483f0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7355,
+      "sha256": "11a41f51b7e7e5612d31461ee852a08b1635c0b728c9a5f4d41a32229a085b6f"
+    },
+    {
+      "path": "docs/DECISION-LOG.md",
+      "bytes": 22178,
+      "sha256": "653d2152f222e1fe1fcf8863a52eb7cb53e17cc341b934bc4b0202bcd7d5efcf"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-PLAN.md",
+      "bytes": 14607,
+      "sha256": "62319b97cdd3f4b588426c6b20096d7c4a92552217e666177f3614edbd55dbf4"
+    },
+    {
+      "path": "docs/OFFLINE-REPORT.md",
+      "bytes": 7542,
+      "sha256": "8c46c3d42a47802e76605f13d5ed324054b29182f631ebad4e6b2378f0d037f6"
+    },
+    {
+      "path": "docs/OUTPUT-REVIEW-LOOP.md",
+      "bytes": 5570,
+      "sha256": "4a679695bd93a054ed46d3536feecb7f6a5cf23c0b67233334f52f2e8cf68120"
+    },
+    {
+      "path": "docs/P2-V2-REVIEW.md",
+      "bytes": 2740,
+      "sha256": "50f25d5d20dcbe151f3462fe8f95c5e66ebeb56502f50837142920202985d6a9"
+    },
+    {
+      "path": "docs/P4-A-REFERENCE-REVIEW.md",
+      "bytes": 6840,
+      "sha256": "ee98f4d417facc68cce484de234e0677f6409cbc8de5c7d1902c4ccbba8cb7f4"
+    },
+    {
+      "path": "docs/REVIEW-WORKFLOW.md",
+      "bytes": 5392,
+      "sha256": "960e1c26cbdc3450f7323b1b6afe42a6763aafa9a06f9c50bebbb30430358252"
+    },
+    {
+      "path": "docs/SESSION-HANDOFF.md",
+      "bytes": 24169,
+      "sha256": "27b3da62c005ec16ef49b81f33888b4bd51753432f0b44e595eb64cf5c31cff1"
+    },
+    {
+      "path": "docs/TARGET-ARCHITECTURE.md",
+      "bytes": 39811,
+      "sha256": "40d584933eeed587fb52ee0f7377a057421a16f9482b080df5c0cc93264fd6f6"
+    },
+    {
+      "path": "docs/VERIFICATION-RULES.md",
+      "bytes": 21099,
+      "sha256": "747e5510272fc8dc5a32c53c2c075fed4f5617fe583de3bf85fee81ebead49ba"
+    },
+    {
+      "path": "docs/adr/003-stack-and-spikes.md",
+      "bytes": 9064,
+      "sha256": "e7e5dd9c66010a8568d98ab27f627aab50d0e19af6e2bac312e6e054525956bd"
+    },
+    {
+      "path": "docs/reviews/review-r2-2026-11-10.json",
+      "bytes": 5506,
+      "sha256": "100e79f878991d5157863a7b2cfbca60879919661de5757c7bbf2b90e4601c07"
+    },
+    {
+      "path": "examples/reports/v1/README.md",
+      "bytes": 1861,
+      "sha256": "c232876a0ebf53460f54d4785535d7fa3e8c5f452517043d857394e2d66e3a67"
+    },
+    {
+      "path": "examples/reports/v1/complete/assessment.json",
+      "bytes": 3204,
+      "sha256": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f"
+    },
+    {
+      "path": "examples/reports/v1/complete/bundle.json",
+      "bytes": 5597,
+      "sha256": "b43840b3615385d0e87f5547d42d0d063a9ee2a023b68e4e00aeb2759e48aae7"
+    },
+    {
+      "path": "examples/reports/v1/complete/report.json",
+      "bytes": 8385,
+      "sha256": "7c1c286ee93c335ea51d7b31f6b56e14eb6a11fb0780b86181a13a138a814349"
+    },
+    {
+      "path": "examples/reports/v1/constraint-collision/assessment.json",
+      "bytes": 3204,
+      "sha256": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f"
+    },
+    {
+      "path": "examples/reports/v1/constraint-collision/bundle.json",
+      "bytes": 5804,
+      "sha256": "f5fdd2937b1dc2d62e86c80c3417a67eb67e99b6fbd417b7d608e0702ec7ffe3"
+    },
+    {
+      "path": "examples/reports/v1/constraint-collision/report.json",
+      "bytes": 9246,
+      "sha256": "fc790e49d2aff5e96b8c8f6df9e835ce0dba799df76c56d8eaa336a8dedb7956"
+    },
+    {
+      "path": "examples/rules/v2/README.md",
+      "bytes": 1183,
+      "sha256": "d92ad9bedeb99985903f2b1dcc82b4c8a8762027398b09f4dcb9f4c6e1a5c6f1"
+    },
+    {
+      "path": "examples/rules/v2/base-assessment.json",
+      "bytes": 3092,
+      "sha256": "35410a3ced7added354f3d392eaefc87aabec82f8c6e19fb8d6a271145e437cc"
+    },
+    {
+      "path": "schemas/qa-assessment-v2.schema.json",
+      "bytes": 13328,
+      "sha256": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea"
+    },
+    {
+      "path": "schemas/qa-offline-report-v1.schema.json",
+      "bytes": 33164,
+      "sha256": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa"
+    },
+    {
+      "path": "tools/evaluate_rules.py",
+      "bytes": 17016,
+      "sha256": "5289bf9e74177226450306a602be5892212adb330c9852f87602de76cb48b2c9"
+    },
+    {
+      "path": "tools/json_input.py",
+      "bytes": 557,
+      "sha256": "b830f35d5cf82674377dc8c3fad9f193072f60d05665dc1cd891a5ae02d08c71"
+    },
+    {
+      "path": "tools/project_report.py",
+      "bytes": 12358,
+      "sha256": "c1860435c014b3761f5adba8a64b54ee3e8b0e361dbd4354947b16d6e4ea9126"
+    },
+    {
+      "path": "tools/test_json_input.py",
+      "bytes": 2612,
+      "sha256": "1c4137dcd76395578f3e1b024846fdc843bbdaa9c20df6f9787e38e7b86ca3bd"
+    },
+    {
+      "path": "tools/test_reports.py",
+      "bytes": 13876,
+      "sha256": "8eca95d9832f491b3c1b8f32d382ffd73f6b8d7d847940227b028a41092b7103"
+    },
+    {
+      "path": "tools/test_rules_v2.py",
+      "bytes": 4509,
+      "sha256": "bf72a0a936258bc98754988cdeb9dee3fc617dcab0789e7c855a459e9b59400b"
+    }
+  ]
+}

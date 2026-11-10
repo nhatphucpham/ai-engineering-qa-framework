@@ -1,15 +1,17 @@
 # ai-engineering-qa-framework
 A practical framework for quality assurance in AI engineering systems, from evaluation and testing to safety and release readiness.
 
-## Hướng phát triển hiện hành — 05/11/2026
+## Hướng phát triển hiện hành — 10/11/2026
 
-**Plugin QA + desktop Windows + server/worker self-host nhiều người; chưa pilot.** [Các lựa chọn đã chốt](docs/PRODUCT-DECISIONS.md) là nguồn yêu cầu từ người dùng: agent local hoặc OpenAI/Anthropic API, project data policy, container kiểm thử, GitHub polling/webhook, auth nội bộ và fixed roles. [Scope P0](docs/FRAMEWORK-SCOPE.md) và [plan P0–P6](docs/IMPLEMENTATION-PLAN.md) dùng một core chung; agent target/transport/stack chưa chọn. [Định hướng kỹ thuật](docs/TECHNOLOGY-DIRECTION.md) là shortlist chưa chốt. P1 contract v2 và P2 rules v1 đã có, P3-A có thiết kế, bước tiếp P3-B spike/chốt stack; chưa có phần mềm installable hoặc quyền publish. Walkthrough/feedback cũ là lịch sử.
+**Mục đích: giúp Reviewer/Tech Lead biết requirement nào có evidence đúng revision, gap gì còn mở và ai xử lý tiếp.** Sản phẩm đích là plugin QA + desktop Windows + server/worker self-host nhiều người; chưa pilot. [Các lựa chọn đã chốt](docs/PRODUCT-DECISIONS.md) là nguồn yêu cầu: agent local hoặc OpenAI/Anthropic API, project data policy, container kiểm thử, GitHub polling/webhook, auth nội bộ và fixed roles. [Scope P0](docs/FRAMEWORK-SCOPE.md) và [plan P0–P6](docs/IMPLEMENTATION-PLAN.md) dùng một core chung; agent target và product stack chưa chọn. Transport HTTPS JSON/SSE là thiết kế tại ADR-002, chưa có server. P1 contract v2, P2 rules v2 và reference report/harness đã có; P3-A design đã review. **Bước tiếp: P3-B/S1 parity spike trên oracle mới**, rồi quyết định stack theo actual results. Chưa có phần mềm installable hoặc quyền publish. Walkthrough/feedback cũ là lịch sử.
 
 ## Kiến trúc thực tế hiện tại
 
-P1 hiện có [contract v2](docs/DATA-CONTRACT.md), [JSON Schema v2](schemas/qa-contract-v2.schema.json) và [specimen valid/invalid](examples/contracts/v2/README.md), kèm công cụ kiểm schema/reference offline. Chưa có QA engine/server/worker/auth/container runtime; [P2 rules v1](docs/VERIFICATION-RULES.md) có assessment schema và reference evaluator offline: 55 decision scenarios, 20 lifecycle cases. Công cụ tính trạng thái từ judgment được cung cấp, chưa tự xác thực trust/domain truth; [P3-A kiến trúc đích](docs/TARGET-ARCHITECTURE.md) có component/sequence/dataflow và ADRs; P3 tổng thể còn partial vì stack/spikes chưa kiểm chứng. Python kiểm contract là dev tooling, không chốt stack sản phẩm. [Audit và bản sửa P1](docs/P1-REVIEW-FIXES.md) ghi lý do version hóa; v1 giữ lịch sử và không còn được active validator chấp nhận.
+P1 hiện có [contract v2](docs/DATA-CONTRACT.md), [JSON Schema v2](schemas/qa-contract-v2.schema.json) và [specimen valid/invalid](examples/contracts/v2/README.md), kèm công cụ kiểm schema/reference offline. Chưa có QA engine/server/worker/auth/container runtime; [P2 rules](docs/VERIFICATION-RULES.md) có strict schemas v1/v2 và reference evaluator: corpus 55 decision scenarios, 20 lifecycle cases cùng v2 regression. Công cụ tính trạng thái từ judgment được cung cấp, chưa tự xác thực trust/domain truth; [P3-A kiến trúc đích](docs/TARGET-ARCHITECTURE.md) có component/sequence/dataflow và ADRs; P3 tổng thể còn partial vì stack/spikes chưa kiểm chứng. Python là dev/reference tooling, không chốt stack sản phẩm. [Audit và bản sửa P1](docs/P1-REVIEW-FIXES.md) ghi lý do version hóa; P1 v1 giữ lịch sử và không còn được active validator chấp nhận.
 
 [Sơ đồ và khảo sát kiến trúc as-is](docs/CURRENT-ARCHITECTURE.md) phân biệt phương pháp thủ công, runner minh họa, evidence và phần mềm chưa được xây. Có audit subagent model cao. Các tài liệu đề xuất bên dưới chưa chứng minh repo sẵn sàng pilot vận hành.
+
+[Rules v2 sau audit](docs/P2-V2-REVIEW.md) sửa source reasoning tự gán integration coverage và mất conflict reason khi đồng thời có violation. V1 chỉ giữ replay lịch sử; [reference report offline](docs/OFFLINE-REPORT.md) dùng assessment v2, tạo output có version riêng, giữ declared/effective constraints và bindings về input. Đây là prerequisite P4-A/S1, không phải P1 report đã persist, execution project thật hoặc production runtime. Legacy P1 v2 projection gặp constraint collision vẫn cần fail-closed; chưa đóng full integration gate.
 
 ## Kết quả hiện tại và đề xuất
 
@@ -53,7 +55,7 @@ Runner này ghi execution local cùng hash input; xem [hướng dẫn case](exam
 
 [Snapshot sửa riêng](examples/remediation/06-filter-pagination/README.md) giữ nguyên fixture lỗi, chạy cùng baseline/historical/probe trên head gốc và bản sửa. [Hồ sơ sau sửa](pilot/mock/MOCK-06-remediation.md) ghi evidence mới và requirement còn chưa rõ; [decision log](docs/DECISION-LOG.md) nêu lý do chọn targeted checks thay vì automation tổng quát.
 
-Bước tiếp theo: dùng [phiếu thử review G1](docs/REVIEWER-CHECK.md) để kiểm tra người đọc có truy được claim và chọn hành động hay không. Phiếu đang chờ phản hồi thật, chưa phải kết quả usability.
+Đây là bước walkthrough lịch sử. [Phiếu thử review G1](docs/REVIEWER-CHECK.md) ghi việc truy claim/action, chưa chứng minh usability hoặc thay [bước phát triển hiện hành](docs/IMPLEMENTATION-PLAN.md).
 
 ## MOCK-06 v2 — Sau khi chốt cách xử lý dấu cách
 
