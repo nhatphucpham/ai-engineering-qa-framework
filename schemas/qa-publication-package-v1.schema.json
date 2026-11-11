@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-framework:publication-package:1.0.0",
+  "title": "Staged internal publication/replay package; no durable or outbound authorization",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packageVersion",
+    "kind",
+    "classification",
+    "publicationState",
+    "handling",
+    "target",
+    "containedScopes",
+    "manifest",
+    "payloads",
+    "graph"
+  ],
+  "properties": {
+    "packageVersion": {
+      "const": "1.0.0"
+    },
+    "kind": {
+      "const": "internal_publication_candidate"
+    },
+    "classification": {
+      "const": "synthetic-only"
+    },
+    "publicationState": {
+      "const": "staged"
+    },
+    "handling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storageClass",
+        "inputScope",
+        "outboundAuthorization",
+        "artifactBytesIncluded"
+      ],
+      "properties": {
+        "storageClass": {
+          "const": "restricted_internal_replay"
+        },
+        "inputScope": {
+          "const": "whole_bundle"
+        },
+        "outboundAuthorization": {
+          "const": "not_evaluated"
+        },
+        "artifactBytesIncluded": {
+          "const": false
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projectId",
+        "taskRef",
+        "handoffId",
+        "runId",
+        "reportId",
+        "candidateRevision",
+        "requirementVersion",
+        "projectConfigVersion",
+        "dataPolicyVersion"
+      ],
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "taskRef": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "handoffId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "runId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "reportId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+          "maxLength": 96,
+          "not": {
+            "pattern": "[^A-Za-z0-9._-]"
+          }
+        },
+        "candidateRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "requirementVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "projectConfigVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dataPolicyVersion": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "containedScopes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projectIds",
+        "tasks"
+      ],
+      "properties": {
+        "projectIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+          }
+        },
+        "tasks": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "projectId",
+              "taskRef"
+            ],
+            "properties": {
+              "projectId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              },
+              "taskRef": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "manifestVersion",
+        "algorithm",
+        "entries"
+      ],
+      "properties": {
+        "manifestVersion": {
+          "const": "1.0.0"
+        },
+        "algorithm": {
+          "const": "sha256-python-json-v1"
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "slot",
+              "mediaType",
+              "sha256",
+              "canonicalByteLength"
+            ],
+            "properties": {
+              "slot": {
+                "enum": [
+                  "bundle",
+                  "assessment",
+                  "prepared"
+                ]
+              },
+              "mediaType": {
+                "const": "application/json"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "canonicalByteLength": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "payloads": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bundle",
+        "assessment",
+        "prepared"
+      ],
+      "properties": {
+        "bundle": {
+          "$ref": "urn:qa-framework:contract-bundle:2.0.0"
+        },
+        "assessment": {
+          "$ref": "urn:qa-framework:assessment-plan:2.0.0"
+        },
+        "prepared": {
+          "$ref": "urn:qa-framework:prepared-report:1.0.0"
+        }
+      }
+    },
+    "graph": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "graphVersion",
+        "completedRunCandidate",
+        "reportReference",
+        "reportReadyCandidate"
+      ],
+      "properties": {
+        "graphVersion": {
+          "const": "1.0.0"
+        },
+        "completedRunCandidate": {
+          "$ref": "urn:qa-framework:contract-bundle:2.0.0#/$defs/run"
+        },
+        "reportReference": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "projectId",
+            "runId",
+            "reportId",
+            "reportSha256"
+          ],
+          "properties": {
+            "projectId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "runId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "reportId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+              "maxLength": 96,
+              "not": {
+                "pattern": "[^A-Za-z0-9._-]"
+              }
+            },
+            "reportSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "reportReadyCandidate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "projectId",
+            "runId",
+            "type",
+            "sequence",
+            "runStateVersion",
+            "referenceIds"
+          ],
+          "properties": {
+            "projectId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "runId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+            },
+            "type": {
+              "const": "report_ready"
+            },
+            "sequence": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "runStateVersion": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "referenceIds": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+                "maxLength": 96,
+                "not": {
+                  "pattern": "[^A-Za-z0-9._-]"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

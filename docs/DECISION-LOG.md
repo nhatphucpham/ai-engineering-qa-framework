@@ -1,5 +1,15 @@
 # Decision log
 
+## D-25 — 10/11/2026: staged publication/replay contract trước storage
+
+User yêu cầu tiếp các bước. Giữ WT-P4A-R2 đã review, chọn slice P4-A package tự chứa + typed manifest/graph và anchored replay validator. Whole raw bundle có thể chứa nhiều project/task nên envelope restricted internal replay ghi toàn contained scopes, không giả target-only export hoặc outbound permission. Caller-held input digests/IDs ngăn coherent substitution; self-consistency không là trust. Không đổi P1 v2/runtime-v1 schemas/goldens và không tự chọn DB/server. [Scope/acceptance](P4-A-PUBLICATION.md), [review](P4-A-PUBLICATION-REVIEW.md) CLEAN, slice DONE xác nhận 11/11; tiếp runtime-storage decision prerequisites/transaction adapter và scoped read/export. Không commit/push/pilot/public publish.
+
+## D-24 — 10/11/2026: P4-A internal report/core slice, chưa publication
+
+Theo yêu cầu tiếp P4-A, chọn slice bounded: tách implementation Python dùng chung khỏi tooling và thêm versioned internal report/completion proposal v1 giữ nguyên offline content, exact run binding và raw/effective constraint semantics. Không chọn full P1 v3 trong phiên này vì production storage/publication/export còn cần contract riêng; P1 v2 và legacy exporter giữ fail-closed, không mutate handoff hoặc AC để hợp validator. Đây là phân rã mục tiêu P4-A, không đổi hướng ADR-004 hoặc tuyên bố persistence/lifecycle runtime đã xong.
+
+Scope/acceptance/checks/review tại [P4-A-RUNTIME-REPORT](P4-A-RUNTIME-REPORT.md) và [review](P4-A-RUNTIME-REVIEW.md). Slice DONE sau review R2 sạch, P4A-RV-01..06 closed và 38 methods pass; full P4-A partial. Không chọn server/worker/DB/shell/agent host hoặc quyền commit/push/pilot/publication.
+
 ## D-23 — 10/11/2026: S1 parity và pure-core baseline Python
 
 Người dùng yêu cầu tiến hành S1 sau `c4149bd`. Đã dựng native TypeScript/Node candidate riêng, pinned local Node LTS/deps, không gọi Python từ candidate hoặc sửa fixture/reference để khớp. Official workload 356/356 + 28/28 CLI, ba trials mỗi runtime và source/fixture immutable; evidence tại S1-RESULTS. Reviewer high-model kiểm độc lập và dùng stable S1-RV IDs; output chưa DONE trước final verdict.

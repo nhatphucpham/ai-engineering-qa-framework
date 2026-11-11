@@ -1,0 +1,326 @@
+{
+  "report": {
+    "runtimeReportVersion": "1.0.0",
+    "id": "runtime-report",
+    "kind": "internal_assessment_report",
+    "publicationState": "proposed",
+    "runBinding": {
+      "id": "run",
+      "projectId": "proj",
+      "handoffId": "handoff",
+      "candidateRevision": "candidate-r12",
+      "projectConfigVersion": 1,
+      "dataPolicyVersion": 1,
+      "stateVersion": 4,
+      "attempt": 1
+    },
+    "runSnapshotSha256": "b59a2fde7aa7570e426d203fbf82db2a0d70bba0632afb6e2fa9ba2b4356584b",
+    "content": {
+      "reportVersion": "1.0.0",
+      "classification": "synthetic-only",
+      "processingStatus": "reference_report",
+      "inputBindings": {
+        "algorithm": "sha256-python-json-v1",
+        "bundleSha256": "a79378c966694b8fbfb317702c4d5ca165dc909aa570ccd657fb0e33eb9ccde4",
+        "assessmentSha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+      },
+      "scope": {
+        "projectId": "proj",
+        "handoffId": "handoff",
+        "candidateRevision": "candidate-r12",
+        "projectConfigVersion": 1,
+        "dataPolicyVersion": 1,
+        "policySourceArtifactId": "checkcfg",
+        "assessorRef": "assessment-service",
+        "taskRef": "task",
+        "requirementVersion": "req-v1"
+      },
+      "assessment": {
+        "rulesVersion": "p2-rules-2.0.0",
+        "processingStatus": "evaluated",
+        "evaluationMode": "execution_review",
+        "statusScope": "candidate_scoped_assessment",
+        "verification": "complete",
+        "hasUnverifiedMandatory": false,
+        "hasOpenMandatoryCoverage": false,
+        "pendingConstraintIds": [],
+        "criteria": [
+          {
+            "criterionId": "AC-1",
+            "status": "verified",
+            "reasonCodes": [
+              "SCOPED_COVERAGE_SATISFIED"
+            ],
+            "evidenceIds": [
+              "ev-qc",
+              "ev-unit"
+            ],
+            "contextEvidenceIds": [],
+            "hasOpenCoverage": false,
+            "scopeDescription": "Role behavior at export API, not a full security audit"
+          }
+        ],
+        "constraints": [],
+        "humanDecision": "pending",
+        "limitations": [
+          "Offline reference semantics over supplied assessment judgments, not authenticated trust or domain truth.",
+          "No test execution, model calls, auth, report persistence or runtime enforcement performed."
+        ]
+      },
+      "assessmentContext": {
+        "risk": {
+          "tier": "medium",
+          "state": "accepted",
+          "rationale": "Project policy requires both API role outcomes in this scoped example"
+        },
+        "bindings": [
+          {
+            "criterionId": "AC-1",
+            "obligationId": "manager",
+            "evidenceId": "ev-unit",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "manager-api"
+          },
+          {
+            "criterionId": "AC-1",
+            "obligationId": "employee",
+            "evidenceId": "ev-qc",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Synthetic mapping reviewed against the stated obligation",
+            "comparisonKey": "employee-api"
+          }
+        ]
+      },
+      "handoffContext": {
+        "intake": "handoff_bundle",
+        "decisionMoment": "qc_to_reviewer",
+        "requestedDecision": "Determine missing checks before next step",
+        "actors": {
+          "developerRef": "developer",
+          "qcRef": "qc",
+          "reviewerRef": null
+        },
+        "riskRationale": "Permission check in synthetic task",
+        "stageRecords": [
+          {
+            "stage": "developer_self_test",
+            "state": "provided",
+            "evidenceIds": [
+              "ev-unit"
+            ]
+          },
+          {
+            "stage": "qc",
+            "state": "provided",
+            "evidenceIds": [
+              "ev-qc"
+            ]
+          }
+        ],
+        "knownIssues": [],
+        "sourceArtifactIds": [],
+        "diffArtifactIds": []
+      },
+      "criterionSources": [
+        {
+          "criterion": {
+            "id": "AC-1",
+            "expected": "Manager allowed and employee denied at export API",
+            "mandatory": true,
+            "claims": [
+              {
+                "artifactId": "req",
+                "locator": "AC-1",
+                "statement": "Only managers may export"
+              }
+            ],
+            "clarification": "clear",
+            "ownerRole": "domain-owner"
+          },
+          "plan": {
+            "criterionId": "AC-1",
+            "planState": "accepted",
+            "scopeDescription": "Role behavior at export API, not a full security audit",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution",
+              "source_reasoning"
+            ],
+            "obligations": [
+              {
+                "id": "manager",
+                "description": "Manager can export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 manager",
+                "requiredComparisonKeys": [
+                  "manager-api"
+                ]
+              },
+              {
+                "id": "employee",
+                "description": "Employee cannot export",
+                "sourceArtifactId": "req",
+                "locator": "AC-1 employee",
+                "requiredComparisonKeys": [
+                  "employee-api"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "manager-api",
+                "description": "Manager direct export request under the stated candidate/environment",
+                "sourceArtifactId": "testlog",
+                "locator": "manager-api"
+              },
+              {
+                "id": "employee-api",
+                "description": "Employee direct export request under the same declared policy",
+                "sourceArtifactId": "testlog",
+                "locator": "employee-api"
+              }
+            ]
+          }
+        }
+      ],
+      "constraintSources": [],
+      "evidenceSources": [
+        {
+          "evidence": {
+            "id": "ev-unit",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-unit",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "developer",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:00:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": null,
+            "executionRef": "specimen-exec-1"
+          },
+          "review": {
+            "evidenceId": "ev-unit",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          }
+        },
+        {
+          "evidence": {
+            "id": "ev-qc",
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "criterionIds": [
+              "AC-1"
+            ],
+            "revision": "candidate-r12",
+            "checkId": "ev-qc",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "qc",
+              "environment": "contract-specimen",
+              "observedAt": "2026-11-05T03:01:00Z",
+              "sourceArtifactId": "testlog"
+            },
+            "reason": null,
+            "executionRef": "specimen-exec-2"
+          },
+          "review": {
+            "evidenceId": "ev-qc",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "Synthetic accepted-review input for shape/decision tests only"
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "id": "req",
+          "projectId": "proj",
+          "kind": "requirement",
+          "revision": "req-v1",
+          "relativePath": "docs/requirements.md",
+          "sha256": null,
+          "taskRef": "task"
+        },
+        {
+          "id": "testlog",
+          "projectId": "proj",
+          "kind": "test_output",
+          "revision": "candidate-r12",
+          "relativePath": "evidence/test-output.json",
+          "sha256": null,
+          "taskRef": "task"
+        },
+        {
+          "id": "checkcfg",
+          "projectId": "proj",
+          "kind": "check_config",
+          "revision": "config-v1",
+          "relativePath": "qa/checks.json",
+          "sha256": null,
+          "taskRef": null
+        }
+      ],
+      "actions": [],
+      "legacyProjection": {
+        "status": "projection_unsupported",
+        "reasonCodes": [
+          "P1_V2_EXPORT_NOT_IMPLEMENTED"
+        ]
+      },
+      "limitations": [
+        "Synthetic reference report over supplied judgments; no authenticated authority or domain truth.",
+        "No project tests, model/network calls, persistence, P1 export or run lifecycle performed.",
+        "Digests identify supplied JSON inputs, not source contents, actor authenticity or trust.",
+        "Proposed role labels are routing suggestions; no assignee, approval or action completion asserted."
+      ]
+    }
+  },
+  "completion": {
+    "completionVersion": "1.0.0",
+    "kind": "internal_completion_proposal",
+    "projectId": "proj",
+    "runId": "run",
+    "expectedRunVersion": 4,
+    "expectedAttempt": 1,
+    "expectedRunSha256": "b59a2fde7aa7570e426d203fbf82db2a0d70bba0632afb6e2fa9ba2b4356584b",
+    "reportSha256": "6ab0b3462b14393a71e8b7506e20e37f11a3ca09948c47e45495afbb5d939abb",
+    "runMutation": {
+      "state": "completed",
+      "stateVersion": 5,
+      "lease": null,
+      "reportId": "runtime-report",
+      "waitingReasons": [],
+      "terminalReason": null
+    },
+    "eventProposal": {
+      "type": "report_ready",
+      "sequence": 2,
+      "runStateVersion": 5,
+      "referenceIds": [
+        "runtime-report"
+      ]
+    }
+  }
+}

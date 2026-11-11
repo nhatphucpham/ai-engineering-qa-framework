@@ -1,5 +1,31 @@
 # Bàn giao phiên — mới nhất ở đầu
 
+## Commit local theo yêu cầu người dùng — 11/11/2026
+
+User yêu cầu commit toàn output đã review trong session. Commit chứa entry này lưu shared Python core, runtime/prepared report, staged publication/replay package, schemas/goldens/tests và docs/plan bàn giao. Baseline trước commit là master `d8bf175`; đọc Git log/status thực để lấy hash snapshot mới và mọi thay đổi còn lại. Brief [NEXT-SESSION](NEXT-SESSION.md) đã đổi từ trạng thái uncommitted sang cách nhận diện commit snapshot; các entries chưa commit bên dưới là lịch sử tại lúc ghi. Không suy remote đã nhận snapshot: user chỉ yêu cầu commit local, chưa push.
+
+## Chuẩn bị chuyển session — 11/11/2026, master `d8bf175` + working tree P4-A
+
+Theo yêu cầu bàn giao tiến độ/việc tiếp/cách làm một session, viết lại [NEXT-SESSION](NEXT-SESSION.md) và thêm [SESSION-PLAN](SESSION-PLAN.md). Brief cũ trước extraction đã thay; lịch sử giữ ở entries bên dưới. **Bàn giao DONE sau clean review HS-R1**, không có finding mới; links/fences/whitespace/diff PASS, implementation manifest 33 paths không đổi. [SESSION-TRANSFER-REVIEW](SESSION-TRANSFER-REVIEW.md) lưu verdict/evidence; không dùng DONE docs đóng implementation gate.
+
+Hai slice core/runtime và staged publication/replay DONE, latest WT-PUB-R2 CLEAN/45 methods pass; full P4-A partial. Code P4-A vẫn có tracked/untracked changes chưa commit/push; session mới giữ checkout hoặc chuyển đủ snapshot, không chỉ checkout HEAD. Đề xuất phiên tiếp: S2-A prerequisite inventory + actual disposable DB transaction/queue spike nếu READY; NOT READY thì preparation độc lập với DB checks NOT RUN. Chưa thực thi S2-A, chọn production DB/runtime, cài toolchain hoặc tạo chat. Plan giữ high-model review → fix → checks → re-review đến clean, stable IDs và DONE đúng scope.
+
+## Re-review P4-A theo yêu cầu người dùng — 11/11/2026
+
+**WT-PUB-R2 CLEAN**, reviewer mới độc lập GPT-6 Astra high kiểm lại core/runtime/publication/replay từ source/schema/acceptance, không dựa vào verdict trước. P4A-RV-01..06 giữ CLOSED, không có finding mới/tái xuất hiện; **DONE tái xác nhận cho hai slice**, full P4-A vẫn partial. Root chạy mới 45 methods pass (37.113s), reviewer chạy mới 45 methods pass (36.320s), thêm 638 deletion probes đều reject; root thêm 15 deep-JSON probes đều reject. Implementation manifest 33 paths khớp bản trước, AST legacy/frozen tracked artifacts/Markdown links/diff-check pass. Không sửa code/schema/tests/goldens, không rerun S1 hoặc regenerate evidence. [Review record](P4-A-PUBLICATION-REVIEW.md) lưu R2/verdict/giới hạn; còn storage/transaction/outbox, live auth/lease/trust và scoped read/export. Giữ working tree, chưa commit/push.
+
+## P4-A staged publication/replay — 10/11/2026, nền `d8bf175` + WT-P4A-R2
+
+**Slice DONE, clean review WT-PUB-R1 xác nhận 11/11/2026**. Theo yêu cầu tiếp các bước, thêm internal publication package v1 tự chứa raw bundle/assessment/prepared, canonical digest/byte-length manifest, whole-input scopes và completed-run/report/report_ready candidate graph. Anchored replay validator dùng input digests/expected IDs caller giữ độc lập; không chỉ tin manifest của gói. Application interface/harness stdout-only, ba goldens mới và regression có tamper/coherent rewrite/mixed project scopes. Xem [scope/cách chạy](P4-A-PUBLICATION.md), [checks/review](P4-A-PUBLICATION-REVIEW.md).
+
+Giữ toàn thay đổi trước chưa commit; không sửa schema/corpus/fixtures/evidence/goldens cũ hoặc rerun S1. Full regression **45 methods pass, 33.469s**; AST compatibility, tracked frozen artifacts, Markdown links và diff whitespace pass. Reviewer độc lập xác nhận CLEAN, không có finding mới; P4A-RV-01..06 giữ CLOSED. Independent full suite 45 methods pass 33.562s (khởi chạy trước quota, nhận completion khi resume; không rerun full suite ngày 11/11), thêm 235 mutation probes bị reject. Full P4-A partial: staged package không persisted report, actual completed/report_ready/outbox hoặc authorized user export. Tiếp S2/storage-runtime decision prerequisites, transactional publication và scoped read/export policy. Chưa model/API/project thật, auth/lease enforcement, platform/distribution hoặc commit/push.
+
+## P4-A internal report/core slice — 10/11/2026, nền `d8bf175`
+
+**Slice DONE sau clean review WT-P4A-R2**, full P4-A partial. Tách Python shared `qa_core` khỏi CLI, giữ v1/v2/offline semantics; thêm versioned internal report + pure completion proposal bind exact run/stateVersion/attempt/raw-input digests, giữ declared/effective constraints và human decision pending. Goldens mới complete/collision/failed-pending, regression corpus và graph/lifecycle/tamper/CLI. Mục đích/acceptance/cách chạy tại [P4-A-RUNTIME-REPORT](P4-A-RUNTIME-REPORT.md), checks/findings/verdict tại [review](P4-A-RUNTIME-REVIEW.md).
+
+Vòng review 1 phát hiện sáu lỗi P4A-RV-01..06; đã sửa trên WT-P4A-R2, reviewer độc lập xác nhận đóng cả sáu, không có finding mới/tái xuất hiện. Full regression mới **38 methods pass** (tác giả 26.018s, reviewer 24.986s); targeted 11 methods pass. Extraction giữ nguyên AST mọi non-CLI function/class; tracked schemas/corpus/fixtures/evidence/protocol cũ không đổi, links/diff whitespace pass. S1 source inventory được cập nhật để guard core vừa tách, không rerun S1 hoặc đổi official evidence. Không gọi account/API/project thật, chưa commit/push. Full P4-A partial: publication/export/storage contract, actual persisted report+completed+outbox, live auth/lease/trust còn mở. Legacy P1 v2 exporter unsupported; proposal không là P1 v2 bundle. Tiếp publication/export contract và integration prerequisites.
+
 ## Chuyển session — 10/11/2026, baseline `d35ae6b`
 
 Người dùng yêu cầu mang tiến độ các phase và cách làm sang session mới để tiếp tục. **S1 đã DONE và đã commit/push** tại `d35ae6b337d1450f911d388adce2ee1bd0e3efd8` trên master; trạng thái “chưa commit/push” ở entry lịch sử bên dưới là tại thời điểm trước commit đó, không trạng thái hiện hành.

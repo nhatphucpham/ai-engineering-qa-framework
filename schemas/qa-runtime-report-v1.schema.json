@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-framework:runtime-report:1.0.0",
+  "title": "Internal assessment-authoritative report proposal; no persistence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "runtimeReportVersion",
+    "id",
+    "kind",
+    "publicationState",
+    "runBinding",
+    "runSnapshotSha256",
+    "content"
+  ],
+  "properties": {
+    "runtimeReportVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "$ref": "#/$defs/reportId"
+    },
+    "kind": {
+      "const": "internal_assessment_report"
+    },
+    "publicationState": {
+      "const": "proposed"
+    },
+    "runSnapshotSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "content": {
+      "$ref": "urn:qa-framework:offline-report:1.0.0"
+    },
+    "runBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "projectId",
+        "handoffId",
+        "candidateRevision",
+        "projectConfigVersion",
+        "dataPolicyVersion",
+        "stateVersion",
+        "attempt"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "projectId": {
+          "$ref": "#/$defs/id"
+        },
+        "handoffId": {
+          "$ref": "#/$defs/id"
+        },
+        "candidateRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "projectConfigVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dataPolicyVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "stateVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+    },
+    "reportId": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+      "maxLength": 96,
+      "not": {
+        "pattern": "[^A-Za-z0-9._-]"
+      }
+    }
+  }
+}

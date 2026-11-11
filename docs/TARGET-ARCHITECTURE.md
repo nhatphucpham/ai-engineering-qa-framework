@@ -128,6 +128,8 @@ Execution proof envelope nội bộ cần worker identity, project/run/attempt/t
 
 ## 5. Report projection giữ semantics P1/P2
 
+Cập nhật slice P4-A 10/11: [internal report/core](P4-A-RUNTIME-REPORT.md) thêm contract nội bộ v1 bảo toàn offline content và bind exact pre-completion run, cùng pure completion proposal. Đây chưa là persisted graph hoặc production P1 exporter; fail-closed boundary bên dưới vẫn áp dụng cho P1 v2. Publication/export/storage và atomic completion/outbox còn phải tích hợp riêng.
+
 Cập nhật 10/11/2026: [reference report offline](OFFLINE-REPORT.md) chỉ nhận assessment/rules v2, là output có version riêng để giữ assessment/effective constraints và làm oracle cho parity. Đây là bước prerequisite P4-A, không thay P1 v2 wire report, lifecycle hoặc persistence trong section này. Full integration vẫn cần versioned runtime contract; không gọi report envelope offline là report_ready/completed của server.
 
 P2 output không phải P1 report. Projector v2 chỉ hỗ trợ subset mà P1 shape/graph và P2-derived consistency cùng biểu diễn được; không phải total mapping. Validate cả hai trước persist:
@@ -156,6 +158,8 @@ Projector phải trả typed `projection_unsupported` cùng safe diagnostic, lư
 **P4-A prerequisite:** formalize versioned assessment-authoritative report/constraint extension (hoặc ADR canonical-derived snapshot có identity/lineage/raw-input provenance đầy đủ), rồi schema/validator/golden collision tests trước khi mở full handoff→report. Mặc định hướng ưu tiên là contract version mới tách declared/effective constraint, giữ v2 nguyên lịch sử; wire shape chưa được chốt ở P3-A. Giữ boundary fail-closed cho đến khi quyết định đó implemented. Table projection phía trên chỉ áp dụng khi không có collision, không chứng minh luồng offline toàn phần khả thi.
 
 ## 6. Storage, transactions và job ownership
+
+P4-A thêm [staged internal publication/replay package](P4-A-PUBLICATION.md): frozen inputs + prepared report + whole-input manifest + graph candidate, validator dùng caller-held input digests/IDs. Đây chưa là durable storage hoặc authorized outbound export. Các atomic units/live checks dưới đây vẫn chưa có implementation.
 
 Design chọn transactional metadata + immutable blob abstraction ([ADR-001](adr/001-boundaries-and-persistence.md)). PostgreSQL là candidate cho P3-B; chưa có DB/migrations chạy. Logical records:
 

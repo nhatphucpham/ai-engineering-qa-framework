@@ -1,59 +1,63 @@
-# Bắt đầu session mới — P4-A
+# Bàn giao session mới — sau P4-A core/runtime và publication/replay
 
-**Bàn giao: DONE sau review vòng 2.** GPT-6 Astra high đã đóng NS-RV-01/02 và không tìm thấy finding mới trong brief/workflow. Đây là DONE của bản bàn giao, không phải P4-A đã được triển khai.
+Ngày 11/11/2026. **Bản bàn giao DONE sau clean review HS-R1** tại [SESSION-TRANSFER-REVIEW](SESSION-TRANSFER-REVIEW.md). Đây là brief hiện hành thay brief 10/11 trước extraction; lịch sử giữ ở [SESSION-HANDOFF](SESSION-HANDOFF.md). Không cần toàn bộ lịch sử chat.
 
-Bàn giao ngày 10/11/2026 từ session hoàn thành S1. Baseline implementation **d35ae6b337d1450f911d388adce2ee1bd0e3efd8** đã push `origin/master`; working tree sạch trước khi bổ sung hai tài liệu bàn giao này. Session mới phải đọc Git HEAD/status thực, không coi hash baseline là commit HEAD vĩnh viễn hoặc reset checkout để quay về baseline.
+## 1. Checkout phải giữ nguyên
 
-## Đọc theo thứ tự
+- Repo: `E:\phucpn-workspace\git\ai-engineering-qa-framework`.
+- Baseline lúc soạn brief: `master`, HEAD **`d8bf1757228f31a8fd0e00f49baeda96741857aa`**. S1 implementation baseline trước đó là `d35ae6b337d1450f911d388adce2ee1bd0e3efd8`; đây không phải yêu cầu quay về các hash cũ.
+- **User sau đó đã yêu cầu commit local. Commit chứa cập nhật này là snapshot bàn giao P4-A + docs**: gồm `qa_core/`, schemas runtime/prepared/publication, `examples/reports/runtime-v1/`, `publication-v1/`, tools và docs/review records. Xác định commit thực bằng Git log/status; không dùng riêng baseline `d8bf175` để khôi phục code mới. Chưa có yêu cầu push hoặc xác nhận remote đã có snapshot này.
+- Session mới ưu tiên chính checkout này. Kiểm Git root/branch/HEAD/status thật và giữ mọi thay đổi phát sinh sau commit; không reset/clean/stash. Nếu chuyển checkout/máy, phải mang đúng commit snapshot và mọi tracked/untracked changes còn lại, rồi kiểm nội dung trước làm. Không assume remote đã cập nhật.
+- Quyền commit local vừa cấp chỉ cho output hiện tại; không tự suy quyền commit/push cho các phase sau, tạo chat, merge/approve/deploy/publish hoặc pilot. Session mới chỉ bắt đầu implementation sau khi nhận yêu cầu tiếp tục.
 
-1. `AGENTS.md` và `.agents/skills/qa-framework-development/SKILL.md`.
-2. [IMPLEMENTATION-PLAN](IMPLEMENTATION-PLAN.md), phần mới nhất của [SESSION-HANDOFF](SESSION-HANDOFF.md), [CORE-FRAMEWORK](CORE-FRAMEWORK.md), [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md).
-3. [ADR-004](adr/004-core-baseline-after-s1.md), [TARGET-ARCHITECTURE](TARGET-ARCHITECTURE.md) nhất là report projection/constraint collision và component boundaries, ADR-001/002.
-4. [OFFLINE-REPORT](OFFLINE-REPORT.md), [DATA-CONTRACT](DATA-CONTRACT.md), [VERIFICATION-RULES](VERIFICATION-RULES.md), schema/code/test liên quan P4-A.
-5. [S1 results](S1-RESULTS.md), [S1 review](S1-REVIEW.md), [official evidence](s1-results/2026-11-10-r1.json) khi cần đối chiếu. Không chạy lại S1 mặc định chỉ để lấy lại số đo đã có.
+## 2. Đọc để bắt đầu
 
-## Đang ở đâu?
+1. `AGENTS.md`, `.agents/skills/qa-framework-development/SKILL.md`, [REVIEW-WORKFLOW](REVIEW-WORKFLOW.md).
+2. Brief này, [SESSION-PLAN](SESSION-PLAN.md), phần đầu [SESSION-HANDOFF](SESSION-HANDOFF.md), [IMPLEMENTATION-PLAN](IMPLEMENTATION-PLAN.md), [DECISION-LOG](DECISION-LOG.md).
+3. [P4-A-RUNTIME-REPORT](P4-A-RUNTIME-REPORT.md), [runtime review](P4-A-RUNTIME-REVIEW.md), [P4-A-PUBLICATION](P4-A-PUBLICATION.md), [publication review](P4-A-PUBLICATION-REVIEW.md).
+4. [CORE-FRAMEWORK](CORE-FRAMEWORK.md), [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md), [TARGET-ARCHITECTURE](TARGET-ARCHITECTURE.md) §5–6 và live policy/worker boundaries; [ADR-001](adr/001-boundaries-and-persistence.md), [ADR-002](adr/002-transport-identity-and-execution.md), [ADR-003](adr/003-stack-and-spikes.md), [ADR-004](adr/004-core-baseline-after-s1.md).
+5. Chỉ đọc source/test/contracts liên quan slice chọn: [DATA-CONTRACT](DATA-CONTRACT.md), [VERIFICATION-RULES](VERIFICATION-RULES.md), [OFFLINE-REPORT](OFFLINE-REPORT.md), `qa_core/`, schemas và harness/tests. S1 evidence chỉ đọc khi cần, không mặc định rebenchmark.
 
-| Mốc | Đã có | Giới hạn còn lại |
+## 3. Đã có gì, DONE ở đâu?
+
+| Mốc | Hiện trạng | Không suy rộng thành |
 |---|---|---|
-| P0 | Scope/use case/actors đã chốt | Chưa đo giá trị sử dụng thực tế |
-| P1 | Contract/schema/validator v2, 9 valid và 58 negative cases | Không auth/trust/atomic enforcement |
-| P2 | Rules v2 đã sửa false integration coverage/conflict reason; v1 giữ replay | Assessment vẫn là supplied judgments |
-| P3-A | Design/ports/boundaries đã review | Chưa runtime dịch vụ trong sơ đồ |
-| P3-B/S1 | **DONE**, 356/356 structured cases + 28/28 CLI, ba trials/runtime, 26 unittest methods pass; S1-RV-01..09 đóng | S2–S6 chưa chạy; không đóng P3-B tổng thể |
-| P4-A | Reference report/harness offline và quyết định pure-core baseline Python | **Việc làm tiếp ở session mới:** versioned runtime report/constraint integration và module core Python |
-| P4-B–E | Có thiết kế control service, worker, adapters và Windows client | Chưa triển khai |
-| P5/P6 | Có gate/plan | Chưa technical readiness toàn sản phẩm hoặc installer/package |
+| P0/P1/P2 | Scope; P1 v2 validator; P2 v2 evaluator, v1 replay; synthetic corpus | Authenticated judgments, domain truth hoặc runtime enforcement |
+| P3-A | Architecture/ports/transport đã review | Các dịch vụ trong sơ đồ đã chạy |
+| S1 | DONE: 356/356 structured cases + 28/28 CLI, ba trials/runtime; S1-RV-01..09 đóng | S2–S6, P3-B tổng thể hoặc chọn toàn stack |
+| P4-A core/runtime slice | **DONE**: shared Python core, wrappers CLI; report/prepared v1, exact-run binding và pure completion proposal | Persisted report, actual completed run hoặc emitted report_ready |
+| P4-A publication/replay slice | **DONE**: staged self-contained package v1, manifest, whole-input scopes, graph candidate và anchored replay validator | Durable publication, ordinary user export hoặc live read/outbound permission |
+| P4-A tổng thể | **PARTIAL**: còn storage/transaction/outbox, scoped read/export, live auth/lease/trust và full lifecycle integration | Không lấy DONE của hai slice đóng toàn phase |
+| P4-B–E, P5/P6 | Chưa implementation/gate hoàn chỉnh | Chưa có server/worker/desktop/adapters/installer production |
 
-Node candidate của S1 nhanh hơn ở workload đã đo và dùng RSS cao hơn. Chọn Python cho **pure shared core/report** để tái sử dụng semantics/versioned artifacts và giữ một implementation production; không khẳng định Python nhanh nhất, không chọn runtime control/worker/DB/shell. TS/Node ở `spikes/s1` là conformance experiment, không engine production thứ hai. Source/package.json/package-lock.json/tsconfig của spike được track trong Git; chỉ installed node_modules, dist và portable runtime/cache dưới `.cache/s1/` được ignore. Không cài global.
+Python chỉ được chọn cho **pure shared core/report baseline** theo ADR-004. TS/Node `spikes/s1` là conformance spike, không second production rules engine. Control/worker runtime, DB, shell, agent host/distribution chưa chốt. PostgreSQL là candidate S2, không phải production DB đã chọn.
 
-## Mục tiêu P4-A kế tiếp
+## 4. Output và evidence hiện tại
 
-Trước khi sửa, xác định một slice kiểm được và ghi outputs/acceptance. Thiết kế rồi hiện thực contract report/constraint có version để bảo toàn **declared state** và **effective state**, input lineage, criterion/evidence mapping và human decision riêng. Tách pure core/application interface Python dùng chung, không để UI/plugin tự có rules khác hoặc core import provider/desktop/DB SDK.
+- Core: `qa_core/{contracts,rules,reports,runtime,publication,application}.py`; tools cũ giữ compatibility wrappers.
+- Runtime: schemas `qa-runtime-report-v1`/`qa-prepared-report-v1`; `tools/prepare_runtime_report.py`, `test_runtime_reports.py`; goldens `examples/reports/runtime-v1/`.
+- Package: schema `qa-publication-package-v1`; `tools/package_runtime_report.py`, `test_publication.py`; goldens `examples/reports/publication-v1/`.
+- Latest re-review **WT-PUB-R2 CLEAN**, reviewer mới GPT-6 Astra high. Root chạy mới **45 methods pass / 37.113s**; reviewer chạy mới **45 methods pass / 36.320s**, thêm **638 deletion probes** đều reject. P4A-RV-01..06 giữ CLOSED; chưa có PUB-RV finding. Review records lưu lịch sử các vòng; không cộng probe thành unittest methods.
+- Manifest **33 implementation/schema/test/golden paths** trước commit: `325c39c933a448434c842c297917e27232c5714f3176b83fd2f96980755fa478`. Inventory lịch sử: sorted union Git diff names + untracked names tại lúc review, lọc prefixes `qa_core/`, `tools/`, `schemas/`, `examples/`; dòng path + ASCII space + SHA256(file bytes), join LF không trailing LF, SHA256 UTF-8 toàn chuỗi. Sau commit cây sạch sẽ không còn inventory đó trong Git diff; dùng danh sách paths của snapshot/commit nếu kiểm lại, không hash danh sách rỗng để so. Đây không là hash toàn repo/trust proof; xem review records cho snapshot trước administrative doc updates.
 
-Collision phải được kiểm rõ: **mandatory** constraint khai satisfied nhưng missing/stale/unaccepted current review → effective pending → verification incomplete khi các mandatory AC đã verified và không có criterion failed khác. Optional constraint pending đơn thuần không chặn complete; nếu có criterion failed, failed vẫn có precedence và các gap còn lại phải được hiển thị. Không sửa raw handoff, hạ AC thành unverified giả hoặc nâng P2 complete để hợp validator. V1/v2 và fixture/evidence cũ giữ nguyên; new schema/output có version rõ và golden/graph/lifecycle tests riêng.
+## 5. Việc cần làm tiếp
 
-Full runtime report integration cần schema/validator, identity/revision/provenance, report/run consistency và điều kiện report_ready/completed không mất semantics. Chỉ claim phần thực sự có implementation/evidence. Pure graph/predicate test không phải DB transaction/lease enforcement; chưa có server/persistence thì không tự gọi report đã persist. Legacy P1 exporter vẫn projection_unsupported đến khi đường tích hợp mới thật sự hỗ trợ và có kiểm chứng.
+**Ưu tiên đề xuất: S2-A — prerequisite inventory rồi transaction publication/queue spike trên DB synthetic riêng.** [SESSION-PLAN](SESSION-PLAN.md) là plan một session có nhánh khi môi trường chưa sẵn. Không làm lại extraction/package hoặc thêm envelope thuần chỉ để tăng output.
 
-Không mở rộng slice đầu này sang server/auth/queue/container/model/GitHub/desktop để gọi sản phẩm đã hoàn tất. Các spike độc lập có thể tiến hành sau khi prerequisite riêng sẵn, theo plan. Agent host, distribution CLI/library/MCP và Windows shell chưa được chọn; không tự publish/pilot hoặc gọi account/key/project thật.
+Cần evidence thật cho candidate storage: exact run/version/attempt, chống duplicate claim/occurrence/report, report ref + completed + outbox atomic, crash/restart, no publish-before-commit. S2-A là subset, chưa full S2: cancel/revoke/cleanup/fairness và các boundary ADR-003 vẫn phải kiểm riêng. Mock/unit/predicate không đóng DB gate. Production control/worker composition quyết định riêng sau evidence.
 
-## Cách làm mỗi phase — giữ nguyên qua session
+Nếu actual disposable DB chưa sẵn, không dùng DB/account thật hoặc SQLite/in-memory mock để gọi S2 PASS. Hoàn thành protocol/harness/preflight phần độc lập, ghi DB checks NOT RUN/unknown và bước khôi phục cụ thể. Routine trong slice tiếp được giao thì tự làm; thiếu input/authority bắt buộc mới hỏi cụ thể, vẫn tiếp phần độc lập.
 
-1. Kiểm Git và giữ thay đổi hiện có; đọc plan/decisions/handoff mới nhất. Chọn phase/slice, mục đích, file đầu ra và điều kiện xong trước implementation; đổi hướng phải ghi lý do trong decision log.
-2. Luôn chỉ định ít nhất một reviewer độc lập **mô hình cao**. Agent chính làm, reviewer read-only kiểm accuracy/practicality và giải thích vì sao cần cải thiện. Gửi đúng file/snapshot, tests và known gaps, không chỉ tóm tắt chat.
-3. Giữ stable finding IDs qua vòng sửa; thêm regression phân biệt behavior lỗi, chạy checks đúng vùng, gửi bản mới re-review cả lỗi cũ/tái xuất hiện/lỗi mới. Không tự dừng theo số vòng hoặc lấy suite xanh thay clean verdict. Thiếu domain decision thì hỏi cụ thể và tiếp tục phần độc lập; không hỏi duyệt lại routine đã được giao.
-4. Chỉ mark **DONE trong scope** sau reviewer clean + checks pass. Lưu scope/snapshot/findings/fixes/actual commands/results/limits; phân biệt implementation readiness với approval và whole-product readiness. Xem [REVIEW-WORKFLOW](REVIEW-WORKFLOW.md).
-5. Cập nhật plan, decision log và handoff. Giữ synthetic và fixture lỗi/frozen protocols; không đổi expected/evidence để làm xanh. Không tự cài toolchain toàn máy hoặc gọi môi trường thật.
-6. Chỉ commit/push output đã review trong **phạm vi được giao và quyền Git người dùng đã cấp**; bản bàn giao này không cấp blanket authorization cho mọi phase tương lai. Trước push áp dụng review-rounds-before-push; thay đổi lớn cần hai vòng sạch liên tiếp, screenshots chỉ khi có UI và phải tự xem. Không suy quyền commit/push thành merge/approve/deploy/public publish.
+## 6. Semantics và giới hạn phải bảo toàn
 
-## Kiểm tra và bàn giao
+- Mandatory declared satisfied nhưng missing/stale/unaccepted review → effective pending → incomplete khi không có failed khác. Optional pending đơn thuần không chặn; failed giữ precedence và các gap vẫn hiện. Raw pending không tự hết nhờ review.
+- Giữ raw handoff/AC/assessment, revision/provenance/mapping, humanDecision riêng. Không mutate inputs, hạ AC thành unverified giả hoặc nâng P2 complete để né P1 v2. New contracts/output phải version rõ; bảo toàn schema/corpus/fixture lỗi/evidence/protocol frozen.
+- Legacy P1 v2 exporter vẫn `projection_unsupported`; runtime graph/package không là P1 v2 bundle. Persist/ref/read/event chỉ claim khi boundary thật implemented và verified.
+- Package chứa **whole raw bundle**, có thể có project/task khác target; restricted internal replay metadata không phải ACL. So expected input digests/IDs caller giữ độc lập, không lấy anchors từ package. Không tự đưa gói qua ordinary QA read/export/model outbound.
+- Snapshot scope ∩ live policy khi có runtime; chưa auth/lease/container/egress thì không nói đã enforce. Không gọi key/account/API/project thật, pilot/public publish, tự chọn platform/distribution/shell hoặc cài global.
 
-Lệnh regression hiện có từ repo root, trên interpreter đã xác nhận:
+## 7. Cách làm một session
 
-```text
-py -3 -B -m unittest discover -s tools -p 'test_*.py' -v
-```
+Theo [SESSION-PLAN](SESSION-PLAN.md): Git/brief → chốt slice và acceptance trước sửa → implementation + failure/regression checks → reviewer độc lập high-model → fix/recheck/re-review đến clean → DONE đúng scope và bàn giao. Không đặt trần vòng review, không lấy suite xanh thay verdict, giữ stable finding IDs và reopen lỗi cũ nếu regression.
 
-26 methods là kết quả baseline đã thực chạy, không số bắt buộc của phase mới; thêm checks theo failure mode. Docs-only không cần rerun toàn suite. Exit/status của mock runner có failure cố ý, không đồng nghĩa app pass; tránh runners ghi đè execution gốc. Không rebenchmark S1 hoặc regenerate goldens cũ khi chưa có thay đổi cần kiểm.
-
-Session mới làm tiếp P4-A ngay sau startup review, hoàn thiện slice và lặp review đến clean, cập nhật bàn giao bằng kết quả thực. Không khởi động lại việc đã DONE chỉ vì context mới, không tiếp tục đề xuất pilot cũ.
+Regression hiện hành: `py -3 -B -m unittest discover -s tools -p 'test_*.py' -v`. 45 methods là kết quả hiện tại, không quota vĩnh viễn. Docs-only bàn giao kiểm links/fences/consistency/diff và manifest, không cần rerun suite/S1 khi code không đổi. Không chạy runners ghi đè evidence gốc.

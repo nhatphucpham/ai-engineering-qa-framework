@@ -1,0 +1,106 @@
+{
+  "assessmentVersion": "2.0.0",
+  "rulesVersion": "p2-rules-2.0.0",
+  "classification": "synthetic-only",
+  "specimenNotice": "Authored P2 judgment specimen, not authenticated assessment or actual model reasoning.",
+  "projectId": "proj",
+  "handoffId": "handoff",
+  "candidateRevision": "candidate-r12",
+  "evaluationMode": "execution_review",
+  "risk": {
+    "tier": "medium",
+    "state": "accepted",
+    "rationale": "Project policy requires both API role outcomes in this scoped example"
+  },
+  "criteria": [
+    {
+      "criterionId": "AC-1",
+      "planState": "accepted",
+      "scopeDescription": "Role behavior at export API, not a full security audit",
+      "requiredLevels": [
+        "integration"
+      ],
+      "allowedProvenance": [
+        "execution",
+        "source_reasoning"
+      ],
+      "obligations": [
+        {
+          "id": "manager",
+          "description": "Manager can export",
+          "sourceArtifactId": "req",
+          "locator": "AC-1 manager",
+          "requiredComparisonKeys": [
+            "manager-api"
+          ]
+        },
+        {
+          "id": "employee",
+          "description": "Employee cannot export",
+          "sourceArtifactId": "req",
+          "locator": "AC-1 employee",
+          "requiredComparisonKeys": [
+            "employee-api"
+          ]
+        }
+      ],
+      "applicability": "applicable",
+      "naDecision": null,
+      "comparisonContexts": [
+        {
+          "id": "manager-api",
+          "description": "Manager direct export request under the stated candidate/environment",
+          "sourceArtifactId": "testlog",
+          "locator": "manager-api"
+        },
+        {
+          "id": "employee-api",
+          "description": "Employee direct export request under the same declared policy",
+          "sourceArtifactId": "testlog",
+          "locator": "employee-api"
+        }
+      ]
+    }
+  ],
+  "evidenceReviews": [
+    {
+      "evidenceId": "ev-unit",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "Synthetic accepted-review input for shape/decision tests only"
+    },
+    {
+      "evidenceId": "ev-qc",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "Synthetic accepted-review input for shape/decision tests only"
+    }
+  ],
+  "bindings": [
+    {
+      "criterionId": "AC-1",
+      "obligationId": "manager",
+      "evidenceId": "ev-unit",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "Synthetic mapping reviewed against the stated obligation",
+      "comparisonKey": "manager-api"
+    },
+    {
+      "criterionId": "AC-1",
+      "obligationId": "employee",
+      "evidenceId": "ev-qc",
+      "relation": "violates",
+      "judgment": "accepted",
+      "rationale": "Synthetic mapping reviewed against the stated obligation",
+      "comparisonKey": "employee-api"
+    }
+  ],
+  "policySourceArtifactId": "checkcfg",
+  "assessorRef": "assessment-service",
+  "projectConfigVersion": 1,
+  "dataPolicyVersion": 1,
+  "constraintReviews": []
+}

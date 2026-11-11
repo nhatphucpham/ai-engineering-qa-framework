@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-framework:prepared-report:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report",
+    "completion"
+  ],
+  "properties": {
+    "report": {
+      "$ref": "urn:qa-framework:runtime-report:1.0.0"
+    },
+    "completion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completionVersion",
+        "kind",
+        "projectId",
+        "runId",
+        "expectedRunVersion",
+        "expectedAttempt",
+        "expectedRunSha256",
+        "reportSha256",
+        "runMutation",
+        "eventProposal"
+      ],
+      "properties": {
+        "completionVersion": {
+          "const": "1.0.0"
+        },
+        "kind": {
+          "const": "internal_completion_proposal"
+        },
+        "projectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "runId": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$"
+        },
+        "expectedRunVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "expectedAttempt": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "expectedRunSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "reportSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "runMutation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "stateVersion",
+            "lease",
+            "reportId",
+            "waitingReasons",
+            "terminalReason"
+          ],
+          "properties": {
+            "state": {
+              "const": "completed"
+            },
+            "stateVersion": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "lease": {
+              "type": "null"
+            },
+            "reportId": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+              "maxLength": 96,
+              "not": {
+                "pattern": "[^A-Za-z0-9._-]"
+              }
+            },
+            "waitingReasons": {
+              "const": []
+            },
+            "terminalReason": {
+              "type": "null"
+            }
+          }
+        },
+        "eventProposal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "sequence",
+            "runStateVersion",
+            "referenceIds"
+          ],
+          "properties": {
+            "type": {
+              "const": "report_ready"
+            },
+            "sequence": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "runStateVersion": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "referenceIds": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+                "maxLength": 96,
+                "not": {
+                  "pattern": "[^A-Za-z0-9._-]"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

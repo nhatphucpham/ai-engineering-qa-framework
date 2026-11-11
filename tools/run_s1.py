@@ -211,7 +211,7 @@ def invoke(command, request_path):
 def source_hashes():
     files = set()
     for folder in ('examples/contracts/v1', 'examples/contracts/v2', 'examples/rules/v1', 'examples/rules/v2',
-                   'examples/reports/v1', 'schemas', 'tools', 'spikes/s1/src'):
+                   'examples/reports/v1', 'schemas', 'tools', 'qa_core', 'spikes/s1/src'):
         files.update(path for path in (ROOT / folder).rglob('*') if path.is_file() and '__pycache__' not in path.parts)
     files.update([SPIKE / 'package.json', SPIKE / 'package-lock.json', SPIKE / 'tsconfig.json'])
     return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(files)}

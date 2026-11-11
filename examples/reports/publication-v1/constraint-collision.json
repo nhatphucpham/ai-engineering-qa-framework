@@ -1,0 +1,831 @@
+{
+  "packageVersion": "1.0.0",
+  "kind": "internal_publication_candidate",
+  "classification": "synthetic-only",
+  "publicationState": "staged",
+  "handling": {
+    "storageClass": "restricted_internal_replay",
+    "inputScope": "whole_bundle",
+    "outboundAuthorization": "not_evaluated",
+    "artifactBytesIncluded": false
+  },
+  "target": {
+    "projectId": "proj",
+    "taskRef": "task",
+    "handoffId": "handoff",
+    "candidateRevision": "candidate-r12",
+    "requirementVersion": "req-v1",
+    "projectConfigVersion": 1,
+    "dataPolicyVersion": 1,
+    "runId": "run",
+    "reportId": "runtime-report"
+  },
+  "containedScopes": {
+    "projectIds": [
+      "proj"
+    ],
+    "tasks": [
+      {
+        "projectId": "proj",
+        "taskRef": "task"
+      }
+    ]
+  },
+  "manifest": {
+    "manifestVersion": "1.0.0",
+    "algorithm": "sha256-python-json-v1",
+    "entries": [
+      {
+        "slot": "bundle",
+        "mediaType": "application/json",
+        "sha256": "4e1e24baead1613f9acd90bb03139fbf62d0054681f388aa65fe33b588c8db41",
+        "canonicalByteLength": 4238
+      },
+      {
+        "slot": "assessment",
+        "mediaType": "application/json",
+        "sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba",
+        "canonicalByteLength": 2293
+      },
+      {
+        "slot": "prepared",
+        "mediaType": "application/json",
+        "sha256": "792011f016825455f734cd7aaedfca4cd2491944dcf268cf4e057b3bc53b895d",
+        "canonicalByteLength": 7289
+      }
+    ]
+  },
+  "payloads": {
+    "bundle": {
+      "contractVersion": "2.0.0",
+      "classification": "synthetic-only",
+      "specimenNotice": "P2 design specimen: execution-shaped records and assessment judgments are authored, not real execution or trust verification.",
+      "projects": [
+        {
+          "id": "proj",
+          "configVersion": 1,
+          "name": "Synthetic project",
+          "runtime": {
+            "mode": "model_api",
+            "provider": "openai",
+            "model": "synthetic-model",
+            "credentialRef": "secret-model"
+          },
+          "dataPolicy": {
+            "version": 1,
+            "allowedArtifactKinds": [
+              "requirement",
+              "test_output"
+            ],
+            "allowedPaths": [
+              "docs",
+              "evidence"
+            ],
+            "deniedPaths": [
+              ".env"
+            ],
+            "allowedProviders": [
+              "openai",
+              "anthropic"
+            ]
+          },
+          "triggers": {
+            "manual": true,
+            "kinds": [
+              "qc_handoff",
+              "pr_ready"
+            ],
+            "githubIngress": [
+              "polling",
+              "webhook"
+            ]
+          },
+          "budgets": {
+            "runTimeoutSeconds": 600,
+            "maxAttempts": 2,
+            "maxConcurrentRuns": 1,
+            "maxModelInputTokens": 8000,
+            "maxModelOutputTokens": 2000
+          },
+          "checks": [
+            {
+              "id": "unit",
+              "configArtifactId": "checkcfg",
+              "imageDigest": "synthetic/checks@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "timeoutSeconds": 120,
+              "networkPolicyRef": "network-project"
+            }
+          ],
+          "repository": {
+            "provider": "github",
+            "repositoryRef": "repo-github",
+            "credentialRef": "secret-repo"
+          },
+          "requirementConflictPolicy": "ask_owner_continue_independent",
+          "editPolicy": {
+            "sourceEdits": false,
+            "testEdits": false
+          }
+        }
+      ],
+      "memberships": [
+        {
+          "projectId": "proj",
+          "principalId": "user",
+          "role": "runner"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": "req",
+          "projectId": "proj",
+          "kind": "requirement",
+          "revision": "req-v1",
+          "relativePath": "docs/requirements.md",
+          "sha256": null,
+          "taskRef": "task"
+        },
+        {
+          "id": "testlog",
+          "projectId": "proj",
+          "kind": "test_output",
+          "revision": "candidate-r12",
+          "relativePath": "evidence/test-output.json",
+          "sha256": null,
+          "taskRef": "task"
+        },
+        {
+          "id": "checkcfg",
+          "projectId": "proj",
+          "kind": "check_config",
+          "revision": "config-v1",
+          "relativePath": "qa/checks.json",
+          "sha256": null,
+          "taskRef": null
+        }
+      ],
+      "handoffs": [
+        {
+          "id": "handoff",
+          "projectId": "proj",
+          "intake": "handoff_bundle",
+          "candidateRevision": "candidate-r12",
+          "requirementVersion": "req-v1",
+          "decisionMoment": "qc_to_reviewer",
+          "requestedDecision": "Determine missing checks before next step",
+          "actors": {
+            "developerRef": "developer",
+            "qcRef": "qc",
+            "reviewerRef": null
+          },
+          "riskRationale": "Permission check in synthetic task",
+          "criteria": [
+            {
+              "id": "AC-1",
+              "expected": "Manager allowed and employee denied at export API",
+              "mandatory": true,
+              "claims": [
+                {
+                  "artifactId": "req",
+                  "locator": "AC-1",
+                  "statement": "Only managers may export"
+                }
+              ],
+              "clarification": "clear",
+              "ownerRole": "domain-owner"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "P-05",
+              "description": "Domain review required",
+              "mandatory": true,
+              "state": "satisfied",
+              "sourceArtifactId": "req"
+            }
+          ],
+          "stageRecords": [
+            {
+              "stage": "developer_self_test",
+              "state": "provided",
+              "evidenceIds": [
+                "ev-unit"
+              ]
+            },
+            {
+              "stage": "qc",
+              "state": "provided",
+              "evidenceIds": [
+                "ev-qc"
+              ]
+            }
+          ],
+          "knownIssues": [],
+          "taskRef": "task",
+          "sourceArtifactIds": [],
+          "diffArtifactIds": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev-unit",
+          "projectId": "proj",
+          "handoffId": "handoff",
+          "criterionIds": [
+            "AC-1"
+          ],
+          "revision": "candidate-r12",
+          "checkId": "ev-unit",
+          "level": "integration",
+          "outcome": "pass",
+          "provenance": {
+            "kind": "execution",
+            "actorRef": "developer",
+            "environment": "contract-specimen",
+            "observedAt": "2026-11-05T03:00:00Z",
+            "sourceArtifactId": "testlog"
+          },
+          "reason": null,
+          "executionRef": "specimen-exec-1"
+        },
+        {
+          "id": "ev-qc",
+          "projectId": "proj",
+          "handoffId": "handoff",
+          "criterionIds": [
+            "AC-1"
+          ],
+          "revision": "candidate-r12",
+          "checkId": "ev-qc",
+          "level": "integration",
+          "outcome": "pass",
+          "provenance": {
+            "kind": "execution",
+            "actorRef": "qc",
+            "environment": "contract-specimen",
+            "observedAt": "2026-11-05T03:01:00Z",
+            "sourceArtifactId": "testlog"
+          },
+          "reason": null,
+          "executionRef": "specimen-exec-2"
+        }
+      ],
+      "events": [],
+      "commands": [],
+      "runs": [
+        {
+          "id": "run",
+          "projectId": "proj",
+          "handoffId": "handoff",
+          "candidateRevision": "candidate-r12",
+          "projectConfigVersion": 1,
+          "dataPolicyVersion": 1,
+          "state": "checking",
+          "stateVersion": 4,
+          "attempt": 1,
+          "triggerEventId": null,
+          "lease": {
+            "workerId": "worker",
+            "fencingToken": 4,
+            "expiresAt": "2026-11-05T03:10:00Z"
+          },
+          "waitingReasons": [],
+          "terminalReason": null,
+          "reportId": null,
+          "initiator": {
+            "kind": "user",
+            "principalRef": "synthetic-runner"
+          },
+          "rerunOfRunId": null
+        }
+      ],
+      "reports": [],
+      "workerResults": [],
+      "progress": [
+        {
+          "id": "progress",
+          "projectId": "proj",
+          "runId": "run",
+          "sequence": 1,
+          "runStateVersion": 4,
+          "type": "run_state",
+          "occurredAt": "2026-11-05T03:00:00Z",
+          "referenceIds": []
+        }
+      ],
+      "tasks": [
+        {
+          "id": "task",
+          "projectId": "proj",
+          "title": "Synthetic export task",
+          "externalRef": "github:issue:42"
+        }
+      ]
+    },
+    "assessment": {
+      "assessmentVersion": "2.0.0",
+      "rulesVersion": "p2-rules-2.0.0",
+      "classification": "synthetic-only",
+      "specimenNotice": "Authored P2 judgment specimen, not authenticated assessment or actual model reasoning.",
+      "projectId": "proj",
+      "handoffId": "handoff",
+      "candidateRevision": "candidate-r12",
+      "evaluationMode": "execution_review",
+      "risk": {
+        "tier": "medium",
+        "state": "accepted",
+        "rationale": "Project policy requires both API role outcomes in this scoped example"
+      },
+      "criteria": [
+        {
+          "criterionId": "AC-1",
+          "planState": "accepted",
+          "scopeDescription": "Role behavior at export API, not a full security audit",
+          "requiredLevels": [
+            "integration"
+          ],
+          "allowedProvenance": [
+            "execution",
+            "source_reasoning"
+          ],
+          "obligations": [
+            {
+              "id": "manager",
+              "description": "Manager can export",
+              "sourceArtifactId": "req",
+              "locator": "AC-1 manager",
+              "requiredComparisonKeys": [
+                "manager-api"
+              ]
+            },
+            {
+              "id": "employee",
+              "description": "Employee cannot export",
+              "sourceArtifactId": "req",
+              "locator": "AC-1 employee",
+              "requiredComparisonKeys": [
+                "employee-api"
+              ]
+            }
+          ],
+          "applicability": "applicable",
+          "naDecision": null,
+          "comparisonContexts": [
+            {
+              "id": "manager-api",
+              "description": "Manager direct export request under the stated candidate/environment",
+              "sourceArtifactId": "testlog",
+              "locator": "manager-api"
+            },
+            {
+              "id": "employee-api",
+              "description": "Employee direct export request under the same declared policy",
+              "sourceArtifactId": "testlog",
+              "locator": "employee-api"
+            }
+          ]
+        }
+      ],
+      "evidenceReviews": [
+        {
+          "evidenceId": "ev-unit",
+          "integrity": "matched",
+          "attribution": "accepted",
+          "scope": "accepted",
+          "rationale": "Synthetic accepted-review input for shape/decision tests only"
+        },
+        {
+          "evidenceId": "ev-qc",
+          "integrity": "matched",
+          "attribution": "accepted",
+          "scope": "accepted",
+          "rationale": "Synthetic accepted-review input for shape/decision tests only"
+        }
+      ],
+      "bindings": [
+        {
+          "criterionId": "AC-1",
+          "obligationId": "manager",
+          "evidenceId": "ev-unit",
+          "relation": "supports",
+          "judgment": "accepted",
+          "rationale": "Synthetic mapping reviewed against the stated obligation",
+          "comparisonKey": "manager-api"
+        },
+        {
+          "criterionId": "AC-1",
+          "obligationId": "employee",
+          "evidenceId": "ev-qc",
+          "relation": "supports",
+          "judgment": "accepted",
+          "rationale": "Synthetic mapping reviewed against the stated obligation",
+          "comparisonKey": "employee-api"
+        }
+      ],
+      "policySourceArtifactId": "checkcfg",
+      "assessorRef": "assessment-service",
+      "projectConfigVersion": 1,
+      "dataPolicyVersion": 1,
+      "constraintReviews": []
+    },
+    "prepared": {
+      "report": {
+        "runtimeReportVersion": "1.0.0",
+        "id": "runtime-report",
+        "kind": "internal_assessment_report",
+        "publicationState": "proposed",
+        "runBinding": {
+          "id": "run",
+          "projectId": "proj",
+          "handoffId": "handoff",
+          "candidateRevision": "candidate-r12",
+          "projectConfigVersion": 1,
+          "dataPolicyVersion": 1,
+          "stateVersion": 4,
+          "attempt": 1
+        },
+        "runSnapshotSha256": "b59a2fde7aa7570e426d203fbf82db2a0d70bba0632afb6e2fa9ba2b4356584b",
+        "content": {
+          "reportVersion": "1.0.0",
+          "classification": "synthetic-only",
+          "processingStatus": "reference_report",
+          "inputBindings": {
+            "algorithm": "sha256-python-json-v1",
+            "bundleSha256": "4e1e24baead1613f9acd90bb03139fbf62d0054681f388aa65fe33b588c8db41",
+            "assessmentSha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          },
+          "scope": {
+            "projectId": "proj",
+            "handoffId": "handoff",
+            "candidateRevision": "candidate-r12",
+            "projectConfigVersion": 1,
+            "dataPolicyVersion": 1,
+            "policySourceArtifactId": "checkcfg",
+            "assessorRef": "assessment-service",
+            "taskRef": "task",
+            "requirementVersion": "req-v1"
+          },
+          "assessment": {
+            "rulesVersion": "p2-rules-2.0.0",
+            "processingStatus": "evaluated",
+            "evaluationMode": "execution_review",
+            "statusScope": "candidate_scoped_assessment",
+            "verification": "incomplete",
+            "hasUnverifiedMandatory": false,
+            "hasOpenMandatoryCoverage": false,
+            "pendingConstraintIds": [
+              "P-05"
+            ],
+            "criteria": [
+              {
+                "criterionId": "AC-1",
+                "status": "verified",
+                "reasonCodes": [
+                  "SCOPED_COVERAGE_SATISFIED"
+                ],
+                "evidenceIds": [
+                  "ev-qc",
+                  "ev-unit"
+                ],
+                "contextEvidenceIds": [],
+                "hasOpenCoverage": false,
+                "scopeDescription": "Role behavior at export API, not a full security audit"
+              }
+            ],
+            "constraints": [
+              {
+                "constraintId": "P-05",
+                "status": "pending",
+                "reasonCode": "CONSTRAINT_PENDING"
+              }
+            ],
+            "humanDecision": "pending",
+            "limitations": [
+              "Offline reference semantics over supplied assessment judgments, not authenticated trust or domain truth.",
+              "No test execution, model calls, auth, report persistence or runtime enforcement performed."
+            ]
+          },
+          "assessmentContext": {
+            "risk": {
+              "tier": "medium",
+              "state": "accepted",
+              "rationale": "Project policy requires both API role outcomes in this scoped example"
+            },
+            "bindings": [
+              {
+                "criterionId": "AC-1",
+                "obligationId": "manager",
+                "evidenceId": "ev-unit",
+                "relation": "supports",
+                "judgment": "accepted",
+                "rationale": "Synthetic mapping reviewed against the stated obligation",
+                "comparisonKey": "manager-api"
+              },
+              {
+                "criterionId": "AC-1",
+                "obligationId": "employee",
+                "evidenceId": "ev-qc",
+                "relation": "supports",
+                "judgment": "accepted",
+                "rationale": "Synthetic mapping reviewed against the stated obligation",
+                "comparisonKey": "employee-api"
+              }
+            ]
+          },
+          "handoffContext": {
+            "intake": "handoff_bundle",
+            "decisionMoment": "qc_to_reviewer",
+            "requestedDecision": "Determine missing checks before next step",
+            "actors": {
+              "developerRef": "developer",
+              "qcRef": "qc",
+              "reviewerRef": null
+            },
+            "riskRationale": "Permission check in synthetic task",
+            "stageRecords": [
+              {
+                "stage": "developer_self_test",
+                "state": "provided",
+                "evidenceIds": [
+                  "ev-unit"
+                ]
+              },
+              {
+                "stage": "qc",
+                "state": "provided",
+                "evidenceIds": [
+                  "ev-qc"
+                ]
+              }
+            ],
+            "knownIssues": [],
+            "sourceArtifactIds": [],
+            "diffArtifactIds": []
+          },
+          "criterionSources": [
+            {
+              "criterion": {
+                "id": "AC-1",
+                "expected": "Manager allowed and employee denied at export API",
+                "mandatory": true,
+                "claims": [
+                  {
+                    "artifactId": "req",
+                    "locator": "AC-1",
+                    "statement": "Only managers may export"
+                  }
+                ],
+                "clarification": "clear",
+                "ownerRole": "domain-owner"
+              },
+              "plan": {
+                "criterionId": "AC-1",
+                "planState": "accepted",
+                "scopeDescription": "Role behavior at export API, not a full security audit",
+                "requiredLevels": [
+                  "integration"
+                ],
+                "allowedProvenance": [
+                  "execution",
+                  "source_reasoning"
+                ],
+                "obligations": [
+                  {
+                    "id": "manager",
+                    "description": "Manager can export",
+                    "sourceArtifactId": "req",
+                    "locator": "AC-1 manager",
+                    "requiredComparisonKeys": [
+                      "manager-api"
+                    ]
+                  },
+                  {
+                    "id": "employee",
+                    "description": "Employee cannot export",
+                    "sourceArtifactId": "req",
+                    "locator": "AC-1 employee",
+                    "requiredComparisonKeys": [
+                      "employee-api"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "naDecision": null,
+                "comparisonContexts": [
+                  {
+                    "id": "manager-api",
+                    "description": "Manager direct export request under the stated candidate/environment",
+                    "sourceArtifactId": "testlog",
+                    "locator": "manager-api"
+                  },
+                  {
+                    "id": "employee-api",
+                    "description": "Employee direct export request under the same declared policy",
+                    "sourceArtifactId": "testlog",
+                    "locator": "employee-api"
+                  }
+                ]
+              }
+            }
+          ],
+          "constraintSources": [
+            {
+              "declaration": {
+                "id": "P-05",
+                "description": "Domain review required",
+                "mandatory": true,
+                "state": "satisfied",
+                "sourceArtifactId": "req"
+              },
+              "review": null
+            }
+          ],
+          "evidenceSources": [
+            {
+              "evidence": {
+                "id": "ev-unit",
+                "projectId": "proj",
+                "handoffId": "handoff",
+                "criterionIds": [
+                  "AC-1"
+                ],
+                "revision": "candidate-r12",
+                "checkId": "ev-unit",
+                "level": "integration",
+                "outcome": "pass",
+                "provenance": {
+                  "kind": "execution",
+                  "actorRef": "developer",
+                  "environment": "contract-specimen",
+                  "observedAt": "2026-11-05T03:00:00Z",
+                  "sourceArtifactId": "testlog"
+                },
+                "reason": null,
+                "executionRef": "specimen-exec-1"
+              },
+              "review": {
+                "evidenceId": "ev-unit",
+                "integrity": "matched",
+                "attribution": "accepted",
+                "scope": "accepted",
+                "rationale": "Synthetic accepted-review input for shape/decision tests only"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev-qc",
+                "projectId": "proj",
+                "handoffId": "handoff",
+                "criterionIds": [
+                  "AC-1"
+                ],
+                "revision": "candidate-r12",
+                "checkId": "ev-qc",
+                "level": "integration",
+                "outcome": "pass",
+                "provenance": {
+                  "kind": "execution",
+                  "actorRef": "qc",
+                  "environment": "contract-specimen",
+                  "observedAt": "2026-11-05T03:01:00Z",
+                  "sourceArtifactId": "testlog"
+                },
+                "reason": null,
+                "executionRef": "specimen-exec-2"
+              },
+              "review": {
+                "evidenceId": "ev-qc",
+                "integrity": "matched",
+                "attribution": "accepted",
+                "scope": "accepted",
+                "rationale": "Synthetic accepted-review input for shape/decision tests only"
+              }
+            }
+          ],
+          "artifacts": [
+            {
+              "id": "req",
+              "projectId": "proj",
+              "kind": "requirement",
+              "revision": "req-v1",
+              "relativePath": "docs/requirements.md",
+              "sha256": null,
+              "taskRef": "task"
+            },
+            {
+              "id": "testlog",
+              "projectId": "proj",
+              "kind": "test_output",
+              "revision": "candidate-r12",
+              "relativePath": "evidence/test-output.json",
+              "sha256": null,
+              "taskRef": "task"
+            },
+            {
+              "id": "checkcfg",
+              "projectId": "proj",
+              "kind": "check_config",
+              "revision": "config-v1",
+              "relativePath": "qa/checks.json",
+              "sha256": null,
+              "taskRef": null
+            }
+          ],
+          "actions": [
+            {
+              "id": "action-1",
+              "criterionIds": [],
+              "constraintIds": [
+                "P-05"
+              ],
+              "ownerRole": "constraint-review-owner",
+              "assigneeRef": null,
+              "state": "proposed",
+              "description": "Obtain the scoped constraint review; a declared state alone is insufficient.",
+              "doneWhen": "Provide an accepted review with actor/source/current candidate, then re-evaluate."
+            }
+          ],
+          "legacyProjection": {
+            "status": "projection_unsupported",
+            "reasonCodes": [
+              "P1_V2_EXPORT_NOT_IMPLEMENTED",
+              "P1_V2_CONSTRAINT_COLLISION"
+            ]
+          },
+          "limitations": [
+            "Synthetic reference report over supplied judgments; no authenticated authority or domain truth.",
+            "No project tests, model/network calls, persistence, P1 export or run lifecycle performed.",
+            "Digests identify supplied JSON inputs, not source contents, actor authenticity or trust.",
+            "Proposed role labels are routing suggestions; no assignee, approval or action completion asserted."
+          ]
+        }
+      },
+      "completion": {
+        "completionVersion": "1.0.0",
+        "kind": "internal_completion_proposal",
+        "projectId": "proj",
+        "runId": "run",
+        "expectedRunVersion": 4,
+        "expectedAttempt": 1,
+        "expectedRunSha256": "b59a2fde7aa7570e426d203fbf82db2a0d70bba0632afb6e2fa9ba2b4356584b",
+        "reportSha256": "96676a5b2badc6e78cd7ece2e00880507463a3c77b133c3cf2e691e33077adb7",
+        "runMutation": {
+          "state": "completed",
+          "stateVersion": 5,
+          "lease": null,
+          "reportId": "runtime-report",
+          "waitingReasons": [],
+          "terminalReason": null
+        },
+        "eventProposal": {
+          "type": "report_ready",
+          "sequence": 2,
+          "runStateVersion": 5,
+          "referenceIds": [
+            "runtime-report"
+          ]
+        }
+      }
+    }
+  },
+  "graph": {
+    "graphVersion": "1.0.0",
+    "completedRunCandidate": {
+      "id": "run",
+      "projectId": "proj",
+      "handoffId": "handoff",
+      "candidateRevision": "candidate-r12",
+      "projectConfigVersion": 1,
+      "dataPolicyVersion": 1,
+      "state": "completed",
+      "stateVersion": 5,
+      "attempt": 1,
+      "triggerEventId": null,
+      "lease": null,
+      "waitingReasons": [],
+      "terminalReason": null,
+      "reportId": "runtime-report",
+      "initiator": {
+        "kind": "user",
+        "principalRef": "synthetic-runner"
+      },
+      "rerunOfRunId": null
+    },
+    "reportReference": {
+      "projectId": "proj",
+      "runId": "run",
+      "reportId": "runtime-report",
+      "reportSha256": "96676a5b2badc6e78cd7ece2e00880507463a3c77b133c3cf2e691e33077adb7"
+    },
+    "reportReadyCandidate": {
+      "projectId": "proj",
+      "runId": "run",
+      "type": "report_ready",
+      "sequence": 2,
+      "runStateVersion": 5,
+      "referenceIds": [
+        "runtime-report"
+      ]
+    }
+  }
+}
