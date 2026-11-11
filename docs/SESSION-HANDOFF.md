@@ -2,6 +2,8 @@
 
 ## Commit local theo yêu cầu người dùng — 11/11/2026
 
+Đã tạo implementation commit **`e56ed7db579830f0252968215a1c2bdbae791e47`**: `feat: add shared QA core and staged report publication`, đủ 45 files đã review. Git blob manifest 33 implementation paths là `34222735b29d8450e93742cced92dc7a66536566526c5acf014d5ea0b99c2878`; working-file manifest lịch sử vẫn `325c39...`. Đã kiểm 22 files khác byte chỉ do CRLF→LF; normalized contents của toàn bộ 33 files giống nhau. Commit tài liệu bổ sung chỉ ghi nhận snapshot/normalization, không đổi implementation. Chưa push.
+
 User yêu cầu commit toàn output đã review trong session. Commit chứa entry này lưu shared Python core, runtime/prepared report, staged publication/replay package, schemas/goldens/tests và docs/plan bàn giao. Baseline trước commit là master `d8bf175`; đọc Git log/status thực để lấy hash snapshot mới và mọi thay đổi còn lại. Brief [NEXT-SESSION](NEXT-SESSION.md) đã đổi từ trạng thái uncommitted sang cách nhận diện commit snapshot; các entries chưa commit bên dưới là lịch sử tại lúc ghi. Không suy remote đã nhận snapshot: user chỉ yêu cầu commit local, chưa push.
 
 ## Chuẩn bị chuyển session — 11/11/2026, master `d8bf175` + working tree P4-A
