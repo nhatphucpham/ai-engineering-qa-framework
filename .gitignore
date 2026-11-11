@@ -2,3 +2,5 @@
 /.cache/s1/
 spikes/s1/node_modules/
 spikes/s1/dist/
+# Disposable S2 PostgreSQL binaries, cluster, driver and scratch outputs.
+/.cache/s2/

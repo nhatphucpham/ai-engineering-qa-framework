@@ -1,7 +1,11 @@
 # ai-engineering-qa-framework
 A practical framework for quality assurance in AI engineering systems, from evaluation and testing to safety and release readiness.
 
-## Hướng phát triển hiện hành — 10/11/2026
+## Hướng phát triển hiện hành — 11/11/2026
+
+[S2-B lease/recovery subset](docs/S2-B-RESULTS.md) DONE trong subset sau10 DB groups PASS và [review CLEAN](docs/S2-B-REVIEW.md): renewal/expiry/fencing, scoped synthetic cleanup/reclaim, cancel/revoke races và restart reconciliation. [Model riêng](spikes/s2b/README.md) giữ S2-A/core/evidence cũ nguyên vẹn; authenticated revoke/container cleanup, capacity/fairness/restore vẫn còn mở.
+
+[S2-A PostgreSQL subset](docs/S2-A-RESULTS.md) đã có actual 100-job/2-process/4-connection transaction/crash/restart evidence: 14 DB groups PASS, [final review CLEAN — subset DONE](docs/S2-A-REVIEW.md). [Harness portable](spikes/s2/README.md) chỉ dùng DB synthetic riêng; full S2/P3-B/P4-A/P4-B còn partial và production stack chưa chọn.
 
 **Mục đích: giúp Reviewer/Tech Lead biết requirement nào có evidence đúng revision, gap gì còn mở và ai xử lý tiếp.** Sản phẩm đích là plugin QA + desktop Windows + server/worker self-host nhiều người; chưa pilot. [Các lựa chọn đã chốt](docs/PRODUCT-DECISIONS.md) là nguồn yêu cầu: agent local hoặc OpenAI/Anthropic API, project data policy, container kiểm thử, GitHub polling/webhook, auth nội bộ và fixed roles. [Scope P0](docs/FRAMEWORK-SCOPE.md) và [plan P0–P6](docs/IMPLEMENTATION-PLAN.md) dùng một core chung; agent target và stack control/worker/desktop chưa chọn; pure core chọn baseline Python sau S1. Transport HTTPS JSON/SSE là thiết kế tại ADR-002, chưa có server. P1 contract v2, P2 rules v2 và reference report/harness đã có; P3-A design đã review. **S1 đã PASS 356 cases + 28 CLI. [Slice P4-A internal report/core](docs/P4-A-RUNTIME-REPORT.md) đã có module Python và report/completion proposal có version, DONE trong scope sau review R2; [Publication/replay package v1](docs/P4-A-PUBLICATION.md) DONE trong scope sau clean review WT-PUB-R1 ngày 11/11; phần còn mở là production storage/transaction, scoped read/export và full lifecycle integration.** Theo [ADR-004](docs/adr/004-core-baseline-after-s1.md), pure core dùng Python. Chưa có phần mềm installable hoặc quyền publish. Walkthrough/feedback cũ là lịch sử.
 

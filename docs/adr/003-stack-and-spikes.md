@@ -49,4 +49,8 @@ S1 cần so cả report envelope và failure semantics với oracle, ngoài corp
 
 ## Decision after spikes
 
+Cập nhật S2-B 11/11: [lease/recovery persistence subset](../S2-B-RESULTS.md) R4 DB10 groups PASS, [review](../S2-B-REVIEW.md) final CLEAN, subset DONE. Renewal/expiry/cleanup acknowledgement/reclaim/cancel-revoke predicates + restart kiểm trên fresh PostgreSQL schema; không authenticated live revoke hoặc actual container cleanup. S2-A source/evidence giữ nguyên. Full S2 còn capacity/fairness/backup-restore/blob/worker/auth integration; không promote candidate DB/control-worker từ subset này. Ưu tiên S2-C và S4/S6 boundaries tiếp.
+
+Cập nhật 11/11/2026: [S2-A actual results](../S2-A-RESULTS.md) có disposable PostgreSQL18.6, 2 processes/4 connections/100 jobs, transactional report+completed+outbox và crash/restart subset PASS; [review](../S2-A-REVIEW.md) CLEAN, subset DONE. Full S2 còn lease renewal/reclaim, live revoke/cleanup/cancel/fairness/backup-restore; S3–S6 chưa chạy. Spike Python/psycopg và DB candidate không promote thành production DB/control/worker decision. Statements “S2–S6 chưa chạy” ở cập nhật 10/11 bên trên là trạng thái lịch sử trước subset này.
+
 Publish actual commands, locked dependency/runtime versions, environment, output and limits; compare candidates on the same workload. Promote individual ADR decisions only when relevant checks meet criteria or documented tradeoff is accepted within engineering scope. Stack gate remains open while evidence absent; do not mark P3 complete from docs alone. Missing agent host choice blocks platform manifest/package P6, not shared core/API design. No installer/public release/pilot authorization follows automatically.

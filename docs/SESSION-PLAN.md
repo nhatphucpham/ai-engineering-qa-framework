@@ -1,12 +1,20 @@
-# Plan một session kế tiếp — S2-A prerequisite và transaction spike
+# Plan hiện hành — sau S2-B lease/recovery subset
 
-Ngày 11/11/2026. **Kế hoạch chưa được thực thi**; bắt đầu khi session tiếp nhận yêu cầu tiếp tục. Đọc [NEXT-SESSION](NEXT-SESSION.md), [ADR-003](adr/003-stack-and-spikes.md) và architecture storage boundary. User có thể đổi ưu tiên; ghi lý do trong decision log. Không coi plan này là production DB/runtime decision.
+## S2-B đã thực thi và việc tiếp
+
+11/11/2026, user yêu cầu tiếp. [Protocol](S2-B-PROTOCOL.md) chốt trước sửa; `spikes/s2b/` model riêng và [results](S2-B-RESULTS.md) R4 DB10 groups PASS/32.140s,37 source/input hashes before=after; full regression45 PASS34.940s và preflight6 PASS0.051s. [Review](S2-B-REVIEW.md) final CLEAN, S2-B subset DONE. S2-A source/evidence/33 input paths không đổi, checkout d73dce3 + toàn uncommitted outputs được giữ.
+
+Phiên tiếp ưu tiên **S2-C capacity/fairness và metadata backup/restore** trên disposable DB. Chốt purpose/output/acceptance/fault matrix trước sửa; đo actual project/global admission và queue-age/fairness trên multi-connection model, restore vào DB/schema synthetic riêng và kiểm reachable metadata/canonical bytes/anchors/outbox. DB-only restore không đóng external blob/key recovery. Reuse portable pins nếu preflight vẫn READY, không dùng service/account thật hoặc chọn production storage/runtime. S4/S6 phải kiểm authenticated revoke và actual worker/container cleanup trước full lifecycle gate. Gaps giữ NOT RUN đúng boundary; không dùng S2-B predicate PASS để đóng full S2/P3-B/P4-A/P4-B.
+
+## Plan S2-A đã thực thi (giữ acceptance lịch sử)
+
+Ngày 11/11/2026. **Đã thực thi S2-A DB subset, DONE sau clean review trong subset**: [actual results](S2-A-RESULTS.md), [review](S2-A-REVIEW.md). Nội dung bên dưới giữ acceptance/nhánh READY–NOT READY đã dùng, không còn là bước chưa bắt đầu. Đọc [NEXT-SESSION](NEXT-SESSION.md), [ADR-003](adr/003-stack-and-spikes.md). Không coi spike này là production DB/runtime decision.
 
 ## Đích phiên và outputs
 
 Tiến từ staged package đã DONE sang **S2-A subset** kiểm chứng concurrent claim + atomic report/completed/outbox trên đúng run/version/attempt, dùng DB riêng synthetic và crash/recovery evidence. Ưu tiên candidate PostgreSQL của ADR-003. Không triển khai toàn server/auth/worker/container/UI trong một lần. Spike language/driver không tự chọn runtime control/worker; Python core vẫn source of truth report semantics.
 
-Outputs dự kiến: `docs/S2-A-PROTOCOL.md`, `spikes/s2/` (preflight/pinned harness/setup-cleanup), `docs/S2-A-RESULTS.md`, `docs/s2-results/<run-id>.json`, `docs/S2-A-REVIEW.md`, cập nhật plan/decisions/handoff. Đây là **đường dẫn dự kiến, chưa là files/evidence có sẵn**. Ghi runtime versions, input/code hashes, actual commands, expected/actual, crash points và limits. Không regenerate goldens cũ.
+Outputs đã tạo: `docs/S2-A-PROTOCOL.md`, `spikes/s2/` (preflight/pinned harness/setup-stop), `docs/S2-A-RESULTS.md`, `docs/s2-results/2026-11-11-r1.json` đến `r5.json`, `docs/S2-A-REVIEW.md`, cập nhật plan/decisions/handoff. Versions/input-code hashes/commands/expected-actual/faults/limits nằm trong results và evidence. Không regenerate goldens cũ.
 
 ## Trình tự
 
@@ -47,3 +55,9 @@ Có thể DONE **preparation/protocol output** sau clean review/checks, nhưng S
 - Bàn giao completed/partial/gaps/việc tiếp, diff/status và quyền còn thiếu. Không đóng P3-B/S2/P4-A/P4-B hoặc toàn sản phẩm từ một subset.
 
 Sau phiên này tiến theo evidence: full S2 (queue/crash/cancel/revoke/cleanup/fairness/restore), runtime/storage ADR rồi P4-B transaction adapter; scoped read/export, S4/S6, S5 adapters và S3/desktop có prerequisites riêng. Không tự chọn platform/distribution, gọi account/API/project thật, pilot hoặc publish.
+
+## Kết quả và bước tiếp sau S2-A
+
+Actual disposable PostgreSQL18.6/psycopg3.3.8 đã READY qua portable project-local setup. Latest R5: DB14 groups PASS/22.872s, 6 preflight methods PASS, 45 regression methods PASS; output DONE sau final CLEAN trong review record. Working tree dựa d73dce3, chưa commit/push. Không dùng preparation DONE hoặc DB subset PASS đóng full S2/P4-A/P4-B.
+
+Ưu tiên sau S2-A là **S2-B**, đã được user yêu cầu và thực thi như entry hiện hành đầu file. DB persistence subset không thay authenticated revoke hoặc worker cleanup proof; fairness/restore vẫn cần actual evidence riêng. Giữ acceptance/phân biệt READY–NOT READY bên trên như protocol session S2-A, không đọc là S2-B chưa bắt đầu.

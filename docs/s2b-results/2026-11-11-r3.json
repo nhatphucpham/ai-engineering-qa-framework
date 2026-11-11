@@ -1,0 +1,1171 @@
+{
+  "evidenceVersion": "s2-b-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "d73dce3d30a2ee9041b6633ce0fbfdcf78528332",
+  "startedAt": "2026-11-11T12:25:54.515024+00:00",
+  "command": "py -3 -B spikes/s2b/run_b.py docs/s2b-results/2026-11-11-r3.json",
+  "environment": {
+    "python": "3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "psycopg": "3.3.8"
+  },
+  "preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/S2-B-PROTOCOL.md": "caebd807ea13011fab582afca228776308b88b794dee894584c4b34d0263da58",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/README.md": "2f4b519b15c1ca50267a84941c98c78709af699098b210c378d6c85bd0cb2846",
+    "spikes/s2b/run_b.py": "c00d0bfc1f8054f891221c444ff7becda65744d730b600afcd02078391249541",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128"
+  },
+  "status": "PASS",
+  "limits": [
+    "Synthetic per-run revoke and cleanup acknowledgements, no authenticated trust or container cleanup",
+    "No capacity/fairness/backup-restore/external blob or ordinary export",
+    "No production DB/control/worker decision",
+    "S2/P3-B/P4-A/P4-B remain partial"
+  ],
+  "schema": "s2_ca2c467fcd904c918e9b4393d50ffd2a",
+  "checks": {
+    "B01": {
+      "status": "PASS",
+      "before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "expiry_before": "2026-11-11T12:55:55.947987+00:00",
+      "expiry_after": "2026-11-11T12:55:56.004326+00:00",
+      "after": {
+        "state": "completed",
+        "version": 5,
+        "report_id": "report-renew",
+        "claims": 1,
+        "receipts": 1,
+        "reports": 1,
+        "outbox": 1,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "roundtrip": {
+        "canonical_sha256": "19b306bf331b810bad9d14fcaae6875cf99d3f3e6a9064101b76b47ba04d600b",
+        "canonical_length": 15069,
+        "bundle_sha256": "7a9334f8d1ed6710b5e0a8c65f38ac9d4f5f83d9be7747c471000a5f112448f5",
+        "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+      }
+    },
+    "B02": {
+      "status": "PASS",
+      "probes": "wrong version/attempt/fence + expired renew/receipt/complete",
+      "state": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 0,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "expiry_between_check_and_write": [
+        {
+          "method": "renew",
+          "delay_hook_reached": true,
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 0,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        },
+        {
+          "method": "accept_receipt",
+          "delay_hook_reached": true,
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 0,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        },
+        {
+          "method": "complete",
+          "delay_hook_reached": true,
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        }
+      ]
+    },
+    "B03": {
+      "status": "PASS",
+      "pending": {
+        "state": "recovering",
+        "version": 5,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 5,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-3da6503688de45c0977839397ac7a4bd",
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "invalid_ack_probes": [
+        "attempt",
+        "fence",
+        "request",
+        "run",
+        "boolean",
+        "numeric_boolean_or_float",
+        "replay"
+      ],
+      "after": {
+        "state": "checking",
+        "version": 7,
+        "report_id": null,
+        "claims": 2,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 2,
+        "fence": 6,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 0
+      },
+      "prior_bundle_sha": "5a1a62715dbb5abcd957659d5b4bfe5119469dd6d6d48495a55b72c08d9175c0"
+    },
+    "B05": {
+      "status": "PASS",
+      "blocked_before_ack": [
+        {
+          "op": "claim",
+          "backend": 26268,
+          "process": 27564,
+          "begin_ns": 1794399960926112700,
+          "end_ns": 1794399960930080900,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 28276,
+          "process": 27564,
+          "begin_ns": 1794399960926244100,
+          "end_ns": 1794399960930366300,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 18360,
+          "process": 20312,
+          "begin_ns": 1794399960925961500,
+          "end_ns": 1794399960929716500,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 28072,
+          "process": 20312,
+          "begin_ns": 1794399960926075100,
+          "end_ns": 1794399960930811000,
+          "status": "empty",
+          "value": null
+        }
+      ],
+      "after_ack_reclaim": [
+        {
+          "op": "claim",
+          "backend": 12944,
+          "process": 27188,
+          "begin_ns": 1794399961978142700,
+          "end_ns": 1794399961982850600,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 27192,
+          "process": 27188,
+          "begin_ns": 1794399961978081300,
+          "end_ns": 1794399962002773400,
+          "status": "accepted",
+          "value": {
+            "id": "reclaim",
+            "version": 7,
+            "attempt": 2,
+            "fence": 6,
+            "backend": 27192,
+            "process": 27188
+          }
+        },
+        {
+          "op": "claim",
+          "backend": 21488,
+          "process": 720,
+          "begin_ns": 1794399961978324000,
+          "end_ns": 1794399961982507300,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 25996,
+          "process": 720,
+          "begin_ns": 1794399961978177400,
+          "end_ns": 1794399961983137700,
+          "status": "empty",
+          "value": null
+        }
+      ]
+    },
+    "B04": {
+      "status": "PASS",
+      "stale_attempt": {
+        "id": "reclaim",
+        "version": 4,
+        "attempt": 1,
+        "fence": 4,
+        "backend": 20752,
+        "process": 25096
+      },
+      "current_attempt": {
+        "id": "reclaim",
+        "version": 7,
+        "attempt": 2,
+        "fence": 6,
+        "backend": 27192,
+        "process": 27188
+      },
+      "state": {
+        "state": "completed",
+        "version": 8,
+        "report_id": "report-reclaim",
+        "claims": 2,
+        "receipts": 2,
+        "reports": 1,
+        "outbox": 1,
+        "attempt": 2,
+        "fence": 6,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 0
+      },
+      "roundtrip": {
+        "canonical_sha256": "93c23bb06b945f75e0c51b79055c4868749f58a2b3f0439a951a3e42a4e2fcff",
+        "canonical_length": 15099,
+        "bundle_sha256": "7514fb63bda0321ab37bcbc89172d754bb75e0c72ed29d74c0e84403f4113b24",
+        "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+      }
+    },
+    "B06": {
+      "status": "PASS",
+      "observations": [
+        {
+          "reason": "cancel",
+          "ordered_cancelled": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": "cancel",
+            "terminal_reason": "cancel",
+            "requests": 1,
+            "open_incidents": 0
+          },
+          "ordered_completed": {
+            "state": "completed",
+            "version": 5,
+            "report_id": "report-complete-first-cancel",
+            "claims": 1,
+            "receipts": 1,
+            "reports": 1,
+            "outbox": 1,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          },
+          "race": [
+            {
+              "op": "complete",
+              "backend": 16788,
+              "process": 5332,
+              "begin_ns": 1794399963384038800,
+              "end_ns": 1794399963390667700,
+              "status": "rejected"
+            },
+            {
+              "op": "request_stop",
+              "backend": 7484,
+              "process": 14820,
+              "begin_ns": 1794399963383993900,
+              "end_ns": 1794399963390164600,
+              "status": "accepted",
+              "value": "cleanup-6967d004ff604c8fbfc5d6b73544bb4a"
+            }
+          ],
+          "race_after_cleanup": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": "cancel",
+            "terminal_reason": "cancel",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        },
+        {
+          "reason": "revoke",
+          "ordered_cancelled": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": false,
+            "cleanup_request": null,
+            "stop_reason": "revoke",
+            "terminal_reason": "revoke",
+            "requests": 1,
+            "open_incidents": 0
+          },
+          "ordered_completed": {
+            "state": "completed",
+            "version": 5,
+            "report_id": "report-complete-first-revoke",
+            "claims": 1,
+            "receipts": 1,
+            "reports": 1,
+            "outbox": 1,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          },
+          "race": [
+            {
+              "op": "complete",
+              "backend": 28456,
+              "process": 23644,
+              "begin_ns": 1794399964731482200,
+              "end_ns": 1794399964749186100,
+              "status": "rejected"
+            },
+            {
+              "op": "request_stop",
+              "backend": 23868,
+              "process": 26956,
+              "begin_ns": 1794399964731420800,
+              "end_ns": 1794399964748427600,
+              "status": "accepted",
+              "value": "cleanup-7d9179b04f04494b924428e126baebd3"
+            }
+          ],
+          "race_after_cleanup": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": false,
+            "cleanup_request": null,
+            "stop_reason": "revoke",
+            "terminal_reason": "revoke",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        }
+      ],
+      "authenticatedRevoke": "NOT RUN",
+      "containerCleanup": "NOT RUN"
+    },
+    "B07": {
+      "status": "PASS",
+      "failed_before_late_ack": {
+        "state": "failed",
+        "version": 6,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 6,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-098cb8601c5740588212d22ed7021b42",
+        "stop_reason": "lease_expired",
+        "terminal_reason": "cleanup_unconfirmed",
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "late_ack_terminal_immutable": true,
+      "deadline_race": [
+        {
+          "op": "ack_cleanup",
+          "backend": 5760,
+          "process": 11188,
+          "begin_ns": 1794399968130937500,
+          "end_ns": 1794399968137102700,
+          "status": "accepted",
+          "value": "failed"
+        },
+        {
+          "op": "cleanup_timeout",
+          "backend": 11772,
+          "process": 25488,
+          "begin_ns": 1794399968130968100,
+          "end_ns": 1794399968137602000,
+          "status": "rejected"
+        }
+      ],
+      "race_after": {
+        "state": "failed",
+        "version": 6,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 6,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-73178c37a91c49aeb62e4331b442eb7b",
+        "stop_reason": "lease_expired",
+        "terminal_reason": "cleanup_unconfirmed",
+        "requests": 1,
+        "open_incidents": 0
+      }
+    },
+    "B08": {
+      "status": "PASS",
+      "state": {
+        "state": "failed",
+        "version": 9,
+        "report_id": null,
+        "claims": 2,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 2,
+        "fence": 7,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": "attempts_exhausted",
+        "requests": 2,
+        "open_incidents": 0
+      }
+    },
+    "B09": {
+      "status": "PASS",
+      "committed_before": {
+        "state": "recovering",
+        "version": 5,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 5,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-ce1fef33761a494db67c4a9441ff24fa",
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "uncommitted_before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "committed_after_restart": {
+        "state": "recovering",
+        "version": 5,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 5,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-ce1fef33761a494db67c4a9441ff24fa",
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "uncommitted_after_restart": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "after_restart_and_reconcile": {
+        "state": "checking",
+        "version": 7,
+        "report_id": null,
+        "claims": 2,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 2,
+        "fence": 6,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 0
+      },
+      "reclaimed": {
+        "id": "uncommitted-recovery",
+        "version": 7,
+        "attempt": 2,
+        "fence": 6,
+        "backend": 9736,
+        "process": 25096
+      },
+      "child_exitcode": -15,
+      "dbStoppedWithOpenRecoveryTransaction": true,
+      "recovery_log": [
+        "2026-11-11 19:19:41.914 +07 [2020] LOG:  database system is ready to accept connections",
+        "2026-11-11 19:23:34.508 +07 [2020] LOG:  received immediate shutdown request",
+        "2026-11-11 19:23:35.395 +07 [22208] LOG:  database system was not properly shut down; automatic recovery in progress",
+        "2026-11-11 19:23:35.422 +07 [22208] LOG:  redo starts at 0/29B1258",
+        "2026-11-11 19:23:35.475 +07 [22208] LOG:  redo done at 0/2B2BB40 system usage: CPU: user: 0.00 s, system: 0.01 s, elapsed: 0.05 s",
+        "2026-11-11 19:23:39.543 +07 [19100] LOG:  database system is ready to accept connections",
+        "2026-11-11 19:26:10.407 +07 [19100] LOG:  received immediate shutdown request",
+        "2026-11-11 19:26:11.326 +07 [27468] LOG:  database system was not properly shut down; automatic recovery in progress",
+        "2026-11-11 19:26:11.354 +07 [27468] LOG:  redo starts at 0/2B2BBE0",
+        "2026-11-11 19:26:11.395 +07 [27468] LOG:  redo done at 0/2C65188 system usage: CPU: user: 0.00 s, system: 0.01 s, elapsed: 0.04 s",
+        "2026-11-11 19:26:14.775 +07 [1868] LOG:  database system is ready to accept connections"
+      ]
+    },
+    "B10": {
+      "status": "PASS",
+      "active": [
+        {
+          "op": "renew",
+          "backend": 18364,
+          "process": 15768,
+          "begin_ns": 1794399976016130500,
+          "end_ns": 1794399976021351400,
+          "status": "accepted",
+          "value": "2026-11-11T12:56:16.020229+00:00"
+        },
+        {
+          "op": "reconcile_expired",
+          "backend": 25324,
+          "process": 20932,
+          "begin_ns": 1794399976016163800,
+          "end_ns": 1794399976022658200,
+          "status": "empty",
+          "value": null
+        }
+      ],
+      "expired": [
+        {
+          "op": "renew",
+          "backend": 3144,
+          "process": 24812,
+          "begin_ns": 1794399977396112400,
+          "end_ns": 1794399977398754300,
+          "status": "rejected"
+        },
+        {
+          "op": "reconcile_expired",
+          "backend": 7968,
+          "process": 19712,
+          "begin_ns": 1794399977396136000,
+          "end_ns": 1794399977404899200,
+          "status": "accepted",
+          "value": "cleanup-748d5a9499294d729323dbebae69be43"
+        }
+      ],
+      "stop_vs_reclaim": [
+        {
+          "reason": "cancel",
+          "race": [
+            {
+              "op": "claim",
+              "backend": 27760,
+              "process": 25276,
+              "begin_ns": 1794399978857103100,
+              "end_ns": 1794399978860010500,
+              "status": "empty",
+              "value": null
+            },
+            {
+              "op": "request_stop",
+              "backend": 23768,
+              "process": 9048,
+              "begin_ns": 1794399978857074600,
+              "end_ns": 1794399978861079200,
+              "status": "accepted",
+              "value": null
+            }
+          ],
+          "state": {
+            "state": "cancelled",
+            "version": 7,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 6,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": "cancel",
+            "terminal_reason": "cancel",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        },
+        {
+          "reason": "revoke",
+          "race": [
+            {
+              "op": "claim",
+              "backend": 23084,
+              "process": 26968,
+              "begin_ns": 1794399982766547500,
+              "end_ns": 1794399982769252600,
+              "status": "empty",
+              "value": null
+            },
+            {
+              "op": "request_stop",
+              "backend": 16712,
+              "process": 22856,
+              "begin_ns": 1794399982766528200,
+              "end_ns": 1794399982770745000,
+              "status": "accepted",
+              "value": null
+            }
+          ],
+          "state": {
+            "state": "cancelled",
+            "version": 7,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 6,
+            "cleanup_ok": true,
+            "policy_ok": false,
+            "cleanup_request": null,
+            "stop_reason": "revoke",
+            "terminal_reason": "revoke",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        }
+      ],
+      "stop_vs_renew": [
+        {
+          "reason": "cancel",
+          "race": [
+            {
+              "op": "renew",
+              "backend": 22396,
+              "process": 27372,
+              "begin_ns": 1794399979926329800,
+              "end_ns": 1794399979932656100,
+              "status": "rejected"
+            },
+            {
+              "op": "request_stop",
+              "backend": 10348,
+              "process": 2212,
+              "begin_ns": 1794399979926348100,
+              "end_ns": 1794399979932234400,
+              "status": "accepted",
+              "value": "cleanup-d7c555834aa8466a9467da31fa7d9e99"
+            }
+          ],
+          "pending": {
+            "state": "cancelling",
+            "version": 5,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": false,
+            "policy_ok": true,
+            "cleanup_request": "cleanup-d7c555834aa8466a9467da31fa7d9e99",
+            "stop_reason": "cancel",
+            "terminal_reason": null,
+            "requests": 1,
+            "open_incidents": 1
+          },
+          "after": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": "cancel",
+            "terminal_reason": "cancel",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        },
+        {
+          "reason": "revoke",
+          "race": [
+            {
+              "op": "renew",
+              "backend": 5852,
+              "process": 25020,
+              "begin_ns": 1794399983811428900,
+              "end_ns": 1794399983815936600,
+              "status": "accepted",
+              "value": "2026-11-11T12:56:23.814675+00:00"
+            },
+            {
+              "op": "request_stop",
+              "backend": 25712,
+              "process": 27304,
+              "begin_ns": 1794399983811446300,
+              "end_ns": 1794399983821925500,
+              "status": "accepted",
+              "value": "cleanup-e464c56ed7964893a08b615259ff7374"
+            }
+          ],
+          "pending": {
+            "state": "cancelling",
+            "version": 5,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": false,
+            "policy_ok": false,
+            "cleanup_request": "cleanup-e464c56ed7964893a08b615259ff7374",
+            "stop_reason": "revoke",
+            "terminal_reason": null,
+            "requests": 1,
+            "open_incidents": 1
+          },
+          "after": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": false,
+            "cleanup_request": null,
+            "stop_reason": "revoke",
+            "terminal_reason": "revoke",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        }
+      ],
+      "stop_vs_expiry_reconcile": [
+        {
+          "reason": "cancel",
+          "race": [
+            {
+              "op": "reconcile_expired",
+              "backend": 20520,
+              "process": 24884,
+              "begin_ns": 1794399981367185900,
+              "end_ns": 1794399981377163700,
+              "status": "empty",
+              "value": null
+            },
+            {
+              "op": "request_stop",
+              "backend": 21144,
+              "process": 27540,
+              "begin_ns": 1794399981367152900,
+              "end_ns": 1794399981375513700,
+              "status": "accepted",
+              "value": "cleanup-d0d2188ceba747b795955e498d566c1b"
+            }
+          ],
+          "observed": {
+            "state": "cancelling",
+            "version": 5,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": false,
+            "policy_ok": true,
+            "cleanup_request": "cleanup-d0d2188ceba747b795955e498d566c1b",
+            "stop_reason": "cancel",
+            "terminal_reason": null,
+            "requests": 1,
+            "open_incidents": 1
+          },
+          "explicit_refreshed_version_retry": false,
+          "after": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": "cancel",
+            "terminal_reason": "cancel",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        },
+        {
+          "reason": "revoke",
+          "race": [
+            {
+              "op": "reconcile_expired",
+              "backend": 5832,
+              "process": 17124,
+              "begin_ns": 1794399985205597400,
+              "end_ns": 1794399985214584400,
+              "status": "empty",
+              "value": null
+            },
+            {
+              "op": "request_stop",
+              "backend": 28448,
+              "process": 5332,
+              "begin_ns": 1794399985205562200,
+              "end_ns": 1794399985213403700,
+              "status": "accepted",
+              "value": "cleanup-a2b9d22be1d042f5a535067b144b98ca"
+            }
+          ],
+          "observed": {
+            "state": "cancelling",
+            "version": 5,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": false,
+            "policy_ok": false,
+            "cleanup_request": "cleanup-a2b9d22be1d042f5a535067b144b98ca",
+            "stop_reason": "revoke",
+            "terminal_reason": null,
+            "requests": 1,
+            "open_incidents": 1
+          },
+          "explicit_refreshed_version_retry": false,
+          "after": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": false,
+            "cleanup_request": null,
+            "stop_reason": "revoke",
+            "terminal_reason": "revoke",
+            "requests": 1,
+            "open_incidents": 0
+          }
+        }
+      ]
+    }
+  },
+  "database": {
+    "version": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+    "fsync": "on",
+    "synchronous_commit": "on",
+    "full_page_writes": "on"
+  },
+  "inputsAfter": {
+    "docs/S2-B-PROTOCOL.md": "caebd807ea13011fab582afca228776308b88b794dee894584c4b34d0263da58",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/README.md": "2f4b519b15c1ca50267a84941c98c78709af699098b210c378d6c85bd0cb2846",
+    "spikes/s2b/run_b.py": "c00d0bfc1f8054f891221c444ff7becda65744d730b600afcd02078391249541",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128"
+  },
+  "finishedAt": "2026-11-11T12:26:25.291034+00:00",
+  "elapsedSeconds": 29.50619500000903
+}

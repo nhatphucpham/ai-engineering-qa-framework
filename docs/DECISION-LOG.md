@@ -1,5 +1,19 @@
 # Decision log
 
+## D-27 — 11/11/2026: S2-B persistence model riêng, không sửa S2-A evidence
+
+User yêu cầu tiếp S2-A. Giữ checkout/master d73dce3 + uncommitted outputs; thêm schema/model s2b-1.0.0 trong namespace mới, reuse pinned local tooling/core, không mutate S2-A source/goldens/evidence. Heartbeat thay live expiry nhưng giữ stateVersion và canonical attempt snapshot; expiry/recovery fencing + request/incident durable, cleanup ack scoped và retry-bound kiểm trên actual DB. Revoke/cleanup facts vẫn synthetic, không tự thành authenticated live policy/worker cleanup.
+
+[Protocol](S2-B-PROTOCOL.md) chốt trước implementation; [results](S2-B-RESULTS.md) latest R4 PASS10 DB groups/32.140s,37 hashesbefore=after. [Review](S2-B-REVIEW.md) final CLEAN; stable S2B-RV-01..04 được reviewer xác nhận CLOSED. Conditional writes kiểm lease/deadline ngay mutation thay SELECT riêng; giữ acceptance và bổ sung race coverage thực thay hạ gate. S2-B subset DONE sau independent CLEAN và required checks PASS. Không production DB/control/worker decision hoặc commit/push/pilot/publish; full S2/P4-A/P4-B vẫn partial. Tiếp S2-C capacity/fairness/restore và S4/S6 boundary prerequisites.
+
+## D-26 — 11/11/2026: actual disposable PostgreSQL S2-A subset
+
+Theo yêu cầu tiếp session, kiểm đúng checkout master d73dce3 sạch, thực thi plan S2-A bằng portable PostgreSQL18.6 + pinned project-local psycopg3.3.8/tzdata2026.6. Chọn Python chỉ để reuse core trong experiment, không promote control/worker runtime hoặc production DB. Không có candidate DB trong PATH không đồng nghĩa bị chặn: official portable setup trong quyền đã có khả thi, nên hoàn tất actual DB thay preparation-only.
+
+[Protocol](S2-A-PROTOCOL.md) chốt acceptance trước implementation; [results](S2-A-RESULTS.md) lưu 2-process/4-connection/100-job claim, canonical bytea/independent anchors, atomic report+completed+outbox, real commit FK failure, process kill/outbox duplicate và DB immediate restart với transaction mở. Latest R5 DB14 groups PASS; R2 probe ERROR bảo toàn, sửa nguyên nhân rồi chạy evidence mới. [Review](S2-A-REVIEW.md) final CLEAN, stable S2A-RV-01 CLOSED; S2-A subset DONE.
+
+Full S2/P3-B/P4-A/P4-B còn partial, chưa authenticated policy/revoke/worker cleanup, lease reclaim, external blobs, full cancel/fairness/restore hoặc ordinary export. Giữ frozen artifacts/core semantics, không account/API/project thật/global install/commit/push/pilot/publish. Tiếp protocol S2-B và remaining boundary evidence trước chốt storage/runtime ADR.
+
 ## D-25 — 10/11/2026: staged publication/replay contract trước storage
 
 User yêu cầu tiếp các bước. Giữ WT-P4A-R2 đã review, chọn slice P4-A package tự chứa + typed manifest/graph và anchored replay validator. Whole raw bundle có thể chứa nhiều project/task nên envelope restricted internal replay ghi toàn contained scopes, không giả target-only export hoặc outbound permission. Caller-held input digests/IDs ngăn coherent substitution; self-consistency không là trust. Không đổi P1 v2/runtime-v1 schemas/goldens và không tự chọn DB/server. [Scope/acceptance](P4-A-PUBLICATION.md), [review](P4-A-PUBLICATION-REVIEW.md) CLEAN, slice DONE xác nhận 11/11; tiếp runtime-storage decision prerequisites/transaction adapter và scoped read/export. Không commit/push/pilot/public publish.

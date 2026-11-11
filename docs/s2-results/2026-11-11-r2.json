@@ -1,0 +1,1963 @@
+{
+  "evidenceVersion": "s2-a-1.0.0",
+  "classification": "synthetic-only",
+  "startedAt": "2026-11-11T07:33:47.116003+00:00",
+  "baseline": "d73dce3d30a2ee9041b6633ce0fbfdcf78528332",
+  "command": "py -3 -B spikes/s2/run.py docs/s2-results/2026-11-11-r2.json",
+  "environment": {
+    "python": "3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "psycopg": "3.3.8"
+  },
+  "preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "archiveIntegrity": true,
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/S2-A-PROTOCOL.md": "65d1675178cecd694638136648325a3d6f09df3dfe29092d8f4841672ce89ef8",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "9dad7d0e2eaa30ad40d823e128b343704838266220e867957c0bd1305ca5e714",
+    "spikes/s2/requirements-win-py314.lock": "f8135651da7335e54dd5dbdae96b17bbee58b1d175cc3f4cb94511af144c27fd",
+    "spikes/s2/run.py": "c0ffc8b4417bc54d22bc5659134b1f404e1fce2180fba0313e907fc3b31f52c1",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d"
+  },
+  "status": "ERROR",
+  "limits": [
+    "No production DB/runtime decision",
+    "No authenticated policy/lease renewal/worker cleanup",
+    "No external blob service, backup/restore or power-loss proof",
+    "No fairness/SLA",
+    "No ordinary authorized read/export",
+    "Full S2/P4-A/P4-B remain partial"
+  ],
+  "schema": "s2_1e71c99a10ff46e7854229485ae145d3",
+  "checks": {
+    "C01": {
+      "status": "PASS",
+      "records": [
+        {
+          "id": "job-002",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382428784053000,
+          "end_ns": 1794382428819356600,
+          "queue_age_ms": 1071.952,
+          "roundtrip": {
+            "canonical_sha256": "6e91fab320e09ae2f456bde1e9aa64a3eb13fdefb85e27897be86cda9493ee04",
+            "canonical_length": 15099,
+            "bundle_sha256": "c3c6ca58dc476dcf06db946adab30c89fc8db47a6fc9173bbd84eb74ae584a26",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-001",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382428783943400,
+          "end_ns": 1794382428829913900,
+          "queue_age_ms": 1072.868,
+          "roundtrip": {
+            "canonical_sha256": "dc5c9753fd6bd7b9b3aef69f3188e0414df8e9fa76c74942df7fac03a33640af",
+            "canonical_length": 15099,
+            "bundle_sha256": "0a86eb708fdac1c2c0a4cf274102e9fa67f6d2cf1f9924c0a339c830d2ca9a54",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-005",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382429011852300,
+          "end_ns": 1794382429029410700,
+          "queue_age_ms": 1292.792,
+          "roundtrip": {
+            "canonical_sha256": "29e168e0fa562759d6c06ccc6fadd0d14bc1ef0a7ef90a7bf088d5cd804495a2",
+            "canonical_length": 15099,
+            "bundle_sha256": "78e0a721f3cbe21967dae944489e8590981a9b7dc34b8baa340ae4888edd304b",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-004",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382428987107200,
+          "end_ns": 1794382429029557800,
+          "queue_age_ms": 1269.333,
+          "roundtrip": {
+            "canonical_sha256": "a3956d18f1a805e793f838d7f670f7f12893c87972bfbe9c4d6fe91206614e60",
+            "canonical_length": 15099,
+            "bundle_sha256": "172d4d41d165d5cb3ba726c51ea749864a573379f12c31799a36766d113ad8b3",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-009",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382429224159300,
+          "end_ns": 1794382429241641000,
+          "queue_age_ms": 1500.563,
+          "roundtrip": {
+            "canonical_sha256": "0fce7ce6c53777bb6d45350bce207f8854bf31b1d097c0dff3488ab1121b1c4e",
+            "canonical_length": 15099,
+            "bundle_sha256": "9e738eb8250b6df81f2d3ca41bafc58df05fe3772fa757914bc5277302dffa26",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-008",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382429198676300,
+          "end_ns": 1794382429241786600,
+          "queue_age_ms": 1501.066,
+          "roundtrip": {
+            "canonical_sha256": "cd74a76451b443c5ed9281cc2b1c937b407bee67880d1bc60a3748027898d051",
+            "canonical_length": 15099,
+            "bundle_sha256": "84aed31bdfe9069217ef31e480c3eaf0cbee63a749066d172066e799a9d140a5",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-015",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382429429789300,
+          "end_ns": 1794382429447457200,
+          "queue_age_ms": 1700.849,
+          "roundtrip": {
+            "canonical_sha256": "5a879e01db5574b1094b8862465ee8bac22fb34cfd0fd1c20dacf1e762550f65",
+            "canonical_length": 15099,
+            "bundle_sha256": "7aae1b8840e2f26def5e9a54788ee50106ab29f925c21ef417e8342d0fd14511",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-014",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382429429661200,
+          "end_ns": 1794382429447601600,
+          "queue_age_ms": 1701.556,
+          "roundtrip": {
+            "canonical_sha256": "a824d91abeb5ba702b6d878e2d540e6fea5d9ea43c3f5193b6b5b305c6290bfa",
+            "canonical_length": 15099,
+            "bundle_sha256": "8345cfbe101dca2f020af86d67732f3ea0fa6145d956179f5a6cb8d198a0ad2f",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-019",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382429633750100,
+          "end_ns": 1794382429651343600,
+          "queue_age_ms": 1900.946,
+          "roundtrip": {
+            "canonical_sha256": "87ac5afafb3799a17cd3f83e91d49c425eef6144e26fd61755af7d1abc44d257",
+            "canonical_length": 15099,
+            "bundle_sha256": "13e9c0ff5c06d76bf3cabfd3bb10dfd3b12da85bd57532b0b29720cb7434930a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-018",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382429633274200,
+          "end_ns": 1794382429651474900,
+          "queue_age_ms": 1901.823,
+          "roundtrip": {
+            "canonical_sha256": "269d7bb90c8f2fd8704ed299548c3cc8fb6d5a0d7fecb8459bb39437feb41fb3",
+            "canonical_length": 15099,
+            "bundle_sha256": "906700ff7d1e76cdb2c7dd2c5969ea63d8361b4bd9f2d346ca5a66543bb24ad5",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-020",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382429813211500,
+          "end_ns": 1794382429854307100,
+          "queue_age_ms": 2079.774,
+          "roundtrip": {
+            "canonical_sha256": "8206a6d57dc15b61bb7a6d7d38c1c6d0e0f5ce5ee7a71458fb4dcc64b0970725",
+            "canonical_length": 15099,
+            "bundle_sha256": "5f17962b6e26216c5b6c6ea85693bfe2541d125ea998fc081983687498144ae0",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-023",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382429837821000,
+          "end_ns": 1794382429871627000,
+          "queue_age_ms": 2100.599,
+          "roundtrip": {
+            "canonical_sha256": "2e988f997db06eaf2964d551e16ac2ff49ee487858a6268b6dd68991dbd5677f",
+            "canonical_length": 15099,
+            "bundle_sha256": "a6dc1e7543263dfb49247ac9cb0f2281e67c9e3b73dabe92ad79e2eb5be76401",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-025",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382430018536300,
+          "end_ns": 1794382430066408600,
+          "queue_age_ms": 2278.84,
+          "roundtrip": {
+            "canonical_sha256": "1e4e375d0e91e93445e03969f396525398be1c62e8a781b40e80eedbefe1eb49",
+            "canonical_length": 15099,
+            "bundle_sha256": "83ff841aaa78979b8dfa9ec9c35fc2466946192b672533b93bc9679e3cf13682",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-027",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382430042921300,
+          "end_ns": 1794382430066585500,
+          "queue_age_ms": 2301.501,
+          "roundtrip": {
+            "canonical_sha256": "7003c5da90aefc8c60eae8b078e8d4e4a64226bde8d751d4771ba66fb059ba0f",
+            "canonical_length": 15099,
+            "bundle_sha256": "8292489233b7fb90cfd70953e0bc4a55dc57a4711434531e8b05c3cca092ce67",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-031",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382430266358300,
+          "end_ns": 1794382430283959300,
+          "queue_age_ms": 2520.608,
+          "roundtrip": {
+            "canonical_sha256": "41a10abbeb9012caaa83c6188f3018c2b771e3c201bfc7c62437c9ef8cbbf505",
+            "canonical_length": 15099,
+            "bundle_sha256": "3955c886b52f5139daf915a1039856b0421be81e859e464354b6a2528ad92c4e",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-030",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382430265863200,
+          "end_ns": 1794382430284139700,
+          "queue_age_ms": 2521.519,
+          "roundtrip": {
+            "canonical_sha256": "c4bb5e4f273e8090ab428d15a0678ff77b08156d0c7f338c5324d1546903681d",
+            "canonical_length": 15099,
+            "bundle_sha256": "6a99cbe00ef2f6e3ce50c995c501f977574d3b48421db5a0a2fc2a446a082311",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-034",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382430465203800,
+          "end_ns": 1794382430491857700,
+          "queue_age_ms": 2725.035,
+          "roundtrip": {
+            "canonical_sha256": "0f0cb094d54ed60f1fa3d871ed41fa6db7f5d54a6f730b274e18cde41b0557ab",
+            "canonical_length": 15099,
+            "bundle_sha256": "ebd14db0d454ae941082bb594985263b80654e2996e42db6c22a67008a9cb61e",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-035",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382430473943900,
+          "end_ns": 1794382430492003000,
+          "queue_age_ms": 2724.046,
+          "roundtrip": {
+            "canonical_sha256": "b7c3f4aaf46583f7b5dca97934e98d6d8fc08da0b03d841ab00c8906a4fda8f6",
+            "canonical_length": 15099,
+            "bundle_sha256": "20bd63a1ddec8df4d1aa498715e07c14b86eeb3a8ab2e7f732c23b0fbcb2ab60",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-036",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382430661350500,
+          "end_ns": 1794382430702962800,
+          "queue_age_ms": 2909.884,
+          "roundtrip": {
+            "canonical_sha256": "03af65e4572bc5237a9bc9da65a2971c7aa7e3c9f231db0821dc040b8885768a",
+            "canonical_length": 15099,
+            "bundle_sha256": "2b0dfc08f76b0bc675b1154ab0218ce582aee3f567c29bd3b5c1002029f26a25",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-039",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382430687024200,
+          "end_ns": 1794382430719812100,
+          "queue_age_ms": 2932.275,
+          "roundtrip": {
+            "canonical_sha256": "a10d8a5f8965a068a6f9780b28765136514cd55d39b5d80650b22d5713e25c7b",
+            "canonical_length": 15099,
+            "bundle_sha256": "ccf8c99f6c4780c1e32652a3ae2855ed9619c7b6bf75eee52579a0a8ec510002",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-042",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382430876735200,
+          "end_ns": 1794382430911848600,
+          "queue_age_ms": 3135.738,
+          "roundtrip": {
+            "canonical_sha256": "b13ccfcb9606e4239f8b734d5412df977fe4ba0cbd6c20e685bb10317cd659aa",
+            "canonical_length": 15099,
+            "bundle_sha256": "86b872bffd6be9ba2565ef88186a1c3fa6354e713f46abeaeec87668a76f7067",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-043",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382430894449000,
+          "end_ns": 1794382430912029000,
+          "queue_age_ms": 3135.359,
+          "roundtrip": {
+            "canonical_sha256": "821d2a29b9009860fd6a635b660597007742c9e82fbf0191d1bf30032ad1533f",
+            "canonical_length": 15099,
+            "bundle_sha256": "2970d2339586f68e0ef83cefbc71c6259e0e53a3683ac0ad8bafb2133a8ffc80",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-046",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382431071426500,
+          "end_ns": 1794382431113913800,
+          "queue_age_ms": 3333.01,
+          "roundtrip": {
+            "canonical_sha256": "0382449ae71df8964144cdf02f7d13aaf6c42a32486f38db62f7b40bf12bf46d",
+            "canonical_length": 15099,
+            "bundle_sha256": "e33d6f66f29b620ea21af5e437c51ee24625064c525fa818b27595cadccfb01e",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-047",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382431096193600,
+          "end_ns": 1794382431113800300,
+          "queue_age_ms": 3332.515,
+          "roundtrip": {
+            "canonical_sha256": "df3a81ead4b4eb4032e601f581bf18b499d83d6ba2da69b2509cb06ef1acaa09",
+            "canonical_length": 15099,
+            "bundle_sha256": "f5e5b841b32593035e74d6890b051e6e0947b962e10c0add596c3798eda85d20",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-050",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382431287526600,
+          "end_ns": 1794382431314818300,
+          "queue_age_ms": 3522.493,
+          "roundtrip": {
+            "canonical_sha256": "af2b838bcd223f3c6efc0512f7c8ec7ed949edf5150c9e73b255205e229ee0aa",
+            "canonical_length": 15099,
+            "bundle_sha256": "30d414de39d493319902ef0d4cf36dcd6d588a27b719666884d46b3bb271372f",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-051",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382431297877000,
+          "end_ns": 1794382431331632000,
+          "queue_age_ms": 3529.54,
+          "roundtrip": {
+            "canonical_sha256": "6df2d5ca656b188ac1c9a1ebd586ede49fb044f2554b098893d5b6cfa3abb0ac",
+            "canonical_length": 15099,
+            "bundle_sha256": "e9cfc5b454eca07c4d73f4a0e8937e67c7259db454b2b6a48e6212992b6480b6",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-055",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382431498439500,
+          "end_ns": 1794382431515803200,
+          "queue_age_ms": 3724.568,
+          "roundtrip": {
+            "canonical_sha256": "454ecf7fd55a1225ab294c83091b61c9bbb88a23286fcb241357fd9f46501dd1",
+            "canonical_length": 15099,
+            "bundle_sha256": "bc5b5fac8450c917d5e5253fb9f58c66b8baf16b519d1aaaaf19fa12b79068c4",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-054",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382431473769600,
+          "end_ns": 1794382431515645000,
+          "queue_age_ms": 3701.076,
+          "roundtrip": {
+            "canonical_sha256": "492ec6813e5346ff9fca9d287a7be7bcbebfbdd4031750cd0cde558df2d97d65",
+            "canonical_length": 15099,
+            "bundle_sha256": "ca1f1411c14a7c608a484ac52d871e009cd566f9afbe665a827f1d5231a7d6d3",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-057",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382431678901100,
+          "end_ns": 1794382431720287400,
+          "queue_age_ms": 3902.348,
+          "roundtrip": {
+            "canonical_sha256": "579b95aeee822137124f840aaa7470d11e9911430be5a1dc884272dc57eda2c6",
+            "canonical_length": 15099,
+            "bundle_sha256": "1373db027a99c3aacbb50e8897f264a1e2d1f4d46644b4dd6d820a45247232e9",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-059",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382431703588800,
+          "end_ns": 1794382431729734500,
+          "queue_age_ms": 3924.804,
+          "roundtrip": {
+            "canonical_sha256": "970998649764cae82a079a312cc33437078c489d1df9caa7a7a03b09fe43e836",
+            "canonical_length": 15099,
+            "bundle_sha256": "b9383a85d8cc05839935fd852b776aa3df9bca2b3e142d7cd729463a2bbc0551",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-063",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382431907725300,
+          "end_ns": 1794382431946240100,
+          "queue_age_ms": 4123.621,
+          "roundtrip": {
+            "canonical_sha256": "361fe5341f6906643dd1c27189baedfa864a2561b815bfb1e0745d82874ea0b9",
+            "canonical_length": 15099,
+            "bundle_sha256": "4d0891bcfa0f44b8f1d159c201dd383d02022e1ea0e21df53f96396811411b7d",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-062",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382431884079000,
+          "end_ns": 1794382431924809700,
+          "queue_age_ms": 4124.224,
+          "roundtrip": {
+            "canonical_sha256": "0f4f9822e80b9bd13a536b262da998c810f3023cee5bd07850348c9fa80ab7cb",
+            "canonical_length": 15099,
+            "bundle_sha256": "3b41250d7ce45e0d497db0bfea30d840f6eebc75b19b7d648cd94e09622cc337",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-067",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382432122845800,
+          "end_ns": 1794382432155370800,
+          "queue_age_ms": 4333.21,
+          "roundtrip": {
+            "canonical_sha256": "a8c75a26a4297aefdc63135780a3f65f918c4e70c9823f36b36b4d868f2f1a94",
+            "canonical_length": 15099,
+            "bundle_sha256": "97d4e3011399beff11f3d9c818821914c7eb26c1b441d64cdf2299e097d669a1",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-066",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382432096871100,
+          "end_ns": 1794382432140309900,
+          "queue_age_ms": 4308.198,
+          "roundtrip": {
+            "canonical_sha256": "f4d223c1ad40818e76e1e0608a678fcbd4574b59fc2d06e25373b867399b1ebb",
+            "canonical_length": 15099,
+            "bundle_sha256": "0f828233228cfe88f2148e6420e2f5442fe6269774abd81273284cb7e7b9b948",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-071",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382432324039000,
+          "end_ns": 1794382432341797000,
+          "queue_age_ms": 4527.695,
+          "roundtrip": {
+            "canonical_sha256": "0f7f1f15a8627527a6f946a7631d5e7e7ad2ba2881895994b785470f3ad91d38",
+            "canonical_length": 15099,
+            "bundle_sha256": "cdee6e7ea5de6b066d3aff43bca7fb363e19b4bec6bcbffa5e83bed32497f259",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-070",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382432323929500,
+          "end_ns": 1794382432341910000,
+          "queue_age_ms": 4529.09,
+          "roundtrip": {
+            "canonical_sha256": "129255e147be6f244a470b1c06ce8dd2816dcf40097e2a49d64c75bbe602016f",
+            "canonical_length": 15099,
+            "bundle_sha256": "014fe6b37d6bc9500fdeb5dcdeb05662dfd3a99f16e75d284fb9ca8031623abb",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-075",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382432533244600,
+          "end_ns": 1794382432550425100,
+          "queue_age_ms": 4730.091,
+          "roundtrip": {
+            "canonical_sha256": "ee28be9c6095ef33f13c0febae5f3911b353bc0b1e424951235895a30adb47a6",
+            "canonical_length": 15099,
+            "bundle_sha256": "6dadc5a8e286729da55a9c01895f96b16a30a815c502173d5a686e3139d7c0b3",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-074",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382432525793700,
+          "end_ns": 1794382432550619700,
+          "queue_age_ms": 4731.524,
+          "roundtrip": {
+            "canonical_sha256": "7b684364fd45bf4d1a77b4ed4dd993334654aa0f7d0de72e52e0c13e22e0054e",
+            "canonical_length": 15099,
+            "bundle_sha256": "963ae397ff6aa73007d3cf7735ef117493fba38111dc0367cf4b3c2b0b493087",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-078",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382432711830100,
+          "end_ns": 1794382432752959400,
+          "queue_age_ms": 4904.356,
+          "roundtrip": {
+            "canonical_sha256": "e22e1bbd525f6df73c78bdb3c1376d559e5c274e6c9148e6f5e5a27be549dc15",
+            "canonical_length": 15099,
+            "bundle_sha256": "5bdb38294c7b804037a03a0aec68418518efad774e3c45fcf518dd00ad4ac86a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-079",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382432736488500,
+          "end_ns": 1794382432769824100,
+          "queue_age_ms": 4928.13,
+          "roundtrip": {
+            "canonical_sha256": "01e5e631b2046fd011341edcf279fa381e714619deda48d50e50e227419894df",
+            "canonical_length": 15099,
+            "bundle_sha256": "13d39017509dcdd943fe7f6ad54493b96b43d28641588d41f60b55caf6a37d5e",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-082",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382432947801000,
+          "end_ns": 1794382432972130600,
+          "queue_age_ms": 5143.822,
+          "roundtrip": {
+            "canonical_sha256": "003a6b740d6763bde1b3c0e69055cefdac058aa2991280f396e47d5d5add7f33",
+            "canonical_length": 15099,
+            "bundle_sha256": "f85eea79f87b7365c010ba6fd63095f097e98792b3884e28716a206a7b6b4db2",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-083",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382432955274700,
+          "end_ns": 1794382432991087000,
+          "queue_age_ms": 5142.687,
+          "roundtrip": {
+            "canonical_sha256": "00dd5025647e5331515eabe2e493e148f4948a004b4ba3a694f524b227421318",
+            "canonical_length": 15099,
+            "bundle_sha256": "3fae5ccbb93f9c538d33d24f9b948a5fce1cb1e97b1795ced38353a5e20a452f",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-087",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382433157611300,
+          "end_ns": 1794382433174733200,
+          "queue_age_ms": 5338.697,
+          "roundtrip": {
+            "canonical_sha256": "8fa58597c28f9ab16afb3eebf044a0c967ef898ea3014862941210c358504b18",
+            "canonical_length": 15099,
+            "bundle_sha256": "12ced765379332a8dc3205bc1af39b263d335ec738385a290ef39f6273e0076d",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-086",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382433133688300,
+          "end_ns": 1794382433174903600,
+          "queue_age_ms": 5332.217,
+          "roundtrip": {
+            "canonical_sha256": "b8e23609bb62f72d4388ab81a8ba0c63935e7715af4efc6445eeca32d25d1edc",
+            "canonical_length": 15099,
+            "bundle_sha256": "7b1f839d4995277fa60b12515282a1cd2d87f231f70d3d3cc125d2ca22e53b26",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-090",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382433360117000,
+          "end_ns": 1794382433385705500,
+          "queue_age_ms": 5545.273,
+          "roundtrip": {
+            "canonical_sha256": "599900ab6116122701a2a321a82b481755f7b3fc920dc4284cfe5c2956f00aad",
+            "canonical_length": 15099,
+            "bundle_sha256": "69cf9510ba48e3edcaa95450b3297386aefb3d7253d84d2266faf50a969cee29",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-091",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382433368740400,
+          "end_ns": 1794382433403249700,
+          "queue_age_ms": 5544.609,
+          "roundtrip": {
+            "canonical_sha256": "311193348f4059a34527bf09552be8c88db3b769fb2fd879aba0853e0db47aa0",
+            "canonical_length": 15099,
+            "bundle_sha256": "fd66ea095bae895c118956ef0f8224db5a0978dabcb3ca18b3229ea76127b2f1",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-094",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382433552130200,
+          "end_ns": 1794382433593892200,
+          "queue_age_ms": 5724.879,
+          "roundtrip": {
+            "canonical_sha256": "227ca6ceba9e7f3a6fd71941f8ffcd40d5beb64c165dc06ba78796d4c50a4e9c",
+            "canonical_length": 15099,
+            "bundle_sha256": "0413268184c25afab39e5f715a7f4b7613c18993e15be088435019c1dfef3558",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-095",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382433577076000,
+          "end_ns": 1794382433614715600,
+          "queue_age_ms": 5748.085,
+          "roundtrip": {
+            "canonical_sha256": "c3850ce063ed3a6b42435ed9232696709a7e2d05ce866eaca0d2820e4a454604",
+            "canonical_length": 15099,
+            "bundle_sha256": "7e6c9365a4ace84d7b4a58350cb3ef667683f15331ce3e7d699bbfbd9b3dab34",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-098",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 25136,
+          "process": 25504,
+          "begin_ns": 1794382433760820600,
+          "end_ns": 1794382433802013500,
+          "queue_age_ms": 5951.265,
+          "roundtrip": {
+            "canonical_sha256": "8a2524a85e3b5c068ddb4cb4f68276cf73c89dc294860486cb21aa2aea19f25e",
+            "canonical_length": 15099,
+            "bundle_sha256": "9df79f7a873f562961bb9a27b6b05b48a0cc09fae726db3d57cfcf6a9b03ec7f",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-099",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 24672,
+          "process": 25504,
+          "begin_ns": 1794382433785151800,
+          "end_ns": 1794382433819277100,
+          "queue_age_ms": 5950.818,
+          "roundtrip": {
+            "canonical_sha256": "16cc148b16157f30110fec791a266abbc244a3079fd59f0dfd27430073d9b155",
+            "canonical_length": 15099,
+            "bundle_sha256": "7c12de9c7f9461b4b2247c5531e93ee793b3193323c82a82d4c0ea0dc254eb5f",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-003",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382428783858000,
+          "end_ns": 1794382428819943900,
+          "queue_age_ms": 1071.402,
+          "roundtrip": {
+            "canonical_sha256": "293e67cba040ca085c1d8e97971773ac793a3946367e5e87a203571145f26108",
+            "canonical_length": 15099,
+            "bundle_sha256": "a6454cc9da6e578560781aa9980aa9cd2a614cd1d19c023581cd0d718eb43831",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-000",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382428783913500,
+          "end_ns": 1794382428820116800,
+          "queue_age_ms": 1077.432,
+          "roundtrip": {
+            "canonical_sha256": "9f335558c12a6ea80d35074abf982a9afbffd7540dff55e73e74ef584065f700",
+            "canonical_length": 15099,
+            "bundle_sha256": "2fb76d84ed80a3bb031eaff4bc28dc8e46666427c1921d1a4d570256db3b75da",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-007",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382429017404900,
+          "end_ns": 1794382429035357700,
+          "queue_age_ms": 1295.794,
+          "roundtrip": {
+            "canonical_sha256": "84f2ede42b0abaf6ddaac24fa9677ddbb971013ca66ebe6d6ad853e6d8cea4ee",
+            "canonical_length": 15099,
+            "bundle_sha256": "60b1c05c607ef1537a06449aa2b4126868aeb8c7447b67ac992c837b9d7d9059",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-006",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382429009765500,
+          "end_ns": 1794382429035232600,
+          "queue_age_ms": 1296.494,
+          "roundtrip": {
+            "canonical_sha256": "ed82239a89fd6f21a752404fa120f0076ed858f3d85c74808e2cbdd04bf4a5d5",
+            "canonical_length": 15099,
+            "bundle_sha256": "f3b6c4d3a2ca4209250096ff9faee1737bfb402ef7ee3508b2e1b74eb5be4039",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-010",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382429224092700,
+          "end_ns": 1794382429241634200,
+          "queue_age_ms": 1499.678,
+          "roundtrip": {
+            "canonical_sha256": "6b0dd6f39d751bf5d2b3df5cca8d91a2fb37e12fef0de42ee80ebec16af3bede",
+            "canonical_length": 15099,
+            "bundle_sha256": "313034f78fed46c4d8c66f70cc1f636dc3076fab806397289c0561b650589794",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-011",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382429224406000,
+          "end_ns": 1794382429258395500,
+          "queue_age_ms": 1498.832,
+          "roundtrip": {
+            "canonical_sha256": "8db517ab419ca59087afcf38c9131b76e812f3b962602a8a8881c6573544686e",
+            "canonical_length": 15099,
+            "bundle_sha256": "86fc0c79bf91eddebb0876686e082a14d33ea8e8c180ede9f2f09b123b874069",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-012",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382429420683900,
+          "end_ns": 1794382429446480600,
+          "queue_age_ms": 1702.188,
+          "roundtrip": {
+            "canonical_sha256": "ab8aca3e2aedf3f40a4736f3baf9441b6cceac4c95f2b0ef7fb65928ec48e4cf",
+            "canonical_length": 15099,
+            "bundle_sha256": "89118da645a35dc1343bf699e365893095ef5b2ff6d6450ba12d9e4612d0cfd9",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-013",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382429428445800,
+          "end_ns": 1794382429446668200,
+          "queue_age_ms": 1701.322,
+          "roundtrip": {
+            "canonical_sha256": "9a6312d13f4631c193315f80d5cd87dcaff5fef357ebb767cedf9c7e352a877b",
+            "canonical_length": 15099,
+            "bundle_sha256": "97de5c884e6546ef7af5e56d5659c7a7250a20f1b59fafdd6a9c92a2caabe36a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-016",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382429607527600,
+          "end_ns": 1794382429648584100,
+          "queue_age_ms": 1877.593,
+          "roundtrip": {
+            "canonical_sha256": "196d985356d7ebee7cbb653a8b3f3031ce0158210137d1ff4cd6701e5aedb3e6",
+            "canonical_length": 15099,
+            "bundle_sha256": "0b8113690cd139da723a94b57757c5ff379cf054a01072f5e7acf9ec7afaf4ec",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-017",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382429632022700,
+          "end_ns": 1794382429665280400,
+          "queue_age_ms": 1901.297,
+          "roundtrip": {
+            "canonical_sha256": "9e1036ec7635d4ad96bc6ec846d8280485d21a3a144dcfc285ad2791e0cfdd4e",
+            "canonical_length": 15099,
+            "bundle_sha256": "f7dd7623c426363bc8daf9b42140e89310319e41486c9d0a7427258af5710fdd",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-021",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382429808616100,
+          "end_ns": 1794382429851483600,
+          "queue_age_ms": 2098.308,
+          "roundtrip": {
+            "canonical_sha256": "6d8136d724b0caece51d3510729840eaad6f23e8b00b69af802e554178aeac57",
+            "canonical_length": 15099,
+            "bundle_sha256": "99dbd4178ae71da24de3fb4bacac67a5e0ef92bad8d7f5903ec9b8af95633776",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-022",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382429833566000,
+          "end_ns": 1794382429851661300,
+          "queue_age_ms": 2097.557,
+          "roundtrip": {
+            "canonical_sha256": "9ca7d94a5703f90b681d59613725038ae1ec6050dc5db573b1358a97977be449",
+            "canonical_length": 15099,
+            "bundle_sha256": "5f420769c0b1ed2e588d2f01195c989f90e60c1f6b6d58fe1007c024b675cc6a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-024",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382430011706500,
+          "end_ns": 1794382430052735800,
+          "queue_age_ms": 2273.173,
+          "roundtrip": {
+            "canonical_sha256": "1a1e999ea65b00304724ec8303a46f8d58ea8defb0c6e21a7c6e1d989e3dca91",
+            "canonical_length": 15099,
+            "bundle_sha256": "e6e69d9b87c375e1c71e6013dcc88f64a866440c35d5fe65f549b9f618ba2949",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-026",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382430036277700,
+          "end_ns": 1794382430070578700,
+          "queue_age_ms": 2295.567,
+          "roundtrip": {
+            "canonical_sha256": "38aacd3950c420d202d1bc7d1d957a7930a9005eb261f9fcd367a4baf946ad9b",
+            "canonical_length": 15099,
+            "bundle_sha256": "4a01355f826af0c559558ac1c857322508c08425894a90b9f5163990cadb495f",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-029",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382430239156500,
+          "end_ns": 1794382430256402500,
+          "queue_age_ms": 2495.356,
+          "roundtrip": {
+            "canonical_sha256": "90ac85889ce3347e4774c25e247820bcd3e3137a477d6d4b0a453a14a415c5dd",
+            "canonical_length": 15099,
+            "bundle_sha256": "98ce448a3bf55ebd61e6a86b90ac78e3bf014ded895966a57495ba3d4fe96011",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-028",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382430231343200,
+          "end_ns": 1794382430256575100,
+          "queue_age_ms": 2496.159,
+          "roundtrip": {
+            "canonical_sha256": "9780cd8afc6e054d20bd74ba6fca9c2e6545854d4de0f0216d33884c4f67edff",
+            "canonical_length": 15099,
+            "bundle_sha256": "4c17d4eff46912ef1c901badfde78fd6a636a60e6f83bc49edcc346cd5d24f7d",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-033",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382430448517300,
+          "end_ns": 1794382430466139400,
+          "queue_age_ms": 2700.773,
+          "roundtrip": {
+            "canonical_sha256": "be671fdaaff430a63583e3b914cd38d05ac61e0b8017d77044bd881e730a0706",
+            "canonical_length": 15099,
+            "bundle_sha256": "5197df3d2d531f2d474ebece396c8978d058ad8d565c2aa69867005930a0eece",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-032",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382430440174200,
+          "end_ns": 1794382430465993700,
+          "queue_age_ms": 2701.393,
+          "roundtrip": {
+            "canonical_sha256": "d3257d55ea58886eb8aff43278b64bbe82443d4eb00ea123d2f89971ee42fa1d",
+            "canonical_length": 15099,
+            "bundle_sha256": "e72dff1ab5ee63caf18f135332a0c3740749ea8f7344d594444e985b2f512464",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-038",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382430662857900,
+          "end_ns": 1794382430679998400,
+          "queue_age_ms": 2909.157,
+          "roundtrip": {
+            "canonical_sha256": "a4b4c3ad366de01795f382350643dfc4b8888767db8124653bfbe343bac08463",
+            "canonical_length": 15099,
+            "bundle_sha256": "b6ad570e4a348197f87782ed21ed38e7d6bf3f45b821009b48280646a5ecfbb5",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-037",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382430655405500,
+          "end_ns": 1794382430696566600,
+          "queue_age_ms": 2910.244,
+          "roundtrip": {
+            "canonical_sha256": "53ca55aeb1986c1e6b664c76f940d9802dfc213cf39876bd2129edd816e3ff05",
+            "canonical_length": 15099,
+            "bundle_sha256": "fa8ceffee8c509289c7815daa43b31de944f087de5318373de0f8d2cd83f26bd",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-040",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382430837735100,
+          "end_ns": 1794382430878998700,
+          "queue_age_ms": 3081.923,
+          "roundtrip": {
+            "canonical_sha256": "1a646ea73796dcf7f61b66c0b5a59ab1261e49676f6338b1b121a50473f8f221",
+            "canonical_length": 15099,
+            "bundle_sha256": "0682cd301a8ab1460c95369bdb46a06166425d038e77bff9fd9f29fb88a84610",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-041",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382430863587300,
+          "end_ns": 1794382430895955900,
+          "queue_age_ms": 3106.462,
+          "roundtrip": {
+            "canonical_sha256": "04b51930c96b89e4a88ed87f7aab5a6cafc803cb2c7944355466b0e92a413da2",
+            "canonical_length": 15099,
+            "bundle_sha256": "703d3128d4b6713473c92131da836ac67c94565efb0a8f1bee7f2ccf0fbac995",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-044",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382431041584600,
+          "end_ns": 1794382431083877600,
+          "queue_age_ms": 3299.033,
+          "roundtrip": {
+            "canonical_sha256": "7003ad08de4b83c557f5ecf24ad74d5fb8d61f0e4471f19b784649ab5e69d42e",
+            "canonical_length": 15099,
+            "bundle_sha256": "dac5d2c4b5ffd868ce881075730aa1fd6d8e498bff8c5b60ed2ddc558ad0967a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-045",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382431066977200,
+          "end_ns": 1794382431101162000,
+          "queue_age_ms": 3306.061,
+          "roundtrip": {
+            "canonical_sha256": "51deae0c7da2991e52ff32ff3797176be04043ecc9af85fb7fae0c0aee5b9e09",
+            "canonical_length": 15099,
+            "bundle_sha256": "d3b7d0aba5511fc65bc4f16a2f1ae4f05cba4194a66071288ab625b58e6a10c3",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-048",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382431269261100,
+          "end_ns": 1794382431287922900,
+          "queue_age_ms": 3504.711,
+          "roundtrip": {
+            "canonical_sha256": "116a914c09f5262f83b17ae546209156c93865937d9e8636646d07a41d10f161",
+            "canonical_length": 15099,
+            "bundle_sha256": "b4842d4c2cebdf4904a800362eebe42cd5b0b50a9152d84f3393847e8993ee08",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-049",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382431269671800,
+          "end_ns": 1794382431288052400,
+          "queue_age_ms": 3503.334,
+          "roundtrip": {
+            "canonical_sha256": "df6823153346d9c4d5053f8ef2720d5fcfbf53d68affab551ab289f196c7b603",
+            "canonical_length": 15099,
+            "bundle_sha256": "49d5938a2c94007aecc761cf55310a8d2b3e4d945e3d54fe27429030d4b5c3e0",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-052",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382431464219900,
+          "end_ns": 1794382431490613500,
+          "queue_age_ms": 3702.833,
+          "roundtrip": {
+            "canonical_sha256": "1349f949d2c307f9a90c9632dd25fc4536aefa7a6c58a25505f24b9400608b50",
+            "canonical_length": 15099,
+            "bundle_sha256": "b6b5d1b42fee2b959e8e29a67d3438a2b2964d5dca5bd8e2e31bc3eb34ccd11e",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-053",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382431472696600,
+          "end_ns": 1794382431490749100,
+          "queue_age_ms": 3701.962,
+          "roundtrip": {
+            "canonical_sha256": "00b8bbde2a2f39bf43e1455f4bd92d72ec17c883f8e59d5548d2e0ddd4cc1a60",
+            "canonical_length": 15099,
+            "bundle_sha256": "a5783a04ba2e74ac783e2ef9d134de175ad3032aa72cbb8f43aa96aadb39a51a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-056",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382431653715300,
+          "end_ns": 1794382431696338100,
+          "queue_age_ms": 3891.715,
+          "roundtrip": {
+            "canonical_sha256": "8b4259e56ee7356f83e9265b229daaa28923d8acac14ef9b51179e5cf09cee7f",
+            "canonical_length": 15099,
+            "bundle_sha256": "ac2900db791c0f8fd65e43bf2e9cd58c3dcfaa53807b3d47eaea544780ed75e4",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-058",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382431679249500,
+          "end_ns": 1794382431696473400,
+          "queue_age_ms": 3901.671,
+          "roundtrip": {
+            "canonical_sha256": "544ab7f93c5aaa8f993136a3517bbeac6faa613de00bc1d785f1790584ce012c",
+            "canonical_length": 15099,
+            "bundle_sha256": "c11adf829178f3b69e7cfac47284eb033146789db7d7d7d84e25278b6f07755f",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-060",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382431876228600,
+          "end_ns": 1794382431901885100,
+          "queue_age_ms": 4103.457,
+          "roundtrip": {
+            "canonical_sha256": "b7895853cf8742e1dadce1b29bb3b14fe57ff2db7bf980a0cf0a31d1b9e5285b",
+            "canonical_length": 15099,
+            "bundle_sha256": "f04e7c5027174d319d2f953d4649a83e1ab220ad69b345dd6973fbf3a4b6f5e1",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-061",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382431884698400,
+          "end_ns": 1794382431918585400,
+          "queue_age_ms": 4102.896,
+          "roundtrip": {
+            "canonical_sha256": "7b7066ba1d956b7c6e480ca91dd959a74d791e3fedeca4878efc4287041ea39e",
+            "canonical_length": 15099,
+            "bundle_sha256": "87e519598daa003cb1250e553a2f33b1b90dfc6dc80482cc04929c8b2d91a77a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-064",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382432064427700,
+          "end_ns": 1794382432107135400,
+          "queue_age_ms": 4278.997,
+          "roundtrip": {
+            "canonical_sha256": "c3c42b1418831212039bb470b03079b51b046dd45b66756263b5d3812e57b8b5",
+            "canonical_length": 15099,
+            "bundle_sha256": "41fdf972e963959dd05562c6cc91d4c439e987eac9e7907fa9ae1f0f18efbc15",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-065",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382432091454500,
+          "end_ns": 1794382432124042500,
+          "queue_age_ms": 4304.322,
+          "roundtrip": {
+            "canonical_sha256": "4dcf5c728035ebce2ad49bb0c2ff41d771914b005939abef1046f3a315a653eb",
+            "canonical_length": 15099,
+            "bundle_sha256": "8ee038373404c92c85b21884d67f724f05b38d8a77adf33c5cac37f39fa2ed7e",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-068",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382432267831200,
+          "end_ns": 1794382432309755700,
+          "queue_age_ms": 4500.26,
+          "roundtrip": {
+            "canonical_sha256": "92c95d552d882aa61af94aabb938b7df044077c924fff8e733f4e32b7ef5b212",
+            "canonical_length": 15099,
+            "bundle_sha256": "426e198baaf20772ba4808132e851c8a1aaca44dae139d78bdf1ad3ba9da955a",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-069",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382432292807900,
+          "end_ns": 1794382432326611400,
+          "queue_age_ms": 4499.413,
+          "roundtrip": {
+            "canonical_sha256": "cf940d1ce6938874c3cdd4d74d75d38da387290963588781cac1874aa5285526",
+            "canonical_length": 15099,
+            "bundle_sha256": "6c23e869d4156bf2d3f6a1d285ac068490837139e737df2bfdbeb36ea9669306",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-072",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382432471792200,
+          "end_ns": 1794382432517631500,
+          "queue_age_ms": 4673.793,
+          "roundtrip": {
+            "canonical_sha256": "85df8bb1e2c58f31e75174249eb0ff84c160ada1e6f7c824fd2d4e60c9700272",
+            "canonical_length": 15099,
+            "bundle_sha256": "1413b1b1792002dedac6aad890c5b6e35090838c95781b7d5064d9caf060b167",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-073",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382432500397200,
+          "end_ns": 1794382432517473800,
+          "queue_age_ms": 4700.798,
+          "roundtrip": {
+            "canonical_sha256": "779482da1fb94aedecc4b4a12e2e1c93e4d9ac6ea80b67790b7734bdac7a19e6",
+            "canonical_length": 15099,
+            "bundle_sha256": "aac367594096df020c742c6b6def69d41d0268abe60399efea6a5f785968ec45",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-076",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382432684173900,
+          "end_ns": 1794382432725927700,
+          "queue_age_ms": 4903.522,
+          "roundtrip": {
+            "canonical_sha256": "90125ec187d8bd07bd72159a0619026fd22074d65d01a7a54a4d2ce3188f8ab8",
+            "canonical_length": 15099,
+            "bundle_sha256": "03879fbc7597c9bedde0b549009a72f957de63045283849cef92afa040d6cdea",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-077",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382432708716800,
+          "end_ns": 1794382432726072500,
+          "queue_age_ms": 4902.826,
+          "roundtrip": {
+            "canonical_sha256": "8a186e801cf2cbb411f63fbd6fdeffe5066e18f0cb8a712de6c91dcce4093b4a",
+            "canonical_length": 15099,
+            "bundle_sha256": "ff1489e8170ffa42ad5ef8a9df496ac600295f82b32c7dfebbdadd42706ca488",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-080",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382432884018200,
+          "end_ns": 1794382432924525900,
+          "queue_age_ms": 5097.882,
+          "roundtrip": {
+            "canonical_sha256": "cf5fbcbffd1308b365623a323af2fcc7319f198da466d05d47b7071f064fa101",
+            "canonical_length": 15099,
+            "bundle_sha256": "0ac62cad935a56633eb81a1a0d5e2871ac3d9664140676ea9d4a798388f75bec",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-081",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382432907778300,
+          "end_ns": 1794382432940746700,
+          "queue_age_ms": 5097.341,
+          "roundtrip": {
+            "canonical_sha256": "5e0bee9b466e71eac26e017bf85a3e3467d9788219a6602fbbea044a1a9bbd7d",
+            "canonical_length": 15099,
+            "bundle_sha256": "995fcf66e9eefb2178086b33ed95d5a031d9685718661c209d1d9a4b7eddba8c",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-084",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382433085808600,
+          "end_ns": 1794382433126840600,
+          "queue_age_ms": 5295.13,
+          "roundtrip": {
+            "canonical_sha256": "5a84030ec2c82329b3547265fbb91968ba473a3ea676d63b8839b12440184c4c",
+            "canonical_length": 15099,
+            "bundle_sha256": "e305384d843edcd65c232c3559702739618cb4ad65b1302c5dc5a84312dd5a36",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-085",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382433109504700,
+          "end_ns": 1794382433126741600,
+          "queue_age_ms": 5293.287,
+          "roundtrip": {
+            "canonical_sha256": "8f6dd8e2d9726f3da8afcb64259c082ed5b3d8a1408f51c1d72d619ba7c4793b",
+            "canonical_length": 15099,
+            "bundle_sha256": "399047353d1f66ebac76295e7654435e99d31946fd4d1bd606b104b34a08ef5e",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-089",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382433312587400,
+          "end_ns": 1794382433329796500,
+          "queue_age_ms": 5490.968,
+          "roundtrip": {
+            "canonical_sha256": "8f257a837b2accfdc33b821a4b5db3b5d1df0cd5fdce28a2ad6287df21a36391",
+            "canonical_length": 15099,
+            "bundle_sha256": "93e57f28bddeb9e7e2302c98917e81f23fd3c314f00090fd798c5254a5c481d6",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-088",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382433304351800,
+          "end_ns": 1794382433329953400,
+          "queue_age_ms": 5491.837,
+          "roundtrip": {
+            "canonical_sha256": "903867e002aa05e8640f8824128a8bd910837f289220868596acc95a8bf7cbae",
+            "canonical_length": 15099,
+            "bundle_sha256": "dedddd4f818a03949c5280b549326ab786e5d011b5fc465321f63cc2baac11c6",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-092",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382433499367000,
+          "end_ns": 1794382433541974600,
+          "queue_age_ms": 5674.041,
+          "roundtrip": {
+            "canonical_sha256": "bc7338f17508db20cf525822fd8aabab9542c4fd0947023a9af0cad52d38f37b",
+            "canonical_length": 15099,
+            "bundle_sha256": "1627f0caa2082495eb4deaafb1772a6e0f1e53462e6dd160676366a5ff858b3d",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-093",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382433524353900,
+          "end_ns": 1794382433541857900,
+          "queue_age_ms": 5698.221,
+          "roundtrip": {
+            "canonical_sha256": "db55805f950079159b32bd34acab300a48ea2dc818e76f19fa0d73b6cbd6abd4",
+            "canonical_length": 15099,
+            "bundle_sha256": "6e9987a90c83f8f5ef5bb528e000d64b425ceadbe8ea8633038e9ed49a646d55",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-096",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 11648,
+          "process": 28060,
+          "begin_ns": 1794382433729608500,
+          "end_ns": 1794382433755003200,
+          "queue_age_ms": 5906.839,
+          "roundtrip": {
+            "canonical_sha256": "65b0505c55d435b9f0c5be75c5758564e06c57487f7fb5058c37a6720c32e693",
+            "canonical_length": 15099,
+            "bundle_sha256": "9c5de2490571be8bed074770167bf00122bdaeca9d54dc933c0ade4a900128c5",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        },
+        {
+          "id": "job-097",
+          "version": 4,
+          "attempt": 1,
+          "fence": 4,
+          "backend": 12276,
+          "process": 28060,
+          "begin_ns": 1794382433737845600,
+          "end_ns": 1794382433772201400,
+          "queue_age_ms": 5905.845,
+          "roundtrip": {
+            "canonical_sha256": "54fb712b440ef0f585bdeeb1aef7112a5dc7218739d119816cd211ebd685dad6",
+            "canonical_length": 15099,
+            "bundle_sha256": "a74ebac8b69c3dfe24498388a5b168723c94fe7f9c3512ebf85e56d1c48bf6df",
+            "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+          }
+        }
+      ],
+      "overlap": true,
+      "claim_latency_ms": {
+        "median": 32.68795,
+        "p95_nearest_rank": 42.8675
+      },
+      "queue_age_ms": {
+        "median": 3513.602,
+        "max": 5951.265
+      }
+    },
+    "F01": {
+      "status": "PASS",
+      "probes": [
+        "version",
+        "attempt",
+        "fence",
+        "expired_lease"
+      ],
+      "before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      },
+      "after": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      }
+    },
+    "F02": {
+      "status": "PASS",
+      "observations": [
+        {
+          "predicate": "cleanup_ok",
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0
+          }
+        },
+        {
+          "predicate": "policy_ok",
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0
+          }
+        }
+      ],
+      "authenticatedPolicy": "NOT RUN"
+    },
+    "F03": {
+      "status": "PASS",
+      "before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      },
+      "after": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      },
+      "probes": [
+        "graph_tamper",
+        "coherent_rewrite_old_anchors"
+      ]
+    },
+    "T01": {
+      "status": "PASS",
+      "before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      },
+      "observer_before_commit": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      },
+      "after_rollback": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      }
+    },
+    "T03": {
+      "status": "PASS",
+      "fault": "deferred report_ref FK rejection at commit",
+      "before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      },
+      "after": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0
+      }
+    },
+    "T02": {
+      "status": "PASS",
+      "races": [
+        {
+          "competitor": "complete",
+          "outcomes": [
+            "complete:accepted",
+            "complete:rejected"
+          ],
+          "state": {
+            "state": "completed",
+            "version": 5,
+            "report_id": "report-race-complete",
+            "claims": 1,
+            "receipts": 1,
+            "reports": 1,
+            "outbox": 1
+          }
+        },
+        {
+          "competitor": "cancel",
+          "outcomes": [
+            "cancel:accepted",
+            "complete:rejected"
+          ],
+          "state": {
+            "state": "cancelled",
+            "version": 5,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0
+          }
+        }
+      ],
+      "fullCancellationLifecycle": "NOT RUN"
+    }
+  },
+  "database": {
+    "version": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+    "fsync": "on",
+    "synchronous_commit": "on",
+    "full_page_writes": "on",
+    "isolation": "read committed"
+  },
+  "errorType": "CheckViolation",
+  "elapsedSeconds": 7.505146499999682,
+  "finishedAt": "2026-11-11T07:33:55.011564+00:00"
+}

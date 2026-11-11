@@ -1,0 +1,834 @@
+{
+  "evidenceVersion": "s2-b-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "d73dce3d30a2ee9041b6633ce0fbfdcf78528332",
+  "startedAt": "2026-11-11T12:23:19.269223+00:00",
+  "command": "py -3 -B spikes/s2b/run_b.py docs/s2b-results/2026-11-11-r2.json",
+  "environment": {
+    "python": "3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "psycopg": "3.3.8"
+  },
+  "preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/S2-B-PROTOCOL.md": "caebd807ea13011fab582afca228776308b88b794dee894584c4b34d0263da58",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/run_b.py": "a1cba5fef6b6da0163982cffa6b3e9f4a71fb17b3b47b93ea67ab4504825c909",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128"
+  },
+  "status": "PASS",
+  "limits": [
+    "Synthetic per-run revoke and cleanup acknowledgements, no authenticated trust or container cleanup",
+    "No capacity/fairness/backup-restore/external blob or ordinary export",
+    "No production DB/control/worker decision",
+    "S2/P3-B/P4-A/P4-B remain partial"
+  ],
+  "schema": "s2_2a4cb182798a4af09b1e7867a71c2df2",
+  "checks": {
+    "B01": {
+      "status": "PASS",
+      "before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "expiry_before": "2026-11-11T12:53:20.696273+00:00",
+      "expiry_after": "2026-11-11T12:53:20.754506+00:00",
+      "after": {
+        "state": "completed",
+        "version": 5,
+        "report_id": "report-renew",
+        "claims": 1,
+        "receipts": 1,
+        "reports": 1,
+        "outbox": 1,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "roundtrip": {
+        "canonical_sha256": "22ebd1b8e89f6365336b1a30acd8dceb84ae7fef7bb01361357eb2ebb74cdba5",
+        "canonical_length": 15069,
+        "bundle_sha256": "3d4b7b881d5189c9cfbf9f38bd3f1a3f5421fb2715c0cdd647f8cc9d41fd43a7",
+        "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+      }
+    },
+    "B02": {
+      "status": "PASS",
+      "probes": "wrong version/attempt/fence + expired renew/receipt/complete",
+      "state": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 0,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "expiry_between_check_and_write": [
+        {
+          "method": "renew",
+          "delay_hook_reached": true,
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 0,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        },
+        {
+          "method": "accept_receipt",
+          "delay_hook_reached": true,
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 0,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        },
+        {
+          "method": "complete",
+          "delay_hook_reached": true,
+          "state": {
+            "state": "checking",
+            "version": 4,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        }
+      ]
+    },
+    "B03": {
+      "status": "PASS",
+      "pending": {
+        "state": "recovering",
+        "version": 5,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 5,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-2314c382a81c46659f68b9cbd6b4a935",
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "invalid_ack_probes": [
+        "attempt",
+        "fence",
+        "request",
+        "run",
+        "boolean",
+        "numeric_boolean_or_float",
+        "replay"
+      ],
+      "after": {
+        "state": "checking",
+        "version": 7,
+        "report_id": null,
+        "claims": 2,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 2,
+        "fence": 6,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 0
+      },
+      "prior_bundle_sha": "4934cd9b2669ae69292b15231174ea22d66d7177fde655c4fff98180cb7236b7"
+    },
+    "B05": {
+      "status": "PASS",
+      "blocked_before_ack": [
+        {
+          "op": "claim",
+          "backend": 19692,
+          "process": 28404,
+          "begin_ns": 1794399805636411300,
+          "end_ns": 1794399805640160000,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 28408,
+          "process": 28404,
+          "begin_ns": 1794399805636304300,
+          "end_ns": 1794399805640609000,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 8596,
+          "process": 1640,
+          "begin_ns": 1794399805636193800,
+          "end_ns": 1794399805639263900,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 28004,
+          "process": 1640,
+          "begin_ns": 1794399805636277800,
+          "end_ns": 1794399805639782000,
+          "status": "empty",
+          "value": null
+        }
+      ],
+      "after_ack_reclaim": [
+        {
+          "op": "claim",
+          "backend": 4740,
+          "process": 11692,
+          "begin_ns": 1794399806796661100,
+          "end_ns": 1794399806800435000,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 15756,
+          "process": 11692,
+          "begin_ns": 1794399806796783700,
+          "end_ns": 1794399806801044100,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 24912,
+          "process": 27732,
+          "begin_ns": 1794399806796549600,
+          "end_ns": 1794399806799890100,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "claim",
+          "backend": 21768,
+          "process": 27732,
+          "begin_ns": 1794399806796615600,
+          "end_ns": 1794399806820922600,
+          "status": "accepted",
+          "value": {
+            "id": "reclaim",
+            "version": 7,
+            "attempt": 2,
+            "fence": 6,
+            "backend": 21768,
+            "process": 27732
+          }
+        }
+      ]
+    },
+    "B04": {
+      "status": "PASS",
+      "stale_attempt": {
+        "id": "reclaim",
+        "version": 4,
+        "attempt": 1,
+        "fence": 4,
+        "backend": 23688,
+        "process": 23876
+      },
+      "current_attempt": {
+        "id": "reclaim",
+        "version": 7,
+        "attempt": 2,
+        "fence": 6,
+        "backend": 21768,
+        "process": 27732
+      },
+      "state": {
+        "state": "completed",
+        "version": 8,
+        "report_id": "report-reclaim",
+        "claims": 2,
+        "receipts": 2,
+        "reports": 1,
+        "outbox": 1,
+        "attempt": 2,
+        "fence": 6,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 0
+      },
+      "roundtrip": {
+        "canonical_sha256": "bb5912409106a232c0a7601716b96610027b82865e0f2d9cb386b3fc2b2a3875",
+        "canonical_length": 15099,
+        "bundle_sha256": "c377a00cf0083abf19ce4ce246f61b60f2cc03356d3cfd714f9fca04c44c1f4d",
+        "assessment_sha256": "c9d0559c71cf595608b538011f35d6e3bbdae82882212d66447148edb27456ba"
+      }
+    },
+    "B06": {
+      "status": "PASS",
+      "observations": [
+        {
+          "reason": "cancel",
+          "ordered_cancelled": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": "cancel",
+            "terminal_reason": "cancel",
+            "requests": 1,
+            "open_incidents": 0
+          },
+          "ordered_completed": {
+            "state": "completed",
+            "version": 5,
+            "report_id": "report-complete-first-cancel",
+            "claims": 1,
+            "receipts": 1,
+            "reports": 1,
+            "outbox": 1,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          },
+          "race": [
+            {
+              "op": "complete",
+              "backend": 5680,
+              "process": 23724,
+              "begin_ns": 1794399808258460300,
+              "end_ns": 1794399808315617000,
+              "status": "accepted",
+              "value": null
+            },
+            {
+              "op": "request_stop",
+              "backend": 23928,
+              "process": 26856,
+              "begin_ns": 1794399808258513800,
+              "end_ns": 1794399808316366100,
+              "status": "rejected"
+            }
+          ],
+          "race_after_cleanup": {
+            "state": "completed",
+            "version": 5,
+            "report_id": "report-race-stop-cancel",
+            "claims": 1,
+            "receipts": 1,
+            "reports": 1,
+            "outbox": 1,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        },
+        {
+          "reason": "revoke",
+          "ordered_cancelled": {
+            "state": "cancelled",
+            "version": 6,
+            "report_id": null,
+            "claims": 1,
+            "receipts": 1,
+            "reports": 0,
+            "outbox": 0,
+            "attempt": 1,
+            "fence": 5,
+            "cleanup_ok": true,
+            "policy_ok": false,
+            "cleanup_request": null,
+            "stop_reason": "revoke",
+            "terminal_reason": "revoke",
+            "requests": 1,
+            "open_incidents": 0
+          },
+          "ordered_completed": {
+            "state": "completed",
+            "version": 5,
+            "report_id": "report-complete-first-revoke",
+            "claims": 1,
+            "receipts": 1,
+            "reports": 1,
+            "outbox": 1,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          },
+          "race": [
+            {
+              "op": "complete",
+              "backend": 4132,
+              "process": 17884,
+              "begin_ns": 1794399809644960000,
+              "end_ns": 1794399809686881800,
+              "status": "accepted",
+              "value": null
+            },
+            {
+              "op": "request_stop",
+              "backend": 8132,
+              "process": 21132,
+              "begin_ns": 1794399809644931200,
+              "end_ns": 1794399809687405500,
+              "status": "rejected"
+            }
+          ],
+          "race_after_cleanup": {
+            "state": "completed",
+            "version": 5,
+            "report_id": "report-race-stop-revoke",
+            "claims": 1,
+            "receipts": 1,
+            "reports": 1,
+            "outbox": 1,
+            "attempt": 1,
+            "fence": 4,
+            "cleanup_ok": true,
+            "policy_ok": true,
+            "cleanup_request": null,
+            "stop_reason": null,
+            "terminal_reason": null,
+            "requests": 0,
+            "open_incidents": 0
+          }
+        }
+      ],
+      "authenticatedRevoke": "NOT RUN",
+      "containerCleanup": "NOT RUN"
+    },
+    "B07": {
+      "status": "PASS",
+      "failed_before_late_ack": {
+        "state": "failed",
+        "version": 6,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 6,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-dfc4c13786b443c0b9605ae6eb00bb73",
+        "stop_reason": "lease_expired",
+        "terminal_reason": "cleanup_unconfirmed",
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "late_ack_terminal_immutable": true,
+      "deadline_race": [
+        {
+          "op": "ack_cleanup",
+          "backend": 23508,
+          "process": 25072,
+          "begin_ns": 1794399812246254400,
+          "end_ns": 1794399812255011300,
+          "status": "accepted",
+          "value": "failed"
+        },
+        {
+          "op": "cleanup_timeout",
+          "backend": 22396,
+          "process": 22768,
+          "begin_ns": 1794399812246289100,
+          "end_ns": 1794399812250109200,
+          "status": "accepted",
+          "value": null
+        }
+      ],
+      "race_after": {
+        "state": "failed",
+        "version": 6,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 6,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-ef07c499207345ddbf0b1b9d3c0e263d",
+        "stop_reason": "lease_expired",
+        "terminal_reason": "cleanup_unconfirmed",
+        "requests": 1,
+        "open_incidents": 0
+      }
+    },
+    "B08": {
+      "status": "PASS",
+      "state": {
+        "state": "failed",
+        "version": 9,
+        "report_id": null,
+        "claims": 2,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 2,
+        "fence": 7,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": "attempts_exhausted",
+        "requests": 2,
+        "open_incidents": 0
+      }
+    },
+    "B09": {
+      "status": "PASS",
+      "committed_before": {
+        "state": "recovering",
+        "version": 5,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 5,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-4afe99ada53d4fed95d5ae7285f0871f",
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "uncommitted_before": {
+        "state": "checking",
+        "version": 4,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 4,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": null,
+        "terminal_reason": null,
+        "requests": 0,
+        "open_incidents": 0
+      },
+      "after_restart_and_reconcile": {
+        "state": "checking",
+        "version": 7,
+        "report_id": null,
+        "claims": 2,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 2,
+        "fence": 6,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "lease_expired",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 0
+      },
+      "reclaimed": {
+        "id": "uncommitted-recovery",
+        "version": 7,
+        "attempt": 2,
+        "fence": 6,
+        "backend": 20316,
+        "process": 23876
+      },
+      "child_exitcode": -15,
+      "dbStoppedWithOpenRecoveryTransaction": true
+    },
+    "B10": {
+      "status": "PASS",
+      "active": [
+        {
+          "op": "renew",
+          "backend": 4540,
+          "process": 8236,
+          "begin_ns": 1794399820731126900,
+          "end_ns": 1794399820737663000,
+          "status": "accepted",
+          "value": "2026-11-11T12:53:40.736456+00:00"
+        },
+        {
+          "op": "reconcile_expired",
+          "backend": 27148,
+          "process": 11680,
+          "begin_ns": 1794399820731098800,
+          "end_ns": 1794399820734989900,
+          "status": "empty",
+          "value": null
+        }
+      ],
+      "expired": [
+        {
+          "op": "renew",
+          "backend": 27092,
+          "process": 12772,
+          "begin_ns": 1794399822088313700,
+          "end_ns": 1794399822095463800,
+          "status": "rejected"
+        },
+        {
+          "op": "reconcile_expired",
+          "backend": 21528,
+          "process": 8596,
+          "begin_ns": 1794399822088284700,
+          "end_ns": 1794399822094997400,
+          "status": "accepted",
+          "value": "cleanup-49d939909fe54555af5c9ebf9a260a91"
+        }
+      ],
+      "stop_vs_reclaim": [
+        {
+          "op": "claim",
+          "backend": 2584,
+          "process": 3664,
+          "begin_ns": 1794399823454217600,
+          "end_ns": 1794399823456855400,
+          "status": "empty",
+          "value": null
+        },
+        {
+          "op": "request_stop",
+          "backend": 28508,
+          "process": 13012,
+          "begin_ns": 1794399823454193200,
+          "end_ns": 1794399823457875000,
+          "status": "accepted",
+          "value": null
+        }
+      ],
+      "state": {
+        "state": "cancelled",
+        "version": 7,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 1,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 6,
+        "cleanup_ok": true,
+        "policy_ok": true,
+        "cleanup_request": null,
+        "stop_reason": "cancel",
+        "terminal_reason": "cancel",
+        "requests": 1,
+        "open_incidents": 0
+      }
+    }
+  },
+  "database": {
+    "version": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+    "fsync": "on",
+    "synchronous_commit": "on",
+    "full_page_writes": "on"
+  },
+  "inputsAfter": {
+    "docs/S2-B-PROTOCOL.md": "caebd807ea13011fab582afca228776308b88b794dee894584c4b34d0263da58",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/run_b.py": "a1cba5fef6b6da0163982cffa6b3e9f4a71fb17b3b47b93ea67ab4504825c909",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128"
+  },
+  "finishedAt": "2026-11-11T12:23:43.531827+00:00",
+  "elapsedSeconds": 22.956611299989163
+}

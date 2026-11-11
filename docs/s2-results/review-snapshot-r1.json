@@ -1,0 +1,39 @@
+{
+  "snapshotVersion": "s2-a-review-1.0.0",
+  "snapshot": "WT-S2A-R5",
+  "baseline": "d73dce3d30a2ee9041b6633ce0fbfdcf78528332",
+  "files": {
+    ".gitignore": "6ac299175bcf94f9a2e6006c23a9efa571b0cdb4a1e58bc73288083e7225e283",
+    "README.md": "3cdb2a7c0bc76ab3fee4b068c3435bdd0c14f58a13ae679800704f2316022f54",
+    "docs/DECISION-LOG.md": "e2f346c00712496e9b4393ec8f46afb40490b6f54c5e4826b1fc779b6dfcafd4",
+    "docs/IMPLEMENTATION-PLAN.md": "588016dc3e77ab367a8a05ebbb7a9af14c589b64084e424e89a1546660516986",
+    "docs/NEXT-SESSION.md": "34d3bbba0c0f6c5bed199ea7639dd3cfc9a62da15c0987b4d704d5d5f52ee95c",
+    "docs/S2-A-PROTOCOL.md": "65d1675178cecd694638136648325a3d6f09df3dfe29092d8f4841672ce89ef8",
+    "docs/S2-A-RESULTS.md": "84606130f724d7e47992c36c16e04d744a7cd16a22765747501c448e5b633b29",
+    "docs/S2-A-REVIEW.md": "524b6a4e66d2c9c2bef5e86d4cbe64a3c2c731e0738cf3d054062c45771c141f",
+    "docs/SESSION-HANDOFF.md": "c78e3059b0d9b92a30c4c3f2f24d30db74760123c860c7fa18744871ab1f97b2",
+    "docs/SESSION-PLAN.md": "cf85b70a5178d5463797390c20237d78b4baf63da5477ce3c18eb3b4775669ea",
+    "docs/adr/003-stack-and-spikes.md": "f0742821256e06eb31813462ca9554e569b7d0442bd30ecc534d493aa6e0f3b8",
+    "docs/s2-results/2026-11-11-r1.json": "2f81664cee7be623e52c71045da92b4b66d94ef13b191273e8e4994b3ff4f973",
+    "docs/s2-results/2026-11-11-r2.json": "f8f0118495377768be3d8b52b5f1b09a92d8e284ec077a6cf7d0c6f17023fe01",
+    "docs/s2-results/2026-11-11-r3.json": "5208d99657701d5c9bda3756a7184ba37213af4bf82010c9314a570dca17c8a2",
+    "docs/s2-results/2026-11-11-r4.json": "b227dd282e56011ed5cb63336fcc6a09fc486ab5669243d2d95326fe36ebc4d7",
+    "docs/s2-results/2026-11-11-r5.json": "92a7b8092020d436dc93729fb67dfb266063e367d2d3da1afde01607394d4e3a",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d"
+  },
+  "manifestSha256": "622dc30f5b0ec42a63a4a9682bab67756d53f772659f7aa0e7efc1c5d88a8f84",
+  "checks": {
+    "markdownLinksAndFences": "PASS",
+    "frozenTrackedArtifacts": "UNCHANGED",
+    "latest33InputHashes": "MATCH",
+    "dbR5": "PASS",
+    "preflightMethods": 6,
+    "regressionMethods": 45
+  }
+}
