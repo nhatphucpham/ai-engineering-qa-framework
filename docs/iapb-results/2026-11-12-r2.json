@@ -1,0 +1,216 @@
+{
+  "evidenceVersion": "iap-b-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "e8b47a18925dc1c64d817e1facd27dc83250f69c",
+  "startedAt": "2026-11-12T04:53:51.757030+00:00",
+  "command": "py -3 -B spikes/iapb/run_iapb.py docs/iapb-results/2026-11-12-r2.json",
+  "preflight": {
+    "versions": {
+      "argon2-cffi": "25.1.0",
+      "argon2-cffi-bindings": "26.1.0",
+      "cffi": "2.1.1",
+      "pycparser": "3.12"
+    },
+    "ready": true,
+    "local_paths": true
+  },
+  "database_preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/IAP-A-PROTOCOL.md": "d5db0127a07c6d3270edc260d5fd95a9b126343b89bbde067720bf90dd0dda88",
+    "docs/IAP-B-PROTOCOL.md": "28534c096f638941e083ba70fcb3c5674a808e3cc248614dfc11ad7c0cebe94c",
+    "docs/IDENTITY-APPLICATION-PROTOCOL.md": "b1e93f199f47e475814e74fbabe132a9c236c97919ec12006922a338e18c53c8",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+    "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+    "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+    "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+    "spikes/iapb/authority.py": "1c4b413b781f949ccca52f710f2d21c3fec6170c7f7240bff57c77bc66627fab",
+    "spikes/iapb/README.md": "379dcb41f49e886a733333364e3867bbfe2df1b6ee30db5c608368ff4032e335",
+    "spikes/iapb/run_iapb.py": "d991e099c7372de8ea8ad486ccf365c8860107334d0aa5674d34b2f631a821ef",
+    "spikes/iapb/schema.sql": "31ca352095bf403507ef6e191da5dbadc6a6bf12387797f2acd5aef97ed8d1c3",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "status": "PASS",
+  "limits": [
+    "Trusted local host/DB, no network authentication/enrollment or production stack decision",
+    "Service/delegation/assignment metadata only; no execution, cleanup, broker, content or external release",
+    "Full IAP24/S4/S6/P3-B/P4-B/readiness remain open; no membership-epoch/restore anti-rollback provider"
+  ],
+  "schema": "id_6bd7daca51994095b1ddf840f4d40415",
+  "checks": {
+    "B01": {
+      "status": "PASS",
+      "admin_only_enrollment": true,
+      "opaque_service_credentials": true,
+      "user_service_audience_kind_and_exact_routes_separate": true
+    },
+    "B02": {
+      "status": "PASS",
+      "logout_and_DB_access_expiry_independent_of_service_delegation": true,
+      "reset_and_relogin_old_delegation_fenced": true
+    },
+    "B03": {
+      "status": "PASS",
+      "cross_scope_worker_attempt_fence_substitution_denied": true,
+      "rotation_revoke_expired_credential_and_old_epoch_assignment_denied": true
+    },
+    "B04": {
+      "status": "PASS",
+      "live_role_project_grant_and_policy_fences": true,
+      "new_grant_policy_widening_does_not_rebind_old_run": true,
+      "membership_epoch_anti_rollback": "NOT IMPLEMENTED; live role plus original ceiling only"
+    },
+    "B05": {
+      "status": "PASS",
+      "two_process_assignment_collision": [
+        "accepted",
+        "denied"
+      ],
+      "assign_before_revoke_and_revoke_before_assign": [
+        [
+          "accepted",
+          "accepted"
+        ],
+        [
+          "accepted",
+          "denied"
+        ]
+      ],
+      "check_before_revoke_and_revoke_before_check": [
+        [
+          "accepted",
+          "accepted"
+        ],
+        [
+          "accepted",
+          "denied"
+        ]
+      ],
+      "actual_DB_lock_wait_observed": true
+    },
+    "B06": {
+      "status": "PASS",
+      "renew_same_scope_and_deadline_extension": true,
+      "expired_assignment_cannot_revive": true,
+      "retirement_new_attempt_fence": 2,
+      "tentative_assignment_final_expiry_full_rollback": true,
+      "tentative_renewal_old_deadline_expiry_restores_deadline_and_audit": true,
+      "actual_cleanup": "NOT RUN"
+    },
+    "B07": {
+      "status": "PASS",
+      "facade_commit_and_audit_outage_safe_code": "E_DEPENDENCY",
+      "trusted_deferred_fault_SQLSTATE": "23503",
+      "independent_observer_full_rollback_and_retry": true
+    },
+    "B08": {
+      "status": "PASS",
+      "actual_DB_restart_retains_current_and_stale_authority": true,
+      "raw_base64_hex_credentials_hashes_not_in_metadata": true,
+      "no_workload_or_external_release": true
+    }
+  },
+  "diagnostics": {
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "credentialScan": "PASS"
+  },
+  "inputsAfter": {
+    "docs/IAP-A-PROTOCOL.md": "d5db0127a07c6d3270edc260d5fd95a9b126343b89bbde067720bf90dd0dda88",
+    "docs/IAP-B-PROTOCOL.md": "28534c096f638941e083ba70fcb3c5674a808e3cc248614dfc11ad7c0cebe94c",
+    "docs/IDENTITY-APPLICATION-PROTOCOL.md": "b1e93f199f47e475814e74fbabe132a9c236c97919ec12006922a338e18c53c8",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+    "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+    "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+    "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+    "spikes/iapb/authority.py": "1c4b413b781f949ccca52f710f2d21c3fec6170c7f7240bff57c77bc66627fab",
+    "spikes/iapb/README.md": "379dcb41f49e886a733333364e3867bbfe2df1b6ee30db5c608368ff4032e335",
+    "spikes/iapb/run_iapb.py": "d991e099c7372de8ea8ad486ccf365c8860107334d0aa5674d34b2f631a821ef",
+    "spikes/iapb/schema.sql": "31ca352095bf403507ef6e191da5dbadc6a6bf12387797f2acd5aef97ed8d1c3",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "elapsedSeconds": 20.48522729999968,
+  "finishedAt": "2026-11-12T04:54:13.571429+00:00"
+}

@@ -1,0 +1,243 @@
+{
+  "evidenceVersion": "iap-a-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "e8b47a18925dc1c64d817e1facd27dc83250f69c",
+  "startedAt": "2026-11-12T04:09:51.348716+00:00",
+  "command": "py -3 -B spikes/iap/run_iap.py docs/iap-results/2026-11-12-r5.json",
+  "preflight": {
+    "versions": {
+      "argon2-cffi": "25.1.0",
+      "argon2-cffi-bindings": "26.1.0",
+      "cffi": "2.1.1",
+      "pycparser": "3.12"
+    },
+    "ready": true,
+    "local_paths": true
+  },
+  "database_preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/IAP-A-PROTOCOL.md": "d5db0127a07c6d3270edc260d5fd95a9b126343b89bbde067720bf90dd0dda88",
+    "docs/IDENTITY-APPLICATION-PROTOCOL.md": "b1e93f199f47e475814e74fbabe132a9c236c97919ec12006922a338e18c53c8",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+    "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+    "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+    "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "status": "PASS",
+  "limits": [
+    "User queued-command DB subset only; trusted host/DB; no network auth/service/worker/broker",
+    "No claim/IO/release/cleanup ports; no S4 execution proof or production stack decision",
+    "IAP24 only selected interactive/queued portions; full S4/S6/P3-B/P4-B remain open"
+  ],
+  "schema": "id_144bee2923b74a4586f5e4bac2ec3e43",
+  "checks": {
+    "Q01": {
+      "status": "PASS",
+      "start_graph": {
+        "app_runs": 1,
+        "app_delegations": 1,
+        "app_outbox": 1,
+        "receipts": 1,
+        "success_audit": 1
+      },
+      "two_process_both_payload_orderings": [
+        [
+          "accepted",
+          "denied"
+        ],
+        [
+          "accepted",
+          "denied"
+        ]
+      ],
+      "actual_db_lock_wait_observed": true,
+      "principal_key_isolation": true,
+      "committed_replay_requires_current_receipt_action": true,
+      "new_authorized_grant_replays_same_payload": true
+    },
+    "Q02": {
+      "status": "PASS",
+      "safe_codes": [
+        "E_AUTH",
+        "E_AUTH",
+        "E_INPUT",
+        "E_INPUT",
+        "E_INPUT",
+        "E_INPUT"
+      ],
+      "exact_version_fields_helpers_token_kind_and_cross_scope_denied": true
+    },
+    "Q03": {
+      "status": "PASS",
+      "promotion_ceiling_live_downgrade_remove_disable_revoke_reset": true,
+      "background_dispatch": "NOT RUN"
+    },
+    "Q04": {
+      "status": "PASS",
+      "command_first": [
+        "accepted",
+        "accepted"
+      ],
+      "narrow_first": [
+        "accepted",
+        "denied"
+      ],
+      "actual_db_lock_wait_observed": true,
+      "command_before_disable": [
+        "accepted",
+        "accepted"
+      ],
+      "disable_before_command": [
+        "accepted",
+        "denied"
+      ],
+      "external_release": "NOT RUN"
+    },
+    "Q05": {
+      "status": "PASS",
+      "tentative_graph_observed_before_access_expiry": true,
+      "access_and_grant_expiry_full_graph_rollback": true
+    },
+    "Q06": {
+      "status": "PASS",
+      "queued_cancel_ownership_CAS_replay": true,
+      "graph": {
+        "app_runs": 1,
+        "app_delegations": 1,
+        "app_outbox": 2,
+        "receipts": 2,
+        "success_audit": 2
+      },
+      "worker_cleanup": "NOT RUN"
+    },
+    "Q07": {
+      "status": "PASS",
+      "actual_deferred_FK_commit_failure_full_rollback": true,
+      "trusted_fault_observer_sqlstate": "23503",
+      "facade_commit_error_code": "E_DEPENDENCY",
+      "audit_and_denial_audit_outage_fail_closed": true,
+      "same_key_retry_one_graph": {
+        "app_runs": 1,
+        "app_delegations": 1,
+        "app_outbox": 1,
+        "receipts": 1,
+        "success_audit": 1
+      },
+      "missing_policy_fail_closed": true
+    },
+    "Q08": {
+      "status": "PASS",
+      "actual_DB_restart_receipt_replay": true,
+      "response_loss": "simulated drop after actual commit, no network transport",
+      "budget_no_partial_graph": true,
+      "revoked_policy_blocks_receipt": true,
+      "current_epoch_receipt_request_denied_after_read_narrowing": true,
+      "old_policy_epoch_start_replay_fenced_before_prior": true,
+      "app_tables_credential_scan_forms": [
+        "raw",
+        "base64",
+        "hex"
+      ]
+    }
+  },
+  "diagnostics": {
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "credentialScan": "PASS"
+  },
+  "inputsAfter": {
+    "docs/IAP-A-PROTOCOL.md": "d5db0127a07c6d3270edc260d5fd95a9b126343b89bbde067720bf90dd0dda88",
+    "docs/IDENTITY-APPLICATION-PROTOCOL.md": "b1e93f199f47e475814e74fbabe132a9c236c97919ec12006922a338e18c53c8",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+    "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+    "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+    "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "elapsedSeconds": 18.014113200013526,
+  "finishedAt": "2026-11-12T04:10:10.548871+00:00"
+}

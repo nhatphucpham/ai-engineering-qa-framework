@@ -1,3 +1,31 @@
+# Yêu cầu commit/push IAP-A + IAP-B — 12/11/2026
+
+User yêu cầu **“Commit and push”** cho toàn output IAP-A/IAP-B hiện có đã independent CLEAN trong đúng subset. Phạm vi: source/protocol/results/evidence/current docs trên master nền e8b47a1; không cache/dummy credentials/binaries hoặc implementation mới. [Pre-push review](IAP-AB-PUSH-REVIEW.md) ghi snapshot/checks trước action; đọc Git log/remote và outcome sau action để biết commit/push thực, không dùng intent này khẳng định đã push. Các câu “chưa commit/push/no Git action” trong entries/records trước là lịch sử, không phủ nhận quyền Git mới.
+
+Giữ scope IAP-A queued commands và IAP-B authority metadata DONE/CLEAN; worker thực/cleanup/network/broker/full IAP24 và S4/S6/P3-B/P4-B/readiness còn mở. Không chạy S4 hoặc phát triển thêm trong lượt Git này. Next plan vẫn refresh actual S4 prerequisites và worker release/cleanup integration trước nối reservation authorizer vào executor; không mock PASS/host fallback/production-stack choice/real accounts/keys/API/pilot/publish.
+
+# Quyết định hiện hành
+
+## D-34 — 12/11/2026: service/delegation/attempt authority trước worker execution
+
+User yêu cầu tiếp tục theo plan sau IAP-A. Chọn [IAP-B](IAP-B-PROTOCOL.md) trước code: fresh namespace reuse unchanged IAP-A/S6-B auth/application source và common identity mutex, thêm opaque service credential kind/audience/epoch/project ceiling + live run delegation/attempt reservation/fencing. Không sửa old sources/protocols/evidence/fixtures, không migrate old DB namespaces hoặc chọn production runtime/stack. Baseline e8b47a1 + uncommitted IAP-A giữ nguyên.
+
+Run delegation lấy từ authoritative app start/grant/account/project/policy state, không user token hay client role claim. User logout/access expiry không tự revoke background delegation; reset/disable/role/grant/project/policy và service epoch vẫn kiểm live. Assign/check/renew/retire ở đây chỉ metadata, không launch/claim execution hay actual cleanup acknowledgement; không route vào executor trước S4/release/cleanup gate.
+
+[Results/review](IAP-B-RESULTS.md) **DONE authority metadata subset sau independent CLEAN R3 + required checks PASS**: R3 eight groups PASS18.069s/41 hashes current; IAP-A8 groups PASS18.968s/core45/prereq11 PASS. Reviewer chỉ ra thiếu ordered check-vs-revoke và tentative renewal expiry proof; đã bổ sung actual DB/process/order/checkpoint probes, IAPB-RV-01/02 independent reviewer xác nhận CLOSED, không finding trong scope.342 original paths preserved trước prepend5 current docs. Full gates vẫn mở; next S4 inventory/actual worker release-cleanup integration, không fake metadata thành execution. Không real keys/accounts/API/project/pilot/publish hoặc commit/push.
+
+# Quyết định hiện hành
+
+## D-33 — 12/11/2026: push reviewed docs, tích hợp IAP-A queued-command transaction
+
+User yêu cầu “Commit, push và tiếp tục”. Sau2 independent CLEAN rounds, đã commit11 files/push master **e8b47a18925dc1c64d817e1facd27dc83250f69c**, HEAD/origin/master/actual remote verified và status sạch. [Pre-push record](IAP-PUSH-REVIEW.md) là bằng chứng review trước action, Git actual ghi tại current handoff; old no-Git statements giữ lịch sử.
+
+Tiếp [IAP-A](IAP-A-PROTOCOL.md) đã chốt scope trước code: fresh S6-B identity namespace + application tables/version, cùng held identity mutex cho user/session/live role/policy/grant/start/cancel/receipt/audit/outbox. Không sửa/migrate S6-B/S2 source hoặc ghép old schemas bằng synthetic bool. Python/PostgreSQL reused local experiment để kiểm transaction, không chọn production server/worker/DB/desktop stack. Queued-only không có claim/IO/assignment, cancel terminal trong model này không chứng minh worker cleanup; delegation chỉ metadata.
+
+Reviewer phát hiện replay cần receipt/read grant hiện tại và Q07 cần actual facade/audit-outage coverage. Đã sửa same-key replay reauthorize read bằng current persisted grant, thêm start-only/cancel-only/new-grant/policy-read-narrowing negatives; actual trigger/deferred-FK SQLSTATE23503/denial-audit failure verify whole rollback + fixed facade code. R1–R4 giữ nguyên, latest R5 eight groups PASS/36 inputs unchanged; core45+prereq11 PASS. [Results/review](IAP-A-RESULTS.md) **DONE IAP-A subset sau independent CLEAN R5 và required checks PASS**, IAPA-RV-01/02/03 CLOSED, không finding trong scope.
+
+Giữ IAP-1.0.0 frozen theo snapshot cũ; IAP-A source/evidence mới chỉ selected interactive/queued subparts, không full IAP24/full S4/S6/P3-B/P4-B/readiness. No real keys/accounts/API/projects/pilot/publish; output sau push chưa commit/push. Next service/delegation/attempt authority trước worker/broker, chốt scope/schema/failure protocol/prerequisites riêng; không tự triển khai full runtime trong subset này.
+
 # Yêu cầu Git và bước tiếp — 12/11/2026
 
 User yêu cầu **“Commit, push và tiếp tục”** cho toàn output bàn giao HS2, IAP contract và lần chạy thử hiện có đã CLEAN. [Pre-push record](IAP-PUSH-REVIEW.md) kiểm exact snapshot trước Git action; kiểm Git log/remote và handoff mới nhất sau action để biết commit/push thực, không coi intent này là bằng chứng đã push. Những câu chưa commit/push/không có quyền Git trong phần dưới là lịch sử trước yêu cầu mới.
