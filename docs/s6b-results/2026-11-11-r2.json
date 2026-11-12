@@ -1,0 +1,257 @@
+{
+  "evidenceVersion": "s6-b-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "e61be7e0e5d64432871cc891b0061db80da189ea",
+  "startedAt": "2026-11-11T16:34:33.128126+00:00",
+  "command": "py -3 -B spikes/s6b/run_b.py docs/s6b-results/2026-11-11-r2.json",
+  "preflight": {
+    "versions": {
+      "argon2-cffi": "25.1.0",
+      "argon2-cffi-bindings": "26.1.0",
+      "cffi": "2.1.1",
+      "pycparser": "3.12"
+    },
+    "ready": true,
+    "local_paths": true
+  },
+  "database_preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/S6-B-PROTOCOL.md": "2ffc207ec27353ba86a52c3986e2e40b1a5aa67259284d0fbc87f48ab037af95",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "0a1afced9bb4dd4e937eb06641520d8d91f096e785d64bc6ea7154730076fe94",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "status": "PASS",
+  "limits": [
+    "In-process explicit facade; trusted Python host/DB, no sandbox or HTTP deployment",
+    "Fixture TTL/rate/Argon parameters, no production security/performance decision",
+    "No OS credentials/TLS/CSRF/SSO/worker/service broker binding",
+    "Full S6/P3-B/P4-B open; S4 actual engine gates NOT RUN"
+  ],
+  "schema": "id_8ca8b28b9d0d4743befb27af48936331",
+  "checks": {
+    "I01": {
+      "status": "PASS",
+      "profile": {
+        "type": "Argon2id",
+        "memory_KiB": 65536,
+        "time_cost": 3,
+        "parallelism": 4,
+        "hash_len": 32,
+        "salt_len": 16
+      },
+      "hash_ms_samples": [
+        62.240100000053644,
+        57.93179999454878,
+        58.54290000570472,
+        61.26419999054633,
+        57.49390000710264
+      ],
+      "median_ms": 58.54290000570472,
+      "p95_nearest_rank_ms": 62.240100000053644,
+      "distinct_salts": 5,
+      "no_trim": true
+    },
+    "I02": {
+      "status": "PASS",
+      "bootstrap_once": true,
+      "restricted_before_password_change": true,
+      "facade_helper_impersonation_refused": true,
+      "server_ttl_override_refused": true,
+      "generic_errors": [
+        "E_AUTH",
+        "E_AUTH",
+        "E_AUTH"
+      ],
+      "throttle_admitted_attempts": 3
+    },
+    "I03": {
+      "status": "PASS",
+      "old_access_invalid": true,
+      "token_kinds_separate": true,
+      "logout_revokes_family": true,
+      "db_clock_expiry": true
+    },
+    "I04": {
+      "status": "PASS",
+      "two_process_outcomes": [
+        {
+          "status": "denied",
+          "code": "E_AUTH"
+        },
+        {
+          "status": "accepted",
+          "code": null
+        }
+      ],
+      "reuse_revoked_new_generation": true,
+      "concurrent_refresh_requires_reauthentication": true
+    },
+    "I05": {
+      "status": "PASS",
+      "reset_invalidates_access_and_refresh": true,
+      "reset_requires_password_change": true,
+      "restart_did_not_revive": true
+    },
+    "I06": {
+      "status": "PASS",
+      "owner_admin_escalation_denied": true,
+      "owner_transfer_admin_only": true,
+      "cross_project_denied": true,
+      "viewer_start_denied": true,
+      "client_claims_not_authority": true,
+      "secret_and_approval_actions_denied_all_roles": true,
+      "last_admin_race": [
+        {
+          "status": "accepted",
+          "code": null
+        },
+        {
+          "status": "denied",
+          "code": "E_DENIED"
+        }
+      ]
+    },
+    "I07": {
+      "status": "PASS",
+      "snapshot_promotion_not_expanded": true,
+      "live_downgrade_remove_disable_deny": true,
+      "initiator_server_owned": true,
+      "runner_cancel_own_only": true,
+      "owner_cancel_foreign": true
+    },
+    "I08": {
+      "status": "PASS",
+      "access_expired_before_final_conditional_mutation": true,
+      "proposed_run_rolled_back": true,
+      "refresh_crossed_expiry_before_write": true
+    },
+    "I09": {
+      "status": "PASS",
+      "captured_cli_cases": [
+        {
+          "case": "unknown_user",
+          "exitcode": 2,
+          "code": "E_AUTH",
+          "stderr_bytes": 0
+        },
+        {
+          "case": "forged_access",
+          "exitcode": 2,
+          "code": "E_AUTH",
+          "stderr_bytes": 0
+        },
+        {
+          "case": "wrong_token_kind",
+          "exitcode": 2,
+          "code": "E_AUTH",
+          "stderr_bytes": 0
+        },
+        {
+          "case": "helper_impersonation",
+          "exitcode": 2,
+          "code": "E_DENIED",
+          "stderr_bytes": 0
+        }
+      ],
+      "passwords_argon2id_only": true,
+      "raw_credentials_in_db_audit_outputs": false,
+      "hashes_not_in_evidence": true,
+      "cli_scanned_current_account_and_dummy_hashes": true,
+      "cli_encoding_forms": [
+        "raw",
+        "base64",
+        "hex"
+      ],
+      "captured_parent_stdout_bytes": 0,
+      "captured_parent_stderr_bytes": 0
+    }
+  },
+  "inputsAfter": {
+    "docs/S6-B-PROTOCOL.md": "2ffc207ec27353ba86a52c3986e2e40b1a5aa67259284d0fbc87f48ab037af95",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "0a1afced9bb4dd4e937eb06641520d8d91f096e785d64bc6ea7154730076fe94",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "elapsedSeconds": 13.955553599997074,
+  "finishedAt": "2026-11-11T16:34:48.393796+00:00"
+}

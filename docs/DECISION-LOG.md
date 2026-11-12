@@ -1,5 +1,27 @@
 # Decision log
 
+## D-31 — 12/11/2026: lưu và đẩy S2-C/S6-A/S6-B đã review
+
+User yêu cầu “Commit và push”. Phạm vi là toàn output hiện tại đã hoàn tất review, trên master/nền e61be7e; không cache/binaries/dummy credentials hoặc thay implementation mới. [Pre-push review](S2C-S6-PUSH-REVIEW.md) kiểm đúng snapshot và source/evidence identities, current docs phân biệt lịch sử chưa commit với yêu cầu mới. Kiểm Git log/status/remote sau action để biết hash/push thực; pre-push record không tự là bằng chứng remote. Giữ gate S4 actual NOT RUN/full S6/P3-B/P4-B mở; không đổi hướng/platform/pilot/publish.
+
+## D-30 — 11/11/2026: S6-B identity facade độc lập với trusted maintenance
+
+User yêu cầu “tiếp” sau S6-A. Chọn [S6-B protocol](S6-B-PROTOCOL.md) trước implementation: maintained Argon2id/project-local hash pins, dummy accounts/opaque session hashes/refresh family replay/reset/epochs/fixed RBAC trên fresh synthetic PostgreSQL schema. Explicit `Identity.dispatch` whitelist là request boundary; `_Store` bootstrap/SQL/issuance/short-TTL/hook chỉ trusted harness, không Python sandbox/HTTP route. Singleton identity mutex cố ý serialize mutations; final authenticated conditional checkpoint kiểm DB access/family expiry. Own logout/password change có thể revoke current actor trong transaction hợp lệ.
+
+[R4](S6-B-RESULTS.md)9 groups PASS13.260s,31 input hashes before=after;5 prerequisite methods PASS0.893s/core45 PASS34.430s. S6B-RV-01 helper issuance boundary và RV-02 account/dummy-hash CLI scan đã sửa/actual recheck, [review](S6-B-REVIEW.md) final CLEAN WT-S6B-R4-D2, synthetic subset DONE. Concurrent same-refresh reuse cố ý revoke cả newly returned generation, yêu cầu login lại; không hứa retry grace. Snapshot grant∩live role/epoch/project, last enabled Admin được giữ qua race. Không production auth/settings/runtime decision, no HTTP/TLS/SSO/OS keys/service-worker/broker integration; full S6/P3-B/P4-B mở, S4 actual NOT RUN. Giữ S2-C/S6-A/frozen artifacts và không commit/push phase mới. Next versioned identity→application/live-policy/broker boundary/acceptance trước integration.
+
+## D-29 — 11/11/2026: S4 chưa runnable, tiến S6-A storage độc lập
+
+User yêu cầu bước tiếp sau S2-C. Current discovery Windows/WSL chưa có runnable container engine/capability/image, giữ S4 actual gates NOT RUN và recovery step, không mock PASS/host fallback/global install. Chọn maintained crypto + synthetic DB storage subset thay dừng toàn phiên. [Protocol](S6-A-PROTOCOL.md) chốt trước implementation, project-local hash-pinned cryptography50.0.2/cffi2.1.1/pycparser3.12; không dùng installed global library làm pin hoặc chọn production runtime/keystore.
+
+[R4 results](S6-A-RESULTS.md) PASS10 groups17.771s,42 hashes before=after. Re-review fixes append-only committed nonce reservations/pinned exact key bytes, fail-closed pre-import paths, actual diagnostic capture và DB substitution probes; [review](S6-A-REVIEW.md) final CLEAN, S6A-RV-01..05 CLOSED; synthetic storage subset DONE. Independent nonce commit cố ý không rollback cùng content để không recycle đã dùng; restored clones chỉ read-only, không claim latest global nonce/authority recovered tự động. Private operator helpers/closed all-role raw-content denial chưa authenticated broker/RBAC. Next S6-B identity/session và S4 prerequisites; full gates còn mở, giữ S2-C/all frozen artifacts, chưa commit/push/pilot/API thật.
+
+## D-28 — 11/11/2026: push reviewed S2-A/B, tiếp S2-C metadata model
+
+User yêu cầu commit/push rồi tiếp. Sau independent pre-push review/fix docs-history finding và clean re-review, tạo e61be7e, push master và verify remote exact hash; không force/merge. Tiếp fresh model S2-C, không sửa/migrate S2-A/B hoặc core/frozen inputs. Singleton scheduler lock chủ ý serialize DB admission/config để enforce global/project capacity; RR least-served eligible project và FIFO head, bỏ project locked-head để project khác tiến. Specific-run facility chỉ fixture isolation, vẫn FIFO; fairness evidence chỉ untargeted, không public scheduler API.
+
+[Protocol](S2-C-PROTOCOL.md) chốt trước implementation; [latest results](S2-C-RESULTS.md) R4 DB9 groups PASS/38.708s,42 hashes before=after. Metadata-only dump/restore sang marked DB mới, truncated archive failure rollback,13-table+100-package exact round-trip và outbox replay; không dùng để claim external blob/key/production recovery. [Review](S2-C-REVIEW.md) final CLEAN, RV01/RV02 CLOSED; S2-C subset DONE sau required checks PASS. S2-C mới chưa commit/push, full S2/P3-B/P4-A/P4-B/S4/S6 còn mở; no runtime/DB/platform decision hoặc pilot/API/account thật.
+
 ## D-27 — 11/11/2026: S2-B persistence model riêng, không sửa S2-A evidence
 
 User yêu cầu tiếp S2-A. Giữ checkout/master d73dce3 + uncommitted outputs; thêm schema/model s2b-1.0.0 trong namespace mới, reuse pinned local tooling/core, không mutate S2-A source/goldens/evidence. Heartbeat thay live expiry nhưng giữ stateVersion và canonical attempt snapshot; expiry/recovery fencing + request/incident durable, cleanup ack scoped và retry-bound kiểm trên actual DB. Revoke/cleanup facts vẫn synthetic, không tự thành authenticated live policy/worker cleanup.

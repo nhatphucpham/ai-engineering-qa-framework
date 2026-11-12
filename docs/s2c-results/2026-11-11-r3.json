@@ -1,0 +1,3255 @@
+{
+  "evidenceVersion": "s2-c-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "e61be7e0e5d64432871cc891b0061db80da189ea",
+  "startedAt": "2026-11-11T12:50:25.581338+00:00",
+  "command": "py -3 -B spikes/s2c/run_c.py docs/s2c-results/2026-11-11-r3.json",
+  "environment": {
+    "python": "3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "psycopg": "3.3.8"
+  },
+  "preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/S2-C-PROTOCOL.md": "246fb5f341463eed51d19f917d4d5b0adf757e50de4f809b5914a9c697d8f00b",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/README.md": "2f4b519b15c1ca50267a84941c98c78709af699098b210c378d6c85bd0cb2846",
+    "spikes/s2b/run_b.py": "16961da22bc32a9e2a29dfb59faf62ee3ad07605fa1c77cdc52f5ac11fb09700",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128",
+    "spikes/s2c/backup.py": "20903f1f4d29e96b2a48b0714ef732f417557044d3e1d80d56023ef4ae12ca8f",
+    "spikes/s2c/README.md": "226b4e3c927907e7ffbbfc9561f8586aad6a028cf3cfeca218ede37b9d306fef",
+    "spikes/s2c/run_c.py": "cd98c64a97ce5e60286d62c2390a09394de21171513e82ce5d6e74ebaeb65cee",
+    "spikes/s2c/schema.sql": "ed55d4ec7e0edce564e0f03743842f94f1da7a7c80d18bbbd92525ae9069914f",
+    "spikes/s2c/store_c.py": "4f2c31e6855b510b7c1ab453a53ded4f845cedab8d85b0775b923048cd208af8"
+  },
+  "status": "PASS",
+  "limits": [
+    "Metadata admission/cleanup predicates, no physical worker/container/auth controls",
+    "Fixture round-robin eligibility, no production SLA/fairness guarantee",
+    "DB schema-only restore; no external blob/key/roles/cluster/PITR recovery",
+    "No production DB/control/worker choice; full S2/P3-B/P4-A/P4-B remain partial"
+  ],
+  "pg_dump": "pg_dump (PostgreSQL) 18.6",
+  "pg_restore": "pg_restore (PostgreSQL) 18.6",
+  "schemas": {
+    "bulk_and_restore": "s2_3486a6c7bfb84144a088953700db068c",
+    "ordered_fairness": "s2_0ff8a9f5887b4c52b63c37045d236869",
+    "capacity_and_lock": "s2_31501dc6485f47a8ba3a5d2ab6802599",
+    "cleanup_occupancy": "s2_10cd185b613348efa02ec09b1f7da900",
+    "rollback": "s2_c9a5444842c34dd4b38bef4621a9cf0b"
+  },
+  "checks": {
+    "C01": {
+      "status": "PASS",
+      "workers": [
+        {
+          "backend": 20892,
+          "process": 24900,
+          "claims": [
+            "a-001",
+            "a-002",
+            "b-003",
+            "a-005",
+            "a-010",
+            "a-013",
+            "a-016",
+            "a-021",
+            "a-025",
+            "a-029",
+            "a-035",
+            "a-038",
+            "a-042",
+            "a-046",
+            "a-048",
+            "a-052",
+            "a-055",
+            "a-059",
+            "a-065",
+            "a-068",
+            "a-074",
+            "a-078",
+            "a-086"
+          ]
+        },
+        {
+          "backend": 18860,
+          "process": 24900,
+          "claims": [
+            "b-000",
+            "c-001",
+            "a-003",
+            "c-004",
+            "a-006",
+            "a-012",
+            "a-015",
+            "a-018",
+            "a-022",
+            "a-026",
+            "a-030",
+            "a-033",
+            "a-037",
+            "a-041",
+            "a-045",
+            "a-051",
+            "a-054",
+            "a-058",
+            "a-062",
+            "a-066",
+            "a-071",
+            "a-075",
+            "a-079",
+            "a-083",
+            "a-087"
+          ]
+        },
+        {
+          "backend": 3420,
+          "process": 17600,
+          "claims": [
+            "a-000",
+            "b-001",
+            "c-002",
+            "a-004",
+            "a-008",
+            "a-011",
+            "a-019",
+            "a-023",
+            "a-024",
+            "a-028",
+            "a-032",
+            "a-036",
+            "a-040",
+            "a-044",
+            "a-049",
+            "a-053",
+            "a-056",
+            "a-060",
+            "a-063",
+            "a-067",
+            "a-070",
+            "a-073",
+            "a-077",
+            "a-081",
+            "a-084",
+            "a-088"
+          ]
+        },
+        {
+          "backend": 14504,
+          "process": 17600,
+          "claims": [
+            "c-000",
+            "b-002",
+            "c-003",
+            "b-004",
+            "a-007",
+            "a-009",
+            "a-014",
+            "a-017",
+            "a-020",
+            "a-027",
+            "a-031",
+            "a-034",
+            "a-039",
+            "a-043",
+            "a-047",
+            "a-050",
+            "a-057",
+            "a-061",
+            "a-064",
+            "a-069",
+            "a-072",
+            "a-076",
+            "a-080",
+            "a-082",
+            "a-085",
+            "a-089"
+          ]
+        }
+      ],
+      "admissions": [
+        {
+          "turn": 1,
+          "run_id": "a-000",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 0
+            },
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 0
+            },
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 0
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1253.413000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 2,
+          "run_id": "b-000",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 0
+            },
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 0
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 1
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1102.904000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 3,
+          "run_id": "c-000",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 0
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 1
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1159.308000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 4,
+          "run_id": "a-001",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 1
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1361.243000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 5,
+          "run_id": "b-001",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 2
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 4
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1245.322000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 6,
+          "run_id": "c-001",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 3
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 4
+            }
+          ],
+          "occupancy": {
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1327.161000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 7,
+          "run_id": "a-002",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 4
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1524.527000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 8,
+          "run_id": "b-002",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 5
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 7
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1411.268000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 9,
+          "run_id": "c-002",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 6
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 7
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1433.638000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 10,
+          "run_id": "a-003",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 7
+            },
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 8
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1676.636000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 11,
+          "run_id": "b-003",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 8
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 10
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1555.176000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 12,
+          "run_id": "c-003",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 9
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 10
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1607.112000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 13,
+          "run_id": "a-004",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 10
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1831.154000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 14,
+          "run_id": "c-004",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 12
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 13
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1691.946000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 15,
+          "run_id": "b-004",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 11
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 13
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1759.797000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 16,
+          "run_id": "a-005",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 13
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1963.152000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 17,
+          "run_id": "a-006",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 16
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2041.177000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 18,
+          "run_id": "a-007",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 17
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2083.916000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 19,
+          "run_id": "a-008",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 18
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2187.067000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 20,
+          "run_id": "a-009",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 19
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2231.187000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 21,
+          "run_id": "a-010",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 20
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2258.280000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 22,
+          "run_id": "a-011",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 21
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2354.056000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 23,
+          "run_id": "a-012",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 22
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2383.108000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 24,
+          "run_id": "a-013",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 23
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2464.891000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 25,
+          "run_id": "a-014",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 24
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2493.952000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 26,
+          "run_id": "a-015",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 25
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2599.456000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 27,
+          "run_id": "a-016",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 26
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2618.773000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 28,
+          "run_id": "a-017",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 27
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2670.101000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 29,
+          "run_id": "a-018",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 28
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2762.231000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 30,
+          "run_id": "a-019",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 29
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2787.975000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 31,
+          "run_id": "a-020",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 30
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2860.737000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 32,
+          "run_id": "a-021",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 31
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2891.185000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 33,
+          "run_id": "a-022",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 32
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2961.435000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 34,
+          "run_id": "a-023",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 33
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2990.650000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 35,
+          "run_id": "a-024",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 34
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3095.744000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 36,
+          "run_id": "a-025",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 35
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3097.212000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 37,
+          "run_id": "a-026",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 36
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3166.682000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 38,
+          "run_id": "a-027",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 37
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3193.816000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 39,
+          "run_id": "a-028",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 38
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3274.377000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 40,
+          "run_id": "a-029",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 39
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3301.333000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 41,
+          "run_id": "a-030",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 40
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3377.875000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 42,
+          "run_id": "a-031",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 41
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3436.334000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 43,
+          "run_id": "a-032",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 42
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3486.185000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 44,
+          "run_id": "a-033",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 43
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3566.924000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 45,
+          "run_id": "a-034",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 44
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3632.055000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 46,
+          "run_id": "a-035",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 45
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3664.461000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 47,
+          "run_id": "a-036",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 46
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3724.847000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 48,
+          "run_id": "a-037",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 47
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3762.208000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 49,
+          "run_id": "a-038",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 48
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3807.706000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 50,
+          "run_id": "a-039",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 49
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3835.374000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 51,
+          "run_id": "a-040",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 50
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3933.463000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 52,
+          "run_id": "a-041",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 51
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3951.882000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 53,
+          "run_id": "a-042",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 52
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4020.911000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 54,
+          "run_id": "a-043",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 53
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4046.514000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 55,
+          "run_id": "a-044",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 54
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4115.704000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 56,
+          "run_id": "a-045",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 55
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4147.526000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 57,
+          "run_id": "a-046",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 56
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4234.667000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 58,
+          "run_id": "a-047",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 57
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4261.727000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 59,
+          "run_id": "a-048",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 58
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4364.193000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 60,
+          "run_id": "a-049",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 59
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4366.305000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 61,
+          "run_id": "a-050",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 60
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4439.643000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 62,
+          "run_id": "a-051",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 61
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4471.541000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 63,
+          "run_id": "a-052",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 62
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4549.848000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 64,
+          "run_id": "a-053",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 63
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4576.754000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 65,
+          "run_id": "a-054",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 64
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4682.218000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 66,
+          "run_id": "a-055",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 65
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4700.254000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 67,
+          "run_id": "a-056",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 66
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4778.370000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 68,
+          "run_id": "a-057",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 67
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4857.374000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 69,
+          "run_id": "a-058",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 68
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4884.768000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 70,
+          "run_id": "a-059",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 69
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4955.891000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 71,
+          "run_id": "a-060",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 70
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4993.676000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 72,
+          "run_id": "a-061",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 71
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5063.803000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 73,
+          "run_id": "a-062",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 72
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5090.817000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 74,
+          "run_id": "a-063",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 73
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5186.475000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 75,
+          "run_id": "a-064",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 74
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5205.932000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 76,
+          "run_id": "a-065",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 75
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5279.871000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 77,
+          "run_id": "a-066",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 76
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5349.067000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 78,
+          "run_id": "a-067",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 77
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5375.079000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 79,
+          "run_id": "a-068",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 78
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5470.349000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 80,
+          "run_id": "a-069",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 79
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5471.597000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 81,
+          "run_id": "a-070",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 80
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5552.072000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 82,
+          "run_id": "a-071",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 81
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5580.163000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 83,
+          "run_id": "a-072",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 82
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5676.859000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 84,
+          "run_id": "a-073",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 83
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5695.622000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 85,
+          "run_id": "a-074",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 84
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5775.130000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 86,
+          "run_id": "a-075",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 85
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5849.309000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 87,
+          "run_id": "a-076",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 86
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5875.369000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 88,
+          "run_id": "a-077",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 87
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5948.580000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 89,
+          "run_id": "a-078",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 88
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5975.843000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 90,
+          "run_id": "a-079",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 89
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6047.937000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 91,
+          "run_id": "a-080",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 90
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6075.320000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 92,
+          "run_id": "a-081",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 91
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6172.856000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 93,
+          "run_id": "a-082",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 92
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6192.402000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 94,
+          "run_id": "a-083",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 93
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6264.464000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 95,
+          "run_id": "a-084",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 94
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6365.823000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 96,
+          "run_id": "a-085",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 95
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6383.945000",
+          "backend": 14504,
+          "process": 17600
+        },
+        {
+          "turn": 97,
+          "run_id": "a-086",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 96
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6462.368000",
+          "backend": 20892,
+          "process": 24900
+        },
+        {
+          "turn": 98,
+          "run_id": "a-087",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 97
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6536.460000",
+          "backend": 18860,
+          "process": 24900
+        },
+        {
+          "turn": 99,
+          "run_id": "a-088",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 98
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6563.323000",
+          "backend": 3420,
+          "process": 17600
+        },
+        {
+          "turn": 100,
+          "run_id": "a-089",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 99
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6640.601000",
+          "backend": 14504,
+          "process": 17600
+        }
+      ],
+      "max_total_after_admission": 3
+    },
+    "C04": {
+      "status": "PASS",
+      "ordered_sequence": [
+        "a",
+        "b",
+        "c",
+        "a",
+        "b",
+        "c",
+        "a",
+        "b",
+        "c"
+      ],
+      "max_continuously_eligible_skips": {
+        "a": 2,
+        "b": 1,
+        "c": 2
+      },
+      "queue_age_ms": {
+        "median": 3884.4184999999998,
+        "p95_nearest_rank": 6365.823,
+        "max": 6640.601
+      }
+    },
+    "C02": {
+      "status": "PASS",
+      "occupancy": {},
+      "locked_project": "a",
+      "other_project_claim": {
+        "id": "cap-b-2",
+        "version": 4,
+        "attempt": 1,
+        "fence": 4,
+        "backend": 15764,
+        "process": 28484,
+        "project_id": "b",
+        "turn": 6
+      },
+      "locked_fifo_head": "cap-a-2",
+      "head_blocked_other_project_claim": {
+        "id": "cap-b-3",
+        "version": 4,
+        "attempt": 1,
+        "fence": 4,
+        "backend": 15764,
+        "process": 28484,
+        "project_id": "b",
+        "turn": 7
+      },
+      "fifo_tail_untouched": true,
+      "invalid_config_unchanged": true,
+      "global_cap": 3,
+      "project_caps": {
+        "a": 2,
+        "b": 1,
+        "c": 1
+      }
+    },
+    "C03": {
+      "status": "PASS",
+      "expired_occupancy": {
+        "a": 1
+      },
+      "recovering_occupancy": {
+        "a": 1
+      },
+      "failed_pending": {
+        "state": "failed",
+        "version": 6,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 0,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 6,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-303cd2699ff14960a213682ad2cd5769",
+        "stop_reason": "lease_expired",
+        "terminal_reason": "cleanup_unconfirmed",
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "cancelling_pending": {
+        "state": "cancelling",
+        "version": 5,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 0,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 5,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-63edf1a676dc4085b141d03c6f33e20d",
+        "stop_reason": "cancel",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "after_cleanup": {},
+      "restart_preserved_slot": true
+    },
+    "C05": {
+      "status": "PASS",
+      "before_and_observer": {
+        "admissions": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "attempt_inputs": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "capacity_identity": {
+          "rows": 1,
+          "sha256": "09846b90cce3a5eaa6bfda60f5ccede8dfbe0f1c1a76d34b4ca668003cf6d597"
+        },
+        "claims": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "cleanup_requests": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "incidents": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "model_identity": {
+          "rows": 1,
+          "sha256": "e7ada0aab6da39b98842a8fe110b022a4c89d666a4874fe48b4d371af8aa5310"
+        },
+        "outbox": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "projects": {
+          "rows": 3,
+          "sha256": "b07ee87939c3c85cd307e79e4c7da8fd0a701795db85a39c3b0afc1c1b6d2365"
+        },
+        "receipts": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reports": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "runs": {
+          "rows": 1,
+          "sha256": "2691ece9af88797a763c03e97238bc210e4d3847a97234faf39bc251b1acfbb9"
+        },
+        "scheduler": {
+          "rows": 1,
+          "sha256": "824998ea1c25de9fd44c2986575cb2bb2a86c0209be916eb3095f9158383a08c"
+        }
+      },
+      "after_rollback_unchanged": true,
+      "retry": {
+        "id": "rollback-a",
+        "version": 4,
+        "attempt": 1,
+        "fence": 4,
+        "backend": 12908,
+        "process": 28484,
+        "project_id": "a",
+        "turn": 1
+      }
+    },
+    "R01": {
+      "status": "PASS",
+      "source_fingerprint": {
+        "admissions": {
+          "rows": 101,
+          "sha256": "752fa5fbda83df86af8efb04ee7064cf2c862301fc8e3a95ef545f46bdeef7b8"
+        },
+        "attempt_inputs": {
+          "rows": 101,
+          "sha256": "fae1b874a9527d6fe81eae4e650a0ecb03aa2db9f60baabf8f88fc40d55118d3"
+        },
+        "capacity_identity": {
+          "rows": 1,
+          "sha256": "09846b90cce3a5eaa6bfda60f5ccede8dfbe0f1c1a76d34b4ca668003cf6d597"
+        },
+        "claims": {
+          "rows": 101,
+          "sha256": "58066e3f51e0d4def54b58aca48abb31802f8c6bffb60f330ddf5ad665e7dc78"
+        },
+        "cleanup_requests": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "incidents": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "model_identity": {
+          "rows": 1,
+          "sha256": "e7ada0aab6da39b98842a8fe110b022a4c89d666a4874fe48b4d371af8aa5310"
+        },
+        "outbox": {
+          "rows": 100,
+          "sha256": "6949c02eb84759b803d06e7b6b165278b15c538903a0755ab457f5fcc51eb947"
+        },
+        "projects": {
+          "rows": 3,
+          "sha256": "132697609f39f50af325cc821d4e36d7f7fc1eae23d6537828b31519feeee922"
+        },
+        "receipts": {
+          "rows": 101,
+          "sha256": "54bcc8e669344bd736a63d2f2694a80aa15d1428b9720bc7a481ea3b20794b6e"
+        },
+        "reports": {
+          "rows": 100,
+          "sha256": "7ae99b57575d9e8ada210ba649742a3088a22913b9f0e35a19845cb281feb06b"
+        },
+        "runs": {
+          "rows": 101,
+          "sha256": "1a7405bf639a5a8e0c2d46d098f5eb0697398a75ebf60f55ef523b04f54c5e7a"
+        },
+        "scheduler": {
+          "rows": 1,
+          "sha256": "5664e350ddba7d8386efe06a901a60bb146c5701767317c025286b811ea6c405"
+        }
+      },
+      "archive_sha256": "b616401ed1867c100da413dfed03f9e170775cb6b11beb5664d00164aa1737b1",
+      "archive_bytes": 170823,
+      "child_exitcode": -15,
+      "uncommitted_graph_excluded": true
+    },
+    "R02": {
+      "status": "PASS",
+      "truncated_restore_exitcode": 1,
+      "partial_namespace_present": false
+    },
+    "R03": {
+      "status": "PASS",
+      "restored_fingerprint": {
+        "admissions": {
+          "rows": 101,
+          "sha256": "752fa5fbda83df86af8efb04ee7064cf2c862301fc8e3a95ef545f46bdeef7b8"
+        },
+        "attempt_inputs": {
+          "rows": 101,
+          "sha256": "fae1b874a9527d6fe81eae4e650a0ecb03aa2db9f60baabf8f88fc40d55118d3"
+        },
+        "capacity_identity": {
+          "rows": 1,
+          "sha256": "09846b90cce3a5eaa6bfda60f5ccede8dfbe0f1c1a76d34b4ca668003cf6d597"
+        },
+        "claims": {
+          "rows": 101,
+          "sha256": "58066e3f51e0d4def54b58aca48abb31802f8c6bffb60f330ddf5ad665e7dc78"
+        },
+        "cleanup_requests": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "incidents": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "model_identity": {
+          "rows": 1,
+          "sha256": "e7ada0aab6da39b98842a8fe110b022a4c89d666a4874fe48b4d371af8aa5310"
+        },
+        "outbox": {
+          "rows": 100,
+          "sha256": "6949c02eb84759b803d06e7b6b165278b15c538903a0755ab457f5fcc51eb947"
+        },
+        "projects": {
+          "rows": 3,
+          "sha256": "132697609f39f50af325cc821d4e36d7f7fc1eae23d6537828b31519feeee922"
+        },
+        "receipts": {
+          "rows": 101,
+          "sha256": "54bcc8e669344bd736a63d2f2694a80aa15d1428b9720bc7a481ea3b20794b6e"
+        },
+        "reports": {
+          "rows": 100,
+          "sha256": "7ae99b57575d9e8ada210ba649742a3088a22913b9f0e35a19845cb281feb06b"
+        },
+        "runs": {
+          "rows": 101,
+          "sha256": "1a7405bf639a5a8e0c2d46d098f5eb0697398a75ebf60f55ef523b04f54c5e7a"
+        },
+        "scheduler": {
+          "rows": 1,
+          "sha256": "5664e350ddba7d8386efe06a901a60bb146c5701767317c025286b811ea6c405"
+        }
+      },
+      "exact_packages_checked": [
+        {
+          "id": "report-a-000",
+          "sha256": "fe1a6ae14122d3f57a36727b16ae68d5d0ef4544ccca32affb1ff657d461ae2f",
+          "length": 14991
+        },
+        {
+          "id": "report-a-003",
+          "sha256": "6528cf3199c0c12bae59cd0c45540b8820cc7b4ef432fae699c5b233e71fb5f8",
+          "length": 14991
+        },
+        {
+          "id": "report-a-005",
+          "sha256": "b2b610195cae00c9e78dd1397fc29c7b304c9cbc7940dadb48127d6368a419c2",
+          "length": 14991
+        },
+        {
+          "id": "report-a-009",
+          "sha256": "03e451dfe6455d0470999471fe6f71c49898e849f7dd8832610145dbd76419ba",
+          "length": 14991
+        },
+        {
+          "id": "report-a-010",
+          "sha256": "abbbffc41c80f874d0f028d1ad09ab5db218b90e1757b7331ef3e4fca90d8e42",
+          "length": 14991
+        },
+        {
+          "id": "report-a-014",
+          "sha256": "be35626ebc0b88bed951f3110cce04c038ea018b844e6a21e2d1b6230344a3e8",
+          "length": 14991
+        },
+        {
+          "id": "report-a-015",
+          "sha256": "16a34b8e65ac7a7bc9687547d68c5ca2e8c8dcf70f2d5b98a389d46f979f0ddd",
+          "length": 14991
+        },
+        {
+          "id": "report-a-019",
+          "sha256": "4b33d9f44bd063d3ebf9a9c5ca5e6eae30b1f2925b4cb08317a1cc9c7bc59b01",
+          "length": 14991
+        },
+        {
+          "id": "report-a-020",
+          "sha256": "c0c83dd1605aa8f685021b3d291b6c1e864d24b3e557b6e2c9fcf026c110a80f",
+          "length": 14991
+        },
+        {
+          "id": "report-a-023",
+          "sha256": "8c58a50cf5aa71c2c21946aec624d3322daaa987de110bbe94c338d90ca16d9e",
+          "length": 14991
+        },
+        {
+          "id": "report-a-025",
+          "sha256": "8e522114552ff3573d3f8c8521de833e7a0b101bb26a257adfc579872acd9b8f",
+          "length": 14991
+        },
+        {
+          "id": "report-a-029",
+          "sha256": "b9519db70d66b07b38ba86e0dcd7ecea901b68d79fff97901534f69c9b989131",
+          "length": 14991
+        },
+        {
+          "id": "report-a-030",
+          "sha256": "460909fc2ff5411dd7de738294a16b38331c331f75abf2ca71b64963ab26d979",
+          "length": 14991
+        },
+        {
+          "id": "report-a-034",
+          "sha256": "37318d6e4fb132df97589c946f39e2a72a4b53d41cf982f48c859053ce66a02c",
+          "length": 14991
+        },
+        {
+          "id": "report-a-035",
+          "sha256": "d1491573380b1d3748d97ddf03b83cadf288a9b862e692c377fb6a5ce888ded1",
+          "length": 14991
+        },
+        {
+          "id": "report-a-038",
+          "sha256": "5ffe4a31069a635126c4a8ac3afbca3903713454365143476c19adac3615f7de",
+          "length": 14991
+        },
+        {
+          "id": "report-a-040",
+          "sha256": "934beeceab8db6555b64eebf660c24a10ff7a39f324872b008470047ee4e404c",
+          "length": 14991
+        },
+        {
+          "id": "report-a-043",
+          "sha256": "3d16e403b84f2b03695158553f0f198a36d4cf7a589fb66699d7956d210ec963",
+          "length": 14991
+        },
+        {
+          "id": "report-a-045",
+          "sha256": "fd093515c45151d72ceed7b3c856dd87e9c9efea465c2e046128e98f938f3865",
+          "length": 14991
+        },
+        {
+          "id": "report-a-049",
+          "sha256": "50b2b1e6fe2e0a39d4d19bf2096b8ed86b284542a8b66ecc363967f9f9ee35d0",
+          "length": 14991
+        },
+        {
+          "id": "report-a-050",
+          "sha256": "47e7dd85f59ab0ca964b0b3764306bf9c1f5cb8435eb9b85a9a3d520b411e8d0",
+          "length": 14991
+        },
+        {
+          "id": "report-a-053",
+          "sha256": "c4885793d9b0b1d8251648a885d9ea22ea7b228e0b55b808761e73687aff3049",
+          "length": 14991
+        },
+        {
+          "id": "report-a-055",
+          "sha256": "9c330a6dc98dd87fd83e27f9d023a30e41e43b7d62779326936f6912ff24c91e",
+          "length": 14991
+        },
+        {
+          "id": "report-a-058",
+          "sha256": "3652fc1a7bb3676dcb39690eaf4206c7ae7473496dc5ff541c6d0ec9731ffde3",
+          "length": 14991
+        },
+        {
+          "id": "report-a-060",
+          "sha256": "9d17353491c4d487025c80ea57190fa9368168413dea74f16dff080a882fe856",
+          "length": 14991
+        },
+        {
+          "id": "report-a-064",
+          "sha256": "1f393ae7fe7643cbbee7f22a5680bb0a9937929d5e898c3719e14589eaa7ad15",
+          "length": 14991
+        },
+        {
+          "id": "report-a-065",
+          "sha256": "7d8169621309e5431f03ee71415df06d8d5eb05a11eea92f4a7e8acb30bf7f68",
+          "length": 14991
+        },
+        {
+          "id": "report-a-069",
+          "sha256": "0769d3227f9158b42f8e7ba50da7f97bd9ae4aa62f70166c0b8fe085c8a4c395",
+          "length": 14991
+        },
+        {
+          "id": "report-a-070",
+          "sha256": "b87a18d3baea39707d65829535298c07908866b8159f96c6726bbae75a8738b4",
+          "length": 14991
+        },
+        {
+          "id": "report-a-074",
+          "sha256": "012133e3d25c4dded10d73f5372071aaab7877551dca44dfdc9a372522347adb",
+          "length": 14991
+        },
+        {
+          "id": "report-a-075",
+          "sha256": "1f0f075fac128fe8b97c4bdca2f34648970a3b0f5706ef88c5b6133e25329a82",
+          "length": 14991
+        },
+        {
+          "id": "report-a-078",
+          "sha256": "63d72016c7991ce2fccb8261b589dedf8d467e62d0f606ce09dbea3cfd445925",
+          "length": 14991
+        },
+        {
+          "id": "report-a-080",
+          "sha256": "225952d1b10b7d6c58aa5fb845a90989f86d452974ccc60d1b339fdbabb4ea13",
+          "length": 14991
+        },
+        {
+          "id": "report-a-083",
+          "sha256": "c80d477fecf62b9c0ba968cc3baba43a32ca5896cb324109ace01631f80fb698",
+          "length": 14991
+        },
+        {
+          "id": "report-a-085",
+          "sha256": "fc21a314c205086af1ef6733ced72e48241465f5b341bf8d5caee2e2450cb520",
+          "length": 14991
+        },
+        {
+          "id": "report-a-088",
+          "sha256": "f8cc0a60d721ccba35a4839315433a605439f5ad9db97fe3dc0b0ef57fcfab71",
+          "length": 14991
+        },
+        {
+          "id": "report-b-000",
+          "sha256": "6d68a6d0f1158149fae275d4cdf03af3f1d5e217c6940b45db8eba1bca62d3b8",
+          "length": 14991
+        },
+        {
+          "id": "report-b-003",
+          "sha256": "9a3b53dd3eb5b7521260cd297d61efcde799146b121c19c99a25b88f1ead4512",
+          "length": 14991
+        },
+        {
+          "id": "report-c-000",
+          "sha256": "7e681ad24131fee73a2126c185934d714d083751d2d1c6a1e6c1b7021cf39cdc",
+          "length": 14991
+        },
+        {
+          "id": "report-c-003",
+          "sha256": "c9f538028d1bc8582a13833c3b8153543d6af510b1d484ef87172b2bdfbf1b3d",
+          "length": 14991
+        },
+        {
+          "id": "report-a-001",
+          "sha256": "550690fd6d1ad2675a5dc337ab05e3df7c17009bac4acd72aca05f533320efa0",
+          "length": 14991
+        },
+        {
+          "id": "report-b-001",
+          "sha256": "5fe0ba9e5d29dfb2cd04f4dbfa6248fbef6c83aec8db4c92fb55057622e18198",
+          "length": 14991
+        },
+        {
+          "id": "report-c-001",
+          "sha256": "5aa0cbe46506510593ee71af9573680fb51c0a403e597aa7a5910ebb7fb3da69",
+          "length": 14991
+        },
+        {
+          "id": "report-a-002",
+          "sha256": "6749e2a1b1ed7af57921ae4379eeb28f7549d2a3e050ec9092166b15dd941ff9",
+          "length": 14991
+        },
+        {
+          "id": "report-c-002",
+          "sha256": "406d6a2a2d8c668d30498b647bad44b4f49f964595b5c863542e91bcba6df040",
+          "length": 14991
+        },
+        {
+          "id": "report-a-004",
+          "sha256": "6ae190463bf91c525f6d1b51937ba3042c52c46529dd044e3a5b21711bf22dc3",
+          "length": 14991
+        },
+        {
+          "id": "report-a-008",
+          "sha256": "79b66ee553cf311b801516d3348f8aa829bd30dff452abef383262e2a4c9bf05",
+          "length": 14991
+        },
+        {
+          "id": "report-b-002",
+          "sha256": "6139d6ea4eacbe25ca37bb119f7de89fc4560f634f1b99c2ce0da9891c9b6404",
+          "length": 14991
+        },
+        {
+          "id": "report-b-004",
+          "sha256": "1337f6c6a056e34aa76fd516b32c9b5b8e006fdb37379d9af8278ff92fd21bed",
+          "length": 14991
+        },
+        {
+          "id": "report-a-007",
+          "sha256": "e18e5021bbc1aa0051951f1c8d5be6cb1aad55b1ff2a22c7b88140c39298d700",
+          "length": 14991
+        },
+        {
+          "id": "report-c-004",
+          "sha256": "e1d080dfdc87a36d2a5e5b6aebc3164a3d3f02f4e6f2bb6f9150e2e966743266",
+          "length": 14991
+        },
+        {
+          "id": "report-a-006",
+          "sha256": "d837c9ab057885b80479e3e28a97c9440e9c98f87148d5cc15789e4c71b5bc67",
+          "length": 14991
+        },
+        {
+          "id": "report-a-012",
+          "sha256": "8bd2891f41ad7b0ce063a8237c7198b92ef549f7c261475a10a3eb4c6f11e1d8",
+          "length": 14991
+        },
+        {
+          "id": "report-a-011",
+          "sha256": "1a1c8e489067004f6e545ce028f923156cca4d849eba460c16ee7ba409ec11ea",
+          "length": 14991
+        },
+        {
+          "id": "report-a-024",
+          "sha256": "f2ef404b5289f75d606c023e08dafd1f8f9fc01af4419dd06ca6bb9c36c176ec",
+          "length": 14991
+        },
+        {
+          "id": "report-a-028",
+          "sha256": "fd86d9acb4875770e21d081e9ebceed3953d324d82399f910fa9230bfa821f24",
+          "length": 14991
+        },
+        {
+          "id": "report-a-013",
+          "sha256": "3ce9bf8a2a84f5daaf38020471baf3adf5cdd523f528e1e359a52000045096a7",
+          "length": 14991
+        },
+        {
+          "id": "report-a-016",
+          "sha256": "cd852c78e4d47d0b21595efb859fabdbf94462d78d72e0230919296eb9b95518",
+          "length": 14991
+        },
+        {
+          "id": "report-a-021",
+          "sha256": "bd0f61205ec4104fc70a6651567950d02eed38c524522146840abc3cb3e8caa8",
+          "length": 14991
+        },
+        {
+          "id": "report-a-042",
+          "sha256": "d33739b34af4bf76ee5c4a5cd835e61bb5d7587c6ed696698fac987dc73c6fd8",
+          "length": 14991
+        },
+        {
+          "id": "report-a-017",
+          "sha256": "5a5bcedadd8f253a25e5486d0b57f7b4d8768f27cf9471977bed329f1cbeb740",
+          "length": 14991
+        },
+        {
+          "id": "report-a-027",
+          "sha256": "bb1314ee87f03269d1d41b7382f53560179be47a7fe6e94762013d9d0732ccff",
+          "length": 14991
+        },
+        {
+          "id": "report-a-031",
+          "sha256": "ca3d47f42ce7373ebbc69c05f24a342954095b1deb60dbbaaa9cee0376eda6ae",
+          "length": 14991
+        },
+        {
+          "id": "report-a-018",
+          "sha256": "7885a035229f55fb4e5660d76ebb9d1254063af456a5e1e5d099fd07303952aa",
+          "length": 14991
+        },
+        {
+          "id": "report-a-022",
+          "sha256": "bc8b5a43316fbd70d763ab0298a6d015ac859d29d94bec5ec538015db2dc59ae",
+          "length": 14991
+        },
+        {
+          "id": "report-a-026",
+          "sha256": "fc3763ad58eb2bbdf53c21984e7562fe7f0ab18a632c6e1c1f0ca8802c254dfc",
+          "length": 14991
+        },
+        {
+          "id": "report-a-033",
+          "sha256": "4fb58695d38c420522c87d69a8317de47d017028f519732ba7d7e5bd4980c622",
+          "length": 14991
+        },
+        {
+          "id": "report-a-032",
+          "sha256": "6d5a24134836f14bd68f8f6127ebf2a44baf78ba067a27679f3943adb78ec8a4",
+          "length": 14991
+        },
+        {
+          "id": "report-a-036",
+          "sha256": "a98166b6055965b396567eb5f7ecfa6a5a1d7a16e9b5f47ecbc6ad8c8472c6e7",
+          "length": 14991
+        },
+        {
+          "id": "report-a-044",
+          "sha256": "1bc068f9216dbb76a67c7418bb5e4d4b169d7f79a0bcba8d79559e3c11a5268d",
+          "length": 14991
+        },
+        {
+          "id": "report-a-056",
+          "sha256": "48ae43d60d954b6b1eb7ab42c36282da585b1f573a7754d602a349a2ac06b632",
+          "length": 14991
+        },
+        {
+          "id": "report-a-037",
+          "sha256": "c45e360f58cca3987ac8914a41915340e3a7f9c8851defc43a0461cc9fd0c34f",
+          "length": 14991
+        },
+        {
+          "id": "report-a-041",
+          "sha256": "3d21a3c1c625c21c9af627a9ee5185a5adb1487f63424aaeb65433e72a148485",
+          "length": 14991
+        },
+        {
+          "id": "report-a-051",
+          "sha256": "eeae1c3d00b73374a0cc97c623efc511bb4b449d4005fb2353b5753fdee38804",
+          "length": 14991
+        },
+        {
+          "id": "report-a-039",
+          "sha256": "1acde16ae63b8425767c9354ed554e26da50a3d26929e1d2d1c965c941c57752",
+          "length": 14991
+        },
+        {
+          "id": "report-a-047",
+          "sha256": "d5d158d660cb7e8777342c8e9cd369c9b231df8e897fc9f20997b2bfde26611c",
+          "length": 14991
+        },
+        {
+          "id": "report-a-057",
+          "sha256": "59c776efaed105a71cf74d10589cbb1fc8dbe1b887befe61df4aa915b6837376",
+          "length": 14991
+        },
+        {
+          "id": "report-a-046",
+          "sha256": "96c5861dd3595a2089215a43f9a5cc1cc6345531eca2744832c26ed6e698ce81",
+          "length": 14991
+        },
+        {
+          "id": "report-a-048",
+          "sha256": "2421d819b6c8597d561df6c898f84c339015fc5ba1a005a096401c184a251763",
+          "length": 14991
+        },
+        {
+          "id": "report-a-052",
+          "sha256": "3db1727d77858ef15bbb6386dac690c2568909093cc9088c512950e4ec399fb5",
+          "length": 14991
+        },
+        {
+          "id": "report-a-054",
+          "sha256": "ca67bee8125e45eee0e275097f1ca0524a02c28a70b81f92125451d9a6e593f4",
+          "length": 14991
+        },
+        {
+          "id": "report-a-062",
+          "sha256": "28a1f5f9451b9c21d95c91be088eb04847746c8b001f8ba261576f6a73b6282c",
+          "length": 14991
+        },
+        {
+          "id": "report-a-066",
+          "sha256": "5f320b1b4bba81530d33802285ccbf6d707f3140fcbef3ec3e54f30b20c03116",
+          "length": 14991
+        },
+        {
+          "id": "report-a-071",
+          "sha256": "5cad305dbad706de9e181eafcd244d891817ec99c8c307400fafb69b6fbde85c",
+          "length": 14991
+        },
+        {
+          "id": "report-a-059",
+          "sha256": "cf0af1b45e0e0843e8d8b9392ebede44567b55f8a5548dd5fc75328b622fbb2b",
+          "length": 14991
+        },
+        {
+          "id": "report-a-068",
+          "sha256": "3f78b9820682f8badc1621a371217cb90950dd5e8670e5c5ff659a4a5d2202da",
+          "length": 14991
+        },
+        {
+          "id": "report-a-086",
+          "sha256": "6efcdc71280b61ab8185369f0c83b248a83c4127abc0e49db4c8b30ad190b293",
+          "length": 14991
+        },
+        {
+          "id": "report-a-061",
+          "sha256": "395548dcf938c6281a1eb4c79d6949e2503b9d7ce81069e74b7eee55e38c5338",
+          "length": 14991
+        },
+        {
+          "id": "report-a-072",
+          "sha256": "e3a9b5b72de090d4137c3dab43dc5622517333568038c3642d51ddcb4f10b2ed",
+          "length": 14991
+        },
+        {
+          "id": "report-a-076",
+          "sha256": "b9bdfb9e08894381f9fade3143d6732710f59715bad208cb1e1af5ed60a7868b",
+          "length": 14991
+        },
+        {
+          "id": "report-a-063",
+          "sha256": "9fea44a922fe095bc0c56543663a2d3528906c141c77b8cb0a0b9727daf8289f",
+          "length": 14991
+        },
+        {
+          "id": "report-a-067",
+          "sha256": "d30fa9814b96fee15203e01fe1ad39e9df43bcc97dfe056460425de4cb0adab6",
+          "length": 14991
+        },
+        {
+          "id": "report-a-073",
+          "sha256": "5fc8eaf43c6c687e31e6ddbdd30b5c7d462d3aa570b8a7edf7f7fec43e92b63d",
+          "length": 14991
+        },
+        {
+          "id": "report-a-077",
+          "sha256": "c221e333bdf73ce6fab1cf471b0e00d8bcadd2ddc5f7af84002dd9c0c4c45695",
+          "length": 14991
+        },
+        {
+          "id": "report-a-081",
+          "sha256": "e1424e5091a53489652bc14746a237e749102d2d9f871c5cb9957e09a8778174",
+          "length": 14991
+        },
+        {
+          "id": "report-a-084",
+          "sha256": "af941932afaefdd1eee2ac5a079aa568b6ecfe24f8327b0d47b597d11ab13f5b",
+          "length": 14991
+        },
+        {
+          "id": "report-a-079",
+          "sha256": "04a51e7a1afed5a3cdc270d5a2eed0a09fa9e32b88c715539914f64a5257ba67",
+          "length": 14991
+        },
+        {
+          "id": "report-a-087",
+          "sha256": "eb57ed11277f7200e99d59f47fa2c8654c1c6c55b74020f76e4096015ca8e773",
+          "length": 14991
+        },
+        {
+          "id": "report-a-082",
+          "sha256": "c7db552d40c791173e1a93fa989f3eba93e402380b8448a7b2ce26157c7070a4",
+          "length": 14991
+        },
+        {
+          "id": "report-a-089",
+          "sha256": "fb3847c44972a462ed9b5b49697e904eeba170609b6012ce61a9f852e7c9793b",
+          "length": 14991
+        }
+      ],
+      "source_anchors_used": true,
+      "existing_target_refused": true,
+      "wrong_archive_anchor_refused": true
+    },
+    "R04": {
+      "status": "PASS",
+      "sink": [
+        "ready-b-000",
+        "ready-b-000"
+      ],
+      "acked_event_skipped": "ready-a-000",
+      "source_unchanged": true,
+      "restore_auto_sent_events": 0
+    }
+  },
+  "database": {
+    "version": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+    "fsync": "on",
+    "synchronous_commit": "on"
+  },
+  "restoreDatabase": "s2_restore_4423f936e30341f7b54e6c0a980900af",
+  "inputsAfter": {
+    "docs/S2-C-PROTOCOL.md": "246fb5f341463eed51d19f917d4d5b0adf757e50de4f809b5914a9c697d8f00b",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/README.md": "2f4b519b15c1ca50267a84941c98c78709af699098b210c378d6c85bd0cb2846",
+    "spikes/s2b/run_b.py": "16961da22bc32a9e2a29dfb59faf62ee3ad07605fa1c77cdc52f5ac11fb09700",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128",
+    "spikes/s2c/backup.py": "20903f1f4d29e96b2a48b0714ef732f417557044d3e1d80d56023ef4ae12ca8f",
+    "spikes/s2c/README.md": "226b4e3c927907e7ffbbfc9561f8586aad6a028cf3cfeca218ede37b9d306fef",
+    "spikes/s2c/run_c.py": "cd98c64a97ce5e60286d62c2390a09394de21171513e82ce5d6e74ebaeb65cee",
+    "spikes/s2c/schema.sql": "ed55d4ec7e0edce564e0f03743842f94f1da7a7c80d18bbbd92525ae9069914f",
+    "spikes/s2c/store_c.py": "4f2c31e6855b510b7c1ab453a53ded4f845cedab8d85b0775b923048cd208af8"
+  },
+  "elapsedSeconds": 34.229439400005504,
+  "finishedAt": "2026-11-11T12:51:01.091074+00:00"
+}

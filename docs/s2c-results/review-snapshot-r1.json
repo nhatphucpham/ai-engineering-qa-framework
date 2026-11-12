@@ -1,0 +1,36 @@
+{
+  "snapshotVersion": "s2-c-review-1.0.0",
+  "snapshot": "WT-S2C-R4",
+  "baseline": "e61be7e0e5d64432871cc891b0061db80da189ea",
+  "files": {
+    "README.md": "cca30f3a3f5b0ae48b66ed7d36a1d2d3381494f40e4b3dabf46277c028d8ce98",
+    "docs/DECISION-LOG.md": "0c7ced248754b80d8c98eab4d30c1b5b298a7878b2163d89bee24aaf61e185ae",
+    "docs/IMPLEMENTATION-PLAN.md": "1e79d2ea8d9ec9848b2d2ec33fe11865e75f3e4799ecd95c06d006f6f41c1579",
+    "docs/NEXT-SESSION.md": "91390aeea11eadfbba84e1fb1c1003e90248991a0264c20f4ba03a9ce606c080",
+    "docs/S2-C-PROTOCOL.md": "65a13209add20069048c717bc4b3f16f8d45a804f6b19c27e08acbac9b6bd531",
+    "docs/S2-C-RESULTS.md": "c5758e4870004647337bd95d3af95490ff3146906e50fb4e80c5c62e31ab4748",
+    "docs/S2-C-REVIEW.md": "cd48e19d7d4e6094f4a7674ce18e3a32eb8cc86047d4b600a54daf46ca24816e",
+    "docs/SESSION-HANDOFF.md": "6c41c460f2e00e0ce9ba46cb01a8a0c5dae50a6a4a4286c6dadf10cd7e13d8a0",
+    "docs/SESSION-PLAN.md": "fb4df0d47830bf1747de6b4577e4cbe35feabc7a5c218fe9718ae674e1abce9f",
+    "docs/adr/003-stack-and-spikes.md": "8662090f0db7a8cc6bd892fcd3ef31deb8727df61f0e00d2e350f5933b2e0f68",
+    "docs/s2c-results/2026-11-11-r1.json": "d0985064fbd622b52857eb2e93054d4d593d74e2906493c981918e812aa51ebb",
+    "docs/s2c-results/2026-11-11-r2.json": "97bedcca9e64b1c5a816ddfbbb73e417217a8d4ca0632f536adb3e5119c23b0c",
+    "docs/s2c-results/2026-11-11-r3.json": "bf134b4b6a25011a9e479d76c65a69a0f0d6268dce05f922ecdb77b72b6cd72c",
+    "docs/s2c-results/2026-11-11-r4.json": "03cf94dea0128ea9f01bac26a51d79c3f3e0b92de3406a98fae2feee81ee220b",
+    "spikes/s2c/README.md": "f87d5153ab5fbecd2ac320163c6d55c03ba5d313057e3ccc53125e159b9e1429",
+    "spikes/s2c/backup.py": "20903f1f4d29e96b2a48b0714ef732f417557044d3e1d80d56023ef4ae12ca8f",
+    "spikes/s2c/run_c.py": "0a4e30a44a612e07f9abf4f0940aefeba52c5a8e43339662c46423376d65bc3c",
+    "spikes/s2c/schema.sql": "ed55d4ec7e0edce564e0f03743842f94f1da7a7c80d18bbbd92525ae9069914f",
+    "spikes/s2c/store_c.py": "6112f7d67779929b89182c61caa3a67a694cfb52fb901a7dab5a5d2f49572c22"
+  },
+  "manifestSha256": "808200397a04297445c9327c06df96dcc076dc9df9a7d3cfb992d34d9c5af6aa",
+  "checks": {
+    "dbGroups": 9,
+    "fullMethods": 45,
+    "preflightMethods": 6,
+    "inputHashes": 42,
+    "priorInputs": "MATCH",
+    "protectedTrackedArtifacts": "UNCHANGED",
+    "linksFencesSyntax": "PASS"
+  }
+}

@@ -4,3 +4,7 @@ spikes/s1/node_modules/
 spikes/s1/dist/
 # Disposable S2 PostgreSQL binaries, cluster, driver and scratch outputs.
 /.cache/s2/
+# S6 experiment-only wheels, dummy key backups and encrypted DB archives.
+/.cache/s6/
+# S6-B experiment wheels and transient dummy credentials.
+/.cache/s6b/

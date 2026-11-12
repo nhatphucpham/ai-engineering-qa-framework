@@ -1,7 +1,13 @@
 # ai-engineering-qa-framework
 A practical framework for quality assurance in AI engineering systems, from evaluation and testing to safety and release readiness.
 
-## Hướng phát triển hiện hành — 11/11/2026
+## Hướng phát triển hiện hành — 12/11/2026
+
+User đã yêu cầu commit và push toàn output S2-C/S6-A/S6-B đã review. [Hồ sơ trước push](docs/S2C-S6-PUSH-REVIEW.md) ghi phạm vi/checks; commit chứa cập nhật này là snapshot mới, kiểm Git log/status và remote để xác nhận kết quả Git thực tế. Các trạng thái chưa commit/push ngày11/11 trong records cũ là lịch sử.
+
+[S6-B identity/session/RBAC](docs/S6-B-RESULTS.md) DONE trong synthetic subset sau actual9 groups PASS và [review CLEAN](docs/S6-B-REVIEW.md). Explicit request facade, dummy Argon2id accounts, opaque refresh/reset/revoke và project roles; chưa HTTP/service-worker/broker integration. [S6-A encrypted storage/recovery](docs/S6-A-RESULTS.md) vẫn DONE trong private storage subset sau10 groups PASS/[review CLEAN](docs/S6-A-REVIEW.md). S4 actual engine/control checks NOT RUN; full S6/OS keystore còn mở.
+
+[S2-C capacity/fairness và metadata restore](docs/S2-C-RESULTS.md) DONE trong subset sau R4 PASS9 DB groups và [review CLEAN](docs/S2-C-REVIEW.md):100 jobs/4 connections, bounded admission, strict eligible FIFO/RR và13-table/100-package restore. S2-A/B đã commit/push tại e61be7e; snapshot mới bổ sung S2-C/S6-A/S6-B. Actual worker/auth/blob-key recovery vẫn còn mở.
 
 [S2-B lease/recovery subset](docs/S2-B-RESULTS.md) DONE trong subset sau10 DB groups PASS và [review CLEAN](docs/S2-B-REVIEW.md): renewal/expiry/fencing, scoped synthetic cleanup/reclaim, cancel/revoke races và restart reconciliation. [Model riêng](spikes/s2b/README.md) giữ S2-A/core/evidence cũ nguyên vẹn; authenticated revoke/container cleanup, capacity/fairness/restore vẫn còn mở.
 

@@ -1,0 +1,34 @@
+# S6-A protocol v1 — encrypted storage/recovery and restricted raw-data boundary
+
+11/11/2026. User yêu cầu bước tiếp sau S2-C DONE. Baseline master e61be7e + S2-C uncommitted outputs giữ nguyên; không quyền commit/push mới. Reviewer độc lập GPT-6.1 Terra high `/root/s2_final_review` chỉ định trước code. Purpose: kiểm maintained crypto library + DB envelope/rotation/revoke/recovery bằng dummy keys/data, đồng thời hoàn thành S4 prerequisite inventory đúng actual observations.
+
+## Prerequisites và scope chọn trước implementation
+
+Actual discovery Windows PATH không docker/podman/nerdctl; WSL Ubuntu24.04 uid1000/kernel6.18.40.1 không tìm thấy docker/podman/nerdctl/runc/crun/rootlesskit/slirp4netns qua PATH và common executable paths. Không suy phần mềm absent ở mọi nơi, nhưng chưa có runnable disposable engine/capability/image; **S4 execution/resource/network/collector/cleanup gates NOT RUN**. Không cài engine global/apt, dùng host fallback hoặc mock để PASS. Recovery: operator cung cấp project-local/approved rootless engine + pinned image và controls rồi chạy actual S4 fault matrix.
+
+Chọn **S6-A storage subset** độc lập: local-pinned cryptography50.0.2/cffi2.1.1/pycparser3.12, actual AESGCM API, fresh namespace PostgreSQL synthetic đã có. Argon2/internal user login/session/refresh, service broker injection/authentication, OS keystore, real worker/container/live policy/production key management **chưa implementation/gate**. Không thêm tự viết crypto hoặc coi ciphertext integrity là actor authority. Outputs `spikes/s6/` lock/preflight/envelope/vault/harness/README, protocol/results/review, new `docs/s6-results/<id>.json`, current docs. Không sửa core/S1/S2-A/B/C code/protocol/evidence/goldens.
+
+## Acceptance và failure matrix
+
+| ID | Actual test required | Expected |
+|---|---|---|
+| K01 | Local wheel pins/loaded paths, AESGCM encrypt/decrypt | Exact versions/local modules, library round-trip; no global install/fallback |
+| K02 | Envelope payload/wrapped key/nonces/context/version/key-id tamper; cross-project/ref substitution | AEAD integrity reject, no plaintext returned; explicit strict context, no bool/float version |
+| K03 | Missing/wrong master key | Safe fail-closed; no plaintext fallback/persistence/log |
+| D01 | Persist dummy secret versions in actual DB | DB only encrypted bytes/key IDs/scope/metadata; raw secret/DEK/master key absent |
+| D02 | Secret rotation + stale context, two independent concurrent updates | Version/epoch CAS one winner, old normal read rejected; immutable old ciphertext retained |
+| D03 | KEK rewrap with expected wrapping revision, failure rollback/forced nonce collision | Ciphertext/data nonce stable, wrapper/audit rollback on failure, reserved nonce remains burned; used key/nonce cannot return after rewrap away/back; retired KEK not needed for selected rewrapped rows |
+| D04 | Revoke and stale caller-held policy anchor | Increment epoch/disable, private normal-open path rejects; restart does not revive; stale restore with independently retained newer anchor rejects |
+| Q01 | Raw secret-tainted log in encrypted quarantine; all Admin/Owner/Runner/Viewer × read/export/stream/attachment/source routes | Fixed denial for content, no decrypt/key retrieval; fake redaction/authorization labels not authority |
+| R01 | DB archive + separate dummy key backup, actual child process recovery/DB restore | Archive excludes plaintext/key material, restore fresh marked DB, only right external keys+context+policy anchors open expected dummy data |
+| O01 | Captured CLI/stdout/stderr/evidence/audit scan | No raw dummy secret/DEK/master key tokens; error messages fixed, no secret-bearing exception interpolation |
+
+Envelope v1: AESGCM256 random DEK per content version; fresh12-byte data nonce and KEK-wrap nonce. Vault reserves each wrap nonce in append-only DB registry **before encryption** on a separate committed connection, so failed content/rewrap transactions burn reservations. Key-ID→SHA256 key-tag identity rejects reused IDs with changed material or aliases for the same physical KEK. This tag is an identifier, not raw key/authority. Random payload nonce has a fresh one-use DEK; pure library helpers do not claim a global nonce allocator outside Vault. Associated data includes envelope version + kind(secret/quarantine) + exact project/ref/content version + layer purpose; KEK-wrap AAD also key ID. Data AAD excludes KEK ID to permit rewrap without changing payload ciphertext. Maintained library generates keys; no custom encryption primitive. Rewrap does not claim plaintext/keys zeroized in Python memory.
+
+Vault methods are **private synthetic operator harness**, not authenticated QA/server API. They require caller-held expected version/epoch/wrapping revision independently from supplied envelope/restore backup. Current DB project/head enabled/version/epoch checked under row locks before private open or mutation. A low-level operator holding master keys can decrypt retained ciphertext; revoke only gates the normal private-open boundary, cannot erase already released bytes or cryptographically revoke an exposed key. No production secret broker/sink or outbound call in scope.
+
+Quarantine ingress always marks supplied raw log secret-tainted; no trusted sanitizer implemented, so all ordinary QA content routes deny for every role. This is a closed content boundary, **not full RBAC/auth/project metadata/read policy**. No client `redacted=true` or `authorized=true` bypass. Metadata/audit contain only references/versions/fixed operation codes.
+
+Dummy master-key backup lives outside DB/archive under ignored `.cache/s6`; it is intentionally a test-only file, **not secured OS keystore or production backup practice**. Keys/source secret values never included in committed evidence. Restored Vault connections are recovery-read-only: no writes/rewrap until a future trusted nonce-ledger reconciliation/key-rollover design exists, because stale backup is not latest nonce history. Restore requires caller-held policy anchors retained outside older archive; losing trustworthy latest anchors is unresolved production recovery, not automatic anti-rollback proof. Recovery compares dummy data in-process and emits booleans only.
+
+Read official [AEAD API](https://cryptography.io/en/50.0.0/hazmat/primitives/aead/), [installation](https://cryptography.io/en/latest/installation/), [OWASP key management](https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html); wheel digests from official PyPI retrieved11/11. Library selection only experiment; no production runtime/DB/key backend decision. Actual prerequisite failures ERROR/NOT RUN with recovery steps, not mock PASS. Required checks + latest high-model review/fix/recheck clean before DONE subset; no full S4/S6/P3-B/P4-B gate, account/API/project thật, pilot/publish/commit/push.

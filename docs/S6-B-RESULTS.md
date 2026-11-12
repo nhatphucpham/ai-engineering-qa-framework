@@ -1,0 +1,23 @@
+# S6-B actual results — synthetic identity/session/RBAC subset
+
+11/11/2026. Baseline master e61be7e plus preserved S2-C/S6-A uncommitted output. **S6-B synthetic subset DONE after independent CLEAN WT-S6B-R4-D2 and required actual checks PASS**. [Protocol](S6-B-PROTOCOL.md), [instructions](../spikes/s6b/README.md), [review ledger](S6-B-REVIEW.md). No real accounts/API, production auth/runtime decision or Git action.
+
+Latest [R4 evidence](s6b-results/2026-11-11-r4.json): **9 groups PASS13.260s**,31 source/input hashes before=after; actual local Argon2id and marker-bound PostgreSQL18.6 fresh schema. Five prerequisite subprocess methods PASS0.893s; full core regression45 methods PASS34.430s. R1 PASS14.516s/R2 PASS13.956s/R3 PASS14.237s are historical snapshots, preserved unchanged. R1 predates full account/dummy-hash CLI scans; R2 predates explicit stale-disable/change-refresh checks; R3 predates Owner demote/remove and positive legacy-parameter rehash probes. They do not substitute for R4. R4 includes new README/test source hashes. Maintained pins argon2-cffi25.1.0/bindings26.1.0/cffi2.1.1/pycparser3.12; installed only ignored cache, local paths/versions verified before imports.
+
+| ID | Actual result |
+|---|---|
+| I01 | Five actual Argon2id hash/verify samples, distinct salts, Unicode/space preservation, trimmed password refused, correct profile/no rehash plus an older-parameter dummy Argon2id hash verifies and explicitly needs rehash |
+| I02 | One-time bootstrap, forced password change, Admin creation, helper/SQL/bootstrap routes and TTL overrides denied; wrong/unknown/disabled login all E_AUTH, durable throttle count3 after4 attempts |
+| I03 | Refresh generation invalidates old access; token types separated, logout revokes family; short access/refresh expire against DB clock |
+| I04 | Two processes race same refresh: exactly1 accepted, loser detects reuse and revokes family; both old/new pairs rejected afterward |
+| I05 | Password change rejects prior access and refresh; disable rejects both preissued token types; Admin reset invalidates prior access/refresh, new password change required; actual DB stop/start rejects both reset-old and disable-old access/refresh |
+| I06 | Owner escalation/Owner assignment/Admin change/cross-project/Viewer start/client claims denied; current Owner demotion/removal denied with unchanged Owner row; Admin Owner transfer succeeds; secret-reveal/approval actions denied for all4 roles; two-process self-disable race leaves exactly1 enabled Admin |
+| I07 | Actual queued runs have server-owned initiator; Runner cancels own only, Owner cancels foreign; snapshot grant not expanded on promotion, live downgrade/removal/project-disable deny |
+| I08 | Trusted harness delays an authenticated run across DB access expiry: final conditional checkpoint denies and entire proposed run rolls back; delayed refresh expiry denies consumption |
+| I09 | Four real diagnostic subprocess failure cases return only fixed JSON codes with stderr0; current account + dummy hashes collected before capture, retained buffers rescanned raw/base64/hex with password/token/hash canaries; DB non-hash fields/audit/parent outputs/evidence scans pass |
+
+Hash timings/profile are stored in R4, five sequential fixture samples only. Fixture access60s/refresh10min/family1h, name3/global30 admissions/second are engineering bounds, no production parameter sizing or distributed abuse policy. Generic errors/dummy verification do not prove timing indistinguishability. Captured scans cover generated/observed canaries in these actual paths, not arbitrary future logs or memory erasure.
+
+`Identity.dispatch` explicitly whitelists operations/fields; trusted `_Store` owns bootstrap/DB/fault fixtures. Python host/DB are trusted; no Python sandbox, HTTP/TLS/cookie/CSRF/SSO/OS keystore or authenticated service/worker/broker integration. Singleton mutex serializes identity mutations; final authenticated checkpoint checks captured access/family expiries, intentionally permitting own logout/password change to revoke its session. Refresh has no grace/idempotency: concurrent reuse may revoke the newly returned pair, requiring reauthentication. Simple queued-resource CAS is not actual worker lifecycle. S6-A storage helpers remain separate private operator paths.
+
+Full S6/P3-B/P4-B remain open; S4 actual engine/resource/network/output-collector/cleanup NOT RUN. Next independent work is versioned identity→application/live-policy/broker integration boundary and acceptance/failure protocol; actual engine checks require runnable approved prerequisites. Preserve old source/schema/corpus/goldens/protocol/evidence; no rerun of unchanged S1/S2/S6-A or new commit/push implied.

@@ -1,0 +1,2551 @@
+{
+  "evidenceVersion": "s2-c-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "e61be7e0e5d64432871cc891b0061db80da189ea",
+  "startedAt": "2026-11-11T12:47:35.773999+00:00",
+  "command": "py -3 -B spikes/s2c/run_c.py docs/s2c-results/2026-11-11-r1.json",
+  "environment": {
+    "python": "3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "psycopg": "3.3.8"
+  },
+  "preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "inputsBefore": {
+    "docs/S2-C-PROTOCOL.md": "246fb5f341463eed51d19f917d4d5b0adf757e50de4f809b5914a9c697d8f00b",
+    "examples/reports/runtime-v1/complete/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/complete/bundle.json": "54e8cfb807ada3fe6750e10c5363fda645f04fc7d29f07d57947d5ed45da5ec1",
+    "examples/reports/runtime-v1/complete/prepared.json": "e4592ab1fe06a818b26d357bd3c78e642851c4ceacc9023042a8a25174cc2c9c",
+    "examples/reports/runtime-v1/constraint-collision/assessment.json": "1845a597d49d5a861dbb36d01cdfa30b336c1834d3cd8f753d9132658efc627f",
+    "examples/reports/runtime-v1/constraint-collision/bundle.json": "d74250a2aa26b52a3ecd81ec820573fca78ae5ea48c858f87c8be86f9d6120c3",
+    "examples/reports/runtime-v1/constraint-collision/prepared.json": "de38871fb20fde44ad15c6f0fd5768d8189d4a715013a81c1543003c788dfc85",
+    "examples/reports/runtime-v1/failed-pending/assessment.json": "5884e47d4f92a9b129dd0ba01366c5d8308eacca2ba4480c1c450d8f32acb2c3",
+    "examples/reports/runtime-v1/failed-pending/bundle.json": "6d9f72ceb70efaeb2058a05d649f4f2d6974f0a6a3dd0cf0049816ec003c0a57",
+    "examples/reports/runtime-v1/failed-pending/prepared.json": "f8aee00757d51a486461d36e6c53d134980f4259d1cebb8aa36468eef05fd86e",
+    "examples/reports/runtime-v1/README.md": "b21f33741146f109f03c94fe3cd8b4bae97184e9e81c1cbd5f79735b334adcab",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/README.md": "2f4b519b15c1ca50267a84941c98c78709af699098b210c378d6c85bd0cb2846",
+    "spikes/s2b/run_b.py": "16961da22bc32a9e2a29dfb59faf62ee3ad07605fa1c77cdc52f5ac11fb09700",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128",
+    "spikes/s2c/backup.py": "20903f1f4d29e96b2a48b0714ef732f417557044d3e1d80d56023ef4ae12ca8f",
+    "spikes/s2c/run_c.py": "ffaef282bede5254162cf560bf92587524e75bd1ad2cffe88a57b70964dffc04",
+    "spikes/s2c/schema.sql": "ed55d4ec7e0edce564e0f03743842f94f1da7a7c80d18bbbd92525ae9069914f",
+    "spikes/s2c/store_c.py": "56bc41d1035d13d724a1a709337630d38943b5c8e0c9d3c91afc2f7119aba364"
+  },
+  "status": "ERROR",
+  "limits": [
+    "Metadata admission/cleanup predicates, no physical worker/container/auth controls",
+    "Fixture round-robin eligibility, no production SLA/fairness guarantee",
+    "DB schema-only restore; no external blob/key/roles/cluster/PITR recovery",
+    "No production DB/control/worker choice; full S2/P3-B/P4-A/P4-B remain partial"
+  ],
+  "pg_dump": "pg_dump (PostgreSQL) 18.6",
+  "pg_restore": "pg_restore (PostgreSQL) 18.6",
+  "schemas": {
+    "bulk_and_restore": "s2_3e936b73dc4244f3b407977ae747c7cf",
+    "ordered_fairness": "s2_2833c0033c2840f7be6d166377bdc332",
+    "capacity_and_lock": "s2_faf60ac1122143d0a62757a0b49eb89c",
+    "cleanup_occupancy": "s2_5699f97696634b2c92962f041b5a7e4b",
+    "rollback": "s2_2db6877ade1749c2a21b863799cf3596"
+  },
+  "checks": {
+    "C01": {
+      "status": "PASS",
+      "workers": [
+        {
+          "backend": 20164,
+          "process": 23128,
+          "claims": [
+            "b-000",
+            "a-002",
+            "c-003",
+            "a-005",
+            "a-008",
+            "a-011",
+            "a-014",
+            "a-019",
+            "a-023",
+            "a-028",
+            "a-031",
+            "a-035",
+            "a-040",
+            "a-045",
+            "a-049",
+            "a-052",
+            "a-056",
+            "a-059",
+            "a-062",
+            "a-070",
+            "a-073",
+            "a-078",
+            "a-081",
+            "a-084",
+            "a-087"
+          ]
+        },
+        {
+          "backend": 26268,
+          "process": 23128,
+          "claims": [
+            "a-000",
+            "a-001",
+            "b-002",
+            "b-003",
+            "b-004",
+            "a-009",
+            "a-013",
+            "a-016",
+            "a-020",
+            "a-026",
+            "a-030",
+            "a-033",
+            "a-036",
+            "a-043",
+            "a-046",
+            "a-050",
+            "a-053",
+            "a-058",
+            "a-061",
+            "a-065",
+            "a-068",
+            "a-072",
+            "a-075",
+            "a-080",
+            "a-083",
+            "a-086",
+            "a-089"
+          ]
+        },
+        {
+          "backend": 2484,
+          "process": 18144,
+          "claims": [
+            "c-000",
+            "b-001",
+            "a-003",
+            "c-004",
+            "a-007",
+            "a-012",
+            "a-017",
+            "a-021",
+            "a-024",
+            "a-027",
+            "a-032",
+            "a-037",
+            "a-039",
+            "a-042",
+            "a-047",
+            "a-051",
+            "a-054",
+            "a-057",
+            "a-063",
+            "a-066",
+            "a-069",
+            "a-074",
+            "a-077",
+            "a-082",
+            "a-085"
+          ]
+        },
+        {
+          "backend": 19576,
+          "process": 18144,
+          "claims": [
+            "c-001",
+            "c-002",
+            "a-004",
+            "a-006",
+            "a-010",
+            "a-015",
+            "a-018",
+            "a-022",
+            "a-025",
+            "a-029",
+            "a-034",
+            "a-038",
+            "a-041",
+            "a-044",
+            "a-048",
+            "a-055",
+            "a-060",
+            "a-064",
+            "a-067",
+            "a-071",
+            "a-076",
+            "a-079",
+            "a-088"
+          ]
+        }
+      ],
+      "admissions": [
+        {
+          "turn": 1,
+          "run_id": "a-000",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 0
+            },
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 0
+            },
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 0
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1397.514000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 2,
+          "run_id": "b-000",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 0
+            },
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 0
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 1
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1245.284000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 3,
+          "run_id": "c-000",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 0
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 1
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1300.489000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 4,
+          "run_id": "a-001",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 1
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1593.212000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 5,
+          "run_id": "c-001",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 3
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 4
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1419.868000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 6,
+          "run_id": "b-001",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 2
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 4
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1488.393000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 7,
+          "run_id": "a-002",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 4
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1730.150000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 8,
+          "run_id": "c-002",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 5
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 7
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1606.856000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 9,
+          "run_id": "b-002",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 6
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 7
+            }
+          ],
+          "occupancy": {
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1647.313000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 10,
+          "run_id": "a-003",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 7
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "1847.706000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 11,
+          "run_id": "c-003",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 8
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 10
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1712.739000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 12,
+          "run_id": "b-003",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 9
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 10
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1771.726000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 13,
+          "run_id": "a-004",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 10
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2025.218000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 14,
+          "run_id": "c-004",
+          "attempt": 1,
+          "project_id": "c",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "c",
+              "last_served": 11
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 13
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1881.419000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 15,
+          "run_id": "a-005",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 13
+            }
+          ],
+          "occupancy": {
+            "b": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2109.301000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 16,
+          "run_id": "b-004",
+          "attempt": 1,
+          "project_id": "b",
+          "eligible": [
+            {
+              "cap": 1,
+              "project_id": "b",
+              "last_served": 12
+            },
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 15
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "c": 1
+          },
+          "global_cap": 3,
+          "project_cap": 1,
+          "queue_age_ms": "1999.837000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 17,
+          "run_id": "a-006",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 15
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2228.296000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 18,
+          "run_id": "a-007",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 17
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2274.036000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 19,
+          "run_id": "a-008",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 18
+            }
+          ],
+          "occupancy": {
+            "a": 1,
+            "b": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2302.800000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 20,
+          "run_id": "a-009",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 19
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2401.561000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 21,
+          "run_id": "a-010",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 20
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2429.246000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 22,
+          "run_id": "a-011",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 21
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2527.596000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 23,
+          "run_id": "a-012",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 22
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2529.195000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 24,
+          "run_id": "a-013",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 23
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2626.590000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 25,
+          "run_id": "a-014",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 24
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2646.136000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 26,
+          "run_id": "a-015",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 25
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2698.316000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 27,
+          "run_id": "a-016",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 26
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2790.809000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 28,
+          "run_id": "a-017",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 27
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2816.286000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 29,
+          "run_id": "a-018",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 28
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2886.612000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 30,
+          "run_id": "a-019",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 29
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2912.196000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 31,
+          "run_id": "a-020",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 30
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "2989.870000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 32,
+          "run_id": "a-021",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 31
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3016.756000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 33,
+          "run_id": "a-022",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 32
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3088.022000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 34,
+          "run_id": "a-023",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 33
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3114.431000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 35,
+          "run_id": "a-024",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 34
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3215.038000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 36,
+          "run_id": "a-025",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 35
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3234.611000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 37,
+          "run_id": "a-026",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 36
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3286.955000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 38,
+          "run_id": "a-027",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 37
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3378.348000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 39,
+          "run_id": "a-028",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 38
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3388.820000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 40,
+          "run_id": "a-029",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 39
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3478.257000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 41,
+          "run_id": "a-030",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 40
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3503.795000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 42,
+          "run_id": "a-031",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 41
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3577.139000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 43,
+          "run_id": "a-032",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 42
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3603.190000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 44,
+          "run_id": "a-033",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 43
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3700.543000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 45,
+          "run_id": "a-034",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 44
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3702.317000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 46,
+          "run_id": "a-035",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 45
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3797.366000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 47,
+          "run_id": "a-036",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 46
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3815.022000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 48,
+          "run_id": "a-037",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 47
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3882.283000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 49,
+          "run_id": "a-038",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 48
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "3984.318000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 50,
+          "run_id": "a-039",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 49
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4005.102000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 51,
+          "run_id": "a-040",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 50
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4115.800000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 52,
+          "run_id": "a-041",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 51
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4190.913000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 53,
+          "run_id": "a-042",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 52
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4213.216000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 54,
+          "run_id": "a-043",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 53
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4274.387000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 55,
+          "run_id": "a-044",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 54
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4373.656000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 56,
+          "run_id": "a-045",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 55
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4400.256000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 57,
+          "run_id": "a-046",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 56
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4474.465000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 58,
+          "run_id": "a-047",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 57
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4501.228000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 59,
+          "run_id": "a-048",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 58
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4573.244000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 60,
+          "run_id": "a-049",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 59
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4598.645000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 61,
+          "run_id": "a-050",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 60
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4669.560000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 62,
+          "run_id": "a-051",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 61
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4696.371000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 63,
+          "run_id": "a-052",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 62
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4795.110000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 64,
+          "run_id": "a-053",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 63
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4812.410000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 65,
+          "run_id": "a-054",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 64
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4915.996000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 66,
+          "run_id": "a-055",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 65
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "4988.988000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 67,
+          "run_id": "a-056",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 66
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5013.953000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 68,
+          "run_id": "a-057",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 67
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5109.618000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 69,
+          "run_id": "a-058",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 68
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5111.112000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 70,
+          "run_id": "a-059",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 69
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5179.287000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 71,
+          "run_id": "a-060",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 70
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5204.932000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 72,
+          "run_id": "a-061",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 71
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5300.170000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 73,
+          "run_id": "a-062",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 72
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5317.988000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 74,
+          "run_id": "a-063",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 73
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5393.149000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 75,
+          "run_id": "a-064",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 74
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5493.075000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 76,
+          "run_id": "a-065",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 75
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5493.951000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 77,
+          "run_id": "a-066",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 76
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5591.246000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 78,
+          "run_id": "a-067",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 77
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5611.035000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 79,
+          "run_id": "a-068",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 78
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5675.281000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 80,
+          "run_id": "a-069",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 79
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5758.623000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 81,
+          "run_id": "a-070",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 80
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5775.187000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 82,
+          "run_id": "a-071",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 81
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5872.515000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 83,
+          "run_id": "a-072",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 82
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5899.492000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 84,
+          "run_id": "a-073",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 83
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5969.394000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 85,
+          "run_id": "a-074",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 84
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "5995.517000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 86,
+          "run_id": "a-075",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 85
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6092.400000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 87,
+          "run_id": "a-076",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 86
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6094.082000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 88,
+          "run_id": "a-077",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 87
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6164.288000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 89,
+          "run_id": "a-078",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 88
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6184.194000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 90,
+          "run_id": "a-079",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 89
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6257.914000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 91,
+          "run_id": "a-080",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 90
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6283.770000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 92,
+          "run_id": "a-081",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 91
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6354.632000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 93,
+          "run_id": "a-082",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 92
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6381.625000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 94,
+          "run_id": "a-083",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 93
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6476.413000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 95,
+          "run_id": "a-084",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 94
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6495.083000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 96,
+          "run_id": "a-085",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 95
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6565.119000",
+          "backend": 2484,
+          "process": 18144
+        },
+        {
+          "turn": 97,
+          "run_id": "a-086",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 96
+            }
+          ],
+          "occupancy": {},
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6672.608000",
+          "backend": 26268,
+          "process": 23128
+        },
+        {
+          "turn": 98,
+          "run_id": "a-087",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 97
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6691.315000",
+          "backend": 20164,
+          "process": 23128
+        },
+        {
+          "turn": 99,
+          "run_id": "a-088",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 98
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6818.262000",
+          "backend": 19576,
+          "process": 18144
+        },
+        {
+          "turn": 100,
+          "run_id": "a-089",
+          "attempt": 1,
+          "project_id": "a",
+          "eligible": [
+            {
+              "cap": 2,
+              "project_id": "a",
+              "last_served": 99
+            }
+          ],
+          "occupancy": {
+            "a": 1
+          },
+          "global_cap": 3,
+          "project_cap": 2,
+          "queue_age_ms": "6893.425000",
+          "backend": 26268,
+          "process": 23128
+        }
+      ],
+      "max_total_after_admission": 3
+    },
+    "C04": {
+      "status": "PASS",
+      "ordered_sequence": [
+        "a",
+        "b",
+        "c",
+        "a",
+        "b",
+        "c",
+        "a",
+        "b",
+        "c"
+      ],
+      "max_continuously_eligible_skips": {
+        "a": 2,
+        "b": 1,
+        "c": 2
+      },
+      "queue_age_ms": {
+        "median": 4060.451,
+        "p95_nearest_rank": 6495.083,
+        "max": 6893.425
+      }
+    },
+    "C02": {
+      "status": "PASS",
+      "occupancy": {},
+      "locked_project": "a",
+      "other_project_claim": {
+        "id": "cap-b-2",
+        "version": 4,
+        "attempt": 1,
+        "fence": 4,
+        "backend": 14652,
+        "process": 16708,
+        "project_id": "b",
+        "turn": 6
+      },
+      "invalid_config_unchanged": true,
+      "global_cap": 3,
+      "project_caps": {
+        "a": 2,
+        "b": 1,
+        "c": 1
+      }
+    },
+    "C03": {
+      "status": "PASS",
+      "expired_occupancy": {
+        "a": 1
+      },
+      "recovering_occupancy": {
+        "a": 1
+      },
+      "failed_pending": {
+        "state": "failed",
+        "version": 6,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 0,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 6,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-4ebeeaf15cc54a09be6b187a9fd31aa5",
+        "stop_reason": "lease_expired",
+        "terminal_reason": "cleanup_unconfirmed",
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "cancelling_pending": {
+        "state": "cancelling",
+        "version": 5,
+        "report_id": null,
+        "claims": 1,
+        "receipts": 0,
+        "reports": 0,
+        "outbox": 0,
+        "attempt": 1,
+        "fence": 5,
+        "cleanup_ok": false,
+        "policy_ok": true,
+        "cleanup_request": "cleanup-1d32aab0130042c595cfe8a35f258a51",
+        "stop_reason": "cancel",
+        "terminal_reason": null,
+        "requests": 1,
+        "open_incidents": 1
+      },
+      "after_cleanup": {},
+      "restart_preserved_slot": true
+    },
+    "C05": {
+      "status": "PASS",
+      "before_and_observer": {
+        "admissions": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "attempt_inputs": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "capacity_identity": {
+          "rows": 1,
+          "sha256": "09846b90cce3a5eaa6bfda60f5ccede8dfbe0f1c1a76d34b4ca668003cf6d597"
+        },
+        "claims": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "cleanup_requests": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "incidents": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "model_identity": {
+          "rows": 1,
+          "sha256": "e7ada0aab6da39b98842a8fe110b022a4c89d666a4874fe48b4d371af8aa5310"
+        },
+        "outbox": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "projects": {
+          "rows": 3,
+          "sha256": "b07ee87939c3c85cd307e79e4c7da8fd0a701795db85a39c3b0afc1c1b6d2365"
+        },
+        "receipts": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reports": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "runs": {
+          "rows": 1,
+          "sha256": "448370ad47e2853c3f5264442f2fedbb761cdcfdc8830dbcd6ae8b2a661697e3"
+        },
+        "scheduler": {
+          "rows": 1,
+          "sha256": "824998ea1c25de9fd44c2986575cb2bb2a86c0209be916eb3095f9158383a08c"
+        }
+      },
+      "after_rollback_unchanged": true,
+      "retry": {
+        "id": "rollback-a",
+        "version": 4,
+        "attempt": 1,
+        "fence": 4,
+        "backend": 28360,
+        "process": 16708,
+        "project_id": "a",
+        "turn": 1
+      }
+    }
+  },
+  "database": {
+    "version": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+    "fsync": "on",
+    "synchronous_commit": "on"
+  },
+  "errorType": "OperationalError",
+  "elapsedSeconds": 18.22183200001018,
+  "finishedAt": "2026-11-11T12:47:55.449729+00:00"
+}

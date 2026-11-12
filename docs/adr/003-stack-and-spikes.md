@@ -1,5 +1,7 @@
 # ADR-003 — Stack candidates và spike gate
 
+12/11/2026: user yêu cầu commit/push S2-C/S6-A/S6-B đã review; [pre-push record](../S2C-S6-PUSH-REVIEW.md). Những cập nhật ngày11/11 ghi chưa commit/push bên dưới là lịch sử. Git action không promote candidate thành production stack hoặc đóng full gates.
+
 Ngày 05/11/2026. Status: **proposed — chưa chốt stack**. P3-A design không đủ thay spike gate P3-B. Lựa chọn dưới đây là đề xuất kỹ thuật để kiểm chứng trong plan, không phải preference mới được gán cho người dùng. Không cài toolchain toàn máy hoặc chạy account/project thật trong phiên tài liệu này.
 
 Cập nhật 10/11: **S1 workload PASS**, [results](../S1-RESULTS.md) có native parity/actual metrics. [ADR-004](004-core-baseline-after-s1.md) chọn Python baseline riêng pure core/report; các candidate rows dưới đây là shortlist ban đầu, không còn hàm ý TypeScript đã thắng core. S2–S6 chưa chạy, stack toàn hệ thống chưa chốt. Tiếp runtime report integration/module core, không chạy lại S1 chỉ vì paragraph lịch sử nói chưa có số đo.
@@ -48,6 +50,12 @@ Trước S1 cross-runtime parity, xây [reference report offline](../OFFLINE-REP
 S1 cần so cả report envelope và failure semantics với oracle, ngoài corpus P1/P2 gốc; validators không chỉ so shape mà phải phát hiện report bị sửa status/reasons/refs hoặc bound sang input khác. Có regression tests trên reference không đồng nghĩa đã đạt parity với runtime candidate.
 
 ## Decision after spikes
+
+Cập nhật S6-B11/11: [identity/session/RBAC subset](../S6-B-RESULTS.md) R4 PASS9 groups, [review](../S6-B-REVIEW.md) final CLEAN WT-S6B-R4-D2, synthetic subset DONE. Maintained Argon2id, dummy accounts, explicit facade, hashed sessions/refresh reuse/reset/epochs/fixed project roles và two-process races; trusted host/DB model, chưa network auth/service-worker/broker integration. Next identity→application/live-policy/broker boundary protocol và S4 actual prerequisites; không promote auth library/TTL/rate/runtime thành production decision.
+
+Cập nhật S6-A11/11: [encrypted storage/recovery subset](../S6-A-RESULTS.md) R4 PASS10 groups, [review](../S6-A-REVIEW.md) final CLEAN, subset DONE; local maintained AEAD + synthetic DB/dummy keys, không production broker/OS key-store/identity decision. Current Windows/WSL inventory chưa runnable S4 engine, actual executor/control checks NOT RUN. Internal identity/session/RBAC subset được bổ sung tại S6-B phía trên; full S6 vẫn cần deployed auth/secure key custody/live policy/broker integration. Các “S3–S6 chưa chạy” trong notes cũ là lịch sử trước các subset, không dùng đóng P3-B.
+
+Cập nhật S2-C11/11: [capacity/fairness và metadata restore](../S2-C-RESULTS.md) R4 DB9 groups PASS, [review](../S2-C-REVIEW.md) final CLEAN, subset DONE. Singleton admission guard, eligible RR/FIFO và metadata-only pg_dump/restore có actual evidence; không production scheduler/SLA hoặc blob/key/deployment recovery. S2-A/B đã push e61be7e; S2-C mới chưa commit. Full S2/P3-B còn auth/worker/runtime integration, S4/S6 và other spikes; chưa promote production DB/control/worker từ subset.
 
 Cập nhật S2-B 11/11: [lease/recovery persistence subset](../S2-B-RESULTS.md) R4 DB10 groups PASS, [review](../S2-B-REVIEW.md) final CLEAN, subset DONE. Renewal/expiry/cleanup acknowledgement/reclaim/cancel-revoke predicates + restart kiểm trên fresh PostgreSQL schema; không authenticated live revoke hoặc actual container cleanup. S2-A source/evidence giữ nguyên. Full S2 còn capacity/fairness/backup-restore/blob/worker/auth integration; không promote candidate DB/control-worker từ subset này. Ưu tiên S2-C và S4/S6 boundaries tiếp.
 

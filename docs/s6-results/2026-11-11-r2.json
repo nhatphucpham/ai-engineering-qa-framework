@@ -1,0 +1,404 @@
+{
+  "evidenceVersion": "s6-a-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "e61be7e0e5d64432871cc891b0061db80da189ea",
+  "startedAt": "2026-11-11T13:26:24.798494+00:00",
+  "command": "py -3 -B spikes/s6/run_s6.py docs/s6-results/2026-11-11-r2.json",
+  "crypto": {
+    "versions": {
+      "cryptography": "50.0.2",
+      "cffi": "2.1.1",
+      "pycparser": "3.12"
+    },
+    "ready": true,
+    "local_paths": true,
+    "loaded_versions": {
+      "cryptography": "50.0.2",
+      "cffi": "2.1.1",
+      "pycparser": "3.12"
+    }
+  },
+  "database_preflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "s4_prerequisites": {
+    "windows_path": {
+      "docker": false,
+      "podman": false,
+      "nerdctl": false,
+      "runc": false,
+      "crun": false,
+      "rootlesskit": false,
+      "slirp4netns": false
+    },
+    "scope": "PATH/common paths only; no daemon/engine/capability/image execution",
+    "execution": "NOT RUN",
+    "ready": false,
+    "wsl": {
+      "exitcode": 0,
+      "observations": [
+        "1000",
+        "6.18.40.1-microsoft-standard-WSL2"
+      ]
+    }
+  },
+  "inputsBefore": {
+    "docs/S6-A-PROTOCOL.md": "fdba21fc694be9b37f9f8411828eef2d1d9cf738c8acbb758be94222b081785b",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/README.md": "2f4b519b15c1ca50267a84941c98c78709af699098b210c378d6c85bd0cb2846",
+    "spikes/s2b/run_b.py": "16961da22bc32a9e2a29dfb59faf62ee3ad07605fa1c77cdc52f5ac11fb09700",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128",
+    "spikes/s2c/backup.py": "20903f1f4d29e96b2a48b0714ef732f417557044d3e1d80d56023ef4ae12ca8f",
+    "spikes/s2c/README.md": "f87d5153ab5fbecd2ac320163c6d55c03ba5d313057e3ccc53125e159b9e1429",
+    "spikes/s2c/run_c.py": "0a4e30a44a612e07f9abf4f0940aefeba52c5a8e43339662c46423376d65bc3c",
+    "spikes/s2c/schema.sql": "ed55d4ec7e0edce564e0f03743842f94f1da7a7c80d18bbbd92525ae9069914f",
+    "spikes/s2c/store_c.py": "6112f7d67779929b89182c61caa3a67a694cfb52fb901a7dab5a5d2f49572c22",
+    "spikes/s6/envelope.py": "bc7d628f52e7794a5304b07159178cf231eb279ceab38a55104a70adeb727a67",
+    "spikes/s6/paths.py": "caf9632b59e3624027ecd8e7760dd86b97cd9938e80c0223c07d61080f034595",
+    "spikes/s6/preflight.py": "77744ab661ae7374237194ea0e51f1ab8f7b137fc662428cba3799e44f88291b",
+    "spikes/s6/probe_cli.py": "6322807deae300d9cf2df5636e687c5350051d74168d29a84a89b2afbcc6d494",
+    "spikes/s6/requirements-win-py314.lock": "7dc8dc36d51b867ea11be1249e557d4fab05a01bdff5daf5fd52057c22cc7c0b",
+    "spikes/s6/run_s6.py": "e5cc4ac940cec215e697b8dcac92252b1c641afe2cc1696ab7dddb18c42eb2c9",
+    "spikes/s6/schema.sql": "7bd1ad7cce24c34f3da3e25d17f34407df8c03c90cdce78c67a865b37470890a",
+    "spikes/s6/test_preflight.py": "d09e0955cfa05a7572db855a4f261d65543a510b29d90a0142d43a915bcfc3de",
+    "spikes/s6/vault.py": "eb1da5eb85524a5c6c4ff48103735ec0eb557a85c5b973bbd2d86fb223b8a43e"
+  },
+  "status": "PASS",
+  "limits": [
+    "Private operator storage harness; no authenticated QA/broker/session API",
+    "S4 engine/physical containment/cleanup NOT RUN",
+    "Dummy external key file is not OS keystore/production key backup",
+    "Restored vault read-only; latest trustworthy nonce/policy reconciliation not implemented",
+    "Full S6/P3-B/P4-B remain open"
+  ],
+  "schema": "s6_b98c14b927b441c5a839b8efe0ec8bbc",
+  "checks": {
+    "K01": {
+      "status": "PASS",
+      "local_crypto": {
+        "versions": {
+          "cryptography": "50.0.2",
+          "cffi": "2.1.1",
+          "pycparser": "3.12"
+        },
+        "ready": true,
+        "local_paths": true,
+        "loaded_versions": {
+          "cryptography": "50.0.2",
+          "cffi": "2.1.1",
+          "pycparser": "3.12"
+        }
+      },
+      "algorithm": "AESGCM256 envelope v1",
+      "roundtrip": true
+    },
+    "K02": {
+      "status": "PASS",
+      "tamper_probes": [
+        {
+          "field": "wrapNonce",
+          "code": "E_INTEGRITY"
+        },
+        {
+          "field": "wrappedKey",
+          "code": "E_INTEGRITY"
+        },
+        {
+          "field": "dataNonce",
+          "code": "E_INTEGRITY"
+        },
+        {
+          "field": "ciphertext",
+          "code": "E_INTEGRITY"
+        },
+        {
+          "field": "project",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "ref",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "version",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "version",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "version",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "kind",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "envelopeVersion",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "envelopeVersion",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "envelopeVersion",
+          "code": "E_CONTEXT"
+        },
+        {
+          "field": "envelopeVersion",
+          "code": "E_CONTEXT"
+        }
+      ],
+      "key_id_substitution_rejected": true,
+      "db_cross_scope_swaps": [
+        {
+          "foreign_project": "projectB",
+          "foreign_ref": "other",
+          "field": "payload",
+          "code": "E_INTEGRITY"
+        },
+        {
+          "foreign_project": "projectB",
+          "foreign_ref": "other",
+          "field": "wrappedKey",
+          "code": "E_INTEGRITY"
+        },
+        {
+          "foreign_project": "projectA",
+          "foreign_ref": "other",
+          "field": "payload",
+          "code": "E_INTEGRITY"
+        },
+        {
+          "foreign_project": "projectA",
+          "foreign_ref": "other",
+          "field": "wrappedKey",
+          "code": "E_INTEGRITY"
+        }
+      ]
+    },
+    "K03": {
+      "status": "PASS",
+      "missing_key": "E_KEY_UNAVAILABLE",
+      "wrong_key": "E_INTEGRITY"
+    },
+    "D01": {
+      "status": "PASS",
+      "raw_plaintext_or_keys_in_rows": false,
+      "ciphertext_length": 73
+    },
+    "D02": {
+      "status": "PASS",
+      "concurrent_process_results": [
+        {
+          "status": "rejected",
+          "code": "E_POLICY"
+        },
+        {
+          "status": "accepted",
+          "anchor": {
+            "project": "projectA",
+            "ref": "provider",
+            "version": 2,
+            "epoch": 2
+          }
+        }
+      ],
+      "old_anchor_rejected": true,
+      "old_ciphertext_preserved": true
+    },
+    "D03": {
+      "status": "PASS",
+      "payload_unchanged": true,
+      "rollback_burned_nonce": true,
+      "rewrap_away_back_nonce_reuse_rejected": true,
+      "key_alias_rejected": true
+    },
+    "D04": {
+      "status": "PASS",
+      "revoked_anchor": {
+        "project": "projectA",
+        "ref": "provider",
+        "version": 2,
+        "epoch": 3
+      },
+      "restart_did_not_revive": true,
+      "nonce_history_survived_restart": true
+    },
+    "Q01": {
+      "status": "PASS",
+      "ordinary_routes_denied": 20,
+      "fake_redaction_or_authorization_ignored": true,
+      "quarantine_encrypted": true
+    },
+    "R01": {
+      "status": "PASS",
+      "restore_database": "s2_restore_32deb5b75bca41a8b21224aeaae944fd",
+      "archive_sha256": "1201270c85f304c45c3835803a77bb8fb19b17096a3fa8eb34b200086525955d",
+      "archive_excludes_raw_material": true,
+      "separate_dummy_key_file": true,
+      "child_recovered": {
+        "status": "opened",
+        "matches": true
+      },
+      "wrong_key_child": {
+        "status": "blocked",
+        "code": "E_INTEGRITY"
+      },
+      "table_fingerprints_match": true,
+      "restored_writes_rejected": true,
+      "newer_independent_policy_anchor_rejected_old_restore": true
+    },
+    "O01": {
+      "status": "PASS",
+      "audit_rows": 11,
+      "captured_cli_cases": [
+        {
+          "mode": "valid",
+          "exitcode": 0,
+          "status": "opened",
+          "stdout_bytes": 38,
+          "stderr_bytes": 0,
+          "fixed_code": null
+        },
+        {
+          "mode": "missing",
+          "exitcode": 2,
+          "status": "blocked",
+          "stdout_bytes": 51,
+          "stderr_bytes": 0,
+          "fixed_code": "E_KEY_UNAVAILABLE"
+        },
+        {
+          "mode": "wrong",
+          "exitcode": 2,
+          "status": "blocked",
+          "stdout_bytes": 45,
+          "stderr_bytes": 0,
+          "fixed_code": "E_INTEGRITY"
+        },
+        {
+          "mode": "tamper",
+          "exitcode": 2,
+          "status": "blocked",
+          "stdout_bytes": 45,
+          "stderr_bytes": 0,
+          "fixed_code": "E_INTEGRITY"
+        },
+        {
+          "mode": "unsupported",
+          "exitcode": 2,
+          "status": "blocked",
+          "stdout_bytes": 43,
+          "stderr_bytes": 0,
+          "fixed_code": "E_CONTEXT"
+        },
+        {
+          "mode": "invalid-mode",
+          "exitcode": 2,
+          "status": "blocked",
+          "stdout_bytes": 41,
+          "stderr_bytes": 0,
+          "fixed_code": "E_INPUT"
+        }
+      ],
+      "fixed_code_diagnostics_only": true,
+      "raw_material_in_committed_output": false,
+      "captured_harness_stdout_bytes": 0,
+      "captured_harness_stderr_bytes": 0
+    }
+  },
+  "inputsAfter": {
+    "docs/S6-A-PROTOCOL.md": "fdba21fc694be9b37f9f8411828eef2d1d9cf738c8acbb758be94222b081785b",
+    "qa_core/__init__.py": "1040b4584302a15fc28f9fc980fd719cb387bbf914dd4b65de8d877c31486d91",
+    "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+    "qa_core/contracts.py": "d357cf9b887255bda04bc7c0f84e713afe535acfdab6b7c7d93f7b5b0fe2af96",
+    "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+    "qa_core/reports.py": "a9fdd438124584163e4a4d75c634457ed6e38353c992c03198d52642061b8dde",
+    "qa_core/rules.py": "0eee973dbe7ad091b4488d6158c7581eefd1e4cd8d41ff92492a6a3996844989",
+    "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+    "schemas/qa-assessment-v1.schema.json": "617c009d5c4f5148854f4f55fe47dd00b78ebc96fc8cf2e752155acb5eafe108",
+    "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+    "schemas/qa-contract-v1.schema.json": "dc75377afb28241e9140811533c782f05e6c9cfe392b6b4ee9d8518808d0540c",
+    "schemas/qa-contract-v2.schema.json": "2aa9386ed000cb019d5944e45dcb497b708aaad41973603b01a959b06e7098cd",
+    "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+    "schemas/qa-prepared-report-v1.schema.json": "c5be75af8dc2fc069a2412d3be1b8f19d6861861987db8577a21d07d8038cd62",
+    "schemas/qa-publication-package-v1.schema.json": "e3e491f170f62e6ccc30fb589031c590499651652f1fed39602964ee8e63c4f2",
+    "schemas/qa-runtime-report-v1.schema.json": "ddea9c0f74d5a9a2623b00f3854f6d8f436e13d83b48bfd22bce8098d2dc9623",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s2b/README.md": "2f4b519b15c1ca50267a84941c98c78709af699098b210c378d6c85bd0cb2846",
+    "spikes/s2b/run_b.py": "16961da22bc32a9e2a29dfb59faf62ee3ad07605fa1c77cdc52f5ac11fb09700",
+    "spikes/s2b/schema.sql": "9a0e8daee27e1999251656139f39cc35e5881707fcea4e495bcae147d1befa98",
+    "spikes/s2b/store_b.py": "419772a9ca9258fda7b9b97596c82ca3dd1be8a4d6534de8b7edd476cdda3128",
+    "spikes/s2c/backup.py": "20903f1f4d29e96b2a48b0714ef732f417557044d3e1d80d56023ef4ae12ca8f",
+    "spikes/s2c/README.md": "f87d5153ab5fbecd2ac320163c6d55c03ba5d313057e3ccc53125e159b9e1429",
+    "spikes/s2c/run_c.py": "0a4e30a44a612e07f9abf4f0940aefeba52c5a8e43339662c46423376d65bc3c",
+    "spikes/s2c/schema.sql": "ed55d4ec7e0edce564e0f03743842f94f1da7a7c80d18bbbd92525ae9069914f",
+    "spikes/s2c/store_c.py": "6112f7d67779929b89182c61caa3a67a694cfb52fb901a7dab5a5d2f49572c22",
+    "spikes/s6/envelope.py": "bc7d628f52e7794a5304b07159178cf231eb279ceab38a55104a70adeb727a67",
+    "spikes/s6/paths.py": "caf9632b59e3624027ecd8e7760dd86b97cd9938e80c0223c07d61080f034595",
+    "spikes/s6/preflight.py": "77744ab661ae7374237194ea0e51f1ab8f7b137fc662428cba3799e44f88291b",
+    "spikes/s6/probe_cli.py": "6322807deae300d9cf2df5636e687c5350051d74168d29a84a89b2afbcc6d494",
+    "spikes/s6/requirements-win-py314.lock": "7dc8dc36d51b867ea11be1249e557d4fab05a01bdff5daf5fd52057c22cc7c0b",
+    "spikes/s6/run_s6.py": "e5cc4ac940cec215e697b8dcac92252b1c641afe2cc1696ab7dddb18c42eb2c9",
+    "spikes/s6/schema.sql": "7bd1ad7cce24c34f3da3e25d17f34407df8c03c90cdce78c67a865b37470890a",
+    "spikes/s6/test_preflight.py": "d09e0955cfa05a7572db855a4f261d65543a510b29d90a0142d43a915bcfc3de",
+    "spikes/s6/vault.py": "eb1da5eb85524a5c6c4ff48103735ec0eb557a85c5b973bbd2d86fb223b8a43e"
+  },
+  "elapsedSeconds": 18.863834600007976,
+  "finishedAt": "2026-11-11T13:26:50.903194+00:00"
+}

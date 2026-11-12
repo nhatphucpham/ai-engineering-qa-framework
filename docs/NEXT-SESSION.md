@@ -1,22 +1,21 @@
-# Bàn giao hiện hành — sau S2-B lease/recovery subset
+# Bàn giao hiện hành — sau S6-B identity/session/RBAC execution
 
-Ngày 11/11/2026. **S2-B subset và bàn giao DONE sau R4 DB10 groups PASS + final CLEAN WT-S2B-R4** tại [S2-B-REVIEW](S2-B-REVIEW.md). [S2-A](S2-A-REVIEW.md) vẫn DONE/CLEAN. Current checkout `master d73dce3` + toàn output S2-A/S2-B chưa commit/push; giữ đủ tracked/untracked changes, không assume remote có code. [S2-B results](S2-B-RESULTS.md) ghi actual evidence và gaps; không cần lịch sử chat.
+Ngày12/11/2026. User yêu cầu **commit và push** toàn output S2-C/S6-A/S6-B đã review. Commit chứa cập nhật này là snapshot mới trên master/nền e61be7e; [pre-push record](S2C-S6-PUSH-REVIEW.md) ghi scope/checks, kiểm Git log/status/remote cho hash và kết quả push thực tế. S6-B R4 PASS9/final CLEAN WT-S6B-R4-D2, S6-A/S2-A/B/C subsets DONE; S4 actual executor/controls NOT RUN. Các trạng thái chưa commit ngày11/11 là lịch sử.
 
 ## 1. Checkout phải giữ nguyên
 
-- Repo: `E:\phucpn-workspace\git\ai-engineering-qa-framework`.
-- S2-B thêm `spikes/s2b/`, protocol/results/review/evidence riêng và current docs, giữ toàn S2-A code/schema/protocol/evidence. Không migrate schema S2-A; model s2b-1.0.0 tạo namespace mới. Reuse ignored portable cache; DB stop trước handoff. Không có quyền commit/push phase mới.
-- Session S2-A bắt đầu HEAD `d73dce3d30a2ee9041b6633ce0fbfdcf78528332`, working tree sạch; hiện có `spikes/s2/`, protocol/results/review/evidence và current docs chưa commit. Không reset về baseline hoặc assume remote có code. DB toolchain/cluster trong ignored `.cache/s2` không có trong Git; có hướng dẫn portable setup. DB dừng trước handoff, dùng `local.py start` nếu tiếp trên cùng cache.
-- Baseline lúc soạn brief: `master`, HEAD **`d8bf1757228f31a8fd0e00f49baeda96741857aa`**. S1 implementation baseline trước đó là `d35ae6b337d1450f911d388adce2ee1bd0e3efd8`; đây không phải yêu cầu quay về các hash cũ.
-- **User sau đó đã yêu cầu commit local. Commit chứa cập nhật này là snapshot bàn giao P4-A + docs**: gồm `qa_core/`, schemas runtime/prepared/publication, `examples/reports/runtime-v1/`, `publication-v1/`, tools và docs/review records. Xác định commit thực bằng Git log/status; không dùng riêng baseline `d8bf175` để khôi phục code mới. Chưa có yêu cầu push hoặc xác nhận remote đã có snapshot này.
-- Implementation snapshot đã commit tại **`e56ed7db579830f0252968215a1c2bdbae791e47`**, message `feat: add shared QA core and staged report publication` (45 files). Brief có thể có commit tài liệu bổ sung sau đó; kiểm Git log/status thực. Chưa push.
-- Session mới ưu tiên chính checkout này. Kiểm Git root/branch/HEAD/status thật và giữ mọi thay đổi phát sinh sau commit; không reset/clean/stash. Nếu chuyển checkout/máy, phải mang đúng commit snapshot và mọi tracked/untracked changes còn lại, rồi kiểm nội dung trước làm. Không assume remote đã cập nhật.
-- Quyền commit local vừa cấp chỉ cho output hiện tại; không tự suy quyền commit/push cho các phase sau, tạo chat, merge/approve/deploy/publish hoặc pilot. Session mới chỉ bắt đầu implementation sau khi nhận yêu cầu tiếp tục.
+- Repo: `E:\phucpn-workspace\git\ai-engineering-qa-framework`, ưu tiên checkout hiện tại, không worktree khác/reset/clean/stash. Kiểm Git root/branch/HEAD/status thật và giữ mọi thay đổi phát sinh.
+- Tại lúc chuẩn bị commit12/11, HEAD và remote master cùng **e61be7e0e5d64432871cc891b0061db80da189ea** chứa P4-A và S2-A/B. Commit chứa brief này bổ sung S2-C/S6-A/S6-B; xem Git log/status/remote, không assume nền cũ vẫn là latest. Entries “chưa commit/push” trong [handoff](SESSION-HANDOFF.md)/slice review records ngày11/11 là lịch sử.
+- Snapshot bàn giao mới gồm toàn S2-C/S6-A/S6-B source/protocol/results/review/evidence, cache ignore và current docs. Nếu chuyển checkout/máy phải mang đủ snapshot và mọi thay đổi còn lại. User đã cấp quyền commit/push cho output hiện tại; không tự suy quyền Git/pilot/publish cho slice sau.
+- S6-B tạo schema id_<uuid>/model s6b-1.0.0 mới, local hash-pinned Argon2id, opaque token hashes và explicit request facade. `_Store` là trusted maintenance, không route helper/bootstrap/SQL; không Python sandbox/HTTP auth/service-worker/broker integration. R4 source phải khớp31 input hashes; fixture TTL/rate/Argon samples không product defaults. Refresh concurrent reuse revoke cả newly returned pair, cần login lại.
+- S6-A tạo namespace s6a-1.0.0 mới, hash-pinned crypto trong ignored `.cache/s6/deps`, dummy key files ngoài DB archive cũng chỉ test-only trong cache; không secured OS keystore. Restored Vault chỉ recovery-read-only. Giữ toàn S2-C/old source/protocol/evidence; không đưa private operator helpers thành QA API.
+- S2-C tạo model s2c-1.0.0 trên namespace mới, không migrate S2-A/B. Portable toolchain/cluster/dumps/restore DB identity/sinks retained trong ignored `.cache/s2`, không có trong Git. DB stop trước handoff; dùng [setup](../spikes/s2/README.md) hoặc `local.py start` trên cache đúng marker khi tiếp. Không dùng DB/service/account thật hoặc env DSN.
+- Historical working-file hashes khác Git blob hashes nếu normalize CRLF/LF; không sửa historical evidence để giả là hash checkout mới. Pre-commit37 paths được kiểm working/index normalized content equal,11 newline-only differences; actual latest evidence42 inputs giữ byte identity trong run.
 
 ## 2. Đọc để bắt đầu
 
 1. `AGENTS.md`, `.agents/skills/qa-framework-development/SKILL.md`, [REVIEW-WORKFLOW](REVIEW-WORKFLOW.md).
-2. Brief này, [SESSION-PLAN](SESSION-PLAN.md), phần đầu [SESSION-HANDOFF](SESSION-HANDOFF.md), [IMPLEMENTATION-PLAN](IMPLEMENTATION-PLAN.md), [DECISION-LOG](DECISION-LOG.md), [S2-B protocol](S2-B-PROTOCOL.md), [results](S2-B-RESULTS.md), [review](S2-B-REVIEW.md), [harness](../spikes/s2b/README.md); [S2-A results](S2-A-RESULTS.md)/[setup](../spikes/s2/README.md) chỉ đối chiếu phần reuse.
+2. Brief này, [SESSION-PLAN](SESSION-PLAN.md), phần đầu [SESSION-HANDOFF](SESSION-HANDOFF.md), [IMPLEMENTATION-PLAN](IMPLEMENTATION-PLAN.md), [DECISION-LOG](DECISION-LOG.md), [S6-B protocol](S6-B-PROTOCOL.md), [results](S6-B-RESULTS.md), [review](S6-B-REVIEW.md), [harness](../spikes/s6b/README.md); [S6-A](S6-A-RESULTS.md), [S2-C](S2-C-RESULTS.md), [S2-B](S2-B-RESULTS.md) và [S2-A results](S2-A-RESULTS.md)/[setup](../spikes/s2/README.md) chỉ đối chiếu phần reuse.
 3. [P4-A-RUNTIME-REPORT](P4-A-RUNTIME-REPORT.md), [runtime review](P4-A-RUNTIME-REVIEW.md), [P4-A-PUBLICATION](P4-A-PUBLICATION.md), [publication review](P4-A-PUBLICATION-REVIEW.md).
 4. [CORE-FRAMEWORK](CORE-FRAMEWORK.md), [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md), [TARGET-ARCHITECTURE](TARGET-ARCHITECTURE.md) §5–6 và live policy/worker boundaries; [ADR-001](adr/001-boundaries-and-persistence.md), [ADR-002](adr/002-transport-identity-and-execution.md), [ADR-003](adr/003-stack-and-spikes.md), [ADR-004](adr/004-core-baseline-after-s1.md).
 5. Chỉ đọc source/test/contracts liên quan slice chọn: [DATA-CONTRACT](DATA-CONTRACT.md), [VERIFICATION-RULES](VERIFICATION-RULES.md), [OFFLINE-REPORT](OFFLINE-REPORT.md), `qa_core/`, schemas và harness/tests. S1 evidence chỉ đọc khi cần, không mặc định rebenchmark.
@@ -30,6 +29,10 @@ Ngày 11/11/2026. **S2-B subset và bàn giao DONE sau R4 DB10 groups PASS + fin
 | S1 | DONE: 356/356 structured cases + 28/28 CLI, ba trials/runtime; S1-RV-01..09 đóng | S2–S6, P3-B tổng thể hoặc chọn toàn stack |
 | S2-A subset | Actual PostgreSQL18.6 DB14 groups PASS, 100 jobs/2 processes/4 connections, commit/rollback/crash/restart/outbox; DONE sau final CLEAN | Full S2, production DB/runtime choice, auth/worker/blob/export readiness |
 | S2-B subset | Actual DB10 groups PASS: renewal/expiry/fencing, exact synthetic cleanup/reclaim, cancel/revoke persistence races, DB restart; DONE sau final CLEAN | Authenticated live revoke, actual worker/container cleanup hoặc full S2 |
+| S2-C subset | DONE sau DB9 groups PASS + final CLEAN: atomic capacity, eligible RR/FIFO, metadata-only restore/replay | Production scheduler/SLA, worker/auth/physical capacity hoặc blob/key/deployment recovery |
+| S4 inventory | Current Windows/WSL chưa runnable engine; actual execution/controls NOT RUN | Không mock/host fallback để đóng gate |
+| S6-A subset | DONE sau10 groups PASS/final CLEAN, private storage/AEAD/key registry/rotation/revoke/recovery và closed raw-content denial | Internal identity/session/RBAC/broker/OS secure keys hoặc full S6 |
+| S6-B subset | DONE sau R4 actual9 groups PASS/final CLEAN; dummy identity/session/reset/refresh/RBAC/grants/queued resources | HTTP/deployed auth, service-worker/broker binding, actual worker lifecycle hoặc full S6 |
 | P4-A core/runtime slice | **DONE**: shared Python core, wrappers CLI; report/prepared v1, exact-run binding và pure completion proposal | Persisted report, actual completed run hoặc emitted report_ready |
 | P4-A publication/replay slice | **DONE**: staged self-contained package v1, manifest, whole-input scopes, graph candidate và anchored replay validator | Durable publication, ordinary user export hoặc live read/outbound permission |
 | P4-A tổng thể | **PARTIAL**: còn storage/transaction/outbox, scoped read/export, live auth/lease/trust và full lifecycle integration | Không lấy DONE của hai slice đóng toàn phase |
@@ -38,6 +41,12 @@ Ngày 11/11/2026. **S2-B subset và bàn giao DONE sau R4 DB10 groups PASS + fin
 Python chỉ được chọn cho **pure shared core/report baseline** theo ADR-004. TS/Node `spikes/s1` là conformance spike, không second production rules engine. Control/worker runtime, DB, shell, agent host/distribution chưa chốt. PostgreSQL là candidate S2, không phải production DB đã chọn.
 
 ## 4. Output và evidence
+
+S6-B latest [R4](s6b-results/2026-11-11-r4.json):9 groups PASS13.260s,31 inputs before=after;5 actual-process prerequisite methods PASS0.893s/core45 PASS34.430s. S6B-RV-01..05 reviewer-confirmed CLOSED/final CLEAN WT-S6B-R4-D2, subset DONE. R1 preserved historical PASS trước complete stored-account/dummy-hash CLI scans. S2-C/S6-A source/protocol/evidence giữ nguyên.
+
+S6-A latest [R4](s6-results/2026-11-11-r4.json):10 groups PASS17.771s,42 S6 input hashes before=after;5 actual-process preflight methods PASS0.775s/core45 PASS37.048s. S6A-RV-01..05 được reviewer xác nhận CLOSED, final CLEAN. Crypto pins50.0.2/cffi2.1.1/pycparser3.12 verified local; actual S4 inventory trong evidence, NOT RUN control gates. S2-C source/protocol/evidence giữ nguyên.
+
+S2-C latest [R4](s2c-results/2026-11-11-r4.json):9 groups PASS38.708s,42 hashes before=after,100-job/4-connection capacity + eligible RR/FIFO,13-table/100-package exact restore và outbox replay. Root full45 PASS34.619s/preflight6 PASS0.059s. RV01/RV02 được reviewer xác nhận CLOSED, final CLEAN; tại thời điểm R4 ngày11/11, S2-C chưa commit/push. S2-A/B source/protocol/evidence/core/frozen artifacts giữ nguyên.
 
 S2-B latest [R4](s2b-results/2026-11-11-r4.json):10 groups PASS/32.140s,37 source/input hashes before=after; regression45 PASS34.940s/preflight6 PASS0.051s. Findings S2B-RV-01..04 được independent reviewer xác nhận CLOSED, final CLEAN. S2-A toàn33 R5 input/code hashes vẫn khớp; không chạy lại S1 hoặc rewrite evidence frozen. R1 S2-B SyntaxError được bảo toàn, R2/R3 snapshots lịch sử; latest R4 có đủ races và forced opposite cases.
 
@@ -52,9 +61,9 @@ S2-A latest [R5](s2-results/2026-11-11-r5.json): 14 DB groups PASS/22.872s; 33 s
 
 ## 5. Việc cần làm tiếp
 
-**Ưu tiên tiếp: S2-C — capacity/fairness và metadata backup/restore.** [SESSION-PLAN](SESSION-PLAN.md) ghi scope/prerequisites gợi ý; chốt protocol/acceptance/failure matrix trước sửa. Không rerun extraction/package/S1/S2-A/S2-B mặc định khi source không đổi. Không dùng predicate cleanup/revoke trong S2-B thay authenticated live policy hoặc actual worker/container proof; S4/S6 vẫn riêng.
+**Ưu tiên tiếp: identity→application/live-policy/broker integration contract và acceptance/failure protocol**, theo [SESSION-PLAN](SESSION-PLAN.md). S6-B facade chưa nối S6-A private vault/S2 worker/core publication. Chốt user vs service/worker actor, policy/epoch/snapshot authority, deny/revoke/error semantics trước implementation; không tự route trusted helpers thành network API. Không real account/key/API hoặc production transport/runtime decision; không rerun S1/S2/S6-A mặc định nếu source không đổi.
 
-S2-A đã có actual candidate DB evidence exact version/attempt/fence, unique claim/occurrence/report, atomic graph, process kill/DB restart và no publish-before-commit. Full S2 vẫn còn lease renewal/reclaim, real cancel/revoke/cleanup, fairness/backup-restore và boundaries ADR-003. Synthetic predicates không thay authenticated live policy hoặc real worker cleanup; S4/S6 có prerequisites riêng. Production DB/control-worker composition quyết định riêng sau đủ evidence. Whole canonical replay bytes ở DB bytea chưa external immutable blob readiness hoặc ordinary export.
+S4 execution vẫn NOT RUN: cần approved runnable rootless engine + pinned image và thực đo network/resource/output collector/cleanup controls. Không dùng discovered absence làm proof mọi host absent, cũng không mock controls hoặc cài global. Full S6/P3-B/P4-B/C còn deployed auth/service-worker/broker/key custody/live-policy integration; source/old-input preservation và high-model review loop giữ nguyên. Không chốt production DB/runtime/platform hoặc tự commit/push phase mới.
 
 Nếu actual disposable DB chưa sẵn, không dùng DB/account thật hoặc SQLite/in-memory mock để gọi S2 PASS. Hoàn thành protocol/harness/preflight phần độc lập, ghi DB checks NOT RUN/unknown và bước khôi phục cụ thể. Routine trong slice tiếp được giao thì tự làm; thiếu input/authority bắt buộc mới hỏi cụ thể, vẫn tiếp phần độc lập.
 
@@ -68,6 +77,6 @@ Nếu actual disposable DB chưa sẵn, không dùng DB/account thật hoặc SQ
 
 ## 7. Cách làm một session
 
-Theo [SESSION-PLAN](SESSION-PLAN.md): Git/brief → chốt slice và acceptance trước sửa → implementation + failure/regression checks → reviewer độc lập high-model → fix/recheck/re-review đến clean → DONE đúng scope và bàn giao. Không đặt trần vòng review, không lấy suite xanh thay verdict, giữ stable finding IDs và reopen lỗi cũ nếu regression. Routine phần độc lập tiếp tục trong quyền; chưa có quyền commit/push phase này.
+Theo [SESSION-PLAN](SESSION-PLAN.md): Git/brief → chốt slice và acceptance trước sửa → implementation + failure/regression checks → reviewer độc lập high-model → fix/recheck/re-review đến clean → DONE đúng scope và bàn giao. Không đặt trần vòng review, không lấy suite xanh thay verdict, giữ stable finding IDs và reopen lỗi cũ nếu regression. Routine phần độc lập tiếp tục trong quyền; quyền commit/push12/11 chỉ áp output hiện tại, phase sau cần yêu cầu phù hợp.
 
 Regression hiện hành: `py -3 -B -m unittest discover -s tools -p 'test_*.py' -v`. 45 methods là kết quả hiện tại, không quota vĩnh viễn. Docs-only bàn giao kiểm links/fences/consistency/diff và manifest, không cần rerun suite/S1 khi code không đổi. Không chạy runners ghi đè evidence gốc.

@@ -1,10 +1,28 @@
-# Plan hiện hành — sau S2-B lease/recovery subset
+# Plan hiện hành — sau S6-B identity/session/RBAC execution
+
+12/11/2026: user yêu cầu commit/push output S2-C/S6-A/S6-B đã review; [pre-push record](S2C-S6-PUSH-REVIEW.md). Commit chứa cập nhật này là snapshot bàn giao mới; kiểm Git log/status/remote thay vì áp trạng thái chưa commit của ngày11/11. Quyền Git lần này cho output hiện tại; chưa giao triển khai slice tiếp.
+
+## Current S6-B outcome / next session
+
+User yêu cầu “tiếp”. [S6-B protocol](S6-B-PROTOCOL.md) chốt trước code, `spikes/s6b/` thực thi actual Argon2id/dummy accounts/opaque sessions/refresh reuse/reset/epochs/fixed roles. [R4](s6b-results/2026-11-11-r4.json)9 groups PASS13.260s,31 source/input hashes before=after;5 prerequisite methods PASS0.893s/core45 PASS34.430s. [Review](S6-B-REVIEW.md) final CLEAN WT-S6B-R4-D2, synthetic subset DONE. Giữ S2-C/S6-A subsets DONE/uncommitted work/old inputs; không production auth/backend/DB/runtime choice.
+
+Tiếp **identity→application/live-policy/broker integration contract và acceptance/failure protocol**, phân biệt user actor với service/worker identity, current policy/epoch với snapshot grant, S6-A private vault với scoped broker operation. Chưa tự chọn transport/runtime/platform hoặc route trusted helpers ra network. Thiết kế/test integration riêng trước claim actual P4-B lifecycle; no real account/key/API. S4 actual engine/rootless image/network/resource/collector/cleanup cần prerequisites riêng; thiếu vẫn NOT RUN, tiếp phần độc lập thay mock gate.
+
+## S2-C đã thực thi (lịch sử)
+
+## S2-C đã thực thi và việc tiếp
+
+User yêu cầu commit/push rồi tiếp: S2-A/B commit e61be7e và remote master verified, checkout sạch trước S2-C. [Protocol](S2-C-PROTOCOL.md) và `spikes/s2c/` model riêng; [R4](s2c-results/2026-11-11-r4.json) DB9 groups PASS38.708s,42 hashes before=after; full45 PASS34.619s/preflight6 PASS0.059s. [Review](S2-C-REVIEW.md) final CLEAN, S2-C subset DONE. S2-C output mới chưa commit/push; giữ old code/protocol/evidence/frozen artifacts.
+
+Ưu tiên tiếp **S4/S6 prerequisite inventory và boundary protocol** cho actual executor/policy/identity, rồi runtime composition/P4-B/C. Kiểm công cụ/khả năng hiện tại, không dùng discovery cũ để assume READY. Chốt purpose/outputs/acceptance/fault matrix trước implementation, actual disposable engine/libs/dummy identities mới đóng integration gates; thiếu prerequisite tiếp phần độc lập và ghi NOT RUN/gap/restore step. Không dùng cleanup bool hoặc metadata restore làm proof container stop/auth/revoke/blob-key recovery. S2-C không tự quyết định production DB/control-worker hoặc chọn desktop/plugin platform; không rerun S1/S2 mặc định khi source không đổi.
+
+## Ghi nhận S2-B trước S2-C (lịch sử)
 
 ## S2-B đã thực thi và việc tiếp
 
 11/11/2026, user yêu cầu tiếp. [Protocol](S2-B-PROTOCOL.md) chốt trước sửa; `spikes/s2b/` model riêng và [results](S2-B-RESULTS.md) R4 DB10 groups PASS/32.140s,37 source/input hashes before=after; full regression45 PASS34.940s và preflight6 PASS0.051s. [Review](S2-B-REVIEW.md) final CLEAN, S2-B subset DONE. S2-A source/evidence/33 input paths không đổi, checkout d73dce3 + toàn uncommitted outputs được giữ.
 
-Phiên tiếp ưu tiên **S2-C capacity/fairness và metadata backup/restore** trên disposable DB. Chốt purpose/output/acceptance/fault matrix trước sửa; đo actual project/global admission và queue-age/fairness trên multi-connection model, restore vào DB/schema synthetic riêng và kiểm reachable metadata/canonical bytes/anchors/outbox. DB-only restore không đóng external blob/key recovery. Reuse portable pins nếu preflight vẫn READY, không dùng service/account thật hoặc chọn production storage/runtime. S4/S6 phải kiểm authenticated revoke và actual worker/container cleanup trước full lifecycle gate. Gaps giữ NOT RUN đúng boundary; không dùng S2-B predicate PASS để đóng full S2/P3-B/P4-A/P4-B.
+Ưu tiên sau S2-B là S2-C đã được user yêu cầu/thực thi như entry đầu file. DB-only metadata restore không đóng external blob/key recovery. S4/S6 phải kiểm authenticated revoke và actual worker/container cleanup trước full lifecycle gate; giữ NOT RUN đúng boundary, không dùng DB subsets đóng full S2/P3-B/P4-A/P4-B.
 
 ## Plan S2-A đã thực thi (giữ acceptance lịch sử)
 
