@@ -1,0 +1,142 @@
+{
+  "setupVersion": "s4-b-setup-1.0.0",
+  "classification": "synthetic-only",
+  "userAuthorization": "c\u1ea5p quy\u1ec1n ho\u1eb7c t\u00ecm c\u00e1ch run th\u1eed",
+  "baseline": "0d1c4539cd65fdbf38b931dbcf2d39debb1756e7",
+  "newPackages": {
+    "conmon": "2.1.10+ds1-1build2",
+    "containernetworking-plugins": "1.1.1+ds1-3ubuntu0.24.04.3",
+    "crun": "1.14.1-1",
+    "fuse-overlayfs": "1.13-1",
+    "golang-github-containers-common": "0.57.4+ds1-2ubuntu0.2",
+    "golang-github-containers-image": "5.29.2-2",
+    "iptables": "1.8.10-3ubuntu2",
+    "libgpgme11t64:amd64": "1.18.0-4.1ubuntu4",
+    "libip4tc2:amd64": "1.8.10-3ubuntu2",
+    "libip6tc2:amd64": "1.8.10-3ubuntu2",
+    "libnetfilter-conntrack3:amd64": "1.0.9-6build1",
+    "libnfnetlink0:amd64": "1.0.2-2build1",
+    "libnftnl11:amd64": "1.2.6-2build1",
+    "libslirp0:amd64": "4.7.0-1ubuntu3.1",
+    "libsubid4:amd64": "1:4.13+dfsg1-4ubuntu3.2",
+    "libyajl2:amd64": "2.1.0-5build1",
+    "podman": "4.9.3+ds1-1ubuntu0.2",
+    "slirp4netns": "1.2.1-1build2",
+    "uidmap": "1:4.13+dfsg1-4ubuntu3.2",
+    "busybox-static": "1:1.36.1-6ubuntu3.1"
+  },
+  "upgradedPackages": {},
+  "newPackageRootUnitsDisabled": [
+    {
+      "unit": "podman.socket",
+      "before": "active",
+      "after": "inactive",
+      "enabled": "disabled"
+    },
+    {
+      "unit": "podman.service",
+      "before": "inactive",
+      "after": "inactive",
+      "enabled": "disabled"
+    },
+    {
+      "unit": "podman-auto-update.timer",
+      "before": "active",
+      "after": "inactive",
+      "enabled": "disabled"
+    },
+    {
+      "unit": "podman-auto-update.service",
+      "before": "inactive",
+      "after": "inactive",
+      "enabled": "disabled"
+    },
+    {
+      "unit": "podman-restart.service",
+      "before": "active",
+      "after": "failed",
+      "enabled": "disabled"
+    },
+    {
+      "unit": "podman-clean-transient.service",
+      "before": "inactive",
+      "after": "inactive",
+      "enabled": "disabled"
+    }
+  ],
+  "postRunVerification": {
+    "rootPackageUnits": [
+      {
+        "unit": "podman.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "podman.socket",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "podman-auto-update.timer",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "podman-restart.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      }
+    ],
+    "transientUnits": [
+      {
+        "unit": "qa-s4-delegate-probe",
+        "properties": [
+          "ControlGroup=",
+          "LoadState=not-found",
+          "ActiveState=inactive"
+        ],
+        "cgroupPathAbsent": true
+      },
+      {
+        "unit": "qa-s4-engine-probe",
+        "properties": [
+          "ControlGroup=",
+          "LoadState=not-found",
+          "ActiveState=inactive"
+        ],
+        "cgroupPathAbsent": true
+      },
+      {
+        "unit": "qa-s4-engine-probe2",
+        "properties": [
+          "ControlGroup=",
+          "LoadState=not-found",
+          "ActiveState=inactive"
+        ],
+        "cgroupPathAbsent": true
+      },
+      {
+        "unit": "qa-s4-b-r1",
+        "properties": [
+          "ControlGroup=",
+          "LoadState=not-found",
+          "ActiveState=inactive"
+        ],
+        "cgroupPathAbsent": true
+      },
+      {
+        "unit": "qa-s4-b-r2",
+        "properties": [
+          "ControlGroup=",
+          "LoadState=not-found",
+          "ActiveState=inactive"
+        ],
+        "cgroupPathAbsent": true
+      }
+    ],
+    "systemd": "systemd 255 (255.4-1ubuntu8.18)",
+    "busyboxVerifyExit": 0
+  },
+  "permissionScope": "root install and transient unit creation; workload/engine UID1000 rootless; no boot/linger/global cgroup permission change",
+  "retainedCache": "marked Linux /tmp/qa-s4-engine-* private image/storage; no containers left in each recorded engine context"
+}

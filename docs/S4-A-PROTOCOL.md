@@ -1,0 +1,40 @@
+# S4-A v1 — prerequisite inventory + private Linux output collector
+
+12/11/2026, baseline **0d1c4539cd65fdbf38b931dbcf2d39debb1756e7**, clean checkout. User yêu cầu tiếp theo plan S4 sau IAP-A/B. Reviewer độc lập GPT-6.1 Terra high `/root/identity_contract_review` read-only từ đầu, stable S4-RV IDs. Chốt scope này **trước code**. Không commit/push, không real accounts/keys/API hoặc chọn production stack.
+
+## Actual branch chọn và outputs
+
+Windows PATH không docker/podman/nerdctl; common Docker Desktop/Podman executable paths đã kiểm cũng không có. WSL Ubuntu-24.04 uid1000/kernel6.18.40.1 có unshare/user namespace probe exit0, nhưng PATH và common engine/runtime paths không tìm docker/podman/nerdctl/runc/crun/rootlesskit/slirp4netns; newuidmap/newgidmap cũng không thấy. Current cgroup `/non-systemd` và root cgroup không writable với user, controllers được kernel liệt kê nhưng chưa được chứng minh delegated/enforced. Đây là inventory giới hạn, không proof absent mọi nơi. Lần discovery PowerShell→sh đầu tiên bị mất tên tool trong output, không dùng làm authoritative observation; đã kiểm lại bằng Python subprocess argv + shell script stdin.
+
+**NOT READY cho actual S4 engine execution/network/resource/cleanup**. Không portable-download engine khi hiện chưa có writable delegated cgroup/current runnable engine để kiểm required controls; không tự apt/global install/system-config change/host fallback. Nhánh độc lập: reusable inventory/preflight fail-closed và private output collector dùng actual Linux/WSL filesystem. Không gọi filesystem collector subset là engine/container proof hoặc hoàn tất release/cleanup runtime.
+
+Outputs `spikes/s4/{preflight.py,collector.py,run_collector.py,test_preflight.py,README.md}`, protocol này, fresh `docs/s4-results/<new-id>.json`, results/review record,5 current plan/decision/handoff docs. Dependencies stdlib Windows Python và Linux Python thực xác nhận; không cài global. Actual collector chạy WSL native Linux temporary filesystem, không dùng Windows path semantics để giả Linux no-follow.
+
+## Contracts và trust
+
+- Preflight chỉ inventory tooling/runtime namespace/cgroup observations. `launchGate=BLOCKED` cho đến candidate adapter/image digest/control attestation thực được implement/test; có executable/version hoặc bool self-declared cũng không bật gate. Chưa có launch method/host command fallback. Missing/error/timeout data fail closed; không probe real engine/service có credentials/context mặc định nếu tìm thấy mà chưa chỉ định disposable target.
+- Collector **private operator helper**, không public QA/user/worker API, không authenticated IAP-B bridge. Host cấp opened root directory FD và caller-held `(device,inode)` anchor độc lập cùng synthetic scope context; context/digest nhận dạng không là authority. Không nhận absolute path/`..`/empty/`.`/backslash/NUL/oversize components từ output manifest. Root FD duplicated/pinned; directory traversal uses dir_fd + O_DIRECTORY/O_NOFOLLOW từng component, same device checks; never resolve path rồi open lại qua pathname.
+- Leaf dùng Linux `O_PATH|O_NOFOLLOW` để pin object **trước actual read**, fstat phải regular file/nlink1/same device/size within cap. Chỉ sau type check mới reopen pinned handle qua trusted `/proc/self/fd/<fd>` để read; identity checked again. Symlink/FIFO/socket/device/directory/hardlink rejected without payload read, không host path arbitrary. Kernel/procfs/host trusted; privileged mount/host compromise ngoài scope.
+- Raw bytes đọc bounded chunks + strict per-file/count/aggregate budgets cấu hình trusted operator. Before/after stat fingerprints reject observed mutation/growth/unlink/replacement of opened object. Không tuyên bố atomic snapshot hoặc chống mọi concurrent writer trên mọi filesystem; raw remains restricted dù stat unchanged. File rename/parent swap FD anchor không follow external symlink; no cross-device read.
+- Cooperative monotonic deadline checked before/after IO và hooks; **chưa hard syscall timeout/process supervisor cleanup**. Local regular-file nonblocking open không chứng minh bounded stalled-filesystem IO. Hard wall-clock termination và actual worker/descendants/engine cleanup vẫn NOT RUN, không claim full collector time-control gate.
+- Result private memory-only `RestrictedBlob` chứa payload và internal manifest (scope/root/file identity/hash/length/classification); safe repr không payload/path. `qa_content` read/export/stream/attachment/source cho Admin/Owner/Runner/Viewer **luôn E_RESTRICTED**, fake sanitized/authorized labels không bypass. Không sanitizer/lineage resolver/ordinary allow route. No decrypt/key/broker/Vault injection; encrypted quarantine adapter chưa tích hợp, không ghi raw bytes vào evidence/source/logs/Git. Dummy plaintext chỉ temporary fixture ngoài Git rồi cleanup; không zeroization claim.
+- Fixed safe errors không echo untrusted filename/content/exception; failed collection không return partial bytes. Test fault hooks chỉ private host fixture, không request dispatch route. Budget accounting counts only returned private blobs; no trusted execution/assessment/QA verification claim.
+
+## Selected acceptance trước implementation
+
+All chưa chạy tại lúc protocol soạn; new evidence phải ghi actual runtime/version/commands/source hashes before=after, expected/actual/limits. No mock engine PASS.
+
+| Group | Required actual check | Expected / observation |
+|---|---|---|
+| F01 | Windows/WSL inventory + preflight error/missing/timeout/forged-ready tests |Actual constrained observations; launch always BLOCKED, engine gates NOT RUN, no arbitrary executable/host fallback |
+| F02 | Linux normal/nested/empty/Unicode regular file + caller root identity anchor |Private bounded bytes/hash/length match, detached scope manifest; wrong anchor rejected; ordinary content never enabled |
+| F03 | Traversal/absolute/dot/empty/backslash/NUL/oversize path, nested and leaf symlinks |Safe deny, no external canary bytes; flags + pinned FD paths inspected/tested |
+| F04 | Actual FIFO/socket/directory/hardlink + swap regular→FIFO before leaf type check |No block/payload read; subprocess harness deadline catches hang; type rejected, no ordinary routes |
+| F05 | Parent rename/symlink swap after anchored directory open; leaf unlink/replacement after pin |No external root/path read; original pinned object only or safe denial; observed mutation denied, never partial return |
+| F06 | Per-file/aggregate/count caps, growth/mutation during private read |Safe size/budget/change errors; bounded memory reads, failed operation releases descriptors; no claim stable snapshot on arbitrary FS |
+| F07 | Cooperative deadline crossing and missing Linux capabilities |Fixed timeout/capability denial, no payload result; unsupported Windows direct collector NOT READY, no unsafe fallback; hard IO timeout NOT RUN |
+| F08 | All roles×channels raw-content denial, fake labels, safe repr/error/output/evidence canary scan + FD leak regression |4×5 routes deny without collection, raw/base64/hex fixture bytes absent from emitted diagnostics/evidence; FD count returns baseline on failures |
+
+DONE chỉ **S4-A independent inventory/collector preparation subset** khi actual selected checks PASS + source preservation/docs/fresh core relevant checks PASS và latest independent CLEAN/no open findings. Full S4 engine execution/resource/network/hard-time/collector integration/worker release/cleanup, full S6/P3-B/P4-B/readiness còn mở. Recovery cần approved runnable rootless engine + pinned image/disposable context + actual delegated resource/network controls; inventory lại trước READY, không assume ngày11/11 hoặc phiên này vĩnh viễn.
+
+Primary API/design references checked12/11: [Python os FD APIs](https://docs.python.org/3.14/library/os.html), [Linux open/O_PATH semantics](https://man7.org/linux/man-pages/man2/open.2.html), [cgroup v2 delegation](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html). Các API facts hỗ trợ thiết kế; actual enforcement chỉ được claim theo probes đã chạy, không blanket security guarantee.

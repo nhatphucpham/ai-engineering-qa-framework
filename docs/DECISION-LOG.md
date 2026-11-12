@@ -1,3 +1,31 @@
+# Hiện hành — commit/push S4-A/B và tiếp S4-C, 12/11/2026
+
+User yêu cầu **“commit và push + tiếp tục”**: cho phép commit/push output S4-A/B đã CLEAN và tiếp bước kế hoạch. [Pre-push review](S4-AB-PUSH-REVIEW.md) ghi exact snapshot/checks/verdict. Git intent chưa là proof push: actual commit/remote hash xác minh sau Git action; current baseline master0d1c453. Các câu “uncommitted”, “No Git action” và baseline trong entry S4-A/B phía dưới là lịch sử lúc nghiệm thu, không hủy quyền Git mới.
+
+S4-A private collector và S4-B selected actual engine controls DONE scoped CLEAN; full product gates vẫn mở. Bước tiếp theo S4-C: protocol có version cho live worker authority → one-use launch admission → actual cleanup; kiểm revoke/expiry trước admission và effect đã in-flight, không coi metadata retirement là proof cleanup. Giữ synthetic, không real API/project/credential, không chọn production stack. Reviewer độc lập từ đầu; chỉ DONE scope sau checks PASS + latest CLEAN.
+
+# Quyết định hiện hành
+
+## D-36 — 12/11/2026: user cấp quyền setup, actual rootless S4-B
+
+User yêu cầu “cấp quyền hoặc tìm cách run thử”, ưu tiên hơn default no-global/no-system-change của phiên S4-A. Cho phép cụ thể cài maintained Ubuntu packages cần experiment + transient cgroup delegation; không cho phép real accounts/keys/API/project, production stack selection, pilot/publish hoặc Git action mới. [S4-B protocol](S4-B-PROTOCOL.md) chốt trước mutation. Root chỉ install/create systemd unit; engine/workload UID1000 rootless, isolated marked storage/config/auth context, no root daemon lâu dài/boot/linger/global cgroup ownership change.
+
+Đã cài20 new packages (Podman4.9.3/crun1.14.1 + deps/busybox-static),0 upgrades; package root service/socket/timers auto-enabled đã disable/stop, failed status của owned restart unit được reset sau stop. Local rootfs từ signed busybox package tránh registry credential/network không cần thiết, binary/tar/image digests recorded, pull=never. Transient DelegateSubgroup service UID1000 cấp cpu/memory/pids trong exact own subtree; không chown toàn cgroup tree.
+
+[Results/review](S4-B-RESULTS.md) **DONE — independent CLEAN**: R2 six actual groups PASS17.524s,6 inputs match; CPU throttle/PID cap/OOM events và observed descendant stop1.104s, private collector mount roundtrip; core45+preflight4+network4 PASS. Reviewer phát hiện network parser quá yếu và PID workload timeout risk; đã sửa actual R2 và negative parser tests, S4B-RV-01/02 reviewer đã xác nhận CLOSED, không finding mới trong scope.363 original paths unchanged; previous S4-A NOT RUN history intact, no original source/evidence rewritten.
+
+Selected actual controls không đóng full S4/P3-B/P4-B/readiness: authenticated worker/release/cancel-revoke/broker/secret-safe sanitized outputs/OS keys/full restore còn mở. Packages/marked cache retained, root units inactive/disabled and all transient unit/cgroup removed; rollback only named newly installed packages, no autoremove/prune hoặc delete computed paths. Next authenticated lifecycle integration trước production runtime; output mới chưa commit/push.
+
+# Quyết định hiện hành
+
+## D-35 — 12/11/2026: S4 chưa engine-ready, kiểm collector thực độc lập
+
+User yêu cầu tiếp sau progress/S4. Baseline master0d1c453 clean, IAP-A/B đã commit/push; yêu cầu Git cũ đã hoàn tất, output phiên này chưa commit/push. Actual inventory Windows/WSL chưa tìm engine/runtime trong checked PATH/common paths; Linux userns unshare probe0 nhưng current/root cgroup user không writable, enforcement delegation chưa chứng minh. Không suy absent mọi nơi, không dùng userns success thay engine/resource proof.
+
+Chọn [S4-A](S4-A-PROTOCOL.md) trước code: reusable fail-closed discovery và private Linux output collector actual filesystem subset, không global install/host workload fallback hay bool metadata cleanup. O_PATH pin+fstat trước actual read, no-follow directory FDs, context root anchor, restricted in-memory raw bytes, ordinary content deny, cooperative timeout + caps. No authenticated bridge, encrypted quarantine/sanitizer, hard IO/process termination hoặc engine/resource/network/cleanup proof.
+
+[Results/review](S4-A-RESULTS.md) **DONE preparation/private collector subset sau independent CLEAN R2 + required checks PASS**: collector R2 eight groups PASS0.782s/6 hashes, preflight4/core45 PASS; S4-RV-01 closed-FD raw error được independent reviewer xác nhận CLOSED, không finding trong scope. Thêm shared-budget serialization và actual concurrent check;353 old files preserved. Actual S4 gates vẫn NOT RUN, subset không đóng product gate. Next cần approved runnable engine/pinned image/delegated controls rồi actual worker release/cleanup integration; không tự claim full READY hoặc chọn production stack/real API/account/project/pilot/publish.
+
 # Yêu cầu commit/push IAP-A + IAP-B — 12/11/2026
 
 User yêu cầu **“Commit and push”** cho toàn output IAP-A/IAP-B hiện có đã independent CLEAN trong đúng subset. Phạm vi: source/protocol/results/evidence/current docs trên master nền e8b47a1; không cache/dummy credentials/binaries hoặc implementation mới. [Pre-push review](IAP-AB-PUSH-REVIEW.md) ghi snapshot/checks trước action; đọc Git log/remote và outcome sau action để biết commit/push thực, không dùng intent này khẳng định đã push. Các câu “chưa commit/push/no Git action” trong entries/records trước là lịch sử, không phủ nhận quyền Git mới.

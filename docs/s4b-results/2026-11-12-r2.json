@@ -1,0 +1,130 @@
+{
+  "evidenceVersion": "s4-b-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "0d1c4539cd65fdbf38b931dbcf2d39debb1756e7",
+  "startedAt": "2026-11-12T13:41:57.332889+00:00",
+  "inputsBefore": {
+    "docs/S4-B-PROTOCOL.md": "7a40a08d9fd11745aa3d1b0ccb5d803c2eaba1e1b84102835e65dbcad7a5d728",
+    "spikes/s4/collector.py": "515bf7958a979c0476ff96c223ad72649ffe53d8841f94ffbc406fcc93477f94",
+    "spikes/s4b/README.md": "62e720b93fcc1a3d230fda5005f085d7ecc9bc970d0f56c0cb7bd188ed6c99e2",
+    "spikes/s4b/engine.py": "9c493db4f40d5885acfd2cb0ab881dd44df02d17c520c352d2c25fd5eaf42e10",
+    "spikes/s4b/run_engine.py": "3c411d42e8274297fd27456f45caafe018ccd746b0265626206bf5ce7bae0856",
+    "spikes/s4b/test_network.py": "78979fd09a7203899566549671c70b96a5366d6beb77291193b3dca3e31e2b97"
+  },
+  "status": "PASS",
+  "limits": [
+    "Authorized WSL system setup, actual rootless synthetic containers in transient delegate only",
+    "No production stack choice, authenticated IAP-B/worker/cancel-revoke/broker/end-to-end readiness",
+    "Private collector roundtrip only, no sanitized ordinary content/export or encrypted quarantine"
+  ],
+  "checks": {
+    "E01": {
+      "status": "PASS",
+      "hostRootlessUid": 1000,
+      "containerUid": 1000,
+      "zeroEffectiveCapabilities": true,
+      "noNewPrivsObserved": true,
+      "containerCgroupUnderDelegate": "/sys/fs/cgroup/system.slice/qa-s4-b-r2.service/containers/libpod-f70b793915ade8faabfca4a574876f6a281c183c1ab0836bdfaa07e87ed6bb26",
+      "pinnedImageId": "sha256:0661f68f778501f85451a3d021721925f7999521cdc57e63f7e25c8df88fbc7a"
+    },
+    "E02": {
+      "status": "PASS",
+      "rootfs_and_input_write_denied": true,
+      "only_marked_fixture_binds": true,
+      "actual_output_private_collector_roundtrip": true,
+      "ordinary_raw_release": "DENIED; no sanitizer/authenticated bridge"
+    },
+    "E03": {
+      "status": "PASS",
+      "loopback_only_no_default_route": true,
+      "observedTopology": {
+        "interfaces": [
+          "lo"
+        ],
+        "ipv4RouteLines": 0,
+        "ipv6RouteLines": 0
+      },
+      "networkNamespaceDifferentFromHost": true,
+      "actual_container_request_denied_host_sink_received_zero_connections": true,
+      "networkProofScope": "isolated namespace/topology and one controlled local sink; not every possible egress",
+      "external_provider_calls": "NOT RUN"
+    },
+    "E04": {
+      "status": "PASS",
+      "actualCgroupLimits": {
+        "memoryMax": "67108864",
+        "pidsMax": "32",
+        "cpuMax": "50000 100000"
+      },
+      "cpuNrThrottledDelta": 12,
+      "cpuThrottledUsecDelta": 596282,
+      "pidsMaxEventsDelta": 1,
+      "memoryOomKillDelta": 1,
+      "memoryPressureCapBytes": 33554432,
+      "fixtureOnlyNoProductionSLA": true
+    },
+    "E05": {
+      "status": "PASS",
+      "observedProcessCount": 3,
+      "stopSeconds": 1.1044014999999998,
+      "containerStoppedPidZero": true,
+      "originalProcessesNotLive": true,
+      "cgroupEmptyOrRemoved": true,
+      "authenticated_cancel_revoke_pipeline": "NOT RUN"
+    },
+    "E06": {
+      "status": "PASS",
+      "freshContainerIdentityAndExactPinnedImage": true,
+      "engine_restart_crash_recovery": "NOT RUN",
+      "cleanupRecordedSeparately": true
+    }
+  },
+  "privateEngineCache": "/tmp/qa-s4-engine-rmkc5673",
+  "engine": {
+    "podmanVersion": "4.9.3",
+    "rootless": true,
+    "hostUid": 1000,
+    "cgroupManager": "cgroupfs",
+    "cgroupVersion": "v2",
+    "delegatedParent": "/sys/fs/cgroup/system.slice/qa-s4-b-r2.service",
+    "storageDriver": "vfs"
+  },
+  "image": {
+    "imageId": "sha256:0661f68f778501f85451a3d021721925f7999521cdc57e63f7e25c8df88fbc7a",
+    "busyboxSha256": "dbac288c29ba568459550a2da9e7ae0ded6b1fc728ee9fad3044c44e62d6ac14",
+    "rootfsTarSha256": "bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e",
+    "source": "signed Ubuntu busybox-static local fixture"
+  },
+  "ownedCleanup": {
+    "containers": [
+      {
+        "containerId": "f70b793915ade8faabfca4a574876f6a281c183c1ab0836bdfaa07e87ed6bb26",
+        "removed": true
+      },
+      {
+        "containerId": "8764d2dcf0bd28a173b1e9d77ce479e6548d22a3c5ae9f2b1df17867faad1179",
+        "removed": true
+      },
+      {
+        "containerId": "f0fc477aafc84b257ba649df6f6273da2354d7af58a77fb338207baf36c5b4fb",
+        "removed": true
+      },
+      {
+        "containerId": "e2ea83b60d2c531a383d84ad07b3065351ce109f4defe3b80b5fefd101063640",
+        "removed": true
+      }
+    ],
+    "privateStorageEmptyOfContainers": true,
+    "retainedMarkedCache": "/tmp/qa-s4-engine-rmkc5673"
+  },
+  "inputsAfter": {
+    "docs/S4-B-PROTOCOL.md": "7a40a08d9fd11745aa3d1b0ccb5d803c2eaba1e1b84102835e65dbcad7a5d728",
+    "spikes/s4/collector.py": "515bf7958a979c0476ff96c223ad72649ffe53d8841f94ffbc406fcc93477f94",
+    "spikes/s4b/README.md": "62e720b93fcc1a3d230fda5005f085d7ecc9bc970d0f56c0cb7bd188ed6c99e2",
+    "spikes/s4b/engine.py": "9c493db4f40d5885acfd2cb0ab881dd44df02d17c520c352d2c25fd5eaf42e10",
+    "spikes/s4b/run_engine.py": "3c411d42e8274297fd27456f45caafe018ccd746b0265626206bf5ce7bae0856",
+    "spikes/s4b/test_network.py": "78979fd09a7203899566549671c70b96a5366d6beb77291193b3dca3e31e2b97"
+  },
+  "elapsedSeconds": 17.524155,
+  "finishedAt": "2026-11-12T13:42:14.896825+00:00"
+}

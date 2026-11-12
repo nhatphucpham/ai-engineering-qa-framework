@@ -1,0 +1,167 @@
+{
+  "evidenceVersion": "s4-a-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "0d1c4539cd65fdbf38b931dbcf2d39debb1756e7",
+  "baselineSource": "caller-held Windows git rev-parse HEAD",
+  "python": "3.12.3",
+  "platform": "linux",
+  "kernel": "6.18.40.1-microsoft-standard-WSL2",
+  "uid": 1000,
+  "startedAt": "2026-11-12T10:04:37.375349+00:00",
+  "inputsBefore": {
+    "docs/S4-A-PROTOCOL.md": "ccf9da172de3f3e33596c0fdf954b03fdeff1dc50209af2b5f54c13a593310a2",
+    "spikes/s4/README.md": "f8cc50a91b5b8f61feb00eb95518c704616dcd7d0233f9872b507690014c37d2",
+    "spikes/s4/collector.py": "e85d6818cf45f95741b748587b0c0c59b7098601da26e277f91c1128acd0e1cd",
+    "spikes/s4/preflight.py": "104446c72082b68859af2d4972b8814caecdde683407e3248c33026bda057177",
+    "spikes/s4/run_collector.py": "f4f26ea30cf5c165e74528beecf7aaf5eac3f6285dab5d9e75f6ae7c79c53084",
+    "spikes/s4/test_preflight.py": "bf2be99d6cb1ca337938890822067c8a579694491c60e5910c407acd3dbcbb1c"
+  },
+  "status": "PASS",
+  "limits": [
+    "Private Linux filesystem subset, no container/engine launch/network/resource/cleanup proof",
+    "No authenticated IAP-B/broker/encrypted quarantine/ordinary release integration",
+    "Cooperative deadline only, no hard stalled-syscall timeout or atomic snapshot guarantee"
+  ],
+  "checks": {
+    "F01": {
+      "status": "PASS",
+      "launchGate": "BLOCKED",
+      "engineExecution": "NOT RUN",
+      "collectorLinuxCapable": true,
+      "inventory": {
+        "platform": "linux",
+        "python": "3.12.3",
+        "kernel": "6.18.40.1-microsoft-standard-WSL2",
+        "uid": 1000,
+        "tools": {
+          "docker": null,
+          "podman": null,
+          "nerdctl": null,
+          "runc": null,
+          "crun": null,
+          "rootlesskit": null,
+          "slirp4netns": null,
+          "newuidmap": null,
+          "newgidmap": null
+        },
+        "commonPaths": {
+          "/usr/bin/docker": false,
+          "/usr/bin/podman": false,
+          "/usr/bin/nerdctl": false,
+          "/usr/bin/runc": false,
+          "/usr/bin/crun": false,
+          "/usr/bin/rootlesskit": false,
+          "/usr/bin/slirp4netns": false,
+          "/usr/bin/newuidmap": false,
+          "/usr/bin/newgidmap": false,
+          "/usr/local/bin/docker": false,
+          "/usr/local/bin/podman": false,
+          "/usr/local/bin/nerdctl": false,
+          "/usr/local/bin/runc": false,
+          "/usr/local/bin/crun": false,
+          "/usr/local/bin/rootlesskit": false,
+          "/usr/local/bin/slirp4netns": false,
+          "/usr/local/bin/newuidmap": false,
+          "/usr/local/bin/newgidmap": false,
+          "/home/phucpn/.local/bin/podman": false,
+          "/home/phucpn/.local/bin/docker": false,
+          "/home/phucpn/.local/bin/nerdctl": false
+        },
+        "userNamespaceProbe": {
+          "status": "OBSERVED",
+          "exitCode": 0
+        },
+        "cgroup": {
+          "status": "OBSERVED",
+          "membership": "/non-systemd",
+          "rootWritable": false,
+          "currentWritable": false,
+          "controllers": [
+            "cpuset",
+            "cpu",
+            "io",
+            "memory",
+            "hugetlb",
+            "pids",
+            "rdma"
+          ],
+          "delegatedEnforcement": "NOT PROVEN"
+        },
+        "collectorFlags": {
+          "O_PATH": true,
+          "O_NOFOLLOW": true,
+          "O_DIRECTORY": true,
+          "O_NONBLOCK": true,
+          "O_CLOEXEC": true
+        },
+        "launchGate": "BLOCKED",
+        "engineExecution": "NOT RUN",
+        "reasonCodes": [
+          "ENGINE_CONTROL_ADAPTER_NOT_IMPLEMENTED"
+        ],
+        "hostFallback": false
+      }
+    },
+    "F02": {
+      "status": "PASS",
+      "private_regular_empty_nested_unicode_hash_length": true,
+      "root_identity_checked_scope_detached": true
+    },
+    "F03": {
+      "status": "PASS",
+      "invalid_path_cases": 10,
+      "leaf_and_directory_symlink_denied": true
+    },
+    "F04": {
+      "status": "PASS",
+      "actual_special_file_denials": {
+        "fifo": "E_TYPE",
+        "socket": "E_TYPE",
+        "nested": "E_TYPE",
+        "hardlink": "E_TYPE"
+      },
+      "regular_to_FIFO_before_pin_denied": true,
+      "two_second_harness_hang_guard": true
+    },
+    "F05": {
+      "status": "PASS",
+      "parent_rename_symlink_swap_stays_on_original_FD": true,
+      "pinned_leaf_unlink_replace_observed_denied": true,
+      "external_canary_not_returned": true
+    },
+    "F06": {
+      "status": "PASS",
+      "file_total_count_caps_enforced": true,
+      "actual_growth_and_same_size_write_observed_denied": true,
+      "failed_calls_no_payload_or_budget_commit": true
+    },
+    "F07": {
+      "status": "PASS",
+      "actual_cooperative_deadline_crossing_denied": true,
+      "missing_capability_denied": true,
+      "hard_syscall_timeout_and_cleanup": "NOT RUN"
+    },
+    "F08": {
+      "status": "PASS",
+      "all_role_channel_raw_denials": 20,
+      "fake_labels_cannot_enable_release": true,
+      "200_failure_calls_no_FD_leak": true,
+      "private_blob_repr_safe": true
+    }
+  },
+  "diagnostics": {
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "raw_base64_hex_scan": "PASS"
+  },
+  "inputsAfter": {
+    "docs/S4-A-PROTOCOL.md": "ccf9da172de3f3e33596c0fdf954b03fdeff1dc50209af2b5f54c13a593310a2",
+    "spikes/s4/README.md": "f8cc50a91b5b8f61feb00eb95518c704616dcd7d0233f9872b507690014c37d2",
+    "spikes/s4/collector.py": "e85d6818cf45f95741b748587b0c0c59b7098601da26e277f91c1128acd0e1cd",
+    "spikes/s4/preflight.py": "104446c72082b68859af2d4972b8814caecdde683407e3248c33026bda057177",
+    "spikes/s4/run_collector.py": "f4f26ea30cf5c165e74528beecf7aaf5eac3f6285dab5d9e75f6ae7c79c53084",
+    "spikes/s4/test_preflight.py": "bf2be99d6cb1ca337938890822067c8a579694491c60e5910c407acd3dbcbb1c"
+  },
+  "elapsedSeconds": 0.7983756639999982,
+  "finishedAt": "2026-11-12T10:04:38.204168+00:00"
+}

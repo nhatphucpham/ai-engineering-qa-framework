@@ -1,0 +1,97 @@
+{
+  "platform": "win32",
+  "python": "3.14.8",
+  "tools": {
+    "docker": null,
+    "podman": null,
+    "nerdctl": null,
+    "wsl": "C:\\WINDOWS\\system32\\wsl.EXE"
+  },
+  "commonPaths": {
+    "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe": false,
+    "C:\\Program Files\\RedHat\\Podman\\podman.exe": false,
+    "C:\\Program Files\\Podman\\podman.exe": false
+  },
+  "wsl": {
+    "status": "OBSERVED",
+    "observation": {
+      "platform": "linux",
+      "python": "3.12.3",
+      "kernel": "6.18.40.1-microsoft-standard-WSL2",
+      "uid": 1000,
+      "tools": {
+        "docker": null,
+        "podman": null,
+        "nerdctl": null,
+        "runc": null,
+        "crun": null,
+        "rootlesskit": null,
+        "slirp4netns": null,
+        "newuidmap": null,
+        "newgidmap": null
+      },
+      "commonPaths": {
+        "/usr/bin/docker": false,
+        "/usr/bin/podman": false,
+        "/usr/bin/nerdctl": false,
+        "/usr/bin/runc": false,
+        "/usr/bin/crun": false,
+        "/usr/bin/rootlesskit": false,
+        "/usr/bin/slirp4netns": false,
+        "/usr/bin/newuidmap": false,
+        "/usr/bin/newgidmap": false,
+        "/usr/local/bin/docker": false,
+        "/usr/local/bin/podman": false,
+        "/usr/local/bin/nerdctl": false,
+        "/usr/local/bin/runc": false,
+        "/usr/local/bin/crun": false,
+        "/usr/local/bin/rootlesskit": false,
+        "/usr/local/bin/slirp4netns": false,
+        "/usr/local/bin/newuidmap": false,
+        "/usr/local/bin/newgidmap": false,
+        "/home/phucpn/.local/bin/podman": false,
+        "/home/phucpn/.local/bin/docker": false,
+        "/home/phucpn/.local/bin/nerdctl": false
+      },
+      "userNamespaceProbe": {
+        "status": "OBSERVED",
+        "exitCode": 0
+      },
+      "cgroup": {
+        "status": "OBSERVED",
+        "membership": "/non-systemd",
+        "rootWritable": false,
+        "currentWritable": false,
+        "controllers": [
+          "cpuset",
+          "cpu",
+          "io",
+          "memory",
+          "hugetlb",
+          "pids",
+          "rdma"
+        ],
+        "delegatedEnforcement": "NOT PROVEN"
+      },
+      "collectorFlags": {
+        "O_PATH": true,
+        "O_NOFOLLOW": true,
+        "O_DIRECTORY": true,
+        "O_NONBLOCK": true,
+        "O_CLOEXEC": true
+      },
+      "launchGate": "BLOCKED",
+      "engineExecution": "NOT RUN",
+      "reasonCodes": [
+        "ENGINE_CONTROL_ADAPTER_NOT_IMPLEMENTED"
+      ],
+      "hostFallback": false
+    }
+  },
+  "launchGate": "BLOCKED",
+  "engineExecution": "NOT RUN",
+  "reasonCodes": [
+    "ENGINE_CONTROL_ADAPTER_NOT_IMPLEMENTED"
+  ],
+  "hostFallback": false
+}
