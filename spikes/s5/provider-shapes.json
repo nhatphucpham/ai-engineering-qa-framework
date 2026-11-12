@@ -1,0 +1,5 @@
+{
+  "webhook": {"action":"ready_for_review","number":7,"repository":{"id":42},"pull_request":{"number":7,"head":{"sha":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}}},
+  "timeline": {"id":101,"event":"ready_for_review","commit_id":null,"created_at":"2026-01-01T00:00:00Z"},
+  "current_pull": {"number":7,"head":{"sha":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},"draft":false}
+}

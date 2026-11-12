@@ -1,0 +1,43 @@
+{
+  "interpreter": "Python 3.14.8",
+  "command": "py -3 -B spikes/s5/test_s5.py",
+  "exit": 0,
+  "output": "test_conflict_and_fanout (__main__.OfflineConformance.test_conflict_and_fanout) ... ok\r\ntest_delayed_and_gap (__main__.OfflineConformance.test_delayed_and_gap) ... ok\r\ntest_duplicate_cross_ingress_assumption (__main__.OfflineConformance.test_duplicate_cross_ingress_assumption) ... ok\r\ntest_invalid_fails_closed (__main__.OfflineConformance.test_invalid_fails_closed) ... ok\r\ntest_raw_duplicate_and_no_crosswalk (__main__.OfflineConformance.test_raw_duplicate_and_no_crosswalk) ... ok\r\ntest_second_ready_same_sha (__main__.OfflineConformance.test_second_ready_same_sha) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.001s\r\n\r\nOK\r\n",
+  "before": [
+    {
+      "Path": "docs/S5-PROTOCOL.md",
+      "Hash": "4EE36AC33A97505D951ADD0604CDAA50669D427E716AC2D245CBFEDBCBF4FD02"
+    },
+    {
+      "Path": "spikes/s5/normalizer.py",
+      "Hash": "3C4DDBDDA71F554805D830375D4A7435D167AB6251D3F52AA3ACBC0AD759DD10"
+    },
+    {
+      "Path": "spikes/s5/test_s5.py",
+      "Hash": "ED29238ED8D2BF2D9A56FE7C46927A489A962A84C8402C924CF26670E9E0659E"
+    },
+    {
+      "Path": "spikes/s5/provider-shapes.json",
+      "Hash": "B5986094659F7FAB8ACDD19002AAAA4909AF8D907C5D91E51676103665501BF2"
+    }
+  ],
+  "after": [
+    {
+      "Path": "docs/S5-PROTOCOL.md",
+      "Hash": "4EE36AC33A97505D951ADD0604CDAA50669D427E716AC2D245CBFEDBCBF4FD02"
+    },
+    {
+      "Path": "spikes/s5/normalizer.py",
+      "Hash": "3C4DDBDDA71F554805D830375D4A7435D167AB6251D3F52AA3ACBC0AD759DD10"
+    },
+    {
+      "Path": "spikes/s5/test_s5.py",
+      "Hash": "ED29238ED8D2BF2D9A56FE7C46927A489A962A84C8402C924CF26670E9E0659E"
+    },
+    {
+      "Path": "spikes/s5/provider-shapes.json",
+      "Hash": "B5986094659F7FAB8ACDD19002AAAA4909AF8D907C5D91E51676103665501BF2"
+    }
+  ],
+  "reason": "EOF blank-line normalization only; preserve v4 historical hashes"
+}

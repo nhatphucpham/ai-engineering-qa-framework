@@ -1,0 +1,5 @@
+# S4-D active lifecycle harness
+
+Protocol: [S4-D-PROTOCOL](../../docs/S4-D-PROTOCOL.md). Trusted local synthetic composition of S4-C and IAP-B. The trusted harness calls in-process lifecycle methods directly; no client-facing facade or request whitelist is implemented. After activation, old queued cancel is blocked by a DB trigger. Reservations compete under the identity transaction mutex; cleanup is an external effect followed by a separately committed observation. `failed_cleanup_unconfirmed` stays failed on late observed cleanup. Retry is prohibited for the run even after cleanup; no retry policy is implemented.
+
+Run only with the pinned S2 PostgreSQL and S6-B/WSL prerequisites already prepared, then `py -3 -B spikes/s4d/run_s4d.py docs/s4d-results/<fresh-id>.json`. Runner creates a fresh schema and an owned transient rootless helper; never overwrite evidence. It is a test harness, not a public endpoint or crash recovery mechanism. Review and actual results are tracked in [S4-D-RESULTS](../../docs/S4-D-RESULTS.md).

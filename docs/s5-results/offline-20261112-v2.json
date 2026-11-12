@@ -1,0 +1,42 @@
+{
+  "interpreter": "Python 3.14.8",
+  "command": "py -3 -B spikes/s5/test_s5.py",
+  "exit": 0,
+  "output": "test_conflict_and_fanout (__main__.OfflineConformance.test_conflict_and_fanout) ... ok\r\ntest_delayed_and_gap (__main__.OfflineConformance.test_delayed_and_gap) ... ok\r\ntest_duplicate_cross_ingress_assumption (__main__.OfflineConformance.test_duplicate_cross_ingress_assumption) ... ok\r\ntest_invalid_fails_closed (__main__.OfflineConformance.test_invalid_fails_closed) ... ok\r\ntest_raw_duplicate_and_no_crosswalk (__main__.OfflineConformance.test_raw_duplicate_and_no_crosswalk) ... ok\r\ntest_second_ready_same_sha (__main__.OfflineConformance.test_second_ready_same_sha) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.000s\r\n\r\nOK\r\n",
+  "before": [
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\docs\\S5-PROTOCOL.md",
+      "Hash": "AB572C749F9CA138E2927CF4571656016665197CA020AD16366066ACAB4CF0E8"
+    },
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\spikes\\s5\\normalizer.py",
+      "Hash": "60CF46CCA81BD07C185C4240F249A5A87C48F8E77EFC573D0144C76AC1237E24"
+    },
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\spikes\\s5\\test_s5.py",
+      "Hash": "5081D4D0A6159CE30212B8D1EED8B807A841646DF07BBD339D0547C69515C2F2"
+    },
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\spikes\\s5\\provider-shapes.json",
+      "Hash": "B5986094659F7FAB8ACDD19002AAAA4909AF8D907C5D91E51676103665501BF2"
+    }
+  ],
+  "after": [
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\docs\\S5-PROTOCOL.md",
+      "Hash": "AB572C749F9CA138E2927CF4571656016665197CA020AD16366066ACAB4CF0E8"
+    },
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\spikes\\s5\\normalizer.py",
+      "Hash": "60CF46CCA81BD07C185C4240F249A5A87C48F8E77EFC573D0144C76AC1237E24"
+    },
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\spikes\\s5\\test_s5.py",
+      "Hash": "5081D4D0A6159CE30212B8D1EED8B807A841646DF07BBD339D0547C69515C2F2"
+    },
+    {
+      "Path": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\spikes\\s5\\provider-shapes.json",
+      "Hash": "B5986094659F7FAB8ACDD19002AAAA4909AF8D907C5D91E51676103665501BF2"
+    }
+  ]
+}

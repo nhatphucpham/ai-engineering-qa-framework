@@ -1,3 +1,23 @@
+# Hiện hành — commit/push S4-C/D/S5 và mở chat mới, 13/11/2026
+
+User yêu cầu **“Commit push và mở sessiong mới làm tiếp”**. Quyền: commit/push toàn output S4-C/D/S5 + batch đã CLEAN, rồi tạo chat local mới trong cùng project để tiếp critical path. [Pre-push record](CDS5-PUSH-REVIEW-2026-11-13.md) ghi exact snapshot/checks/staging; Git intent chưa là proof push, actual hash/remote xác minh sau action và đưa vào prompt chat mới. Các entry “uncommitted/no Git action” bên dưới là lịch sử lúc nghiệm thu. Nền master32bd110, không reset/clean/stash/force hoặc đổi worktree. Pre-push EOF normalization trên3 new source files + S5 results không đổi behavior; latest actual S4-D R4 và S5v5 hashes được tạo lại, giữ R3/v4 lịch sử.
+
+[Handoff chat mới](NEXT-SESSION-S4E.md): tiếp S4-E versioned trusted-local crash/orphan/helper-loss recovery và reconciliation, prerequisite cho worker thực. Giữ nguyên S4-C R2/S4-D R3/S5v4 evidence và fixtures; không biến metadata retirement/old cleanup bool thành proof tài nguyên sạch. Dùng high-model agent/reviewer theo preference user, tránh đọc/làm trùng vì credit hạn chế. Không mới cài toàn máy, dùng API/account/project/key thật, chọn production stack hoặc publish/pilot. Full product gates vẫn mở theo [batch](PARALLEL-REMAINING-2026-11-12.md).
+
+# Quyết định hiện hành
+
+## D-38 — 12/11/2026: ưu tiên throughput bằng high-model agents, giữ gate thực
+
+User báo còn20% weekly credit và yêu cầu agent mô hình cao xử lý nhanh phần còn lại. Hai GPT-6.1 Terra high implement S4-D và S5 song song, Terra high reviewer độc lập; root giữ shared DB/WSL mutations tuần tự. Không coi credit20% là token budget đo được, không hứa hoàn tất sản phẩm chỉ vì thêm agent. [Hồ sơ](PARALLEL-REMAINING-2026-11-12.md): S4-D R3 actual4 groups/42 inputs PASS, S5 v4 offline6 checks CLEAN, root64 regressions PASS, R1 ERROR/historical snapshots giữ nguyên. Batch DONE selected scopes sau independent exact holistic CLEAN R2, all findings CLOSED; không source/evidence/fixture cũ bị sửa hoặc Git action mới. Full runtime/broker/restore/GitHub-live/native/packaging gates còn mở; next theo critical-path trong hồ sơ. Toàn entry trước giữ byte-exact suffix.
+
+# Quyết định hiện hành
+
+## D-37 — 12/11/2026: S4-A/B pushed; tiếp bounded S4-C local admission
+
+User commit/push + tiếp tục: actual master/origin **32bd110792c835f982b6f4226f7309425a17ff3c** verified equal, two pre-push CLEAN rounds; no force/reset/clean/stash. [S4-C protocol](S4-C-PROTOCOL.md) chọn trusted local Windows service authority→owned rootless Linux helper, không remote worker/TLS/product stack. No new packages/system configuration; dùng lại approved transient delegation và pinned local DB/libs.
+
+[Results](S4-C-RESULTS.md) R2 C01–04 PASS12.799s/38 inputs match; revoke-beforeconsume no launch, duplicate one-use denied, postlaunch revoke triggers cleanup only on explicit supervision (~1.205s). Consumed→uncertain remains unresolved after postcommit fault; metadata retirement/new attempt cannot bypass cleanup. New wrong-job/generation negatives keep original live/consumed until actual cleanup. `cleaned` không là cancelled/completed/report_ready. DONE selected scope — independent CLEAN R2, S4C-RV-01 reviewer xác nhận CLOSED; full gates vẫn mở. DB STOPPED, transient unit/cgroup gone, core45+preflight4+parser4 PASS,373 prior paths preserved before5 prepends. Remaining active lifecycle/incident/retry/crash/transport/broker/sanitized-export gates open; new output not pushed.
+
 # Hiện hành — commit/push S4-A/B và tiếp S4-C, 12/11/2026
 
 User yêu cầu **“commit và push + tiếp tục”**: cho phép commit/push output S4-A/B đã CLEAN và tiếp bước kế hoạch. [Pre-push review](S4-AB-PUSH-REVIEW.md) ghi exact snapshot/checks/verdict. Git intent chưa là proof push: actual commit/remote hash xác minh sau Git action; current baseline master0d1c453. Các câu “uncommitted”, “No Git action” và baseline trong entry S4-A/B phía dưới là lịch sử lúc nghiệm thu, không hủy quyền Git mới.
