@@ -1,4 +1,36 @@
+# Yêu cầu Git và bước tiếp — 12/11/2026
+
+User yêu cầu **“Commit, push và tiếp tục”** cho toàn output bàn giao HS2, IAP contract và lần chạy thử hiện có đã CLEAN. [Pre-push record](IAP-PUSH-REVIEW.md) kiểm exact snapshot trước Git action; kiểm Git log/remote và handoff mới nhất sau action để biết commit/push thực, không coi intent này là bằng chứng đã push. Những câu chưa commit/push/không có quyền Git trong phần dưới là lịch sử trước yêu cầu mới.
+
+Sau push sẽ tiếp **IAP-A queued-command subset**: common transaction-aware user identity/live policy/start/cancel/idempotency trên fresh synthetic namespace, protocol/selected acceptance trước code. Không broker/service-worker/engine/production stack hoặc gọi account/key/API thật; không dùng subset DONE đóng full S4/S6/P3-B/P4-B. Giữ source/protocol/evidence/fixture cũ; output phát triển sau push để review riêng, chưa tự push tiếp.
+
+# Cập nhật chạy thử — 12/11/2026
+
+Theo yêu cầu “Hãy run thử”, đã chạy **implementation hiện có** với dữ liệu synthetic: S6-B identity/session/RBAC9 groups PASS14.939s và core/report45 tests PASS33.866s. Prerequisites local pins READY; fresh schema/new evidence,31 inputs before=after/current hashes match, DB đã stop/status exit3,328 original nonignored paths không đổi ngay sau run. [Kết quả/evidence/review](IAP-TRY-RUN-2026-11-12.md) **DONE cho hồ sơ chạy thử subset sau independent CLEAN TRY-R1 và required checks PASS**; reviewer Terra high xác nhận không finding trong scope.
+
+Chưa có implementation để chạy24 IAP integration cases: tất cả vẫn NOT RUN integration; lượt chạy này không thêm HTTP/UI/worker/broker/runtime hoặc đóng full S4/S6/P3-B/P4-B. Không source/old protocol/evidence/fixture thay đổi; nội dung docs cũ giữ nguyên phía dưới. No real account/key/API, production stack, commit/push. Việc tiếp vẫn bounded integration harness theo IAP §10 sau scope/schema/selected acceptance mới, không tự triển khai trong lượt chạy thử.
+
+# Bàn giao hiện hành — IAP docs slice, 12/11/2026
+
+Baseline master `ef6d3c162ff68fab568d19c8eac9c50892d304c2`. Tiếp checkout hiện tại với3 tracked docs modified +1 review untracked đúng bàn giao, giữ mọi nội dung bốn file đó và source/evidence cũ. User yêu cầu contract/acceptance cho identity→application/live-policy/broker; không runtime implementation/Git action.
+
+Đã tạo [IAP-1.0.0 protocol](IDENTITY-APPLICATION-PROTOCOL.md), [review record](IDENTITY-APPLICATION-REVIEW.md), thêm current entries vào NEXT/SESSION-PLAN/IMPLEMENTATION-PLAN/DECISION-LOG. Output **DONE sau independent CLEAN WT-IAP-R2/R2a và required docs checks PASS**, chỉ docs/design; actual integration24 cases **NOT RUN**. Reviewer độc lập GPT-6.1 Terra high `/root/identity_contract_review` chỉ định từ đầu, stable IAP-RV IDs; actual checks/verdict ghi ở record, IAP-RV-01…04 CLOSED; không finding chưa xử lý trong scope.
+
+Source mapping làm rõ `Identity.check` là transaction riêng, S6-B queued run chưa nối S2; Vault private open không là authenticated broker; core chỉ proposal/staged replay, không persisted/read/export. Contract tách user/service identities và RunDelegation, interactive logout/expiry với credential/project/delegation revoke, atomic live-policy mutation/release cutover, secret-use tới trusted sink và fail-closed taint/lineage. Đây là quyết định thiết kế D-32, chưa behavior chạy được.
+
+Checks thích hợp: local links/fences/whitespace/diff, snapshot hashes/source symbols, nguyên vẹn baseline và old handoff suffixes. Không rerun DB/S1/S6/core suite khi chỉ thêm docs; không tạo runtime PASS mới hoặc sửa evidence hashes/EOL lịch sử. DB/engine không dùng trong phiên này; observation S4 NOT RUN từ11/11 không là inventory mới.
+
+Next: bounded transaction-aware UserIdentity/LivePolicy/RunCommand synthetic harness theo protocol §10 sau scope/schema/selected acceptance/preflight mới. Full S4/S6/P3-B/P4-B–E/P5/P6 còn mở, full P4-A partial; không production stack, account/key/API thật, worker/broker/OS-key implementation, pilot hoặc commit/push. Các entries lịch sử phía dưới (kể cả HS2 DONE/Git push) giữ nguyên, chỉ dùng đúng scope/thời điểm.
+
 # Bàn giao phiên — mới nhất ở đầu
+
+## Bàn giao session mới sau push — 12/11/2026
+
+User yêu cầu “Bàn giao cho session mới”. **Commit/push trước đã hoàn tất**: master/HEAD/origin/master/remote cùng **ef6d3c162ff68fab568d19c8eac9c50892d304c2**, message `feat: add capacity, encrypted storage and identity spikes`,57 files. Cây sạch ngay sau push và đầu lượt bàn giao. Kiểm từng committed blob khớp inventory đã review;17 working/index differences chỉ newline, normalized contents toàn57 khớp. [Pre-push review](S2C-S6-PUSH-REVIEW.md) có hai CLEAN rounds; record trước action bên dưới giữ nguyên lịch sử.
+
+Đã cập nhật [NEXT-SESSION](NEXT-SESSION.md) entry point, [SESSION-PLAN](SESSION-PLAN.md) plan một phiên và thêm [review bàn giao](SESSION-TRANSFER-2026-11-12-REVIEW.md). **Bàn giao DONE sau independent CLEAN HS2-R1**, không finding chưa xử lý; đây là docs-only output mới, bốn file này chưa commit/push. Giữ checkout hoặc mang đủ bốn docs cùng commit ef6d3c1 khi chuyển session/máy; không tự commit/push/tạo chat hay triển khai slice mới trong lượt bàn giao. Implementation/schema/fixtures/protocols/evidence cũ giữ nguyên.
+
+Next dự kiến: identity→application/live-policy/broker contract và acceptance/failure protocol, port/source/trust matrix trước integration. S2-A/B/C và S6-A/B synthetic subsets DONE/CLEAN; full S4/S6/P3-B/P4-B và worker/broker/deployed auth/OS keys còn mở. S4 actual controls NOT RUN; discovery11/11 không bảo đảm tình trạng mọi máy/hôm nay. Retained local DB đã stop; portable/deps/dummy fixtures trong ignored cache không lên remote, máy mới cần pinned setup/preflight. Không rerun DB/S1/core suite cho docs-only; actual checks trước push12/11 core45+prerequisites16 PASS, DB workloads9/10/9 là evidence11/11 unchanged.
 
 ## Commit/push theo yêu cầu — 12/11/2026
 

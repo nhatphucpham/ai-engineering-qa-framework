@@ -1,12 +1,58 @@
-# Plan hiện hành — sau S6-B identity/session/RBAC execution
+# Yêu cầu Git và bước tiếp — 12/11/2026
 
-12/11/2026: user yêu cầu commit/push output S2-C/S6-A/S6-B đã review; [pre-push record](S2C-S6-PUSH-REVIEW.md). Commit chứa cập nhật này là snapshot bàn giao mới; kiểm Git log/status/remote thay vì áp trạng thái chưa commit của ngày11/11. Quyền Git lần này cho output hiện tại; chưa giao triển khai slice tiếp.
+User yêu cầu **“Commit, push và tiếp tục”** cho toàn output bàn giao HS2, IAP contract và lần chạy thử hiện có đã CLEAN. [Pre-push record](IAP-PUSH-REVIEW.md) kiểm exact snapshot trước Git action; kiểm Git log/remote và handoff mới nhất sau action để biết commit/push thực, không coi intent này là bằng chứng đã push. Những câu chưa commit/push/không có quyền Git trong phần dưới là lịch sử trước yêu cầu mới.
 
-## Current S6-B outcome / next session
+Sau push sẽ tiếp **IAP-A queued-command subset**: common transaction-aware user identity/live policy/start/cancel/idempotency trên fresh synthetic namespace, protocol/selected acceptance trước code. Không broker/service-worker/engine/production stack hoặc gọi account/key/API thật; không dùng subset DONE đóng full S4/S6/P3-B/P4-B. Giữ source/protocol/evidence/fixture cũ; output phát triển sau push để review riêng, chưa tự push tiếp.
 
-User yêu cầu “tiếp”. [S6-B protocol](S6-B-PROTOCOL.md) chốt trước code, `spikes/s6b/` thực thi actual Argon2id/dummy accounts/opaque sessions/refresh reuse/reset/epochs/fixed roles. [R4](s6b-results/2026-11-11-r4.json)9 groups PASS13.260s,31 source/input hashes before=after;5 prerequisite methods PASS0.893s/core45 PASS34.430s. [Review](S6-B-REVIEW.md) final CLEAN WT-S6B-R4-D2, synthetic subset DONE. Giữ S2-C/S6-A subsets DONE/uncommitted work/old inputs; không production auth/backend/DB/runtime choice.
+# Cập nhật chạy thử — 12/11/2026
 
-Tiếp **identity→application/live-policy/broker integration contract và acceptance/failure protocol**, phân biệt user actor với service/worker identity, current policy/epoch với snapshot grant, S6-A private vault với scoped broker operation. Chưa tự chọn transport/runtime/platform hoặc route trusted helpers ra network. Thiết kế/test integration riêng trước claim actual P4-B lifecycle; no real account/key/API. S4 actual engine/rootless image/network/resource/collector/cleanup cần prerequisites riêng; thiếu vẫn NOT RUN, tiếp phần độc lập thay mock gate.
+Theo yêu cầu “Hãy run thử”, đã chạy **implementation hiện có** với dữ liệu synthetic: S6-B identity/session/RBAC9 groups PASS14.939s và core/report45 tests PASS33.866s. Prerequisites local pins READY; fresh schema/new evidence,31 inputs before=after/current hashes match, DB đã stop/status exit3,328 original nonignored paths không đổi ngay sau run. [Kết quả/evidence/review](IAP-TRY-RUN-2026-11-12.md) **DONE cho hồ sơ chạy thử subset sau independent CLEAN TRY-R1 và required checks PASS**; reviewer Terra high xác nhận không finding trong scope.
+
+Chưa có implementation để chạy24 IAP integration cases: tất cả vẫn NOT RUN integration; lượt chạy này không thêm HTTP/UI/worker/broker/runtime hoặc đóng full S4/S6/P3-B/P4-B. Không source/old protocol/evidence/fixture thay đổi; nội dung docs cũ giữ nguyên phía dưới. No real account/key/API, production stack, commit/push. Việc tiếp vẫn bounded integration harness theo IAP §10 sau scope/schema/selected acceptance mới, không tự triển khai trong lượt chạy thử.
+
+# Session hiện hành — contract IAP-1.0.0, 12/11/2026
+
+Yêu cầu mới từ session tiếp nhận thay trạng thái “chỉ chuẩn bị bàn giao” bên dưới: thực hiện identity→application/live-policy/broker **contract và acceptance/failure protocol**, chưa runtime integration. Baseline master `ef6d3c162ff68fab568d19c8eac9c50892d304c2`; bốn docs bàn giao sau push đã có, giữ toàn nội dung cũ bằng entry mới, không reset/clean/stash/chuyển worktree.
+
+Outputs: [protocol](IDENTITY-APPLICATION-PROTOCOL.md) IAP-1.0.0 với port/source/trust/operation matrices và24 obligations; [review record](IDENTITY-APPLICATION-REVIEW.md); current NEXT/plan/handoff/implementation plan/decision D-32. **DONE docs slice sau independent CLEAN WT-IAP-R2/R2a và required docs checks PASS**; doneWhen docs-only đã đạt: source mapping chính xác, user/service và snapshot/live/private-Vault/broker tách rõ, acceptance có expected/observations/NOT RUN, links/fences/preservation/diff checks PASS và independent Terra high CLEAN trên latest snapshot, stable IAP-RV IDs. Không dùng DONE slice đóng full product gates.
+
+Quyết định ghép: interactive access/family lifetime không là background worker credential. RunDelegation có nguồn/epoch/ceiling riêng; logout/access expiry dừng interactive, còn reset/change/disable/admin-change hoặc project/delegation revoke fence background. Snapshot promotion không mở rộng quyền cũ. Common atomic auth/mutation và external release/revoke ordering là yêu cầu thiết kế, chưa provider/dispatcher implementation. Broker chỉ sink-bound secret-use, không raw-secret/raw-log read/export/stream/attachment/source cho bất cứ role nào.
+
+Checks phiên này chỉ docs/source preservation; không DB/core/runtime rerun, không tạo integration PASS. Reviewer độc lập model cao chỉ định trước sửa; gửi exact snapshot + source/evidence/checks, fix→recheck→re-review đến CLEAN. Kết quả và hashes tại review record. Giữ record HS2 nguyên vẹn, source/schema/protocol/evidence cũ và fixture có lỗi không đổi; thêm current entries để phân biệt lịch sử với tiến độ mới.
+
+Tiếp sau output này: chọn bounded synthetic common-policy/RunCommand harness theo protocol §10, namespace mới + version/schema/selected obligations trước code; không tự bắt đầu ngoài scope phiên contract. S4 actual controls NOT RUN; full S6/P3-B/P4-B còn mở. No real accounts/keys/API/projects, production stack/runtime integration, commit/push/publish.
+
+---
+
+Phần dưới là kế hoạch/bàn giao lịch sử, giữ nguyên bytes; “dự kiến/chưa triển khai slice” áp dụng tại thời điểm bàn giao, không phủ nhận draft contract mới ở trên.
+
+# Plan cho session tiếp — sau push ef6d3c1
+
+12/11/2026. Baseline master **ef6d3c162ff68fab568d19c8eac9c50892d304c2 đã push/remote verified**, gồm57 files S2-C/S6-A/S6-B. [NEXT-SESSION](NEXT-SESSION.md) là entry point; bốn docs bàn giao mới sau push chưa commit, phải giữ/chuyển đủ. Những plan thực thi bên dưới là lịch sử, không là việc cần chạy lại. User hiện yêu cầu chuẩn bị bàn giao; chưa triển khai slice mới hoặc Git action mới.
+
+## Mục tiêu dự kiến cho một phiên
+
+Chốt **contract và acceptance/failure protocol cho identity→application/live-policy/broker** thuộc hướng P3-B/P4-B. Giải quyết chỗ ghép giữa S6-B user/session/snapshot grants, application/core report, S2 transaction/outbox và S6-A private Vault. Đây là protocol/design slice trước integration, không claim có API/worker/broker mới.
+
+Outputs dự kiến (chưa có tại lúc bàn giao): một protocol versioned `docs/IDENTITY-APPLICATION-PROTOCOL.md` có trust/authority/operation matrix, mapping ports→source hiện có và failure matrix; một review record mới cho slice; cập nhật current plan/decision/handoff theo kết quả. Không đổi frozen protocols hoặc migrate các spike cũ để giả đã tích hợp. Nếu phiên sau mở rộng sang harness, ghi scope/acceptance mới trước code và chỉ claim actual behavior đã chạy; không dùng prose contract đóng integration gate.
+
+## Trình tự và điều kiện xong
+
+1. Kiểm Git/remote/status/cache thực; đọc AGENTS/skill/review workflow và current docs. Mang đủ bốn docs chưa commit nếu đổi checkout. Chỉ định high-model reviewer read-only từ đầu, giao scope/source/evidence cùng bản cụ thể.
+2. Đọc S6-B `Identity.dispatch`/trusted `_Store`, S6-A Vault/raw-content denial, S2-C/S2-B transactions và `qa_core/application.py`/runtime/publication. Liệt kê port nào có implementation, port nào chỉ thiết kế; không tạo second rules engine hoặc tự chọn production runtime/DB/transport.
+3. Chốt user actor vs service/worker identity, credential/session/role/project live state vs persisted snapshot grant, trusted policy provider và thao tác nào cần atomic recheck cùng mutation. Scope project/run/content/version/attempt không suy từ client role/authorized/cleanup flag hoặc ciphertext possession.
+4. Mapping tối thiểu start/cancel/read-report/source/export/secret-use: preconditions, owner component, trust input, current policy/epoch fence, deny/error, audit/outbox/rollback/retry boundary. Chỉ rõ raw-secret/raw-log direct read/export/stream/attachment luôn deny mọi role; secret-use qua scoped broker là proposed contract, chưa actual injection. Không tự approve hoặc gửi whole-input replay package ra ordinary read/export.
+5. Failure matrix phải phân biệt old/expired/reset/disabled session, refresh replay, cross-project ref, role promotion không mở rộng snapshot/downgrade/revoke, thay policy giữa authorize và write, stale worker/attempt/lease, broker misuse và secret-tainted output. Mỗi case có expected, observation/evidence cần thu và NOT RUN nếu chưa harness; synthetic bool không chứng minh authenticated worker cleanup.
+6. Reviewer kiểm đúng latest output: tính chính xác/thực dụng/khả năng kiểm, lỗi cũ/tái xuất hiện/mới. Fix→checks→re-review đến CLEAN, stable IDs, không số vòng tối đa. Docs checks links/fences/diff/source-reference preservation phù hợp; không rerun suite/DB chỉ vì viết plan.
+7. DONE chỉ protocol/output sau CLEAN+checks, full runtime integration vẫn open. Bàn giao ghi actual/unknown/next action; không commit/push docs hoặc implementation mới khi chưa được giao.
+
+## Nhánh prerequisite
+
+S4 actual engine controls vẫn NOT RUN từ discovery11/11. Khi công việc cần engine, inventory lại khả năng hiện tại trước khi gọi READY, không assume hôm nay y hệt; cần runnable rootless engine/pinned image và actual network/resource/collector/cleanup evidence. Không global install/host fallback/mock PASS. Protocol độc lập tiếp tục nếu engine thiếu. Local retained PostgreSQL cluster đã stop; chỉ start marker-bound synthetic cluster khi actual DB check được chọn, theo S2 README. Máy mới cần setup/preflight pins trước; cache không ở remote.
+
+## Verification và semantics
+
+Source/core/schema/corpus/goldens/old protocols/evidence giữ nguyên nếu chỉ làm contract. Runtime report/completion proposal và staged replay package chưa là durable completed/outbox hoặc ordinary scoped export. Declared/effective constraints, revision/provenance/input anchors/humanDecision phải bảo toàn; legacy projection unsupported giữ nguyên. No real accounts/keys/API/projects/pilot/publish hoặc production stack/platform choice.
 
 ## S2-C đã thực thi (lịch sử)
 

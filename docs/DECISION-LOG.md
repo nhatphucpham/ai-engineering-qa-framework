@@ -1,3 +1,21 @@
+# Yêu cầu Git và bước tiếp — 12/11/2026
+
+User yêu cầu **“Commit, push và tiếp tục”** cho toàn output bàn giao HS2, IAP contract và lần chạy thử hiện có đã CLEAN. [Pre-push record](IAP-PUSH-REVIEW.md) kiểm exact snapshot trước Git action; kiểm Git log/remote và handoff mới nhất sau action để biết commit/push thực, không coi intent này là bằng chứng đã push. Những câu chưa commit/push/không có quyền Git trong phần dưới là lịch sử trước yêu cầu mới.
+
+Sau push sẽ tiếp **IAP-A queued-command subset**: common transaction-aware user identity/live policy/start/cancel/idempotency trên fresh synthetic namespace, protocol/selected acceptance trước code. Không broker/service-worker/engine/production stack hoặc gọi account/key/API thật; không dùng subset DONE đóng full S4/S6/P3-B/P4-B. Giữ source/protocol/evidence/fixture cũ; output phát triển sau push để review riêng, chưa tự push tiếp.
+
+# Quyết định phiên hiện hành
+
+## D-32 — 12/11/2026: contract nối identity tới application/live-policy/broker
+
+User giao slice contract và acceptance/failure protocol sau bàn giao HS2-R1, không runtime integration hoặc commit/push. Giữ checkout/master ef6d3c1 cùng bốn docs bàn giao chưa commit; source/protocol/evidence/fixtures cũ và nội dung bàn giao giữ nguyên. [IAP-1.0.0](IDENTITY-APPLICATION-PROTOCOL.md) bổ sung trust/authority/source/operation matrix và24 obligations. [Review](IDENTITY-APPLICATION-REVIEW.md) CLEAN WT-IAP-R2/R2a, IAP-RV-01…04 CLOSED, required docs checks PASS, **DONE docs slice**; chỉ design, không biến source reasoning hoặc historical subset PASS thành integration evidence.
+
+Lý do: S6-B `check` không atomic với S2 mutation, private Vault chưa authenticate broker, pure core chỉ proposal/package. Chọn trusted transaction-aware live-policy fences cho mutation, common release-admission/revoke ordering cho external effects; không nối bằng client authorized/cleanup bool hoặc cache TTL. Trước implementation phải formalize strict versioned records/ports và chứng minh boundary; chưa chọn production transport/runtime/DB/stack.
+
+RunDelegation mới có nguồn và snapshot ceiling, gắn live initiator credential epoch/project/membership/policy; service enrollment/audience/assignment riêng user. Đóng desktop/access expiry/logout không tự cancel run đã commit, đáp ứng worker chạy độc lập desktop; reset/change/disable/admin-change và delegation/project revoke fence background, không auto-reissue. Đây là semantics thiết kế mới, S6-B chưa có provider background; không gọi `check` bằng token giả. Role/policy widening không mở rộng grant/run cũ, cần new snapshot/lineage. Event ingress dùng subscription service delegation, không bịa human initiator.
+
+Broker chỉ server-owned sink-bound use theo project/run/attempt/purpose/ref/version/epoch/live policy, không raw secret trả cho caller; raw-secret/tainted-log read/export/stream/attachment/source luôn deny mọi role. Safe ordinary content/export cần trusted classification/lineage/projection chưa có, không gửi whole-input replay ra QA/model outbound. Missing controls/provider/latest anchors phải blocked/NOT RUN. Full S4/S6/P3-B/P4-B/readiness vẫn mở. Next bounded common-policy/RunCommand synthetic harness, chốt schema/acceptance/preflight trong scope mới trước code; chưa tự triển khai ngoài docs slice.
+
 # Decision log
 
 ## D-31 — 12/11/2026: lưu và đẩy S2-C/S6-A/S6-B đã review

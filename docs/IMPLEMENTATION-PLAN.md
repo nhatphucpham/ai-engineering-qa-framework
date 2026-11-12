@@ -1,3 +1,17 @@
+# Yêu cầu Git và bước tiếp — 12/11/2026
+
+User yêu cầu **“Commit, push và tiếp tục”** cho toàn output bàn giao HS2, IAP contract và lần chạy thử hiện có đã CLEAN. [Pre-push record](IAP-PUSH-REVIEW.md) kiểm exact snapshot trước Git action; kiểm Git log/remote và handoff mới nhất sau action để biết commit/push thực, không coi intent này là bằng chứng đã push. Những câu chưa commit/push/không có quyền Git trong phần dưới là lịch sử trước yêu cầu mới.
+
+Sau push sẽ tiếp **IAP-A queued-command subset**: common transaction-aware user identity/live policy/start/cancel/idempotency trên fresh synthetic namespace, protocol/selected acceptance trước code. Không broker/service-worker/engine/production stack hoặc gọi account/key/API thật; không dùng subset DONE đóng full S4/S6/P3-B/P4-B. Giữ source/protocol/evidence/fixture cũ; output phát triển sau push để review riêng, chưa tự push tiếp.
+
+# Cập nhật tiến độ — 12/11/2026, IAP contract slice
+
+Baseline code/evidence master `ef6d3c162ff68fab568d19c8eac9c50892d304c2` đã push từ phiên trước; docs bàn giao và output phiên này chưa commit/push. Theo yêu cầu mới, soạn [identity→application/live-policy/broker protocol IAP-1.0.0](IDENTITY-APPLICATION-PROTOCOL.md) và [review](IDENTITY-APPLICATION-REVIEW.md), **DONE docs/design slice sau independent CLEAN WT-IAP-R2/R2a + required docs checks PASS; integration NOT RUN**. Giữ toàn kế hoạch gốc bên dưới, entry này cập nhật trạng thái thay các câu “chưa có contract ghép” tại thời điểm cũ.
+
+P3-B/P4-B tiếp bằng common trust/authority/operation/failure contract trước implementation. Source S6-B session/grant/queued-resource, S2 lease/durable predicates, S6-A private store và core proposal/package đều vẫn riêng. Service/worker enrollment, transaction-aware live policy, ordinary scoped read/export, broker/sink/taint/collector chưa implemented.24 IAP obligations đều NOT RUN integration; docs CLEAN/DONE chỉ đóng contract output, không full S2/S4/S6/P3-B/P4-A/P4-B hoặc readiness.
+
+Việc tiếp là bounded synthetic UserIdentity/LivePolicy/RunCommand harness theo protocol §10, chốt version/schema/selected acceptance và prerequisites trước code ở scope tiếp theo; không rerun old suites hoặc tự làm runtime integration ngoài slice hiện tại. Quyền/giới hạn product decisions, core semantics, frozen source/evidence/fixtures, no production stack/account/key/API thật/pilot/publish/Git action giữ nguyên.
+
 # Kế hoạch phát triển QA framework
 
 Cập nhật 12/11/2026: user yêu cầu commit/push S2-C/S6-A/S6-B trên nền `e61be7e` đã push S2-A/B; [hồ sơ trước push](S2C-S6-PUSH-REVIEW.md) ghi snapshot/checks. Kiểm Git log/status/remote cho hash thực tế, không dùng nền cũ để bỏ output mới. Đây là plan P0–P6 hiện hành, thay [plan pilot cũ](IMPLEMENTATION-PLAN-2026-11-03.md). [PRODUCT-DECISIONS](PRODUCT-DECISIONS.md) ghi yêu cầu đã chốt; [DECISION-LOG](DECISION-LOG.md) ghi lý do thay đổi. Chỉ synthetic trong repo, chưa pilot/publish.
