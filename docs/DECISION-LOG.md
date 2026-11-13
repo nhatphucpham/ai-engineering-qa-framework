@@ -1,3 +1,15 @@
+# Yêu cầu hiện hành — commit/push S4-E, 13/11/2026
+
+User yêu cầu **“commit và push và được bao nhiêu phần trăm tiến đọ rồi”**. Cho phép commit/push toàn output S4-E đã CLEAN cùng bàn giao hiện hành; [pre-push/progress record](S4E-PUSH-REVIEW-2026-11-13.md) ghi checks/verdict và cách đếm12 mốc. Actual commit/remote/clean-tree kiểm sau Git action; các câu no-Git/uncommitted dưới đây là lịch sử, không phải kết quả push. Giữ selected S4-E DONE/CLEAN, full product gates OPEN; không tự phát triển thêm trong lượt Git này.
+
+# Quyết định hiện hành — 13/11/2026
+
+## D-39 — S4-E cleanup-only crash reconciliation trước worker bền vững
+
+Theo handoff user đã commit/push `803f5aa`, tiếp bounded P3-B/P4-C qua [S4-E protocol](S4-E-PROTOCOL.md) trước code/run; không auto-push output phát triển sau đó. Chọn riêng actual controller và transport-helper loss, giữ engine/witness supervisor còn sống; whole-supervisor/host/engine restart chưa kiểm. New `spikes/s4e` không sửa historical S4-C/D/evidence/fixtures. Terra high chia file riêng và reviewer độc lập từ đầu; root serialize actual DB/WSL.
+
+Reviewer phát hiện publication gap, newer-head mutation và thiếu channel outage thật: giữ IDs S4E-RV-01/02/03/04, sửa witness fence trước DB publication, exact original assignment + recovery fence, mutex qua engine IO/ack, actual IPC disconnect; sau RV-04 bổ sung fresh controller process khôi phục toàn luồng. [R3](s4e-results/2026-11-13-r3.json) bảy groups PASS29.007s; [results/review](S4-E-RESULTS.md) đã independent R3 CLEAN, findings01–04 CLOSED; DONE selected scope. Uncertain witness/commit hoặc newer head giữ unresolved/incident; exact safety teardown không là server cleanup ack. Full product gates mở, không production stack/account/API/keys/project/pilot/publish/Git action mới.
+
 # Hiện hành — commit/push S4-C/D/S5 và mở chat mới, 13/11/2026
 
 User yêu cầu **“Commit push và mở sessiong mới làm tiếp”**. Quyền: commit/push toàn output S4-C/D/S5 + batch đã CLEAN, rồi tạo chat local mới trong cùng project để tiếp critical path. [Pre-push record](CDS5-PUSH-REVIEW-2026-11-13.md) ghi exact snapshot/checks/staging; Git intent chưa là proof push, actual hash/remote xác minh sau action và đưa vào prompt chat mới. Các entry “uncommitted/no Git action” bên dưới là lịch sử lúc nghiệm thu. Nền master32bd110, không reset/clean/stash/force hoặc đổi worktree. Pre-push EOF normalization trên3 new source files + S5 results không đổi behavior; latest actual S4-D R4 và S5v5 hashes được tạo lại, giữ R3/v4 lịch sử.

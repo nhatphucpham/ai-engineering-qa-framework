@@ -1,3 +1,13 @@
+# Yêu cầu hiện hành — commit/push S4-E, 13/11/2026
+
+User yêu cầu **“commit và push và được bao nhiêu phần trăm tiến đọ rồi”**. Cho phép commit/push toàn output S4-E đã CLEAN cùng bàn giao hiện hành; [pre-push/progress record](S4E-PUSH-REVIEW-2026-11-13.md) ghi checks/verdict và cách đếm12 mốc. Actual commit/remote/clean-tree kiểm sau Git action; các câu no-Git/uncommitted dưới đây là lịch sử, không phải kết quả push. Giữ selected S4-E DONE/CLEAN, full product gates OPEN; không tự phát triển thêm trong lượt Git này.
+
+# Hiện hành — S4-E execution / review, 13/11/2026
+
+P3-B/P4-C tiếp critical path sau S4-C/D/S5 đã push tại `803f5aa`. [S4-E](S4-E-RESULTS.md) triển khai protocol có version trước code, actual R3 bảy nhóm PASS29.007s; selected controller/transport-helper crash dưới supervisor còn sống, cleanup-only và fail-closed authority/observation. Independent R3 CLEAN; DONE selected scope, chưa đóng full S4 hoặc product gate. E05/E06 intentionally unresolved server records không là successful execution.
+
+Bước tiếp whole-supervisor/pre-identity uncertainty + durable supervision/latest-authority trước remote/TLS; broker/secret-use/taint/export, GitHub thật, desktop/P5/P6 theo gate riêng. Không Git action mới hoặc pilot/publish/production stack từ slice này. Current details/evidence/finding ledger tại results; lịch sử phía dưới giữ nguyên.
+
 # Hiện hành — commit/push S4-C/D/S5 và mở chat mới, 13/11/2026
 
 User yêu cầu **“Commit push và mở sessiong mới làm tiếp”**. Quyền: commit/push toàn output S4-C/D/S5 + batch đã CLEAN, rồi tạo chat local mới trong cùng project để tiếp critical path. [Pre-push record](CDS5-PUSH-REVIEW-2026-11-13.md) ghi exact snapshot/checks/staging; Git intent chưa là proof push, actual hash/remote xác minh sau action và đưa vào prompt chat mới. Các entry “uncommitted/no Git action” bên dưới là lịch sử lúc nghiệm thu. Nền master32bd110, không reset/clean/stash/force hoặc đổi worktree. Pre-push EOF normalization trên3 new source files + S5 results không đổi behavior; latest actual S4-D R4 và S5v5 hashes được tạo lại, giữ R3/v4 lịch sử.

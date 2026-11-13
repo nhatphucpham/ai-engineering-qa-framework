@@ -1,0 +1,558 @@
+{
+  "evidenceVersion": "s4-e-1.0.0",
+  "classification": "synthetic-only",
+  "baseline": "803f5aaf17baf82e07fca425b640b6668d0f68f5",
+  "startedAt": "2026-11-13T09:49:31.087599+00:00",
+  "status": "PASS",
+  "inputsBefore": {
+    "docs/S4-E-PROTOCOL.md": "cba52971b2ebfa1b99c68e1a73cd7956b04170d79132615ec820b85a93eca599",
+    "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+    "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+    "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+    "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+    "spikes/iapb/authority.py": "1c4b413b781f949ccca52f710f2d21c3fec6170c7f7240bff57c77bc66627fab",
+    "spikes/iapb/README.md": "379dcb41f49e886a733333364e3867bbfe2df1b6ee30db5c608368ff4032e335",
+    "spikes/iapb/run_iapb.py": "7081e7a81e06b03d5fca7dd3725e15dd0c95fd25c95bee940d25df8be9ac4a65",
+    "spikes/iapb/schema.sql": "31ca352095bf403507ef6e191da5dbadc6a6bf12387797f2acd5aef97ed8d1c3",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s4/collector.py": "515bf7958a979c0476ff96c223ad72649ffe53d8841f94ffbc406fcc93477f94",
+    "spikes/s4/preflight.py": "104446c72082b68859af2d4972b8814caecdde683407e3248c33026bda057177",
+    "spikes/s4/README.md": "f8cc50a91b5b8f61feb00eb95518c704616dcd7d0233f9872b507690014c37d2",
+    "spikes/s4/run_collector.py": "30b81ca2a7552d1f665c373c35580bf3a55f8cd4aaf28663074575e42e69bb5b",
+    "spikes/s4/test_preflight.py": "bf2be99d6cb1ca337938890822067c8a579694491c60e5910c407acd3dbcbb1c",
+    "spikes/s4b/engine.py": "9c493db4f40d5885acfd2cb0ab881dd44df02d17c520c352d2c25fd5eaf42e10",
+    "spikes/s4b/README.md": "62e720b93fcc1a3d230fda5005f085d7ecc9bc970d0f56c0cb7bd188ed6c99e2",
+    "spikes/s4b/run_engine.py": "3c411d42e8274297fd27456f45caafe018ccd746b0265626206bf5ce7bae0856",
+    "spikes/s4b/test_network.py": "78979fd09a7203899566549671c70b96a5366d6beb77291193b3dca3e31e2b97",
+    "spikes/s4c/engine_helper.py": "c4e6b688dc2e8f2004b0d145f55fe7cc224748501fbc2d172651c5b92bb50878",
+    "spikes/s4c/gate.py": "f70a28193dacecb3b8e053531566fd6f12ff70585cb77ac0443fca325a756c08",
+    "spikes/s4c/README.md": "630c10fda453e23aa67c6974cba0226d2de2116126fd8ad883d053803ea18d49",
+    "spikes/s4c/run_s4c.py": "6bed3c063dc95c79fcb64fecc2be4b3c063bf332b7646823941bd2c4065a2464",
+    "spikes/s4c/schema.sql": "be9e779a37bace696230ea2e3c7ea12df32708397807039265705136da7be472",
+    "spikes/s4e/engine_helper.py": "5cd37a66331fe101d9225271e7faee85391d09f2751ae8d62db50564f4f60228",
+    "spikes/s4e/helper.py": "a4809f61cc19648f2ffa247c93abb892c4a7d12306ee1e035aae77797d630445",
+    "spikes/s4e/README.md": "a426d3aadaf0b11bbe2bc78aca8e4c5e0324bf8e1a711ac52df721591a8141c6",
+    "spikes/s4e/recovery.py": "0ef49815cbe4c59ed514a9b970ae4c4de4be9c4f19f3ec8a5a7aecad23fb2c34",
+    "spikes/s4e/run_s4e.py": "268ae24b3798f2762c1f61415f7d7a79a63bf9ab9ca771fe288f8c0380f44658",
+    "spikes/s4e/schema.sql": "fa3b8b569f90161aab461eedf245d506cd24729a94fbb8fc05cf8ceabadac156",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "preflight": {
+    "versions": {
+      "argon2-cffi": "25.1.0",
+      "argon2-cffi-bindings": "26.1.0",
+      "cffi": "2.1.1",
+      "pycparser": "3.12"
+    },
+    "ready": true,
+    "local_paths": true
+  },
+  "databasePreflight": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "schema": "id_d3bd9d76dda6410cbb3b6ee38ece7859",
+  "checks": {
+    "E01": {
+      "status": "PASS",
+      "controllerPid": 10880,
+      "actualExitCode": -15,
+      "liveOrphanBeforeRecovery": {
+        "containerId": "6a91c9213074f7659adeea1622b9f1bdb84d167193408057340a4c2aba44ae02",
+        "present": true,
+        "running": true,
+        "resource": {
+          "containerId": "6a91c9213074f7659adeea1622b9f1bdb84d167193408057340a4c2aba44ae02",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-6a91c9213074f7659adeea1622b9f1bdb84d167193408057340a4c2aba44ae02",
+          "processes": {
+            "642": {
+              "state": "S",
+              "startTime": "789"
+            },
+            "644": {
+              "state": "S",
+              "startTime": "792"
+            },
+            "645": {
+              "state": "S",
+              "startTime": "792"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "childPid": 619
+      },
+      "cleanup": {
+        "epoch": 1,
+        "binding": {
+          "job": "f74a3b48c04b449dbebdcf37aecc5c02",
+          "fence": 1,
+          "run_id": "eController",
+          "attempt": 1,
+          "project": "pA",
+          "generation": "f6406092b751486dad0f131aedeac649",
+          "assignment_id": "6f2227d9d8ef4632a502abc3ef06412f",
+          "container_name": "qa-s4e-f74a3b48c04b449dbebdcf37aecc5c02"
+        },
+        "containerId": "6a91c9213074f7659adeea1622b9f1bdb84d167193408057340a4c2aba44ae02",
+        "resource": {
+          "containerId": "6a91c9213074f7659adeea1622b9f1bdb84d167193408057340a4c2aba44ae02",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-6a91c9213074f7659adeea1622b9f1bdb84d167193408057340a4c2aba44ae02",
+          "processes": {
+            "642": {
+              "state": "S",
+              "startTime": "789"
+            },
+            "644": {
+              "state": "S",
+              "startTime": "792"
+            },
+            "645": {
+              "state": "S",
+              "startTime": "792"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "originalProcessesNotLive": true,
+        "cgroupEmptyOrRemoved": true,
+        "containerRemoved": true,
+        "childPid": 619
+      },
+      "executionState": "failed"
+    },
+    "E02": {
+      "status": "PASS",
+      "actualHelperCrash": {
+        "crashed": true,
+        "exitCode": 73,
+        "childPid": 619,
+        "supervisorPid": 545
+      },
+      "replacementDiscovery": {
+        "containerId": "94ca79d5c2386081c773c5853dbbbcc1511641c8a4a6a79de4bff0dbe6e51559",
+        "present": true,
+        "running": true,
+        "resource": {
+          "containerId": "94ca79d5c2386081c773c5853dbbbcc1511641c8a4a6a79de4bff0dbe6e51559",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-94ca79d5c2386081c773c5853dbbbcc1511641c8a4a6a79de4bff0dbe6e51559",
+          "processes": {
+            "835": {
+              "state": "S",
+              "startTime": "977"
+            },
+            "837": {
+              "state": "S",
+              "startTime": "979"
+            },
+            "838": {
+              "state": "S",
+              "startTime": "979"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "childPid": 875
+      },
+      "serverResourceBeforeRecovery": null,
+      "cleanup": {
+        "epoch": 1,
+        "binding": {
+          "job": "76427ac708ae408fabea1ac941555afc",
+          "fence": 1,
+          "run_id": "eHelper",
+          "attempt": 1,
+          "project": "pA",
+          "generation": "f6406092b751486dad0f131aedeac649",
+          "assignment_id": "61f19d9905a04cb58b0086cf056f8328",
+          "container_name": "qa-s4e-76427ac708ae408fabea1ac941555afc"
+        },
+        "containerId": "94ca79d5c2386081c773c5853dbbbcc1511641c8a4a6a79de4bff0dbe6e51559",
+        "resource": {
+          "containerId": "94ca79d5c2386081c773c5853dbbbcc1511641c8a4a6a79de4bff0dbe6e51559",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-94ca79d5c2386081c773c5853dbbbcc1511641c8a4a6a79de4bff0dbe6e51559",
+          "processes": {
+            "835": {
+              "state": "S",
+              "startTime": "977"
+            },
+            "837": {
+              "state": "S",
+              "startTime": "979"
+            },
+            "838": {
+              "state": "S",
+              "startTime": "979"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "originalProcessesNotLive": true,
+        "cgroupEmptyOrRemoved": true,
+        "containerRemoved": true,
+        "childPid": 875
+      }
+    },
+    "E03": {
+      "status": "PASS",
+      "missingWitnessDeniedWithIncident": true,
+      "identityDenials": {
+        "job": "E_BINDING",
+        "generation": "E_BINDING",
+        "fence": "E_BINDING",
+        "containerId": "E_RESOURCE_BINDING",
+        "cgroup": "E_RESOURCE_BINDING",
+        "processes": "E_RESOURCE_BINDING"
+      },
+      "actualRelayDisconnectBeforeDispatch": {
+        "controllerPid": 29604,
+        "exitCode": 0,
+        "DBEpoch": 0,
+        "incidentOpen": true,
+        "resourceStillRunning": true
+      },
+      "independentControllerPid": 13180,
+      "DBEpochBeforeWitnessAndCommit": 1,
+      "DBEpochAfterPublication": 2,
+      "stalePausedCleanupDenial": "E_EPOCH",
+      "resourceStillRunningAfterStaleCommand": true,
+      "cleanup": {
+        "epoch": 2,
+        "binding": {
+          "job": "ffcd0b0c8fa74d0dba52abbdc135d664",
+          "project": "pA",
+          "run_id": "eOrdering",
+          "assignment_id": "be0c9d320b12476b9364b485f7229565",
+          "attempt": 1,
+          "fence": 1,
+          "generation": "f6406092b751486dad0f131aedeac649",
+          "container_name": "qa-s4e-ffcd0b0c8fa74d0dba52abbdc135d664"
+        },
+        "containerId": "446251a484c8fb10f70c43a1cf4062a2fbb24e273663ff986f65081ff71c20d9",
+        "resource": {
+          "containerId": "446251a484c8fb10f70c43a1cf4062a2fbb24e273663ff986f65081ff71c20d9",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-446251a484c8fb10f70c43a1cf4062a2fbb24e273663ff986f65081ff71c20d9",
+          "processes": {
+            "1025": {
+              "state": "S",
+              "startTime": "1167"
+            },
+            "1027": {
+              "state": "S",
+              "startTime": "1169"
+            },
+            "1028": {
+              "state": "S",
+              "startTime": "1169"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "originalProcessesNotLive": true,
+        "cgroupEmptyOrRemoved": true,
+        "containerRemoved": true,
+        "childPid": 875
+      }
+    },
+    "E04": {
+      "status": "PASS",
+      "missingAndStaleProofDenied": true,
+      "cleanup": {
+        "epoch": 1,
+        "binding": {
+          "job": "b1ea4459bf864839bac6c0ffb76792d5",
+          "project": "pA",
+          "run_id": "eLate",
+          "assignment_id": "557b4b69c0dc4091a3d1c2a33775e24a",
+          "attempt": 1,
+          "fence": 1,
+          "generation": "f6406092b751486dad0f131aedeac649",
+          "container_name": "qa-s4e-b1ea4459bf864839bac6c0ffb76792d5"
+        },
+        "containerId": "f05e410326533d23802cfc17e687c76c5236e3675ea2b90f262b91fef5109a71",
+        "resource": {
+          "containerId": "f05e410326533d23802cfc17e687c76c5236e3675ea2b90f262b91fef5109a71",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-f05e410326533d23802cfc17e687c76c5236e3675ea2b90f262b91fef5109a71",
+          "processes": {
+            "1243": {
+              "state": "S",
+              "startTime": "1505"
+            },
+            "1245": {
+              "state": "S",
+              "startTime": "1507"
+            },
+            "1246": {
+              "state": "S",
+              "startTime": "1507"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "originalProcessesNotLive": true,
+        "cgroupEmptyOrRemoved": true,
+        "containerRemoved": true,
+        "childPid": 875
+      },
+      "replayDenial": "E_EPOCH",
+      "lateState": "failed",
+      "automaticRetry": false
+    },
+    "E05": {
+      "status": "PASS",
+      "witnessAdvancedButDBEpoch": 0,
+      "mismatchDenial": "E_EPOCH",
+      "missingJobAuthorityDenied": true,
+      "serverState": "unresolved",
+      "incidentOpen": true,
+      "exactSafetyTeardownOnly": {
+        "epoch": 1,
+        "binding": {
+          "job": "1006bfd0acca466f9d19b26516ebc222",
+          "project": "pA",
+          "run_id": "eUncertainCommit",
+          "assignment_id": "c7b559772ff44be4b660fd4984c06152",
+          "attempt": 1,
+          "fence": 1,
+          "generation": "f6406092b751486dad0f131aedeac649",
+          "container_name": "qa-s4e-1006bfd0acca466f9d19b26516ebc222"
+        },
+        "containerId": "903a65fb5e78b0306db4193990bb29b54a09bb45212ba2a5fc29f965938dbf50",
+        "resource": {
+          "containerId": "903a65fb5e78b0306db4193990bb29b54a09bb45212ba2a5fc29f965938dbf50",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-903a65fb5e78b0306db4193990bb29b54a09bb45212ba2a5fc29f965938dbf50",
+          "processes": {
+            "1401": {
+              "state": "S",
+              "startTime": "1686"
+            },
+            "1403": {
+              "state": "S",
+              "startTime": "1688"
+            },
+            "1404": {
+              "state": "S",
+              "startTime": "1688"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "originalProcessesNotLive": true,
+        "cgroupEmptyOrRemoved": true,
+        "containerRemoved": true,
+        "childPid": 875
+      },
+      "serverCleanupAcknowledged": false
+    },
+    "E06": {
+      "status": "PASS",
+      "newHeadBefore": {
+        "project": "pA",
+        "run_id": "eAdvancedHead",
+        "attempt": 2,
+        "fence": 3
+      },
+      "newHeadAfter": {
+        "project": "pA",
+        "run_id": "eAdvancedHead",
+        "attempt": 2,
+        "fence": 3
+      },
+      "newAssignmentStillLive": true,
+      "oldResourceRunningAfterDenial": true,
+      "exactSafetyTeardownOnly": {
+        "epoch": 1,
+        "binding": {
+          "job": "792ac18436804dc4ab32cdffd0e67d00",
+          "project": "pA",
+          "run_id": "eAdvancedHead",
+          "assignment_id": "5272803eba774774b36836baeee408cf",
+          "attempt": 1,
+          "fence": 1,
+          "generation": "f6406092b751486dad0f131aedeac649",
+          "container_name": "qa-s4e-792ac18436804dc4ab32cdffd0e67d00"
+        },
+        "containerId": "45b8d03627c005d39b18433bc750f8d6f2e06fdf29b9f278b56cb29e4105dbf4",
+        "resource": {
+          "containerId": "45b8d03627c005d39b18433bc750f8d6f2e06fdf29b9f278b56cb29e4105dbf4",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-45b8d03627c005d39b18433bc750f8d6f2e06fdf29b9f278b56cb29e4105dbf4",
+          "processes": {
+            "1560": {
+              "state": "S",
+              "startTime": "1861"
+            },
+            "1562": {
+              "state": "S",
+              "startTime": "1862"
+            },
+            "1563": {
+              "state": "S",
+              "startTime": "1862"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "originalProcessesNotLive": true,
+        "cgroupEmptyOrRemoved": true,
+        "containerRemoved": true,
+        "childPid": 875
+      },
+      "oldJobStillUnresolved": true
+    },
+    "E07": {
+      "status": "PASS",
+      "cleanupControllerPid": 15464,
+      "schedulerPid": 18668,
+      "observedDBLockWaitThroughExternalCleanup": true,
+      "newAssignmentOnlyAfterCleanupCommit": true,
+      "cleanup": {
+        "epoch": 1,
+        "binding": {
+          "job": "383fc924214e4f018202da6a501e3ddd",
+          "fence": 1,
+          "run_id": "eHeldCleanup",
+          "attempt": 1,
+          "project": "pA",
+          "generation": "f6406092b751486dad0f131aedeac649",
+          "assignment_id": "daad0b28e34f414988e2c64c45247889",
+          "container_name": "qa-s4e-383fc924214e4f018202da6a501e3ddd"
+        },
+        "containerId": "050e243fa6ece82fa979364c095a89cbd93a18ce9d05ab35bfbaf41ccb45a489",
+        "resource": {
+          "containerId": "050e243fa6ece82fa979364c095a89cbd93a18ce9d05ab35bfbaf41ccb45a489",
+          "cgroup": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service/containers/libpod-050e243fa6ece82fa979364c095a89cbd93a18ce9d05ab35bfbaf41ccb45a489",
+          "processes": {
+            "1721": {
+              "state": "S",
+              "startTime": "2026"
+            },
+            "1723": {
+              "state": "S",
+              "startTime": "2028"
+            },
+            "1724": {
+              "state": "S",
+              "startTime": "2028"
+            }
+          },
+          "bootId": "02ddd1c2-eca2-4273-a87a-1e7f52674690"
+        },
+        "originalProcessesNotLive": true,
+        "cgroupEmptyOrRemoved": true,
+        "containerRemoved": true,
+        "childPid": 875
+      }
+    }
+  },
+  "helper": {
+    "ready": true,
+    "generation": "f6406092b751486dad0f131aedeac649",
+    "hostUid": 1000,
+    "image": {
+      "imageId": "sha256:8334668d7db0a60e2bf27a76dc9404060b980efea46c32a33eff1ec95fe975d0",
+      "busyboxSha256": "dbac288c29ba568459550a2da9e7ae0ded6b1fc728ee9fad3044c44e62d6ac14",
+      "rootfsTarSha256": "bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e",
+      "source": "signed Ubuntu busybox-static local fixture"
+    },
+    "delegatedParent": "/sys/fs/cgroup/system.slice/qa-s4-e-87587545ebbf.service",
+    "privateCache": "/tmp/qa-s4-engine-l9cjsfmo",
+    "supervisorPid": 545,
+    "helperRole": "replaceable pipe child; supervisor owns engine"
+  },
+  "credentialMetadataScan": "PASS",
+  "postRunHelper": {
+    "unit": "qa-s4-e-87587545ebbf",
+    "loadStateNotFound": true,
+    "cgroupAbsent": true,
+    "helperExit": 0,
+    "cleanup": {
+      "containers": [],
+      "privateStorageEmptyOfContainers": true,
+      "retainedMarkedCache": "/tmp/qa-s4-engine-l9cjsfmo"
+    }
+  },
+  "credentialDiagnosticsScan": "PASS",
+  "inputsAfter": {
+    "docs/S4-E-PROTOCOL.md": "cba52971b2ebfa1b99c68e1a73cd7956b04170d79132615ec820b85a93eca599",
+    "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+    "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+    "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+    "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+    "spikes/iapb/authority.py": "1c4b413b781f949ccca52f710f2d21c3fec6170c7f7240bff57c77bc66627fab",
+    "spikes/iapb/README.md": "379dcb41f49e886a733333364e3867bbfe2df1b6ee30db5c608368ff4032e335",
+    "spikes/iapb/run_iapb.py": "7081e7a81e06b03d5fca7dd3725e15dd0c95fd25c95bee940d25df8be9ac4a65",
+    "spikes/iapb/schema.sql": "31ca352095bf403507ef6e191da5dbadc6a6bf12387797f2acd5aef97ed8d1c3",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s4/collector.py": "515bf7958a979c0476ff96c223ad72649ffe53d8841f94ffbc406fcc93477f94",
+    "spikes/s4/preflight.py": "104446c72082b68859af2d4972b8814caecdde683407e3248c33026bda057177",
+    "spikes/s4/README.md": "f8cc50a91b5b8f61feb00eb95518c704616dcd7d0233f9872b507690014c37d2",
+    "spikes/s4/run_collector.py": "30b81ca2a7552d1f665c373c35580bf3a55f8cd4aaf28663074575e42e69bb5b",
+    "spikes/s4/test_preflight.py": "bf2be99d6cb1ca337938890822067c8a579694491c60e5910c407acd3dbcbb1c",
+    "spikes/s4b/engine.py": "9c493db4f40d5885acfd2cb0ab881dd44df02d17c520c352d2c25fd5eaf42e10",
+    "spikes/s4b/README.md": "62e720b93fcc1a3d230fda5005f085d7ecc9bc970d0f56c0cb7bd188ed6c99e2",
+    "spikes/s4b/run_engine.py": "3c411d42e8274297fd27456f45caafe018ccd746b0265626206bf5ce7bae0856",
+    "spikes/s4b/test_network.py": "78979fd09a7203899566549671c70b96a5366d6beb77291193b3dca3e31e2b97",
+    "spikes/s4c/engine_helper.py": "c4e6b688dc2e8f2004b0d145f55fe7cc224748501fbc2d172651c5b92bb50878",
+    "spikes/s4c/gate.py": "f70a28193dacecb3b8e053531566fd6f12ff70585cb77ac0443fca325a756c08",
+    "spikes/s4c/README.md": "630c10fda453e23aa67c6974cba0226d2de2116126fd8ad883d053803ea18d49",
+    "spikes/s4c/run_s4c.py": "6bed3c063dc95c79fcb64fecc2be4b3c063bf332b7646823941bd2c4065a2464",
+    "spikes/s4c/schema.sql": "be9e779a37bace696230ea2e3c7ea12df32708397807039265705136da7be472",
+    "spikes/s4e/engine_helper.py": "5cd37a66331fe101d9225271e7faee85391d09f2751ae8d62db50564f4f60228",
+    "spikes/s4e/helper.py": "a4809f61cc19648f2ffa247c93abb892c4a7d12306ee1e035aae77797d630445",
+    "spikes/s4e/README.md": "a426d3aadaf0b11bbe2bc78aca8e4c5e0324bf8e1a711ac52df721591a8141c6",
+    "spikes/s4e/recovery.py": "0ef49815cbe4c59ed514a9b970ae4c4de4be9c4f19f3ec8a5a7aecad23fb2c34",
+    "spikes/s4e/run_s4e.py": "268ae24b3798f2762c1f61415f7d7a79a63bf9ab9ca771fe288f8c0380f44658",
+    "spikes/s4e/schema.sql": "fa3b8b569f90161aab461eedf245d506cd24729a94fbb8fc05cf8ceabadac156",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "elapsedSeconds": 26.83387380000204,
+  "finishedAt": "2026-11-13T09:49:59.164220+00:00"
+}

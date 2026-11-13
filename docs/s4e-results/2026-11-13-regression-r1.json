@@ -1,0 +1,126 @@
+{
+  "classification": "synthetic-only",
+  "checks": [
+    {
+      "command": [
+        "py",
+        "-3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 45,
+      "elapsedSeconds": 38.86563819998992,
+      "passed": true,
+      "skips": false
+    },
+    {
+      "command": [
+        "py",
+        "-3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "spikes/s4",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 4,
+      "elapsedSeconds": 0.16239020001376048,
+      "passed": true,
+      "skips": false
+    },
+    {
+      "command": [
+        "py",
+        "-3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "spikes/s4b",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 4,
+      "elapsedSeconds": 0.17674880000413395,
+      "passed": true,
+      "skips": false
+    },
+    {
+      "command": [
+        "py",
+        "-3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "spikes/s6b",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 5,
+      "elapsedSeconds": 0.9879392000148073,
+      "passed": true,
+      "skips": false
+    },
+    {
+      "command": [
+        "py",
+        "-3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "spikes/s2",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 6,
+      "elapsedSeconds": 0.3591006000060588,
+      "passed": true,
+      "skips": false
+    },
+    {
+      "command": [
+        "py",
+        "-3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "spikes/s5",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 6,
+      "elapsedSeconds": 0.17979829999967478,
+      "passed": true,
+      "skips": false
+    }
+  ],
+  "status": "PASS"
+}

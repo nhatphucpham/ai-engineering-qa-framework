@@ -1,3 +1,15 @@
+# Yêu cầu hiện hành — commit/push S4-E, 13/11/2026
+
+User yêu cầu **“commit và push và được bao nhiêu phần trăm tiến đọ rồi”**. Cho phép commit/push toàn output S4-E đã CLEAN cùng bàn giao hiện hành; [pre-push/progress record](S4E-PUSH-REVIEW-2026-11-13.md) ghi checks/verdict và cách đếm12 mốc. Actual commit/remote/clean-tree kiểm sau Git action; các câu no-Git/uncommitted dưới đây là lịch sử, không phải kết quả push. Giữ selected S4-E DONE/CLEAN, full product gates OPEN; không tự phát triển thêm trong lượt Git này.
+
+# Hiện hành — S4-E selected crash recovery, 13/11/2026
+
+Nền master `803f5aaf17baf82e07fca425b640b6668d0f68f5`, sạch đầu phiên; không commit/push mới. Thực hiện [handoff S4-E](NEXT-SESSION-S4E.md) bằng [protocol trước code](S4-E-PROTOCOL.md), new `spikes/s4e` và [results/review](S4-E-RESULTS.md). Terra high implementer giữ riêng Linux helper/adapter; root chạy shared DB/WSL; reviewer độc lập Terra high từ đầu, stable S4E-RV-01/02/03/04. R3 bảy actual groups PASS29.007s; independent R3 CLEAN, findings01–04 CLOSED; DONE selected scope.
+
+Đã kiểm actual Windows controller kill + fresh replacement process, Linux transport-helper exit73/missed launch response, exact orphan discovery/cleanup, witness-before-DB publication, real IPC disconnect, stale cleanup/head/proof denial, DB rollback uncertainty và scheduler lock qua cleanup. Supervisor/transport relay sống trong test; không kiểm whole supervisor/host/engine restart. E05/E06 giữ unresolved/incident dù safety teardown exact đã dọn; không replay/automatic retry/terminal success. DB marker/pins READY trước start; finally STOPPED, supervisor exit0/unit+cgroup absent; retained marked caches. Source/protocol/evidence/fixture cũ không đổi ngoài prepend current docs.
+
+Next: versioned whole-supervisor loss + pre-full-identity intent uncertainty, durable supervision/latest-authority, sau đó remote/TLS worker. Broker/content pipeline, GitHub thực, desktop/native comparison và packaging còn mở. Không cài toàn máy/gọi API/account/project/key thật hoặc chọn production stack. Chỉ mark scoped DONE sau latest independent CLEAN và required checks; đọc results để biết verdict cuối.
+
 # Hiện hành — commit/push S4-C/D/S5 và mở chat mới, 13/11/2026
 
 User yêu cầu **“Commit push và mở sessiong mới làm tiếp”**. Quyền: commit/push toàn output S4-C/D/S5 + batch đã CLEAN, rồi tạo chat local mới trong cùng project để tiếp critical path. [Pre-push record](CDS5-PUSH-REVIEW-2026-11-13.md) ghi exact snapshot/checks/staging; Git intent chưa là proof push, actual hash/remote xác minh sau action và đưa vào prompt chat mới. Các entry “uncommitted/no Git action” bên dưới là lịch sử lúc nghiệm thu. Nền master32bd110, không reset/clean/stash/force hoặc đổi worktree. Pre-push EOF normalization trên3 new source files + S5 results không đổi behavior; latest actual S4-D R4 và S5v5 hashes được tạo lại, giữ R3/v4 lịch sử.

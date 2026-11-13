@@ -1,0 +1,23 @@
+# Preserve the exact raw bytes of reviewed S4-E provenance and its handoff.
+# Exact paths only; historical source/evidence line-ending policy is unchanged.
+/docs/DECISION-LOG.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/IMPLEMENTATION-PLAN.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/NEXT-SESSION.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/S4-E-PROTOCOL.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/S4-E-RESULTS.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/S4E-PUSH-REVIEW-2026-11-13.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/SESSION-HANDOFF.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/s4e-results/2026-11-13-final.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/s4e-results/2026-11-13-r1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/s4e-results/2026-11-13-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/s4e-results/2026-11-13-r3.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/s4e-results/2026-11-13-regression-r1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/s4e-results/2026-11-13-review-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/s4e-results/2026-11-13-review-r3.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/s4e/README.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/s4e/engine_helper.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/s4e/helper.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/s4e/recovery.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/s4e/run_s4e.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/s4e/schema.sql -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/.gitattributes -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

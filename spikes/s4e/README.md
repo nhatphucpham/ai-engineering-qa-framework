@@ -1,0 +1,5 @@
+# S4-E cleanup-only restart reconciliation
+
+Read [versioned protocol](../../docs/S4-E-PROTOCOL.md) and [results](../../docs/S4-E-RESULTS.md). Use only the retained marked S2 PostgreSQL/S6-B libraries and approved Ubuntu-24.04 rootless Podman context. Root alone starts/stops the shared DB and runs `py -3 -B spikes/s4e/run_s4e.py docs/s4e-results/<fresh-id>.json`; never overwrite evidence or install missing prerequisites automatically.
+
+The Windows controller is an actual replaceable process. The parent test relay owns the pipe to a Linux supervisor, which owns engine IO and a journal/witness. The replaceable Linux transport-helper child can exit abruptly after durable launch observation, withholding its result. The supervisor and engine remain alive in both tests. This is recovery after controller or transport-helper loss, not supervisor, host or engine restart. Missing resource identity remains unresolved. Recovery stops exact owned resources and leaves execution failed; it never resumes, automatically retries or publishes a report. All methods/test fault hooks are trusted internal facilities, not an untrusted client boundary or production service.
