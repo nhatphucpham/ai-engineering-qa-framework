@@ -1,0 +1,42 @@
+{
+  "version": "vf1-push-review-1.0.0",
+  "status": "DONE pre-push review only",
+  "reviewerTask": "/root/ux_review",
+  "configuredModel": "gpt-6.2-astra",
+  "configuredReasoningEffort": "high",
+  "base": "470bd8bf12a23e4472c907f313a9f03d9ed699d6",
+  "userAuthorization": "commit và push current VF1 output to existing origin/master workflow",
+  "rounds": [
+    {
+      "round": 1,
+      "verdict": "CLEAN",
+      "findings": [],
+      "cachedBlobs": 96,
+      "reviewedStagedTree": "9a76523cc70ab7cb39b29ab78b1568a7b1ec5e98",
+      "stagingAuditFile": "staged-r1.json",
+      "stagingAuditSha256": "633063b2a62da1a33b26a2025460e312742a2d4a677d2b2af93bdfffa796f91e"
+    },
+    {
+      "round": 2,
+      "verdict": "CLEAN",
+      "findings": [],
+      "cachedBlobs": 97,
+      "reviewedStagedTree": "a2b8e10f3d98b5760f8c6aa1404d9cd5ee7a50f5",
+      "stagingAuditFile": "staged-r2.json",
+      "stagingAuditSha256": "eed6722740b1791897fae7ae84a10f1dfc9260b6eaf61d1be6e43ccdcbb13591"
+    }
+  ],
+  "checks": "required-checks.json",
+  "expandedBrowserChecks": "browser-r1/checks.json",
+  "preservationAudit": "audit.json",
+  "reviewerOpenedScreenshots": 12,
+  "rootOpenedScreenshots": 12,
+  "twoConsecutiveCleanRounds": true,
+  "allowedPostVerdictAdministration": [
+    "docs/VF1-PUSH-REVIEW-2026-11-18.md",
+    "docs/vf1-results/vf1-push-20261118/review-rounds.json"
+  ],
+  "postVerdictRule": "Only verdict/check metadata; final index/worktree/fresh checkout byte check before commit.",
+  "gitOutcome": "Commit/push not yet performed in this pre-commit record; actual SHA/remote/clean-tree verified and reported after action.",
+  "fullProductGates": "OPEN"
+}

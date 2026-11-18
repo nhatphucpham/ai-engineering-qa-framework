@@ -1,0 +1,96 @@
+<div id="vf1-report" aria-label="Báo cáo QA từ hai lần chạy synthetic">
+  <style>
+    #vf1-report { color-scheme:light dark; --ink:light-dark(#20282b,#e4e9eb); --paper:light-dark(#fff,#151b20); --soft:light-dark(#f1f5f5,#222c32); --line:light-dark(#d4dede,#3e4a51); --sub:light-dark(#4b5e65,#a9bdc6); --bad:light-dark(#9e302b,#ffaaa0); --good:light-dark(#176249,#8fdbb7); color:var(--ink);background:var(--paper);font:14px/1.55 system-ui,sans-serif;padding:24px;overflow-wrap:anywhere; }
+    #vf1-report * { box-sizing:border-box; }
+    #vf1-report h1 { font-size:24px;line-height:1.2;margin:0 100px 8px 0;font-weight:500; }
+    #vf1-report h2 { font-size:18px;margin:0 0 8px;font-weight:500; }
+    #vf1-report h3 { font-size:15px;margin:18px 0 6px;font-weight:500; }
+    #vf1-report p { margin:6px 0; }
+    #vf1-report .sub { color:var(--sub); }
+    #vf1-report .runs { display:flex;gap:8px;flex-wrap:wrap;margin:20px 0; }
+    #vf1-report button { font:inherit;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:9px 13px;cursor:var(--cursor-interaction,pointer);text-align:left; }
+    #vf1-report button[aria-pressed="true"] { background:var(--ink);color:var(--paper); }
+    #vf1-report .summary { background:var(--soft);padding:14px 16px;margin:12px 0 20px;border-radius:8px; }
+    #vf1-report .layout { display:grid;grid-template-columns:minmax(200px,0.8fr) minmax(0,2fr);gap:24px;align-items:start; }
+    #vf1-report .criteria { display:grid;gap:8px; }
+    #vf1-report .criterion { display:grid;grid-template-columns:1fr auto;gap:8px;width:100%; }
+    #vf1-report .badge { font-size:12px;font-weight:500; }
+    #vf1-report .failed { color:var(--bad); }
+    #vf1-report .verified { color:var(--good); }
+    #vf1-report button[aria-pressed="true"] .badge { color:inherit; }
+    #vf1-report .detail { min-width:0; }
+    #vf1-report ul { padding-left:20px;margin:8px 0; }
+    #vf1-report li { margin:8px 0; }
+    #vf1-report code { font:12px/1.6 ui-monospace,monospace;overflow-wrap:anywhere;white-space:pre-wrap; }
+    #vf1-report pre { white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0;padding:12px;background:var(--soft); }
+    #vf1-report details { border-top:1px solid var(--line);padding:12px 0; }
+    #vf1-report summary { cursor:var(--cursor-interaction,pointer);min-height:30px; }
+    #vf1-report .meta { margin-top:22px;border-top:1px solid var(--line);padding-top:12px; }
+    #vf1-report [hidden] { display:none; }
+    @media(max-width:600px) { #vf1-report {padding:16px;} #vf1-report .layout {grid-template-columns:1fr;gap:20px;} #vf1-report h1 {font-size:21px;} }
+    @media(pointer:coarse) { #vf1-report button, #vf1-report summary { min-height:44px; } }
+  </style>
+  <h1>QA có bằng chứng</h1>
+  <p class="sub">MOCK-06 · AC-01–04 · dữ liệu synthetic · báo cáo từ hai lần chạy mới</p>
+  <div class="runs" aria-label="Chọn lần chạy"></div>
+  <div class="summary" aria-live="polite"></div>
+  <div class="layout">
+    <nav class="criteria" aria-label="Chọn tiêu chí"></nav>
+    <section class="detail" aria-label="Chi tiết tiêu chí" aria-live="polite"></section>
+  </div>
+  <details class="meta"><summary>Nguồn và giới hạn báo cáo</summary><div class="provenance"></div></details>
+  <script type="application/json" id="vf1-data">/*VF1_DATA*/null</script>
+  <script>
+  (() => {
+    const root=document.getElementById('vf1-report');
+    const data=JSON.parse(document.getElementById('vf1-data').textContent);
+    const labels={verified:'Đã kiểm chứng',failed:'Vi phạm',unverified:'Chưa kiểm chứng',not_applicable:'Không áp dụng'};
+    const names={'AC-01':'Lọc category','AC-02':'Reset trang khi đổi lọc','AC-03':'Cache theo category','AC-04':'Phân trang và page size'};
+    const saved=window.openai?.widgetState;
+    let run=Number.isInteger(saved?.privateContent?.run) && saved.privateContent.run>=0 && saved.privateContent.run<data.reports.length?saved.privateContent.run:0;
+    let criterion=['AC-01','AC-02','AC-03','AC-04'].includes(saved?.privateContent?.criterion)?saved.privateContent.criterion:'AC-04';
+    const el=(tag,text,cls)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node;};
+    const persist=()=>{window.openai?.setWidgetState?.({modelContent:{runId:data.reports[run].runId,criterionId:criterion},privateContent:{run,criterion}})?.catch(()=>{});};
+    function render(){
+      const focused=document.activeElement;
+      const focusRun=root.contains(focused)?focused.dataset.run:undefined;
+      const focusCriterion=root.contains(focused)?focused.dataset.criterion:undefined;
+      const report=data.reports[run];
+      const buttons=root.querySelector('.runs');buttons.replaceChildren();
+      data.reports.forEach((item,index)=>{const button=el('button',index===0?'A · Đủ gói evidence':'B · Thiếu evidence phân trang');button.type='button';button.dataset.run=String(index);button.setAttribute('aria-pressed',String(index===run));button.onclick=()=>{run=index;render();persist();};buttons.append(button);});
+      const summary=root.querySelector('.summary');summary.replaceChildren();
+      summary.append(el('strong',report.verification==='failed'?'Có vi phạm yêu cầu':report.verification==='incomplete'?'Chưa đủ bằng chứng':'Hoàn tất trong scope'));
+      summary.append(el('p',report.hasUnverifiedMandatory||report.hasOpenMandatoryCoverage?'Còn thiếu bằng chứng bắt buộc. Vi phạm đã có evidence vẫn được giữ.':'Không còn gap bắt buộc trong scope đánh giá đã ghi.'));
+      summary.append(el('p','Human decision: '+report.humanDecision+' · không tự phê duyệt','sub'));
+      const nav=root.querySelector('.criteria');nav.replaceChildren();
+      report.criteria.forEach(item=>{const button=el('button',undefined,'criterion');button.type='button';button.dataset.criterion=item.criterionId;button.setAttribute('aria-pressed',String(item.criterionId===criterion));button.append(el('span',item.criterionId+' · '+names[item.criterionId]),el('span',labels[item.status]||item.status,'badge '+item.status));button.onclick=()=>{criterion=item.criterionId;render();persist();};nav.append(button);});
+      const selected=report.criteria.find(item=>item.criterionId===criterion);
+      const detail=root.querySelector('.detail');detail.replaceChildren();
+      detail.append(el('h2',selected.criterionId+' · '+labels[selected.status]),el('p',selected.expected),el('p',selected.scopeDescription,'sub'));
+      if(selected.hasOpenCoverage)detail.append(el('p','Còn gap coverage bắt buộc ở tiêu chí này; trạng thái vi phạm (nếu có) vẫn được giữ.'));
+      if(selected.reasonCodes.length)detail.append(el('p','Core reasons: '+selected.reasonCodes.join(', ')));
+      detail.append(el('h3','Evidence của lần chạy này'));
+      const evidenceList=el('ul');
+      report.evidence.filter(item=>selected.bindings.some(binding=>binding.evidenceId===item.id)).forEach(item=>{
+        const li=el('li');li.append(el('strong',item.outcome+' · '+item.testId),el('p',item.level+' · '+item.id,'sub'));
+        selected.bindings.filter(binding=>binding.evidenceId===item.id).forEach(binding=>li.append(el('p',binding.relation+' · '+binding.rationale)));
+        evidenceList.append(li);
+      });
+      if(!evidenceList.children.length)evidenceList.append(el('li','Không có observation phù hợp được trích dẫn. Source test không thay thế kết quả chạy.'));
+      detail.append(evidenceList,el('h3','Việc cần làm'));
+      const actions=report.actions.filter(action=>action.criterionIds.includes(selected.criterionId));
+      if(!actions.length)detail.append(el('p','Không có action mở từ core cho tiêu chí này.'));
+      actions.forEach(action=>{detail.append(el('p',action.description),el('p','Owner: '+action.ownerRole+' · '+action.state,'sub'),el('p','Done when: '+action.doneWhen));});
+      detail.append(el('h3','Requirement, source và assertion đã dẫn'));
+      selected.sourceRefs.forEach(ref=>{const source=report.sourceExcerpts.find(item=>item.artifactId===ref.artifactId&&item.locator===ref.locator);if(!source)return;const details=el('details');details.append(el('summary',source.relativePath+' · '+source.locator));const pre=el('pre');pre.append(el('code',source.text));details.append(pre,el('p','SHA-256: '+source.sha256,'sub'));detail.append(details);});
+      const meta=root.querySelector('.provenance');meta.replaceChildren();
+      ['runId','reportId','candidateRevision','requirementVersion','executionRef','executionSha256','jobDigest','observedAt'].forEach(key=>meta.append(el('p',key+': '+report[key])));
+      meta.append(el('p','Host-mediated reasoning qua agent của phiên hiện tại; core tạo internal derived candidate. Viewer chỉ đọc, không khởi chạy backend. Chưa là connector tự chạy, app desktop hay readiness toàn sản phẩm. AC-05 ngoài scope; quyết định whitespace v2 không bị mở lại.'));
+      if(focusRun!==undefined)root.querySelector(`[data-run="${focusRun}"]`)?.focus({preventScroll:true});
+      else if(focusCriterion!==undefined)root.querySelector(`[data-criterion="${focusCriterion}"]`)?.focus({preventScroll:true});
+    }
+    window.addEventListener('openai:set_globals',event=>{const state=event.detail?.globals?.widgetState?.privateContent;if(!state)return;if(Number.isInteger(state.run)&&state.run>=0&&state.run<data.reports.length)run=state.run;if(['AC-01','AC-02','AC-03','AC-04'].includes(state.criterion))criterion=state.criterion;render();});
+    render();
+  })();
+  </script>
+</div>

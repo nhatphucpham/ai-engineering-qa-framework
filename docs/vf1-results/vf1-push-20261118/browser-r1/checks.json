@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "fragmentSha256": "c86537afef47ff299d3d5bf796ff2cfc07da94d889e80ab7a32b0d6824b70f56",
+  "previewSha256": "d52c10fdfb0a1164e418a033705eb7d7688d50f73c41995dc4b0772cdf2b0bc1",
+  "checkerSha256": "160680ebc2607cd2160c9974a6911891af7d98bf5a5992ab4b7ab24c5704ad75",
+  "checks": [
+    {
+      "width": 390,
+      "colorScheme": "light",
+      "run": 0,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "light-390-a.png"
+    },
+    {
+      "width": 390,
+      "colorScheme": "light",
+      "run": 1,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "light-390-b.png"
+    },
+    {
+      "width": 390,
+      "colorScheme": "light",
+      "keyboardJourney": true,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0
+    },
+    {
+      "width": 768,
+      "colorScheme": "light",
+      "run": 0,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "light-768-a.png"
+    },
+    {
+      "width": 768,
+      "colorScheme": "light",
+      "run": 1,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "light-768-b.png"
+    },
+    {
+      "width": 768,
+      "colorScheme": "light",
+      "keyboardJourney": true,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0
+    },
+    {
+      "width": 1280,
+      "colorScheme": "light",
+      "run": 0,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "light-1280-a.png"
+    },
+    {
+      "width": 1280,
+      "colorScheme": "light",
+      "run": 1,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "light-1280-b.png"
+    },
+    {
+      "width": 1280,
+      "colorScheme": "light",
+      "keyboardJourney": true,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0
+    },
+    {
+      "width": 390,
+      "colorScheme": "dark",
+      "run": 0,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "dark-390-a.png"
+    },
+    {
+      "width": 390,
+      "colorScheme": "dark",
+      "run": 1,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "dark-390-b.png"
+    },
+    {
+      "width": 390,
+      "colorScheme": "dark",
+      "keyboardJourney": true,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0
+    },
+    {
+      "width": 768,
+      "colorScheme": "dark",
+      "run": 0,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "dark-768-a.png"
+    },
+    {
+      "width": 768,
+      "colorScheme": "dark",
+      "run": 1,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "dark-768-b.png"
+    },
+    {
+      "width": 768,
+      "colorScheme": "dark",
+      "keyboardJourney": true,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0
+    },
+    {
+      "width": 1280,
+      "colorScheme": "dark",
+      "run": 0,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "dark-1280-a.png"
+    },
+    {
+      "width": 1280,
+      "colorScheme": "dark",
+      "run": 1,
+      "criteriaChecked": 4,
+      "ownProvenance": true,
+      "noOverflow": true,
+      "screenshot": "dark-1280-b.png"
+    },
+    {
+      "width": 1280,
+      "colorScheme": "dark",
+      "keyboardJourney": true,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0
+    }
+  ]
+}

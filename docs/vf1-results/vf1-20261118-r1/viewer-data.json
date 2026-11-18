@@ -1,0 +1,970 @@
+{
+  "version": "vf1-viewer-1.0.0",
+  "reports": [
+    {
+      "viewVersion": "vf1-view-1.0.0",
+      "classification": "synthetic-only",
+      "runId": "vf1-a-112a6a0d8e9d4ce8",
+      "jobId": "job-13c4733ee04a4414",
+      "candidateRevision": "mock-06-head-v1",
+      "requirementVersion": "mock-req-06-v1",
+      "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+      "executionSha256": "7af900677936d816716786dabc3f0613940d71b425a2b4ea31b84463fc950652",
+      "observedAt": "2026-11-18T06:42:13.572164Z",
+      "jobDigest": "d22ee217c3927c2431f885c0f6e20a65104be34c7979928ffcb78f3d51acc2a5",
+      "reportId": "vf1-a-112a6a0d8e9d4ce8-report",
+      "verification": "failed",
+      "hasUnverifiedMandatory": false,
+      "hasOpenMandatoryCoverage": false,
+      "humanDecision": "pending",
+      "criteria": [
+        {
+          "criterionId": "AC-01",
+          "status": "verified",
+          "scopeDescription": "Check selected nonempty category against the fixed catalog at list_items, including identity of returned items, case sensitivity and filtered count.",
+          "reasonCodes": [
+            "SCOPED_COVERAGE_SATISFIED"
+          ],
+          "hasOpenCoverage": false,
+          "evidenceIds": [
+            "vf1-a-112a6a0d8e9d4ce8-e1"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Tại service `list_items`, category không rỗng được so khớp chính xác, phân biệt hoa thường; chỉ trả items thuộc category đó và total của tập đã lọc.",
+          "requiredLevels": [
+            "unit"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-01"
+            },
+            {
+              "artifactId": "artifact-4",
+              "locator": "L4-L7"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L13-L17"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "exact-filter",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e1",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The service returned T1 and T2 with total two for tools in the mixed fixture. That checks membership and filtered count.",
+              "comparisonKey": "tools-match"
+            },
+            {
+              "obligationId": "exact-filter",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e1",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "Tools yielded total zero while tools yielded two. The service constructs the returned slice and total from the same equality-filtered rows.",
+              "comparisonKey": "tools-case"
+            }
+          ]
+        },
+        {
+          "criterionId": "AC-02",
+          "status": "failed",
+          "scopeDescription": "Check UI state and the page sent to the API when selecting tools, including a transition from page three.",
+          "reasonCodes": [
+            "CURRENT_BEHAVIOR_VIOLATION"
+          ],
+          "hasOpenCoverage": false,
+          "evidenceIds": [
+            "vf1-a-112a6a0d8e9d4ce8-e6",
+            "vf1-a-112a6a0d8e9d4ce8-e7",
+            "vf1-a-112a6a0d8e9d4ce8-e8"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Tại UI state `select_category`, mỗi lần chọn category phải đưa page về 1 trước khi gọi API, kể cả đang ở page 3.",
+          "requiredLevels": [
+            "integration"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-02"
+            },
+            {
+              "artifactId": "artifact-5",
+              "locator": "L4-L11"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L41-L46"
+            },
+            {
+              "artifactId": "artifact-7",
+              "locator": "L8-L12"
+            },
+            {
+              "artifactId": "artifact-8",
+              "locator": "L8-L17"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "first-page-selection",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e6",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The initial page-one path preserved the new category and page, and the view returned T1 and T2. This covers the initially first-page path only.",
+              "comparisonKey": "already-first"
+            },
+            {
+              "obligationId": "first-page-selection",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e7",
+              "relation": "violates",
+              "judgment": "accepted",
+              "rationale": "The view remained on page three after selecting tools. Restore page one before forwarding the request and rerun the state check.",
+              "comparisonKey": "from-third"
+            },
+            {
+              "obligationId": "first-page-selection",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e8",
+              "relation": "violates",
+              "judgment": "accepted",
+              "rationale": "The recording API captured tools, page three, size two where the probe required page one. This directly identifies the wrong argument at call time.",
+              "comparisonKey": "from-third"
+            }
+          ]
+        },
+        {
+          "criterionId": "AC-03",
+          "status": "failed",
+          "scopeDescription": "Check an in-process API instance across repeated requests and across changes of category, page or page size.",
+          "reasonCodes": [
+            "CURRENT_BEHAVIOR_VIOLATION"
+          ],
+          "hasOpenCoverage": false,
+          "evidenceIds": [
+            "vf1-a-112a6a0d8e9d4ce8-e4",
+            "vf1-a-112a6a0d8e9d4ce8-e5",
+            "vf1-a-112a6a0d8e9d4ce8-e9"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Tại API, cache phải giữ kết quả đúng cho từng bộ `(category, page, page_size)`; request category khác nhau trên cùng API instance không được dùng nhầm kết quả.",
+          "requiredLevels": [
+            "integration"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-03"
+            },
+            {
+              "artifactId": "artifact-2",
+              "locator": "L7-L14"
+            },
+            {
+              "artifactId": "artifact-2",
+              "locator": "L10-L14"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L29-L33"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L35-L39"
+            },
+            {
+              "artifactId": "artifact-8",
+              "locator": "L19-L25"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "tuple-cache",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e4",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "Two identical requests returned the expected tools IDs and reused one entry. The category stayed constant throughout.",
+              "comparisonKey": "repeat-tuple"
+            },
+            {
+              "obligationId": "tuple-cache",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e5",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The API returned B1/B2, then B3/B4 for page two, then B1 for size one with books held constant.",
+              "comparisonKey": "page-size-variation"
+            },
+            {
+              "obligationId": "tuple-cache",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e9",
+              "relation": "violates",
+              "judgment": "accepted",
+              "rationale": "After caching books the API returned B1/B2 for tools where T1/T2 were required. The cache key omits category. Include category in the key and rerun the same-instance sequence.",
+              "comparisonKey": "category-variation"
+            }
+          ]
+        },
+        {
+          "criterionId": "AC-04",
+          "status": "verified",
+          "scopeDescription": "Check the fixed-category pagination contract at the service and its in-process API wrapper. Direct API checks cover in-range slices. The empty-page API behavior is a composition inference for a fixed category from service execution and the wrapper's unchanged response on a cache miss or hit.",
+          "reasonCodes": [
+            "SCOPED_COVERAGE_SATISFIED"
+          ],
+          "hasOpenCoverage": false,
+          "evidenceIds": [
+            "vf1-a-112a6a0d8e9d4ce8-e2",
+            "vf1-a-112a6a0d8e9d4ce8-e5"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Với một category cố định, service/API trả page ổn định theo thứ tự catalog, tối đa page_size item; page ngoài phạm vi trả items rỗng và giữ total của tập lọc. Tính đúng khi đổi category dùng chung cache được kiểm tra riêng ở AC-03.",
+          "requiredLevels": [
+            "unit",
+            "integration"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-04"
+            },
+            {
+              "artifactId": "artifact-2",
+              "locator": "L10-L14"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L19-L22"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L35-L39"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "fixed-category-pagination",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e2",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The unit check observed ordered B3/B4 on books page two and an empty tools page three with total two and page three. These are service assertions.",
+              "comparisonKey": "fixed-category-slices"
+            },
+            {
+              "obligationId": "fixed-category-pagination",
+              "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e5",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "API assertions observed B1/B2, B3/B4 and B1 over page and size changes for books. For the out-of-range clause, the service observation supplies the empty response and get_items stores and returns that response unchanged for a fixed category. An API call asserting an empty page and filtered total would independently check this inference.",
+              "comparisonKey": "fixed-category-slices"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e1",
+          "testId": "Baseline.test_service_category_and_case",
+          "level": "unit",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L13-L17"
+        },
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e2",
+          "testId": "Baseline.test_service_pagination_and_out_of_range",
+          "level": "unit",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L19-L22"
+        },
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e4",
+          "testId": "Baseline.test_api_repeat_same_request",
+          "level": "integration",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L29-L33"
+        },
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e5",
+          "testId": "Baseline.test_api_page_and_size",
+          "level": "integration",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L35-L39"
+        },
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e6",
+          "testId": "Baseline.test_ui_select_from_first_page",
+          "level": "integration",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L41-L46"
+        },
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e7",
+          "testId": "Historical.test_reset_from_third_page",
+          "level": "integration",
+          "outcome": "fail",
+          "checkArtifactId": "artifact-7",
+          "reason": "Assertion failure",
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L8-L12"
+        },
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e8",
+          "testId": "Probe.test_reset_with_recorded_api_call",
+          "level": "integration",
+          "outcome": "fail",
+          "checkArtifactId": "artifact-8",
+          "reason": "Assertion failure",
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L8-L17"
+        },
+        {
+          "id": "vf1-a-112a6a0d8e9d4ce8-e9",
+          "testId": "Probe.test_cache_across_categories",
+          "level": "integration",
+          "outcome": "fail",
+          "checkArtifactId": "artifact-8",
+          "reason": "Assertion failure",
+          "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution",
+          "checkLocator": "L19-L25"
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-1",
+          "criterionIds": [
+            "AC-02"
+          ],
+          "ownerRole": "developer",
+          "state": "proposed",
+          "description": "Review the current counterexample against the requirement.",
+          "doneWhen": "Resolve or dispute the sourced counterexample; provide fresh evidence in a new assessment."
+        },
+        {
+          "id": "action-2",
+          "criterionIds": [
+            "AC-03"
+          ],
+          "ownerRole": "developer",
+          "state": "proposed",
+          "description": "Review the current counterexample against the requirement.",
+          "doneWhen": "Resolve or dispute the sourced counterexample; provide fresh evidence in a new assessment."
+        }
+      ],
+      "sourceExcerpts": [
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-01",
+          "startLine": 9,
+          "endLine": 9,
+          "text": "| AC-01 | Tại service `list_items`, category không rỗng được so khớp chính xác, phân biệt hoa thường; chỉ trả items thuộc category đó và total của tập đã lọc. |"
+        },
+        {
+          "artifactId": "artifact-4",
+          "relativePath": "head/service.py",
+          "sha256": "c77a54a9a26ce80d8b4b8545f1fe4bb41fbe956f69631e2f7dbd0cf09336a4f3",
+          "locator": "L4-L7",
+          "startLine": 4,
+          "endLine": 7,
+          "text": "def list_items(category, page, page_size):\n    rows = [row for row in ROWS if category == \"\" or row[\"category\"] == category]\n    start = (page - 1) * page_size\n    return {\"items\": rows[start:start + page_size], \"total\": len(rows), \"page\": page}"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L13-L17",
+          "startLine": 13,
+          "endLine": 17,
+          "text": "    def test_service_category_and_case(self):\n        result = list_items('tools', 1, 2)\n        self.assertEqual(ids(result), ['T1', 'T2'])\n        self.assertEqual(result['total'], 2)\n        self.assertEqual(list_items('Tools', 1, 2)['total'], 0)"
+        },
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-02",
+          "startLine": 10,
+          "endLine": 10,
+          "text": "| AC-02 | Tại UI state `select_category`, mỗi lần chọn category phải đưa page về 1 trước khi gọi API, kể cả đang ở page 3. |"
+        },
+        {
+          "artifactId": "artifact-5",
+          "relativePath": "head/ui.py",
+          "sha256": "7f7e33b414049306ddc31d3070c958dd93126063dfa8c38a654f6bfca30b54a3",
+          "locator": "L4-L11",
+          "startLine": 4,
+          "endLine": 11,
+          "text": "    def __init__(self, api, category=\"books\", page=1):\n        self.api = api\n        self.category = category\n        self.page = page\n\n    def select_category(self, category):\n        self.category = category\n        return self.api.get_items(self.category, self.page)"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L41-L46",
+          "startLine": 41,
+          "endLine": 46,
+          "text": "    def test_ui_select_from_first_page(self):\n        view = CatalogView(CatalogAPI())\n        result = view.select_category('tools')\n        self.assertEqual(view.category, 'tools')\n        self.assertEqual(view.page, 1)\n        self.assertEqual(ids(result), ['T1', 'T2'])"
+        },
+        {
+          "artifactId": "artifact-7",
+          "relativePath": "tests/test_historical.py",
+          "sha256": "4234afad5bbda80bf1afe1db1f46ba52e2008dd30d5234a7d37c9db3375f74fc",
+          "locator": "L8-L12",
+          "startLine": 8,
+          "endLine": 12,
+          "text": "    def test_reset_from_third_page(self):\n        view = CatalogView(CatalogAPI(), category='books', page=3)\n        result = view.select_category('tools')\n        self.assertEqual(view.page, 1)\n        self.assertEqual([item['id'] for item in result['items']], ['T1', 'T2'])"
+        },
+        {
+          "artifactId": "artifact-8",
+          "relativePath": "expected/test_probe.py",
+          "sha256": "23311f292e35e53af72449ab62e7f27e5e16e3c60e204ec2a2290851ba162fbb",
+          "locator": "L8-L17",
+          "startLine": 8,
+          "endLine": 17,
+          "text": "    def test_reset_with_recorded_api_call(self):\n        class RecordingAPI(CatalogAPI):\n            def get_items(self, category, page, page_size=2):\n                self.request = (category, page, page_size)\n                return super().get_items(category, page, page_size)\n\n        api = RecordingAPI()\n        view = CatalogView(api, category='books', page=3)\n        view.select_category('tools')\n        self.assertEqual(api.request, ('tools', 1, 2))"
+        },
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-03",
+          "startLine": 11,
+          "endLine": 11,
+          "text": "| AC-03 | Tại API, cache phải giữ kết quả đúng cho từng bộ `(category, page, page_size)`; request category khác nhau trên cùng API instance không được dùng nhầm kết quả. |"
+        },
+        {
+          "artifactId": "artifact-2",
+          "relativePath": "head/api.py",
+          "sha256": "00c78310124c172daaca0d89a81b63f4a9f976c8d51c7072a171c3b666ad5c07",
+          "locator": "L7-L14",
+          "startLine": 7,
+          "endLine": 14,
+          "text": "    def __init__(self):\n        self.cache = {}\n\n    def get_items(self, category, page, page_size=2):\n        key = (page, page_size)\n        if key not in self.cache:\n            self.cache[key] = list_items(category, page, page_size)\n        return self.cache[key]"
+        },
+        {
+          "artifactId": "artifact-2",
+          "relativePath": "head/api.py",
+          "sha256": "00c78310124c172daaca0d89a81b63f4a9f976c8d51c7072a171c3b666ad5c07",
+          "locator": "L10-L14",
+          "startLine": 10,
+          "endLine": 14,
+          "text": "    def get_items(self, category, page, page_size=2):\n        key = (page, page_size)\n        if key not in self.cache:\n            self.cache[key] = list_items(category, page, page_size)\n        return self.cache[key]"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L29-L33",
+          "startLine": 29,
+          "endLine": 33,
+          "text": "    def test_api_repeat_same_request(self):\n        api = CatalogAPI()\n        self.assertEqual(ids(api.get_items('tools', 1)), ['T1', 'T2'])\n        self.assertEqual(ids(api.get_items('tools', 1)), ['T1', 'T2'])\n        self.assertEqual(len(api.cache), 1)"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L35-L39",
+          "startLine": 35,
+          "endLine": 39,
+          "text": "    def test_api_page_and_size(self):\n        api = CatalogAPI()\n        self.assertEqual(ids(api.get_items('books', 1, 2)), ['B1', 'B2'])\n        self.assertEqual(ids(api.get_items('books', 2, 2)), ['B3', 'B4'])\n        self.assertEqual(ids(api.get_items('books', 1, 1)), ['B1'])"
+        },
+        {
+          "artifactId": "artifact-8",
+          "relativePath": "expected/test_probe.py",
+          "sha256": "23311f292e35e53af72449ab62e7f27e5e16e3c60e204ec2a2290851ba162fbb",
+          "locator": "L19-L25",
+          "startLine": 19,
+          "endLine": 25,
+          "text": "    def test_cache_across_categories(self):\n        api = CatalogAPI()\n        first = api.get_items('books', 1, 2)\n        second = api.get_items('tools', 1, 2)\n        self.assertEqual([item['id'] for item in first['items']], ['B1', 'B2'])\n        self.assertEqual([item['id'] for item in second['items']], ['T1', 'T2'])\n        self.assertEqual(second['total'], 2)"
+        },
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-04",
+          "startLine": 12,
+          "endLine": 12,
+          "text": "| AC-04 | Với một category cố định, service/API trả page ổn định theo thứ tự catalog, tối đa page_size item; page ngoài phạm vi trả items rỗng và giữ total của tập lọc. Tính đúng khi đổi category dùng chung cache được kiểm tra riêng ở AC-03. |"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L19-L22",
+          "startLine": 19,
+          "endLine": 22,
+          "text": "    def test_service_pagination_and_out_of_range(self):\n        self.assertEqual(ids(list_items('books', 2, 2)), ['B3', 'B4'])\n        result = list_items('tools', 3, 2)\n        self.assertEqual(result, {'items': [], 'total': 2, 'page': 3})"
+        }
+      ]
+    },
+    {
+      "viewVersion": "vf1-view-1.0.0",
+      "classification": "synthetic-only",
+      "runId": "vf1-b-485c3eb08a694dd6",
+      "jobId": "job-1c7303e749834d36",
+      "candidateRevision": "mock-06-head-v1",
+      "requirementVersion": "mock-req-06-v1",
+      "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+      "executionSha256": "5bcb8e8fa6992850da8ffe68ee20cfa49aa7a3296bf928e3ff4bfa5be63b4fb0",
+      "observedAt": "2026-11-18T06:42:18.180139Z",
+      "jobDigest": "ce7dcc2db90f6cb3195359fd6c9ca27a41e8d434dd537fc7ce82dc8fa2a71f5c",
+      "reportId": "vf1-b-485c3eb08a694dd6-report",
+      "verification": "failed",
+      "hasUnverifiedMandatory": true,
+      "hasOpenMandatoryCoverage": true,
+      "humanDecision": "pending",
+      "criteria": [
+        {
+          "criterionId": "AC-01",
+          "status": "verified",
+          "scopeDescription": "Exact nonempty category matching in list_items on the offered catalog. Exercise membership, filtered count and a case variant.",
+          "reasonCodes": [
+            "SCOPED_COVERAGE_SATISFIED"
+          ],
+          "hasOpenCoverage": false,
+          "evidenceIds": [
+            "vf1-b-485c3eb08a694dd6-e1"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Tại service `list_items`, category không rỗng được so khớp chính xác, phân biệt hoa thường; chỉ trả items thuộc category đó và total của tập đã lọc.",
+          "requiredLevels": [
+            "unit"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-01"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L13-L17"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "exact-members-and-count",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e1",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The tools request returned T1 and T2 with filtered total 2 as asserted.",
+              "comparisonKey": "service-category-case"
+            },
+            {
+              "obligationId": "case-sensitive-match",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e1",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The separate Tools request in the same passing unit check produced filtered total 0.",
+              "comparisonKey": "service-category-case"
+            }
+          ]
+        },
+        {
+          "criterionId": "AC-02",
+          "status": "failed",
+          "scopeDescription": "Selecting tools from books must leave the view on page 1 and use page 1 in the API call. The page-1 baseline and page-3 transition exercise distinct starting states.",
+          "reasonCodes": [
+            "CURRENT_BEHAVIOR_VIOLATION"
+          ],
+          "hasOpenCoverage": false,
+          "evidenceIds": [
+            "vf1-b-485c3eb08a694dd6-e6",
+            "vf1-b-485c3eb08a694dd6-e7",
+            "vf1-b-485c3eb08a694dd6-e8"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Tại UI state `select_category`, mỗi lần chọn category phải đưa page về 1 trước khi gọi API, kể cả đang ở page 3.",
+          "requiredLevels": [
+            "integration"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-02"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L41-L46"
+            },
+            {
+              "artifactId": "artifact-7",
+              "locator": "L8-L12"
+            },
+            {
+              "artifactId": "artifact-8",
+              "locator": "L8-L17"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "selected-page",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e6",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "Starting on page 1, the view selected tools, remained on page 1 and returned the first two tools IDs.",
+              "comparisonKey": "select-on-first"
+            },
+            {
+              "obligationId": "selected-page",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e7",
+              "relation": "violates",
+              "judgment": "accepted",
+              "rationale": "After selecting tools from page 3, the view.page assertion expected 1 and observed 3. Reset the page on selection.",
+              "comparisonKey": "select-on-third"
+            },
+            {
+              "obligationId": "request-first-page",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e8",
+              "relation": "violates",
+              "judgment": "accepted",
+              "rationale": "The recording API observed ('tools', 3, 2) where the check required ('tools', 1, 2). Reset the stored page before issuing get_items.",
+              "comparisonKey": "select-on-third"
+            }
+          ]
+        },
+        {
+          "criterionId": "AC-03",
+          "status": "failed",
+          "scopeDescription": "On one CatalogAPI instance the full request tuple must select the right result. Compare an identical request, a category-only change, and page or size changes within one category.",
+          "reasonCodes": [
+            "CURRENT_BEHAVIOR_VIOLATION"
+          ],
+          "hasOpenCoverage": true,
+          "evidenceIds": [
+            "vf1-b-485c3eb08a694dd6-e4",
+            "vf1-b-485c3eb08a694dd6-e9"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Tại API, cache phải giữ kết quả đúng cho từng bộ `(category, page, page_size)`; request category khác nhau trên cùng API instance không được dùng nhầm kết quả.",
+          "requiredLevels": [
+            "integration"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-03"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L29-L33"
+            },
+            {
+              "artifactId": "artifact-8",
+              "locator": "L19-L25"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L35-L39"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "repeat-read",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e4",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "Both tools requests returned T1/T2 and the cache contained one entry.",
+              "comparisonKey": "same-tuple"
+            },
+            {
+              "obligationId": "category-isolation",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e9",
+              "relation": "violates",
+              "judgment": "accepted",
+              "rationale": "The books request returned B1/B2. The next request for tools returned B1/B2 instead of T1/T2. Include category in the lookup key and rerun the sequence. The tools total assertion was not reached.",
+              "comparisonKey": "change-category"
+            }
+          ]
+        },
+        {
+          "criterionId": "AC-04",
+          "status": "unverified",
+          "scopeDescription": "Fixed-category pagination on the synthetic catalog. Compare ordered, bounded slices against the catalog at multiple pages and sizes, and check an empty out-of-range result with the filtered total. Execute the fixed-category API page/size sequence to supply the required integration proof. Direct out-of-range API verification would complement the observed service check.",
+          "reasonCodes": [
+            "REQUIRED_COVERAGE_MISSING"
+          ],
+          "hasOpenCoverage": true,
+          "evidenceIds": [
+            "vf1-b-485c3eb08a694dd6-e2"
+          ],
+          "contextEvidenceIds": [],
+          "expected": "Với một category cố định, service/API trả page ổn định theo thứ tự catalog, tối đa page_size item; page ngoài phạm vi trả items rỗng và giữ total của tập lọc. Tính đúng khi đổi category dùng chung cache được kiểm tra riêng ở AC-03.",
+          "requiredLevels": [
+            "integration"
+          ],
+          "sourceRefs": [
+            {
+              "artifactId": "artifact-1",
+              "locator": "AC-04"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L35-L39"
+            },
+            {
+              "artifactId": "artifact-6",
+              "locator": "L19-L22"
+            }
+          ],
+          "bindings": [
+            {
+              "obligationId": "ordered-bounded-slices",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e2",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The unit observation checks the books page-2 size-2 slice B3/B4. The matching API page/size sequence has test source but no offered execution observation.",
+              "comparisonKey": "fixed-books-pages"
+            },
+            {
+              "obligationId": "outside-page",
+              "evidenceId": "vf1-b-485c3eb08a694dd6-e2",
+              "relation": "supports",
+              "judgment": "accepted",
+              "rationale": "The service unit test asserted the entire response for tools page 3 size 2, including empty items and total 2. An API call for this boundary has no offered execution assertion.",
+              "comparisonKey": "tools-past-last"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "vf1-b-485c3eb08a694dd6-e1",
+          "testId": "Baseline.test_service_category_and_case",
+          "level": "unit",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+          "checkLocator": "L13-L17"
+        },
+        {
+          "id": "vf1-b-485c3eb08a694dd6-e2",
+          "testId": "Baseline.test_service_pagination_and_out_of_range",
+          "level": "unit",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+          "checkLocator": "L19-L22"
+        },
+        {
+          "id": "vf1-b-485c3eb08a694dd6-e4",
+          "testId": "Baseline.test_api_repeat_same_request",
+          "level": "integration",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+          "checkLocator": "L29-L33"
+        },
+        {
+          "id": "vf1-b-485c3eb08a694dd6-e6",
+          "testId": "Baseline.test_ui_select_from_first_page",
+          "level": "integration",
+          "outcome": "pass",
+          "checkArtifactId": "artifact-6",
+          "reason": null,
+          "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+          "checkLocator": "L41-L46"
+        },
+        {
+          "id": "vf1-b-485c3eb08a694dd6-e7",
+          "testId": "Historical.test_reset_from_third_page",
+          "level": "integration",
+          "outcome": "fail",
+          "checkArtifactId": "artifact-7",
+          "reason": "Assertion failure",
+          "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+          "checkLocator": "L8-L12"
+        },
+        {
+          "id": "vf1-b-485c3eb08a694dd6-e8",
+          "testId": "Probe.test_reset_with_recorded_api_call",
+          "level": "integration",
+          "outcome": "fail",
+          "checkArtifactId": "artifact-8",
+          "reason": "Assertion failure",
+          "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+          "checkLocator": "L8-L17"
+        },
+        {
+          "id": "vf1-b-485c3eb08a694dd6-e9",
+          "testId": "Probe.test_cache_across_categories",
+          "level": "integration",
+          "outcome": "fail",
+          "checkArtifactId": "artifact-8",
+          "reason": "Assertion failure",
+          "executionRef": "vf1-b-485c3eb08a694dd6-execution",
+          "checkLocator": "L19-L25"
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-1",
+          "criterionIds": [
+            "AC-02"
+          ],
+          "ownerRole": "developer",
+          "state": "proposed",
+          "description": "Review the current counterexample against the requirement.",
+          "doneWhen": "Resolve or dispute the sourced counterexample; provide fresh evidence in a new assessment."
+        },
+        {
+          "id": "action-2",
+          "criterionIds": [
+            "AC-03"
+          ],
+          "ownerRole": "developer",
+          "state": "proposed",
+          "description": "Review the current counterexample against the requirement.",
+          "doneWhen": "Resolve or dispute the sourced counterexample; provide fresh evidence in a new assessment."
+        },
+        {
+          "id": "action-3",
+          "criterionIds": [
+            "AC-03"
+          ],
+          "ownerRole": "qa",
+          "state": "proposed",
+          "description": "Complete the remaining required evidence levels and comparison contexts.",
+          "doneWhen": "Supply current, appropriately reviewed evidence for every still-unchecked declared level/context; re-evaluate."
+        },
+        {
+          "id": "action-4",
+          "criterionIds": [
+            "AC-04"
+          ],
+          "ownerRole": "qa",
+          "state": "proposed",
+          "description": "Complete the remaining required evidence levels and comparison contexts.",
+          "doneWhen": "Supply current, appropriately reviewed evidence for every still-unchecked declared level/context; re-evaluate."
+        }
+      ],
+      "sourceExcerpts": [
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-01",
+          "startLine": 9,
+          "endLine": 9,
+          "text": "| AC-01 | Tại service `list_items`, category không rỗng được so khớp chính xác, phân biệt hoa thường; chỉ trả items thuộc category đó và total của tập đã lọc. |"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L13-L17",
+          "startLine": 13,
+          "endLine": 17,
+          "text": "    def test_service_category_and_case(self):\n        result = list_items('tools', 1, 2)\n        self.assertEqual(ids(result), ['T1', 'T2'])\n        self.assertEqual(result['total'], 2)\n        self.assertEqual(list_items('Tools', 1, 2)['total'], 0)"
+        },
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-02",
+          "startLine": 10,
+          "endLine": 10,
+          "text": "| AC-02 | Tại UI state `select_category`, mỗi lần chọn category phải đưa page về 1 trước khi gọi API, kể cả đang ở page 3. |"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L41-L46",
+          "startLine": 41,
+          "endLine": 46,
+          "text": "    def test_ui_select_from_first_page(self):\n        view = CatalogView(CatalogAPI())\n        result = view.select_category('tools')\n        self.assertEqual(view.category, 'tools')\n        self.assertEqual(view.page, 1)\n        self.assertEqual(ids(result), ['T1', 'T2'])"
+        },
+        {
+          "artifactId": "artifact-7",
+          "relativePath": "tests/test_historical.py",
+          "sha256": "4234afad5bbda80bf1afe1db1f46ba52e2008dd30d5234a7d37c9db3375f74fc",
+          "locator": "L8-L12",
+          "startLine": 8,
+          "endLine": 12,
+          "text": "    def test_reset_from_third_page(self):\n        view = CatalogView(CatalogAPI(), category='books', page=3)\n        result = view.select_category('tools')\n        self.assertEqual(view.page, 1)\n        self.assertEqual([item['id'] for item in result['items']], ['T1', 'T2'])"
+        },
+        {
+          "artifactId": "artifact-8",
+          "relativePath": "expected/test_probe.py",
+          "sha256": "23311f292e35e53af72449ab62e7f27e5e16e3c60e204ec2a2290851ba162fbb",
+          "locator": "L8-L17",
+          "startLine": 8,
+          "endLine": 17,
+          "text": "    def test_reset_with_recorded_api_call(self):\n        class RecordingAPI(CatalogAPI):\n            def get_items(self, category, page, page_size=2):\n                self.request = (category, page, page_size)\n                return super().get_items(category, page, page_size)\n\n        api = RecordingAPI()\n        view = CatalogView(api, category='books', page=3)\n        view.select_category('tools')\n        self.assertEqual(api.request, ('tools', 1, 2))"
+        },
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-03",
+          "startLine": 11,
+          "endLine": 11,
+          "text": "| AC-03 | Tại API, cache phải giữ kết quả đúng cho từng bộ `(category, page, page_size)`; request category khác nhau trên cùng API instance không được dùng nhầm kết quả. |"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L29-L33",
+          "startLine": 29,
+          "endLine": 33,
+          "text": "    def test_api_repeat_same_request(self):\n        api = CatalogAPI()\n        self.assertEqual(ids(api.get_items('tools', 1)), ['T1', 'T2'])\n        self.assertEqual(ids(api.get_items('tools', 1)), ['T1', 'T2'])\n        self.assertEqual(len(api.cache), 1)"
+        },
+        {
+          "artifactId": "artifact-8",
+          "relativePath": "expected/test_probe.py",
+          "sha256": "23311f292e35e53af72449ab62e7f27e5e16e3c60e204ec2a2290851ba162fbb",
+          "locator": "L19-L25",
+          "startLine": 19,
+          "endLine": 25,
+          "text": "    def test_cache_across_categories(self):\n        api = CatalogAPI()\n        first = api.get_items('books', 1, 2)\n        second = api.get_items('tools', 1, 2)\n        self.assertEqual([item['id'] for item in first['items']], ['B1', 'B2'])\n        self.assertEqual([item['id'] for item in second['items']], ['T1', 'T2'])\n        self.assertEqual(second['total'], 2)"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L35-L39",
+          "startLine": 35,
+          "endLine": 39,
+          "text": "    def test_api_page_and_size(self):\n        api = CatalogAPI()\n        self.assertEqual(ids(api.get_items('books', 1, 2)), ['B1', 'B2'])\n        self.assertEqual(ids(api.get_items('books', 2, 2)), ['B3', 'B4'])\n        self.assertEqual(ids(api.get_items('books', 1, 1)), ['B1'])"
+        },
+        {
+          "artifactId": "artifact-1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "locator": "AC-04",
+          "startLine": 12,
+          "endLine": 12,
+          "text": "| AC-04 | Với một category cố định, service/API trả page ổn định theo thứ tự catalog, tối đa page_size item; page ngoài phạm vi trả items rỗng và giữ total của tập lọc. Tính đúng khi đổi category dùng chung cache được kiểm tra riêng ở AC-03. |"
+        },
+        {
+          "artifactId": "artifact-6",
+          "relativePath": "tests/test_baseline.py",
+          "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+          "locator": "L19-L22",
+          "startLine": 19,
+          "endLine": 22,
+          "text": "    def test_service_pagination_and_out_of_range(self):\n        self.assertEqual(ids(list_items('books', 2, 2)), ['B3', 'B4'])\n        result = list_items('tools', 3, 2)\n        self.assertEqual(result, {'items': [], 'total': 2, 'page': 3})"
+        }
+      ]
+    }
+  ]
+}

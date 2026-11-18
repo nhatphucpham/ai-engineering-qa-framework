@@ -1,0 +1,91 @@
+{
+  "version": "vf1-audit-1.0.0",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "actual-a",
+      "status": "PASS",
+      "runId": "vf1-a-112a6a0d8e9d4ce8",
+      "counts": {
+        "total": 9,
+        "pass": 6,
+        "fail": 3,
+        "error": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "actual-b",
+      "status": "PASS",
+      "runId": "vf1-b-485c3eb08a694dd6",
+      "counts": {
+        "total": 9,
+        "pass": 6,
+        "fail": 3,
+        "error": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "paired-verdicts-own-run",
+      "status": "PASS"
+    },
+    {
+      "id": "duplicate-collection",
+      "status": "PASS",
+      "recordsUnchanged": true
+    },
+    {
+      "id": "duplicate-report",
+      "status": "PASS",
+      "recordsUnchanged": true
+    },
+    {
+      "id": "wrong-revision",
+      "status": "PASS",
+      "rejection": "E_VF1_SCOPE"
+    },
+    {
+      "id": "wrong-held-digest",
+      "status": "PASS",
+      "rejection": "E_VF1_JOB_DIGEST"
+    },
+    {
+      "id": "sibling-response",
+      "status": "PASS",
+      "rejection": "E_VF1_RESPONSE_BINDING"
+    },
+    {
+      "id": "nonoffered-evidence",
+      "status": "PASS",
+      "rejection": "E_VF1_REFERENCE"
+    },
+    {
+      "id": "source-hash-mismatch",
+      "status": "PASS",
+      "rejection": "E_VF1_ARTIFACT_HASH"
+    },
+    {
+      "id": "error-not-defect",
+      "status": "PASS",
+      "classification": "authored negative input only"
+    },
+    {
+      "id": "skipped-not-defect",
+      "status": "PASS",
+      "classification": "authored negative input only"
+    },
+    {
+      "id": "historical-preservation",
+      "status": "PASS",
+      "unchangedPaths": 420,
+      "prefixOnlyDocs": [
+        "docs/DECISION-LOG.md",
+        "docs/IMPLEMENTATION-PLAN.md",
+        "docs/NEXT-SESSION.md",
+        "docs/SESSION-HANDOFF.md"
+      ],
+      "baselinePaths": 424
+    }
+  ]
+}

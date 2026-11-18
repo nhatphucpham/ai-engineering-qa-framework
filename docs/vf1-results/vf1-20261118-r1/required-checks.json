@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-11-18T10:28:31.792854+00:00",
+  "vf1": {
+    "argv": [
+      "py",
+      "-3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "spikes/vf1",
+      "-p",
+      "test_*.py"
+    ],
+    "exitCode": 0,
+    "stdoutFile": "vf1-tests-r2.stdout.txt",
+    "stderrFile": "vf1-tests-r2.stderr.txt"
+  },
+  "core": {
+    "argv": [
+      "py",
+      "-3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools",
+      "-p",
+      "test_*.py"
+    ],
+    "toolSession": 76749,
+    "exitCode": 0,
+    "tests": 45,
+    "seconds": 42.6,
+    "recordSource": "actual tool output observed by root before orchestration-only fixes"
+  },
+  "audit": "audit-r4.json",
+  "browser": "browser-r4/checks.json"
+}

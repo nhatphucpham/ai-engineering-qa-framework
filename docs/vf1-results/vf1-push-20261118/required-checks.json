@@ -1,0 +1,33 @@
+{
+  "version": "vf1-push-checks-1.0.0",
+  "core": {
+    "command": "py -3 -B -m unittest discover -s tools -p 'test_*.py'",
+    "exitCode": 0,
+    "tests": 45,
+    "seconds": 33.47,
+    "actualToolSession": 37157
+  },
+  "vf1": {
+    "command": "py -3 -B -m unittest discover -s spikes/vf1 -p 'test_*.py'",
+    "exitCode": 0,
+    "tests": 12,
+    "seconds": 0.352,
+    "includesNewBytePolicyTest": true
+  },
+  "browser": "browser-r1/checks.json",
+  "rootOpenedScreenshots": [
+    "dark-1280-a.png",
+    "dark-1280-b.png",
+    "dark-390-a.png",
+    "dark-390-b.png",
+    "dark-768-a.png",
+    "dark-768-b.png",
+    "light-1280-a.png",
+    "light-1280-b.png",
+    "light-390-a.png",
+    "light-390-b.png",
+    "light-768-a.png",
+    "light-768-b.png"
+  ],
+  "workerExecution": "Unchanged successful original A/B; no rerun/source/agent response changes"
+}

@@ -1,0 +1,841 @@
+{
+  "report": {
+    "runtimeReportVersion": "1.0.0",
+    "id": "vf1-a-112a6a0d8e9d4ce8-report",
+    "kind": "internal_assessment_report",
+    "publicationState": "proposed",
+    "runBinding": {
+      "id": "vf1-a-112a6a0d8e9d4ce8",
+      "projectId": "vf1-synthetic-project",
+      "handoffId": "job-13c4733ee04a4414",
+      "candidateRevision": "mock-06-head-v1",
+      "projectConfigVersion": 1,
+      "dataPolicyVersion": 1,
+      "stateVersion": 1,
+      "attempt": 1
+    },
+    "runSnapshotSha256": "4ba38e6bb56adce5653f84539aea531ba3fcee144ab854c2df34a8f2bf856853",
+    "content": {
+      "reportVersion": "1.0.0",
+      "classification": "synthetic-only",
+      "processingStatus": "reference_report",
+      "inputBindings": {
+        "algorithm": "sha256-python-json-v1",
+        "bundleSha256": "12445122f7c94a043236bd1155c7ae6c2ae9b722cbc1f2c73597dc3611567113",
+        "assessmentSha256": "967dd8ce059e42ff397313f8c6f0d5f02c0fc0802bb0ef40d3a07dbae6b4d8a1"
+      },
+      "scope": {
+        "projectId": "vf1-synthetic-project",
+        "handoffId": "job-13c4733ee04a4414",
+        "candidateRevision": "mock-06-head-v1",
+        "projectConfigVersion": 1,
+        "dataPolicyVersion": 1,
+        "policySourceArtifactId": "vf1-coverage-policy",
+        "assessorRef": "vf1-host-mediated-reasoning",
+        "taskRef": "vf1-mock-06",
+        "requirementVersion": "mock-req-06-v1"
+      },
+      "assessment": {
+        "rulesVersion": "p2-rules-2.0.0",
+        "processingStatus": "evaluated",
+        "evaluationMode": "execution_review",
+        "statusScope": "candidate_scoped_assessment",
+        "verification": "failed",
+        "hasUnverifiedMandatory": false,
+        "hasOpenMandatoryCoverage": false,
+        "pendingConstraintIds": [],
+        "criteria": [
+          {
+            "criterionId": "AC-01",
+            "status": "verified",
+            "reasonCodes": [
+              "SCOPED_COVERAGE_SATISFIED"
+            ],
+            "evidenceIds": [
+              "vf1-a-112a6a0d8e9d4ce8-e1"
+            ],
+            "contextEvidenceIds": [],
+            "hasOpenCoverage": false,
+            "scopeDescription": "Check selected nonempty category against the fixed catalog at list_items, including identity of returned items, case sensitivity and filtered count."
+          },
+          {
+            "criterionId": "AC-02",
+            "status": "failed",
+            "reasonCodes": [
+              "CURRENT_BEHAVIOR_VIOLATION"
+            ],
+            "evidenceIds": [
+              "vf1-a-112a6a0d8e9d4ce8-e6",
+              "vf1-a-112a6a0d8e9d4ce8-e7",
+              "vf1-a-112a6a0d8e9d4ce8-e8"
+            ],
+            "contextEvidenceIds": [],
+            "hasOpenCoverage": false,
+            "scopeDescription": "Check UI state and the page sent to the API when selecting tools, including a transition from page three."
+          },
+          {
+            "criterionId": "AC-03",
+            "status": "failed",
+            "reasonCodes": [
+              "CURRENT_BEHAVIOR_VIOLATION"
+            ],
+            "evidenceIds": [
+              "vf1-a-112a6a0d8e9d4ce8-e4",
+              "vf1-a-112a6a0d8e9d4ce8-e5",
+              "vf1-a-112a6a0d8e9d4ce8-e9"
+            ],
+            "contextEvidenceIds": [],
+            "hasOpenCoverage": false,
+            "scopeDescription": "Check an in-process API instance across repeated requests and across changes of category, page or page size."
+          },
+          {
+            "criterionId": "AC-04",
+            "status": "verified",
+            "reasonCodes": [
+              "SCOPED_COVERAGE_SATISFIED"
+            ],
+            "evidenceIds": [
+              "vf1-a-112a6a0d8e9d4ce8-e2",
+              "vf1-a-112a6a0d8e9d4ce8-e5"
+            ],
+            "contextEvidenceIds": [],
+            "hasOpenCoverage": false,
+            "scopeDescription": "Check the fixed-category pagination contract at the service and its in-process API wrapper. Direct API checks cover in-range slices. The empty-page API behavior is a composition inference for a fixed category from service execution and the wrapper's unchanged response on a cache miss or hit."
+          }
+        ],
+        "constraints": [],
+        "humanDecision": "pending",
+        "limitations": [
+          "Offline reference semantics over supplied assessment judgments, not authenticated trust or domain truth.",
+          "No test execution, model calls, auth, report persistence or runtime enforcement performed."
+        ]
+      },
+      "assessmentContext": {
+        "risk": {
+          "tier": "medium",
+          "state": "accepted",
+          "rationale": "Incorrect state or cache reuse can display stale items when navigating this synthetic public catalog. The exercise uses one local process with reversible changes. State transitions and cross-request tests address its main risks."
+        },
+        "bindings": [
+          {
+            "criterionId": "AC-01",
+            "obligationId": "exact-filter",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e1",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "The service returned T1 and T2 with total two for tools in the mixed fixture. That checks membership and filtered count.",
+            "comparisonKey": "tools-match"
+          },
+          {
+            "criterionId": "AC-01",
+            "obligationId": "exact-filter",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e1",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Tools yielded total zero while tools yielded two. The service constructs the returned slice and total from the same equality-filtered rows.",
+            "comparisonKey": "tools-case"
+          },
+          {
+            "criterionId": "AC-02",
+            "obligationId": "first-page-selection",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e6",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "The initial page-one path preserved the new category and page, and the view returned T1 and T2. This covers the initially first-page path only.",
+            "comparisonKey": "already-first"
+          },
+          {
+            "criterionId": "AC-02",
+            "obligationId": "first-page-selection",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e7",
+            "relation": "violates",
+            "judgment": "accepted",
+            "rationale": "The view remained on page three after selecting tools. Restore page one before forwarding the request and rerun the state check.",
+            "comparisonKey": "from-third"
+          },
+          {
+            "criterionId": "AC-02",
+            "obligationId": "first-page-selection",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e8",
+            "relation": "violates",
+            "judgment": "accepted",
+            "rationale": "The recording API captured tools, page three, size two where the probe required page one. This directly identifies the wrong argument at call time.",
+            "comparisonKey": "from-third"
+          },
+          {
+            "criterionId": "AC-03",
+            "obligationId": "tuple-cache",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e4",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "Two identical requests returned the expected tools IDs and reused one entry. The category stayed constant throughout.",
+            "comparisonKey": "repeat-tuple"
+          },
+          {
+            "criterionId": "AC-03",
+            "obligationId": "tuple-cache",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e5",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "The API returned B1/B2, then B3/B4 for page two, then B1 for size one with books held constant.",
+            "comparisonKey": "page-size-variation"
+          },
+          {
+            "criterionId": "AC-03",
+            "obligationId": "tuple-cache",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e9",
+            "relation": "violates",
+            "judgment": "accepted",
+            "rationale": "After caching books the API returned B1/B2 for tools where T1/T2 were required. The cache key omits category. Include category in the key and rerun the same-instance sequence.",
+            "comparisonKey": "category-variation"
+          },
+          {
+            "criterionId": "AC-04",
+            "obligationId": "fixed-category-pagination",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e2",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "The unit check observed ordered B3/B4 on books page two and an empty tools page three with total two and page three. These are service assertions.",
+            "comparisonKey": "fixed-category-slices"
+          },
+          {
+            "criterionId": "AC-04",
+            "obligationId": "fixed-category-pagination",
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e5",
+            "relation": "supports",
+            "judgment": "accepted",
+            "rationale": "API assertions observed B1/B2, B3/B4 and B1 over page and size changes for books. For the out-of-range clause, the service observation supplies the empty response and get_items stores and returns that response unchanged for a fixed category. An API call asserting an empty page and filtered total would independently check this inference.",
+            "comparisonKey": "fixed-category-slices"
+          }
+        ]
+      },
+      "handoffContext": {
+        "intake": "repo_task",
+        "decisionMoment": "qc_to_reviewer",
+        "requestedDecision": "Review behavior and gaps in selected scope",
+        "actors": {
+          "developerRef": null,
+          "qcRef": null,
+          "reviewerRef": null
+        },
+        "riskRationale": "Incorrect state or cache reuse can display stale items when navigating this synthetic public catalog. The exercise uses one local process with reversible changes. State transitions and cross-request tests address its main risks.",
+        "stageRecords": [
+          {
+            "stage": "developer_self_test",
+            "state": "unknown",
+            "evidenceIds": []
+          },
+          {
+            "stage": "qc",
+            "state": "unknown",
+            "evidenceIds": []
+          }
+        ],
+        "knownIssues": [],
+        "sourceArtifactIds": [
+          "artifact-2",
+          "artifact-3",
+          "artifact-4",
+          "artifact-5"
+        ],
+        "diffArtifactIds": []
+      },
+      "criterionSources": [
+        {
+          "criterion": {
+            "id": "AC-01",
+            "expected": "Tại service `list_items`, category không rỗng được so khớp chính xác, phân biệt hoa thường; chỉ trả items thuộc category đó và total của tập đã lọc.",
+            "mandatory": true,
+            "clarification": "clear",
+            "ownerRole": "domain-owner",
+            "claims": [
+              {
+                "artifactId": "artifact-1",
+                "locator": "AC-01",
+                "statement": "Tại service `list_items`, category không rỗng được so khớp chính xác, phân biệt hoa thường; chỉ trả items thuộc category đó và total của tập đã lọc."
+              }
+            ]
+          },
+          "plan": {
+            "criterionId": "AC-01",
+            "planState": "accepted",
+            "scopeDescription": "Check selected nonempty category against the fixed catalog at list_items, including identity of returned items, case sensitivity and filtered count.",
+            "requiredLevels": [
+              "unit"
+            ],
+            "allowedProvenance": [
+              "execution"
+            ],
+            "obligations": [
+              {
+                "id": "exact-filter",
+                "description": "Return only exact category matches and compute total from the matching rows.",
+                "sourceArtifactId": "artifact-1",
+                "locator": "AC-01",
+                "requiredComparisonKeys": [
+                  "tools-match",
+                  "tools-case"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "tools-match",
+                "description": "Select tools from a catalog containing books and tools and inspect IDs and total.",
+                "sourceArtifactId": "artifact-4",
+                "locator": "L4-L7"
+              },
+              {
+                "id": "tools-case",
+                "description": "Change only case to Tools. The fixed catalog has no matching category.",
+                "sourceArtifactId": "artifact-4",
+                "locator": "L4-L7"
+              }
+            ]
+          }
+        },
+        {
+          "criterion": {
+            "id": "AC-02",
+            "expected": "Tại UI state `select_category`, mỗi lần chọn category phải đưa page về 1 trước khi gọi API, kể cả đang ở page 3.",
+            "mandatory": true,
+            "clarification": "clear",
+            "ownerRole": "domain-owner",
+            "claims": [
+              {
+                "artifactId": "artifact-1",
+                "locator": "AC-02",
+                "statement": "Tại UI state `select_category`, mỗi lần chọn category phải đưa page về 1 trước khi gọi API, kể cả đang ở page 3."
+              }
+            ]
+          },
+          "plan": {
+            "criterionId": "AC-02",
+            "planState": "accepted",
+            "scopeDescription": "Check UI state and the page sent to the API when selecting tools, including a transition from page three.",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution"
+            ],
+            "obligations": [
+              {
+                "id": "first-page-selection",
+                "description": "Select the new category and use page one when issuing its request.",
+                "sourceArtifactId": "artifact-1",
+                "locator": "AC-02",
+                "requiredComparisonKeys": [
+                  "already-first",
+                  "from-third"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "already-first",
+                "description": "Observe category, page and returned items after selection when the view starts on page one.",
+                "sourceArtifactId": "artifact-5",
+                "locator": "L4-L11"
+              },
+              {
+                "id": "from-third",
+                "description": "Inspect view state after changing category on page three and the page recorded at API entry.",
+                "sourceArtifactId": "artifact-5",
+                "locator": "L4-L11"
+              }
+            ]
+          }
+        },
+        {
+          "criterion": {
+            "id": "AC-03",
+            "expected": "Tại API, cache phải giữ kết quả đúng cho từng bộ `(category, page, page_size)`; request category khác nhau trên cùng API instance không được dùng nhầm kết quả.",
+            "mandatory": true,
+            "clarification": "clear",
+            "ownerRole": "domain-owner",
+            "claims": [
+              {
+                "artifactId": "artifact-1",
+                "locator": "AC-03",
+                "statement": "Tại API, cache phải giữ kết quả đúng cho từng bộ `(category, page, page_size)`; request category khác nhau trên cùng API instance không được dùng nhầm kết quả."
+              }
+            ]
+          },
+          "plan": {
+            "criterionId": "AC-03",
+            "planState": "accepted",
+            "scopeDescription": "Check an in-process API instance across repeated requests and across changes of category, page or page size.",
+            "requiredLevels": [
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution"
+            ],
+            "obligations": [
+              {
+                "id": "tuple-cache",
+                "description": "Cache and retrieve the correct result for each category, page and page_size tuple on the same instance.",
+                "sourceArtifactId": "artifact-1",
+                "locator": "AC-03",
+                "requiredComparisonKeys": [
+                  "repeat-tuple",
+                  "page-size-variation",
+                  "category-variation"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "repeat-tuple",
+                "description": "Repeat tools page one on a single API object.",
+                "sourceArtifactId": "artifact-2",
+                "locator": "L7-L14"
+              },
+              {
+                "id": "page-size-variation",
+                "description": "Hold books constant while independently varying page and page size.",
+                "sourceArtifactId": "artifact-2",
+                "locator": "L10-L14"
+              },
+              {
+                "id": "category-variation",
+                "description": "Hold page one and size two constant across books then tools on the same instance.",
+                "sourceArtifactId": "artifact-2",
+                "locator": "L10-L14"
+              }
+            ]
+          }
+        },
+        {
+          "criterion": {
+            "id": "AC-04",
+            "expected": "Với một category cố định, service/API trả page ổn định theo thứ tự catalog, tối đa page_size item; page ngoài phạm vi trả items rỗng và giữ total của tập lọc. Tính đúng khi đổi category dùng chung cache được kiểm tra riêng ở AC-03.",
+            "mandatory": true,
+            "clarification": "clear",
+            "ownerRole": "domain-owner",
+            "claims": [
+              {
+                "artifactId": "artifact-1",
+                "locator": "AC-04",
+                "statement": "Với một category cố định, service/API trả page ổn định theo thứ tự catalog, tối đa page_size item; page ngoài phạm vi trả items rỗng và giữ total của tập lọc. Tính đúng khi đổi category dùng chung cache được kiểm tra riêng ở AC-03."
+              }
+            ]
+          },
+          "plan": {
+            "criterionId": "AC-04",
+            "planState": "accepted",
+            "scopeDescription": "Check the fixed-category pagination contract at the service and its in-process API wrapper. Direct API checks cover in-range slices. The empty-page API behavior is a composition inference for a fixed category from service execution and the wrapper's unchanged response on a cache miss or hit.",
+            "requiredLevels": [
+              "unit",
+              "integration"
+            ],
+            "allowedProvenance": [
+              "execution"
+            ],
+            "obligations": [
+              {
+                "id": "fixed-category-pagination",
+                "description": "Preserve catalog order, bound the slice by page size and retain the filtered total when a slice is empty.",
+                "sourceArtifactId": "artifact-1",
+                "locator": "AC-04",
+                "requiredComparisonKeys": [
+                  "fixed-category-slices"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "naDecision": null,
+            "comparisonContexts": [
+              {
+                "id": "fixed-category-slices",
+                "description": "Combine service checks of the middle and out-of-range slices with API checks of page progression and size. On a single-category instance the cache key distinguishes page and size, and get_items returns the cached service response.",
+                "sourceArtifactId": "artifact-2",
+                "locator": "L10-L14"
+              }
+            ]
+          }
+        }
+      ],
+      "constraintSources": [],
+      "evidenceSources": [
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e1",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-01"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Baseline.test_service_category_and_case",
+            "level": "unit",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": null,
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e1",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "At the pinned head, the service test passed its exact tools IDs and total assertions and the zero total assertion for Tools."
+          }
+        },
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e2",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-04"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Baseline.test_service_pagination_and_out_of_range",
+            "level": "unit",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": null,
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e2",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "At the pinned head, the service test passed the books middle-slice assertion and the full empty tools page-three response assertion."
+          }
+        },
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e4",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-03"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Baseline.test_api_repeat_same_request",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": null,
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e4",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "At the pinned head, both calls for tools yielded the expected IDs and the cache had one entry."
+          }
+        },
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e5",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-03",
+              "AC-04"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Baseline.test_api_page_and_size",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": null,
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e5",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "At the pinned head, all three ordered books ID comparisons at the API passed for two page numbers and two sizes."
+          }
+        },
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e6",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-02"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Baseline.test_ui_select_from_first_page",
+            "level": "integration",
+            "outcome": "pass",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": null,
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e6",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "At the pinned head, changing to tools from the default first page preserved page one and returned the expected tools IDs."
+          }
+        },
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e7",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-02"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Historical.test_reset_from_third_page",
+            "level": "integration",
+            "outcome": "fail",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": "Traceback (most recent call last):\n  File \"/input/case/tests/test_historical.py\", line 11, in test_reset_from_third_page\n    self.assertEqual(view.page, 1)\nAssertionError: 3 != 1",
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e7",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "The pinned historical test stopped at the state assertion with actual page three and expected page one. Its later returned-items assertion did not execute."
+          }
+        },
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e8",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-02"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Probe.test_reset_with_recorded_api_call",
+            "level": "integration",
+            "outcome": "fail",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": " 17, in test_reset_with_recorded_api_call\n    self.assertEqual(api.request, ('tools', 1, 2))\nAssertionError: Tuples differ: ('tools', 3, 2) != ('tools', 1, 2)\n\nFirst differing element 1:\n3\n1\n\n- ('tools', 3, 2)\n?           ^\n\n+ ('tools', 1, 2)\n?           ^",
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e8",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "The offered probe at the pinned head compared the recorded API call with tools page one, size two. It recorded page three."
+          }
+        },
+        {
+          "evidence": {
+            "id": "vf1-a-112a6a0d8e9d4ce8-e9",
+            "projectId": "vf1-synthetic-project",
+            "handoffId": "job-13c4733ee04a4414",
+            "criterionIds": [
+              "AC-03"
+            ],
+            "revision": "mock-06-head-v1",
+            "checkId": "Probe.test_cache_across_categories",
+            "level": "integration",
+            "outcome": "fail",
+            "provenance": {
+              "kind": "execution",
+              "actorRef": "vf1-local-collector",
+              "environment": "VF1 disposable component-check worker",
+              "observedAt": "2026-11-18T06:42:13.572164Z",
+              "sourceArtifactId": "vf1-execution-record"
+            },
+            "reason": "st_cache_across_categories\n    self.assertEqual([item['id'] for item in second['items']], ['T1', 'T2'])\nAssertionError: Lists differ: ['B1', 'B2'] != ['T1', 'T2']\n\nFirst differing element 0:\n'B1'\n'T1'\n\n- ['B1', 'B2']\n?   ^     ^\n\n+ ['T1', 'T2']\n?   ^     ^",
+            "executionRef": "vf1-a-112a6a0d8e9d4ce8-execution"
+          },
+          "review": {
+            "evidenceId": "vf1-a-112a6a0d8e9d4ce8-e9",
+            "integrity": "matched",
+            "attribution": "accepted",
+            "scope": "accepted",
+            "rationale": "The offered probe at the pinned head observed book IDs in the second response requested for tools. Its later tools total assertion did not execute."
+          }
+        }
+      ],
+      "artifacts": [
+        {
+          "id": "artifact-1",
+          "kind": "requirement",
+          "revision": "mock-req-06-v1",
+          "relativePath": "requirements.md",
+          "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+          "projectId": "vf1-synthetic-project",
+          "taskRef": "vf1-mock-06"
+        },
+        {
+          "id": "artifact-2",
+          "kind": "source",
+          "revision": "mock-06-head-v1",
+          "relativePath": "head/api.py",
+          "sha256": "00c78310124c172daaca0d89a81b63f4a9f976c8d51c7072a171c3b666ad5c07",
+          "projectId": "vf1-synthetic-project",
+          "taskRef": "vf1-mock-06"
+        },
+        {
+          "id": "artifact-3",
+          "kind": "source",
+          "revision": "mock-06-head-v1",
+          "relativePath": "head/data.py",
+          "sha256": "c1aa36e1a586b882c638966da2cf8b4925fa1b69adda6f766e57f116d7372314",
+          "projectId": "vf1-synthetic-project",
+          "taskRef": "vf1-mock-06"
+        },
+        {
+          "id": "artifact-4",
+          "kind": "source",
+          "revision": "mock-06-head-v1",
+          "relativePath": "head/service.py",
+          "sha256": "c77a54a9a26ce80d8b4b8545f1fe4bb41fbe956f69631e2f7dbd0cf09336a4f3",
+          "projectId": "vf1-synthetic-project",
+          "taskRef": "vf1-mock-06"
+        },
+        {
+          "id": "artifact-5",
+          "kind": "source",
+          "revision": "mock-06-head-v1",
+          "relativePath": "head/ui.py",
+          "sha256": "7f7e33b414049306ddc31d3070c958dd93126063dfa8c38a654f6bfca30b54a3",
+          "projectId": "vf1-synthetic-project",
+          "taskRef": "vf1-mock-06"
+        },
+        {
+          "id": "vf1-execution-record",
+          "kind": "test_output",
+          "revision": "mock-06-head-v1",
+          "relativePath": "execution.json",
+          "sha256": "7af900677936d816716786dabc3f0613940d71b425a2b4ea31b84463fc950652",
+          "projectId": "vf1-synthetic-project",
+          "taskRef": "vf1-mock-06"
+        },
+        {
+          "id": "vf1-coverage-policy",
+          "kind": "requirement",
+          "revision": "vf1-job-1.0.0",
+          "relativePath": "host-request.json",
+          "sha256": "d22ee217c3927c2431f885c0f6e20a65104be34c7979928ffcb78f3d51acc2a5",
+          "projectId": "vf1-synthetic-project",
+          "taskRef": "vf1-mock-06"
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-1",
+          "criterionIds": [
+            "AC-02"
+          ],
+          "constraintIds": [],
+          "ownerRole": "developer",
+          "assigneeRef": null,
+          "state": "proposed",
+          "description": "Review the current counterexample against the requirement.",
+          "doneWhen": "Resolve or dispute the sourced counterexample; provide fresh evidence in a new assessment."
+        },
+        {
+          "id": "action-2",
+          "criterionIds": [
+            "AC-03"
+          ],
+          "constraintIds": [],
+          "ownerRole": "developer",
+          "assigneeRef": null,
+          "state": "proposed",
+          "description": "Review the current counterexample against the requirement.",
+          "doneWhen": "Resolve or dispute the sourced counterexample; provide fresh evidence in a new assessment."
+        }
+      ],
+      "legacyProjection": {
+        "status": "projection_unsupported",
+        "reasonCodes": [
+          "P1_V2_EXPORT_NOT_IMPLEMENTED"
+        ]
+      },
+      "limitations": [
+        "Synthetic reference report over supplied judgments; no authenticated authority or domain truth.",
+        "No project tests, model/network calls, persistence, P1 export or run lifecycle performed.",
+        "Digests identify supplied JSON inputs, not source contents, actor authenticity or trust.",
+        "Proposed role labels are routing suggestions; no assignee, approval or action completion asserted."
+      ]
+    }
+  },
+  "completion": {
+    "completionVersion": "1.0.0",
+    "kind": "internal_completion_proposal",
+    "projectId": "vf1-synthetic-project",
+    "runId": "vf1-a-112a6a0d8e9d4ce8",
+    "expectedRunVersion": 1,
+    "expectedAttempt": 1,
+    "expectedRunSha256": "4ba38e6bb56adce5653f84539aea531ba3fcee144ab854c2df34a8f2bf856853",
+    "reportSha256": "9ad94852661db5fd54655bf9d6f6832c0e92cf61c69759b6125661e9a17f8a48",
+    "runMutation": {
+      "state": "completed",
+      "stateVersion": 2,
+      "lease": null,
+      "reportId": "vf1-a-112a6a0d8e9d4ce8-report",
+      "waitingReasons": [],
+      "terminalReason": null
+    },
+    "eventProposal": {
+      "type": "report_ready",
+      "sequence": 1,
+      "runStateVersion": 2,
+      "referenceIds": [
+        "vf1-a-112a6a0d8e9d4ce8-report"
+      ]
+    }
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "status": "PASS",
+  "fragmentSha256": "c86537afef47ff299d3d5bf796ff2cfc07da94d889e80ab7a32b0d6824b70f56",
+  "previewSha256": "d52c10fdfb0a1164e418a033705eb7d7688d50f73c41995dc4b0772cdf2b0bc1",
+  "checkerSha256": "f7947d76303c1c1478a29789a080640f1d16b1b7da9f95a28f129a3c20e0e9fc",
+  "checks": [
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-04",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-04",
+      "expected": "Chưa kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0,
+      "keyboardRunCriterionSourceJourney": true,
+      "focusRetained": true,
+      "openCoverageVisible": true
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-04",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-04",
+      "expected": "Chưa kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0,
+      "keyboardRunCriterionSourceJourney": true,
+      "focusRetained": true,
+      "openCoverageVisible": true
+    }
+  ]
+}

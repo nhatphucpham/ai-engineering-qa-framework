@@ -1,0 +1,48 @@
+{
+  "version": "vf1-host-provenance-1.0.0",
+  "classification": "synthetic-only",
+  "agents": [
+    {
+      "role": "live-host-assessor",
+      "task": "/root/vf1_reason_a",
+      "configuredModel": "gpt-6.2-astra",
+      "configuredReasoningEffort": "high",
+      "forkTurns": "none",
+      "metadataSource": "actual collaboration.spawn_agent arguments in this root session",
+      "inputAllowlist": [
+        "docs/vf1-results/vf1-20261118-r1/a/host-request.json",
+        "docs/vf1-results/vf1-20261118-r1/a/anchors.json",
+        "schemas/qa-assessment-v2.schema.json"
+      ],
+      "responseSha256": "5d3c94be36796a8d2f2343a80eccfe0402498ecd4a64bc87fed3096044e95e4b",
+      "requestSha256": "d22ee217c3927c2431f885c0f6e20a65104be34c7979928ffcb78f3d51acc2a5",
+      "tokenUsage": null,
+      "cost": null,
+      "providerApiInvocation": false,
+      "unattendedConnector": false,
+      "attempt1Sha256": "5d3c94be36796a8d2f2343a80eccfe0402498ecd4a64bc87fed3096044e95e4b",
+      "attempt1Meaning": "identical administrative backup; A was not rejected"
+    },
+    {
+      "role": "live-host-assessor",
+      "task": "/root/vf1_reason_b",
+      "configuredModel": "gpt-6.2-astra",
+      "configuredReasoningEffort": "high",
+      "forkTurns": "none",
+      "metadataSource": "actual collaboration.spawn_agent arguments in this root session",
+      "inputAllowlist": [
+        "docs/vf1-results/vf1-20261118-r1/b/host-request.json",
+        "docs/vf1-results/vf1-20261118-r1/b/anchors.json",
+        "schemas/qa-assessment-v2.schema.json"
+      ],
+      "responseSha256": "20e174131dc34db7b40b12497ab9a80d15fa1a941e3eeb53be1f917808fc13ca",
+      "requestSha256": "ce7dcc2db90f6cb3195359fd6c9ca27a41e8d434dd537fc7ce82dc8fa2a71f5c",
+      "tokenUsage": null,
+      "cost": null,
+      "providerApiInvocation": false,
+      "unattendedConnector": false,
+      "attempt1Sha256": "bf9891a7f6a8bc30aebfd2d018fe83c067fe142c2e8494bf4b0ee3f23f4fa1e6",
+      "attempt1Meaning": "policy-rejected proposal, independently revised by same assessor"
+    }
+  ]
+}

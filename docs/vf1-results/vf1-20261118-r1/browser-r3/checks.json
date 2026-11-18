@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 0,
+      "cid": "AC-04",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "run": 1,
+      "cid": "AC-04",
+      "expected": "Chưa kiểm chứng",
+      "geometry": {
+        "width": 992,
+        "scroll": 992,
+        "client": 992
+      }
+    },
+    {
+      "width": 1024,
+      "pageErrors": [],
+      "blockedPreviewAssets": [],
+      "appNetworkRequests": 0,
+      "keyboardActivation": true
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 0,
+      "cid": "AC-04",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-01",
+      "expected": "Đã kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-02",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-03",
+      "expected": "Vi phạm",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "run": 1,
+      "cid": "AC-04",
+      "expected": "Chưa kiểm chứng",
+      "geometry": {
+        "width": 288,
+        "scroll": 288,
+        "client": 288
+      }
+    },
+    {
+      "width": 320,
+      "pageErrors": [],
+      "blockedPreviewAssets": [
+        "https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"
+      ],
+      "appNetworkRequests": 0,
+      "keyboardActivation": true
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "observedAt": "2026-11-18T06:52:53.008149+00:00",
+  "phase": "post-run read-only corroboration; original preflight was also read in session",
+  "windowsPython": {
+    "argv": [
+      "py",
+      "-3",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "Python 3.14.8\n",
+    "stderr": ""
+  },
+  "linuxPackages": {
+    "argv": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu-24.04",
+      "--",
+      "dpkg-query",
+      "-W",
+      "python3.12",
+      "libpython3.12-stdlib",
+      "podman",
+      "crun",
+      "busybox-static"
+    ],
+    "exitCode": 0,
+    "stdout": "busybox-static\t1:1.36.1-6ubuntu3.1\ncrun\t1.14.1-1\nlibpython3.12-stdlib:amd64\t3.12.3-1ubuntu0.17\npodman\t4.9.3+ds1-1ubuntu0.2\npython3.12\t3.12.3-1ubuntu0.17\n",
+    "stderr": ""
+  },
+  "linuxPython": {
+    "argv": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu-24.04",
+      "--",
+      "/usr/bin/python3",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "Python 3.12.3\n",
+    "stderr": ""
+  }
+}

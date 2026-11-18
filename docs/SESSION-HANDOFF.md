@@ -1,3 +1,15 @@
+# Yêu cầu hiện hành — commit/push VF1, 18/11/2026
+
+User yêu cầu **“commit và push”** output VF1 đã independent CLEAN. Cho phép commit/push gói VF1 cùng current-doc handoff, exact-byte Git policy và pre-push verification; [pre-push record](VF1-PUSH-REVIEW-2026-11-18.md) lưu checks/snapshot/verdict. Các câu no-Git/chưa commit bên dưới là lịch sử trước quyền mới. Actual commit/remote/clean-tree xác minh sau Git action, không suy từ intent. Giữ VF1 DONE selected bounded scope và full product gates OPEN; không triển khai connector mới trong lượt Git này.
+
+# Hiện hành — VF1 actual value flow, 18/11/2026
+
+User phê duyệt luồng synthetic input → checks thật → agent reasoning → core → report mới → dashboard, sau khi xác nhận mockup chưa giải quyết trọn vấn đề ban đầu. Nền `470bd8b` đã push S4-E; [VF1 protocol](VF1-PROTOCOL.md), [results/review](VF1-RESULTS.md), [source](../spikes/vf1/README.md). VF1 **DONE selected bounded scope — independent CLEAN R2**; [closure record](vf1-results/vf1-20261118-r1/review-closure.json) đóng VF1-RV-01/02/03; full product gates vẫn OPEN. Hai run container riêng đều9 checks/6pass/3 assertion fail/0error/0skip; live host agents độc lập đề xuất mapping, core cho A=verified/failed/failed/verified và B=verified/failed/failed/unverified. B thiếu observation API page/size trước reasoning; failed+gap cùng được giữ, humanDecision pending. Không sửa fixture hoặc verdict ở UI.
+
+Đây là trusted-local host-mediated experiment, chưa connector nền tự chạy/native Windows app/authenticated remote worker/export quyền thường. AC04 A dùng composite inference (service out-of-range + API in-range execution + source passthrough), không direct API out-of-range assertion; scope ghi rõ. Independent GPT-6.2 Astra high review từ đầu, checks và preservation tại results. Giữ S4-F whole-supervisor/pre-identity/durable recovery cùng broker/secret/ordinary content-export/GitHub live/desktop/P5/P6 còn mở. Ưu tiên value flow song song prerequisite để kiểm tác dụng thực, không thay scope an toàn hoặc chọn production stack.
+
+Next sau CLEAN: versioned host connector/orchestration contract giảm mediation của phiên, cùng S4-F critical prerequisites; không tự dùng API/account/project/key thật/pilot/publish. No new Git action; quyền commit/push S4-E trước là lịch sử, chưa thực hiện push VF1.
+
 # Yêu cầu hiện hành — commit/push S4-E, 13/11/2026
 
 User yêu cầu **“commit và push và được bao nhiêu phần trăm tiến đọ rồi”**. Cho phép commit/push toàn output S4-E đã CLEAN cùng bàn giao hiện hành; [pre-push/progress record](S4E-PUSH-REVIEW-2026-11-13.md) ghi checks/verdict và cách đếm12 mốc. Actual commit/remote/clean-tree kiểm sau Git action; các câu no-Git/uncommitted dưới đây là lịch sử, không phải kết quả push. Giữ selected S4-E DONE/CLEAN, full product gates OPEN; không tự phát triển thêm trong lượt Git này.

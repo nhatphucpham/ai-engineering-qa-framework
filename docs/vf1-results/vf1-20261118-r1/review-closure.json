@@ -1,0 +1,60 @@
+{
+  "version": "vf1-review-1.0.0",
+  "status": "DONE selected bounded synthetic scope",
+  "reviewerTask": "/root/ux_review",
+  "configuredModel": "gpt-6.2-astra",
+  "configuredReasoningEffort": "high",
+  "rounds": [
+    {
+      "round": 1,
+      "verdict": "CHANGES_REQUIRED",
+      "findings": [
+        "VF1-RV-01",
+        "VF1-RV-02",
+        "VF1-RV-03"
+      ]
+    },
+    {
+      "round": 2,
+      "verdict": "CLEAN",
+      "snapshotFile": "review-snapshot-r2.json",
+      "snapshotSha256": "5e7b463593c87609b95d8b851e9fa8bfb977b7468cc876a9415003d4b65acc67",
+      "hashesIndependentlyChecked": 71,
+      "unresolvedFindings": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "VF1-RV-01",
+      "state": "CLOSED",
+      "reviewerConfirmedRound": 2
+    },
+    {
+      "id": "VF1-RV-02",
+      "state": "CLOSED",
+      "reviewerConfirmedRound": 2
+    },
+    {
+      "id": "VF1-RV-03",
+      "state": "CLOSED",
+      "reviewerConfirmedRound": 2
+    }
+  ],
+  "reviewerStatement": "No unresolved/new in-scope findings. Can mark selected bounded scope DONE administratively on this reviewed snapshot.",
+  "administrativeOnlyUpdates": {
+    "docs/IMPLEMENTATION-PLAN.md": "488a62cc5f2a68fa261f9b3d2e95e528a69ec090abfa5624bb10a6cdc40131f2",
+    "docs/NEXT-SESSION.md": "dc3292518d2082bb5a278783a5c6f4995ceccd185529c24660c3d3ad6a64b21c",
+    "docs/SESSION-HANDOFF.md": "e377294ac58646a8b630f91fe1457a5516de96fdc45d6a9ec216c2ffa9b9be61",
+    "docs/DECISION-LOG.md": "4d8680a9898bd592406bbac18e06299cd1386df6add873727c14a3296605a6f4",
+    "docs/VF1-RESULTS.md": "bb846fe6e568951887a9f4854e856c2ae1f4854a7a021b2afaa96689ff33fcc2"
+  },
+  "administrativeChangeDescription": "Only review closure/DONE status and verdict/check references added after CLEAN; original reviewed snapshot retained unchanged. No code/report/view/decision-scope edits.",
+  "checks": {
+    "vf1": "required-checks.json",
+    "audit": "audit-r4.json",
+    "browser": "browser-r4/checks.json"
+  },
+  "productGates": "OPEN",
+  "humanDecision": "pending",
+  "gitActionPerformed": false
+}
