@@ -1,0 +1,7 @@
+Running as unit: qa-s4-vf1-d9395c3a1ae8423e8b2a6eeb4e0488e2.service; invocation ID: a4d2805973c94c1f8647b8354f12c260
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3.357s
+CPU time consumed: 2.986s
+Memory peak: 2.0M
+Memory swap peak: 0B

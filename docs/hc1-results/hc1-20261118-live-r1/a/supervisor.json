@@ -1,0 +1,6 @@
+{
+  "unit": "qa-s4-vf1-7d2f67b912db4407bc86609c2040c3d9.service",
+  "loadState": "not-found",
+  "cgroupAbsent": true,
+  "workerExitCode": 2
+}

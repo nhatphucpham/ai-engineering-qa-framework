@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "state": "view_ready",
+  "dispatchDigest": "63ec392c28ccf4d41bf393741007c880a9413627c0cf6ac0347d71b6f3a10e42",
+  "expectedTicket": "63ec392c28ccf4d41bf393741007c880a9413627c0cf6ac0347d71b6f3a10e42",
+  "method": "native PowerShell capture then ConvertFrom-Json",
+  "canonicalBytes": "unchanged"
+}

@@ -1,0 +1,364 @@
+{
+  "version": "vf1-host-response-1.0.0",
+  "runId": "hc1-b-c29cdde2f3ea46a6",
+  "jobId": "job-6b159f3fbb644dfd",
+  "jobDigest": "aad0c33c6884ffa96eeea98e89df7aa88f41ccdf7254e1c2c58189729cec1b3c",
+  "risk": {
+    "tier": "medium",
+    "state": "accepted",
+    "rationale": "UI state and a shared in-process cache can show an empty page or items from an earlier selection. The synthetic catalog is public, fixed, and locally reversible. Category changes from later pages and repeated requests on one API instance exercise the affected paths."
+  },
+  "criteria": [
+    {
+      "criterionId": "AC-01",
+      "planState": "accepted",
+      "applicability": "applicable",
+      "naDecision": null,
+      "scopeDescription": "Inspect the service response for a matching nonempty string and a case variant on the fixed catalog. artifact-4 L4-L7 explains exact equality and the filtered total. Whitespace and the empty-string rule are outside this selected criterion.",
+      "requiredLevels": [
+        "unit"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "exact-filter",
+          "description": "Return just the matching items and their filtered total for an exact nonempty category match.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-01",
+          "requiredComparisonKeys": [
+            "tools-match"
+          ]
+        },
+        {
+          "id": "respect-case",
+          "description": "Treat a case variant as distinct when matching a nonempty category.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-01",
+          "requiredComparisonKeys": [
+            "case-variant"
+          ]
+        }
+      ],
+      "comparisonContexts": [
+        {
+          "id": "tools-match",
+          "description": "Service list_items('tools', 1, 2) compared with T1, T2 and total 2.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L13-L17"
+        },
+        {
+          "id": "case-variant",
+          "description": "Service list_items('Tools', 1, 2) compared with zero matches by its total.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L13-L17"
+        }
+      ]
+    },
+    {
+      "criterionId": "AC-02",
+      "planState": "accepted",
+      "applicability": "applicable",
+      "naDecision": null,
+      "scopeDescription": "A category selection must leave the view on page 1 and send page 1 to the API. Starting on page 1 exercises ordinary selection. Starting on page 3 discriminates an actual reset from retaining the previous page. artifact-5 L4-L11 shows the state and outgoing call.",
+      "requiredLevels": [
+        "integration"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "selected-page",
+          "description": "After selecting a category the view's current page is 1, including on transitions from a later page.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-02",
+          "requiredComparisonKeys": [
+            "start-first",
+            "start-third"
+          ]
+        },
+        {
+          "id": "requested-page",
+          "description": "The API receives the new category and page 1 on selection from page 3.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-02",
+          "requiredComparisonKeys": [
+            "recorded-third"
+          ]
+        }
+      ],
+      "comparisonContexts": [
+        {
+          "id": "start-first",
+          "description": "Select tools from the default books/page 1 state and inspect final view state and returned IDs.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L41-L46"
+        },
+        {
+          "id": "start-third",
+          "description": "Select tools from books/page 3 and inspect view.page.",
+          "sourceArtifactId": "artifact-7",
+          "locator": "L8-L12"
+        },
+        {
+          "id": "recorded-third",
+          "description": "Record the arguments when selecting tools from books/page 3 and compare the actual request with ('tools', 1, 2).",
+          "sourceArtifactId": "artifact-8",
+          "locator": "L8-L17"
+        }
+      ]
+    },
+    {
+      "criterionId": "AC-03",
+      "planState": "accepted",
+      "applicability": "applicable",
+      "naDecision": null,
+      "scopeDescription": "Compare results from successive requests on a single API instance while retaining or changing cache-key dimensions. The source key at artifact-2 L10-L14 omits category. Only the offered observations establish run-time behavior. The page/size variation test body is supplied without an observation.",
+      "requiredLevels": [
+        "integration"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "repeat-tuple",
+          "description": "Repeating the same request on a shared API instance must preserve its category-specific result.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-03",
+          "requiredComparisonKeys": [
+            "same-tuple"
+          ]
+        },
+        {
+          "id": "vary-category",
+          "description": "Changing only category on the same instance must produce the second category's items and filtered total.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-03",
+          "requiredComparisonKeys": [
+            "category-switch"
+          ]
+        },
+        {
+          "id": "vary-page-size",
+          "description": "Changing page or page_size for a fixed category must return the corresponding result for each tuple.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-03",
+          "requiredComparisonKeys": [
+            "varied-page-or-size"
+          ]
+        }
+      ],
+      "comparisonContexts": [
+        {
+          "id": "same-tuple",
+          "description": "Request tools page 1 twice with the default size on one instance.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L29-L33"
+        },
+        {
+          "id": "category-switch",
+          "description": "Request books then tools with page 1 and size 2, on the same instance. Compare returned IDs and the second total.",
+          "sourceArtifactId": "artifact-8",
+          "locator": "L19-L25"
+        },
+        {
+          "id": "varied-page-or-size",
+          "description": "Request books (page,size) of (1,2), (2,2), (1,1) in succession on one instance and compare IDs.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L35-L39"
+        }
+      ]
+    },
+    {
+      "criterionId": "AC-04",
+      "planState": "accepted",
+      "applicability": "applicable",
+      "naDecision": null,
+      "scopeDescription": "For a fixed category, the service observation exercises ordered slicing and an empty out-of-range page retaining the filtered total. Baseline.test_api_page_and_size would exercise API order, page and size directly, but its observation is absent. No offered check directly asserts API out-of-range behavior for a fixed category. artifact-2 L10-L14 delegates on cache misses to artifact-4 L4-L7, so propagation of the service result to the API is an inference only. Cross-category cache behavior belongs to AC-03.",
+      "requiredLevels": [
+        "integration"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "ordered-slice",
+          "description": "Within one category return the appropriate ordered slice bounded by page_size at service and API.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-04",
+          "requiredComparisonKeys": [
+            "service-slice",
+            "api-slice"
+          ]
+        },
+        {
+          "id": "out-of-range",
+          "description": "Within one category return an empty page and keep the filtered total when page exceeds the available results. The service check supplies the boundary example; the API forwarding path is source-based inference only.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-04",
+          "requiredComparisonKeys": [
+            "service-boundary"
+          ]
+        }
+      ],
+      "comparisonContexts": [
+        {
+          "id": "service-slice",
+          "description": "Service books page 2 size 2 should return B3, B4 in order.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L19-L22"
+        },
+        {
+          "id": "api-slice",
+          "description": "On a single API instance compare books pages 1 and 2 at size 2 and page 1 at size 1 with their respective ordered IDs.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L35-L39"
+        },
+        {
+          "id": "service-boundary",
+          "description": "Service tools page 3 size 2 should return empty items, total 2, page 3.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L19-L22"
+        }
+      ]
+    }
+  ],
+  "evidenceReviews": [
+    {
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e1",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The offered unit observation names the service test at artifact-6 L13-L17. Its assertions cover exact matched IDs, filtered total, and the zero total for a case variant."
+    },
+    {
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e2",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The offered unit observation matches artifact-6 L19-L22. It exercises service pagination and the full out-of-range service response."
+    },
+    {
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e4",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The integration observation matches the identical tools requests in artifact-6 L29-L33. Both assert the expected IDs and the check counts cache entries. No cache-key dimension varies."
+    },
+    {
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e6",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The offered integration observation matches artifact-6 L41-L46. Final state and IDs are checked starting on page 1; the call arguments are not recorded."
+    },
+    {
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e7",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The integration traceback identifies the view.page assertion at artifact-7 L8-L12 on this candidate. It reports 3 versus 1 and stops before the IDs assertion."
+    },
+    {
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e8",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The integration traceback matches the recording probe at artifact-8 L8-L17. The actual request was ('tools', 3, 2) versus ('tools', 1, 2)."
+    },
+    {
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e9",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The integration traceback identifies the second IDs assertion at artifact-8 L19-L25. It reports B1, B2 versus T1, T2, after the first IDs assertion. The following assertion on the second total was not reached."
+    }
+  ],
+  "bindings": [
+    {
+      "criterionId": "AC-01",
+      "obligationId": "exact-filter",
+      "comparisonKey": "tools-match",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e1",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "The observed service check asserts precisely T1, T2 and filtered total 2 for tools."
+    },
+    {
+      "criterionId": "AC-01",
+      "obligationId": "respect-case",
+      "comparisonKey": "case-variant",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e1",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "The same observed service check asserts total 0 for the differently capitalized Tools."
+    },
+    {
+      "criterionId": "AC-02",
+      "obligationId": "selected-page",
+      "comparisonKey": "start-first",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e6",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "After selection from page 1 the view's page equals 1."
+    },
+    {
+      "criterionId": "AC-02",
+      "obligationId": "selected-page",
+      "comparisonKey": "start-third",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e7",
+      "relation": "violates",
+      "judgment": "accepted",
+      "rationale": "After the switch from books/page 3 to tools, the view retains page 3."
+    },
+    {
+      "criterionId": "AC-02",
+      "obligationId": "requested-page",
+      "comparisonKey": "recorded-third",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e8",
+      "relation": "violates",
+      "judgment": "accepted",
+      "rationale": "The recorded API call receives page 3 where page 1 was required."
+    },
+    {
+      "criterionId": "AC-03",
+      "obligationId": "repeat-tuple",
+      "comparisonKey": "same-tuple",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e4",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "Both requests for tools return the expected IDs on the same instance."
+    },
+    {
+      "criterionId": "AC-03",
+      "obligationId": "vary-category",
+      "comparisonKey": "category-switch",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e9",
+      "relation": "violates",
+      "judgment": "accepted",
+      "rationale": "On the second request the API returns books IDs for tools with identical page and size. This directly contradicts category isolation; the total assertion was not reached."
+    },
+    {
+      "criterionId": "AC-04",
+      "obligationId": "ordered-slice",
+      "comparisonKey": "service-slice",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e2",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "The service returns B3, B4 in order for books page 2 of size 2; this is unit-level execution."
+    },
+    {
+      "criterionId": "AC-04",
+      "obligationId": "out-of-range",
+      "comparisonKey": "service-boundary",
+      "evidenceId": "hc1-b-c29cdde2f3ea46a6-e2",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "The unit-level service response for tools page 3 has empty items and total 2. No API boundary call is asserted here."
+    }
+  ]
+}

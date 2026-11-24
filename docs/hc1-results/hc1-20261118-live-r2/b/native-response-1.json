@@ -1,0 +1,348 @@
+{
+  "version": "vf1-host-response-1.0.0",
+  "runId": "hc1-b-98d9fb2c048745fc",
+  "jobId": "job-f1657c4a07b44ce5",
+  "jobDigest": "0dae3e27967b63d9c5b3a9ef529878a6450600e4858665761833b675bad319ad",
+  "risk": {
+    "tier": "medium",
+    "state": "accepted",
+    "rationale": "A stale page or a wrong cached category can show an empty list or unrelated catalog rows. The synthetic public catalog is local and reversible. Stateful integration checks are needed at both transitions."
+  },
+  "criteria": [
+    {
+      "criterionId": "AC-01",
+      "planState": "accepted",
+      "scopeDescription": "Exact, case-sensitive service filtering for a nonempty category and the count of matching rows.",
+      "requiredLevels": [
+        "unit"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "filtered-result",
+          "description": "Return only matching rows, with the total for the match set.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-01",
+          "requiredComparisonKeys": [
+            "tools-match",
+            "case-mismatch"
+          ]
+        }
+      ],
+      "applicability": "applicable",
+      "naDecision": null,
+      "comparisonContexts": [
+        {
+          "id": "tools-match",
+          "description": "tools with page 1 and size 2 returns T1 and T2, total 2.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L12-L16"
+        },
+        {
+          "id": "case-mismatch",
+          "description": "Tools has no exact catalog match, so the expected total is zero.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L12-L16"
+        }
+      ]
+    },
+    {
+      "criterionId": "AC-02",
+      "planState": "accepted",
+      "scopeDescription": "Verify category selection updates the UI page and sends page 1 to the API, including transitions from a later page.",
+      "requiredLevels": [
+        "integration"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "selection-state",
+          "description": "After choosing tools, the view is on page 1.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-02",
+          "requiredComparisonKeys": [
+            "from-first",
+            "from-third"
+          ]
+        },
+        {
+          "id": "outbound-page",
+          "description": "Reset must precede the request.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-02",
+          "requiredComparisonKeys": [
+            "recorded-third"
+          ]
+        }
+      ],
+      "applicability": "applicable",
+      "naDecision": null,
+      "comparisonContexts": [
+        {
+          "id": "from-first",
+          "description": "Start on books page 1 and select tools.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L40-L45"
+        },
+        {
+          "id": "from-third",
+          "description": "Start on books page 3 and select tools.",
+          "sourceArtifactId": "artifact-7",
+          "locator": "L8-L12"
+        },
+        {
+          "id": "recorded-third",
+          "description": "Record the first outbound call on selection from books page 3. Expected tools, page 1, size 2.",
+          "sourceArtifactId": "artifact-8",
+          "locator": "L8-L17"
+        }
+      ]
+    },
+    {
+      "criterionId": "AC-03",
+      "planState": "accepted",
+      "scopeDescription": "Check the in-process API cache for equivalent requests and changes to category, page, or size on a shared instance.",
+      "requiredLevels": [
+        "integration"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "cache-reuse",
+          "description": "An identical request can reuse the correct result.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-03",
+          "requiredComparisonKeys": [
+            "same-tuple"
+          ]
+        },
+        {
+          "id": "cache-discrimination",
+          "description": "When a key dimension changes the response must match the requested tuple.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-03",
+          "requiredComparisonKeys": [
+            "changed-category",
+            "changed-page-size"
+          ]
+        }
+      ],
+      "applicability": "applicable",
+      "naDecision": null,
+      "comparisonContexts": [
+        {
+          "id": "same-tuple",
+          "description": "Repeat tools, page 1, size 2 on one instance.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L28-L32"
+        },
+        {
+          "id": "changed-category",
+          "description": "After books, request tools on the same instance with page 1 and size 2.",
+          "sourceArtifactId": "artifact-8",
+          "locator": "L19-L25"
+        },
+        {
+          "id": "changed-page-size",
+          "description": "Vary page then size for books on one instance and compare the returned IDs.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L34-L38"
+        }
+      ]
+    },
+    {
+      "criterionId": "AC-04",
+      "planState": "accepted",
+      "scopeDescription": "For a fixed category, verify ordered page contents, size bounds, and empty overflow with filtered total. The service check directly covers ordinary and overflow pages. The API delegates on a cache miss (artifact-2 L10-L14), but only the fixed-category API pagination check can supply the required integration evidence. Its test definition alone supplies no execution result.",
+      "requiredLevels": [
+        "integration"
+      ],
+      "allowedProvenance": [
+        "execution"
+      ],
+      "obligations": [
+        {
+          "id": "service-pages",
+          "description": "Service slices the filtered catalog in order, returning at most the requested number of items and preserving the filtered total on overflow.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-04",
+          "requiredComparisonKeys": [
+            "service-middle",
+            "service-overflow"
+          ]
+        },
+        {
+          "id": "api-pages",
+          "description": "Follow ordered books pages through the API, changing both page and page size.",
+          "sourceArtifactId": "artifact-1",
+          "locator": "AC-04",
+          "requiredComparisonKeys": [
+            "api-window"
+          ]
+        }
+      ],
+      "applicability": "applicable",
+      "naDecision": null,
+      "comparisonContexts": [
+        {
+          "id": "service-middle",
+          "description": "books page 2 size 2 returns B3 then B4.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L18-L21"
+        },
+        {
+          "id": "service-overflow",
+          "description": "tools page 3 size 2 returns no items, total 2 and page 3.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L18-L21"
+        },
+        {
+          "id": "api-window",
+          "description": "Check books page 1 size 2, page 2 size 2 and page 1 size 1 on one API instance. API overflow is not asserted here.",
+          "sourceArtifactId": "artifact-6",
+          "locator": "L34-L38"
+        }
+      ]
+    }
+  ],
+  "evidenceReviews": [
+    {
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e1",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The offered unit observation names the service filter test and matches its exact-category, total and case-sensitive assertions."
+    },
+    {
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e2",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The offered service unit test passed both its ordered books-page assertion and its full tools-overflow response assertion."
+    },
+    {
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e4",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The named integration check passed for identical tuples, including the assertion that the cache has one entry. It varies no input."
+    },
+    {
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e6",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The selection check starts on page 1, asserts view state and returned IDs, and has an offered passing integration result."
+    },
+    {
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e7",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The failing assertion in the offered trace identifies the page field immediately after selection. The next items assertion was not reached."
+    },
+    {
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e8",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The offered failure compares the recorded outbound tuple to the expected tuple at the assertion in artifact-8."
+    },
+    {
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e9",
+      "integrity": "matched",
+      "attribution": "accepted",
+      "scope": "accepted",
+      "rationale": "The observed second request returned book IDs at the tools assertion on a shared instance. The subsequent total assertion was not reached."
+    }
+  ],
+  "bindings": [
+    {
+      "criterionId": "AC-01",
+      "obligationId": "filtered-result",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e1",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "Expected only T1 and T2 and total 2. The passing assertions establish those IDs and that total for tools.",
+      "comparisonKey": "tools-match"
+    },
+    {
+      "criterionId": "AC-01",
+      "obligationId": "filtered-result",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e1",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "Expected zero matches for Tools. The passing total assertion establishes zero for this case variant.",
+      "comparisonKey": "case-mismatch"
+    },
+    {
+      "criterionId": "AC-02",
+      "obligationId": "selection-state",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e6",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "The view was already on page 1. After selecting tools it remained there and returned T1 and T2 as asserted.",
+      "comparisonKey": "from-first"
+    },
+    {
+      "criterionId": "AC-02",
+      "obligationId": "selection-state",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e7",
+      "relation": "violates",
+      "judgment": "accepted",
+      "rationale": "Expected page 1 after selecting tools from books page 3. The assertion observed view.page equal to 3.",
+      "comparisonKey": "from-third"
+    },
+    {
+      "criterionId": "AC-02",
+      "obligationId": "outbound-page",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e8",
+      "relation": "violates",
+      "judgment": "accepted",
+      "rationale": "Expected the API call (tools, 1, 2). The recording API observed (tools, 3, 2).",
+      "comparisonKey": "recorded-third"
+    },
+    {
+      "criterionId": "AC-03",
+      "obligationId": "cache-reuse",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e4",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "Expected T1 and T2 twice for identical tools requests; both compared equal and a single cache entry was asserted.",
+      "comparisonKey": "same-tuple"
+    },
+    {
+      "criterionId": "AC-03",
+      "obligationId": "cache-discrimination",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e9",
+      "relation": "violates",
+      "judgment": "accepted",
+      "rationale": "Expected T1 and T2 on the second request, but it returned B1 and B2 from the preceding books request with the same page and size.",
+      "comparisonKey": "changed-category"
+    },
+    {
+      "criterionId": "AC-04",
+      "obligationId": "service-pages",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e2",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "Expected B3 then B4 for the second two-item books page. The service test passed this exact ordered-ID comparison.",
+      "comparisonKey": "service-middle"
+    },
+    {
+      "criterionId": "AC-04",
+      "obligationId": "service-pages",
+      "evidenceId": "hc1-b-98d9fb2c048745fc-e2",
+      "relation": "supports",
+      "judgment": "accepted",
+      "rationale": "Expected empty items, total 2, page 3 for tools page 3. The service-level observed pass covers the complete response at this boundary.",
+      "comparisonKey": "service-overflow"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Running as unit: qa-s4-vf1-7d2f67b912db4407bc86609c2040c3d9.service
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=2
+Service runtime: 244ms
+CPU time consumed: 109ms
+Memory peak: 3.0M
+Memory swap peak: 0B

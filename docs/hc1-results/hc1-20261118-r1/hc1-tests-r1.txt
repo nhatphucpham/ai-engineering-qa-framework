@@ -1,0 +1,17 @@
+test_callable_auto_core_view_and_exact_repeat_after_deadline (test_orchestrator.OrchestratorTest.test_callable_auto_core_view_and_exact_repeat_after_deadline) ... ok
+test_cancel_first_and_accept_first_serialize (test_orchestrator.OrchestratorTest.test_cancel_first_and_accept_first_serialize) ... ok
+test_conflicting_repeat_and_corrupt_published_file_rejected (test_orchestrator.OrchestratorTest.test_conflicting_repeat_and_corrupt_published_file_rejected) ... ok
+test_lock_and_publish_interruption_do_not_claim_success (test_orchestrator.OrchestratorTest.test_lock_and_publish_interruption_do_not_claim_success) ... ok
+test_missing_connector_and_offer_duplicate_do_not_invoke (test_orchestrator.OrchestratorTest.test_missing_connector_and_offer_duplicate_do_not_invoke) ... ok
+test_preexisting_dispatch_without_invocation_marker_never_replays (test_orchestrator.OrchestratorTest.test_preexisting_dispatch_without_invocation_marker_never_replays) ... ok
+test_sibling_response_even_with_right_envelope_rejects (test_orchestrator.OrchestratorTest.test_sibling_response_even_with_right_envelope_rejects) ... ok
+test_source_execution_revision_and_reference_tamper_rejected (test_orchestrator.OrchestratorTest.test_source_execution_revision_and_reference_tamper_rejected) ... ok
+test_strict_json (test_orchestrator.OrchestratorTest.test_strict_json) ... ok
+test_timeout_admission_and_commit_fence (test_orchestrator.OrchestratorTest.test_timeout_admission_and_commit_fence) ... ok
+test_transport_exception_and_duplicate_drive_never_reinvoke (test_orchestrator.OrchestratorTest.test_transport_exception_and_duplicate_drive_never_reinvoke) ... ok
+test_wrong_ticket_and_version_cannot_relabel_attempt (test_orchestrator.OrchestratorTest.test_wrong_ticket_and_version_cannot_relabel_attempt) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.498s
+
+OK

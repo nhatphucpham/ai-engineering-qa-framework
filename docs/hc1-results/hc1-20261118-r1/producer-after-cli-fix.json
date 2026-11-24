@@ -1,0 +1,1 @@
+{"compatibleChange":"stdout ensure_ascii=False to True only; disk canonical bytes and projection unchanged","path":"spikes/hc1/orchestrator.py","preChangeSource":"orchestrator-before-cli-fix.py","producerVersion":"hc1-orchestrator-1.0.1","sha256":"6d2085cb83cad70bcd249e8d9d0543329c446528f750e89301b8e694435c8ab9"}
