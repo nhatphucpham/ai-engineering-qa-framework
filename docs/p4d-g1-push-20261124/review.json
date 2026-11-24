@@ -1,0 +1,55 @@
+{
+  "version": "p4dg1-push-review-1.0.0",
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "scope": "Git-only pre-push delivery of reviewed P4D-G1 and post-M50 handoff plus exact new local-chat prompt",
+  "userAuthorization": "Commit push và mở sesion mới",
+  "reviewer": {
+    "agent": "/root/p4d_review_replacement",
+    "model": "gpt-6.2-astra",
+    "reasoningEffort": "high",
+    "independent": true
+  },
+  "baseline": "019692b688737340790722474d36b1e264aa9937",
+  "snapshotSha256": "3c1b71c56599386b2651a8d7b8510e51dc6d9461a1056a0b1f25cd05df011805",
+  "rounds": [
+    {
+      "round": 1,
+      "verdict": "CLEAN",
+      "snapshotSha256": "3c1b71c56599386b2651a8d7b8510e51dc6d9461a1056a0b1f25cd05df011805",
+      "findings": []
+    },
+    {
+      "round": 2,
+      "verdict": "CLEAN",
+      "snapshotSha256": "3c1b71c56599386b2651a8d7b8510e51dc6d9461a1056a0b1f25cd05df011805",
+      "findings": []
+    }
+  ],
+  "outstandingFindings": [],
+  "checks": {
+    "changedPayloadFilesWorkingIndexCheckout": 37,
+    "snapshotAdministrativeFile": 1,
+    "additionalAdministrativeVerdictFile": 1,
+    "freshFastTests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "r4SourcePinsWorkingCheckout": 76,
+    "r4SourcePinMismatches": 0,
+    "priorHandoffPinnedFiles": 3,
+    "priorHandoffMismatch": 0,
+    "privateTrackedOrUntrackedCachePaths": 0,
+    "secretLikeStagedPayload": 0,
+    "cachedDiffCheck": "PASS",
+    "unstagedDiffEmpty": true,
+    "uiScreenshots": "not applicable: backend-only; no UI changes"
+  },
+  "byteScopeNote": "All changed staged payload bytes match working/index/fresh Windows checkout. All76 R4 source inputs match working and checkout. Historical unstaged paths retain original Git line-ending policy; no claim all754 raw working files match Git blobs or fresh checkout. Old attributes prefix preserved, new exact paths appended only.",
+  "productMilestones": "7/12 (58.3%)",
+  "fullP4D": "OPEN",
+  "humanDecision": "pending",
+  "pushStatus": "NOT_YET_EXECUTED_AT_RECORDING",
+  "newChatStatus": "NOT_YET_CREATED_AT_RECORDING",
+  "administrativeOnly": true
+}

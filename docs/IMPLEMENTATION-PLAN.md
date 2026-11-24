@@ -1,3 +1,9 @@
+# Hiện hành — P4D-G1 offline conformance, 24/11/2026
+
+Tiếp delegation sau M50: capability review và protocol CLEAN trước slice synthetic ingress qua cùng application API. [Kết quả P4D-G1](P4D-G1-RESULTS.md) và [bàn giao mới](NEXT-SESSION-POST-P4D-G1.md) ghi evidence/review; trạng thái slice chỉ DONE khi final-review xác nhận CLEAN. R4 có19 nhóm actual PostgreSQL/application +9unit PASS; core45/candidate54 PASS, DB STOPPED. Proof registry là synthetic, chưa GitHub authentication/occurrence-revision proof. Local cursor/pending plan không đóng provider atomicity gate.
+
+Full P4-D vẫn OPEN, tiến độ7/12≈58,3%; các ports local-host/OpenAI/Anthropic riêng, native reasoning còn session-mediated. Thứ tự đề xuất tiếp P3-B/S3 → P4-E Windows qua cùng API → P5 → P6 khi đủ prerequisites/target; chưa chốt stack/host/SDK, không Git/install/real account/API/pilot/publish. Bốn file bàn giao post-M50 giữ nguyên byte; lịch sử phía dưới giữ nguyên.
+
 # Hiện hành — Quyền commit/push theo từng thay đổi, 24/11/2026
 
 User yêu cầu **“commit và push theo từng thay dổi”**, sau đó xác nhận **“tiếp tục”**. Cho phép đưa toàn output HC1/S4-F/M50 đã review lên nhánh master hiện tại theo năm commit: bảo toàn byte, HC1, S4-F, M50 runtime/worker, và hồ sơ bàn giao. [Hồ sơ trước push](M50-PUSH-REVIEW-2026-11-24.md) lưu partition, checks, staged-byte audit và review độc lập. Các câu chưa có quyền Git bên dưới là lịch sử trước yêu cầu này.

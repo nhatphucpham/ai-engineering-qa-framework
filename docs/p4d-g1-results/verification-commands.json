@@ -1,0 +1,40 @@
+{
+  "candidateActualArgv": [
+    "py",
+    "-3",
+    "-B",
+    "-c",
+    "import sys,pathlib,unittest,time,json,io; r=pathlib.Path.cwd(); sys.path[:0]=[str(r/\"spikes/s2\"),str(r/\".cache/s6b/deps\"),str(r/\".cache/s6/deps\"),str(r/\".cache/s2/deps\")]; suite=unittest.defaultTestLoader.discover(\"runtime_candidate\",pattern=\"test_*.py\",top_level_dir=\".\"); out=io.StringIO(); begin=time.monotonic(); result=unittest.TextTestRunner(stream=out,verbosity=2).run(suite); row={\"command\":\"py -3 -B <recorded runner>: unittest discover runtime_candidate test_*.py\",\"tests\":result.testsRun,\"errors\":len(result.errors),\"failures\":len(result.failures),\"skipped\":len(result.skipped),\"seconds\":time.monotonic()-begin,\"status\":\"PASS\" if result.wasSuccessful() else \"FAIL\",\"output\":out.getvalue()}; (r/\"docs/p4d-g1-results/candidate-regression-20261124.json\").open(\"x\",encoding=\"utf-8\").write(json.dumps(row,indent=2)+\"\\n\"); print(json.dumps({k:v for k,v in row.items() if k!=\"output\"})); sys.exit(0 if result.wasSuccessful() else 2)"
+  ],
+  "candidateRecordOriginalCommandField": "wrapper placeholder retained unchanged; full inline runner here",
+  "candidateReproducibleArgv": [
+    "py",
+    "-3",
+    "-B",
+    "-c",
+    "import sys,pathlib,unittest; r=pathlib.Path.cwd(); sys.path[:0]=[str(r/\"spikes/s2\"),str(r/\".cache/s6b/deps\"),str(r/\".cache/s6/deps\"),str(r/\".cache/s2/deps\")]; unittest.main(module=None,argv=[\"unittest\",\"discover\",\"-s\",\"runtime_candidate\",\"-t\",\".\"])"
+  ],
+  "coreSuccessfulDiscovery": [
+    "py",
+    "-3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools"
+  ],
+  "corePriorFailedDiscovery": {
+    "topLevelDir": ".",
+    "result": "ImportError: tools not importable; no tests collected"
+  },
+  "campaign": [
+    "py",
+    "-3",
+    "-B",
+    "-m",
+    "spikes.p4d_g1.run_conformance",
+    "g1-20261124-r4.json"
+  ],
+  "rerunRule": "Historical destinations are exclusive and cannot be reused; no old actual campaign reruns required."
+}

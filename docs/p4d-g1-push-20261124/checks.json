@@ -1,0 +1,24 @@
+{
+  "command": "py -3 -B: unittest spikes.p4d_g1.test_ingress spikes.p4d_g1.test_lifecycle with retained experiment dependency paths",
+  "status": "PASS",
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.0028345000464469194,
+  "output": "test_duplicate_bytes_and_conflict (spikes.p4d_g1.test_ingress.GrammarTests.test_duplicate_bytes_and_conflict) ... ok\ntest_history_and_kind_fields (spikes.p4d_g1.test_ingress.GrammarTests.test_history_and_kind_fields) ... ok\ntest_independent_subject_types (spikes.p4d_g1.test_ingress.GrammarTests.test_independent_subject_types) ... ok\ntest_page_contract_and_bounds (spikes.p4d_g1.test_ingress.GrammarTests.test_page_contract_and_bounds) ... ok\ntest_receipts_derive_from_kind_transport_identity (spikes.p4d_g1.test_ingress.GrammarTests.test_receipts_derive_from_kind_transport_identity) ... ok\ntest_cleanup_failure_never_claims_stopped (spikes.p4d_g1.test_lifecycle.CleanupTests.test_cleanup_failure_never_claims_stopped) ... ok\ntest_close_and_hash_errors_do_not_skip_stop (spikes.p4d_g1.test_lifecycle.CleanupTests.test_close_and_hash_errors_do_not_skip_stop) ... ok\ntest_no_launch_or_already_stopped_does_not_stop_unowned_service (spikes.p4d_g1.test_lifecycle.CleanupTests.test_no_launch_or_already_stopped_does_not_stop_unowned_service) ... ok\ntest_partial_startup_still_stops_running_cluster (spikes.p4d_g1.test_lifecycle.CleanupTests.test_partial_startup_still_stops_running_cluster) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nOK\n",
+  "uiScreenshots": "not applicable: no UI changes",
+  "actualCampaignRerun": false,
+  "actualArgv": [
+    "py",
+    "-3",
+    "-B",
+    "-c",
+    "import sys,pathlib,unittest,io,json,time; r=pathlib.Path.cwd(); sys.path[:0]=[str(r/\"spikes/s2\"),str(r/\".cache/s6b/deps\"),str(r/\".cache/s2/deps\")]; out=io.StringIO(); suite=unittest.defaultTestLoader.loadTestsFromNames([\"spikes.p4d_g1.test_ingress\",\"spikes.p4d_g1.test_lifecycle\"]); begin=time.monotonic(); result=unittest.TextTestRunner(stream=out,verbosity=2).run(suite); row={\"command\":\"py -3 -B: unittest spikes.p4d_g1.test_ingress spikes.p4d_g1.test_lifecycle with retained experiment dependency paths\",\"status\":\"PASS\" if result.wasSuccessful() else \"FAIL\",\"tests\":result.testsRun,\"failures\":len(result.failures),\"errors\":len(result.errors),\"skipped\":len(result.skipped),\"seconds\":time.monotonic()-begin,\"output\":out.getvalue(),\"uiScreenshots\":\"not applicable: no UI changes\",\"actualCampaignRerun\":False}; (r/\"docs/p4d-g1-push-20261124/checks.json\").open(\"x\",encoding=\"utf-8\").write(json.dumps(row,indent=2)+\"\\n\"); print(json.dumps({k:v for k,v in row.items() if k!=\"output\"})); raise SystemExit(0 if result.wasSuccessful() else 2)"
+  ],
+  "sourcePinAudit": {
+    "path": "docs/p4d-g1-push-20261124/snapshot.json",
+    "campaignSourcePins": 76,
+    "beforeAfterCurrentCheckout": "must match; actual verdict in audit"
+  }
+}

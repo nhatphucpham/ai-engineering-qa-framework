@@ -1,0 +1,45 @@
+{
+  "inventory": {
+    "python": "3.14.8",
+    "platform": "win32",
+    "postgresBinary": true,
+    "driverLocal": true,
+    "clusterMarker": true,
+    "driver": {
+      "versions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "ready": true,
+      "localModulePaths": true,
+      "loadedVersions": {
+        "psycopg": "3.3.8",
+        "psycopg-binary": "3.3.8",
+        "tzdata": "2026.6"
+      },
+      "binaryImplementation": "binary"
+    },
+    "archiveIntegrity": true,
+    "extractedIntegrity": true,
+    "postgresVersion": "postgres (PostgreSQL) 18.6",
+    "toolchainReady": true
+  },
+  "recognizedMarker": true,
+  "dataPath": "E:\\phucpn-workspace\\git\\ai-engineering-qa-framework\\.cache\\s2\\cluster",
+  "kind": "s2-disposable-v1",
+  "database": "s2_synthetic",
+  "port": 51180,
+  "markerSha256": "f95e201826a23d53ec0927284e4666dd5b57e23f6c94a0843c3b8e18248f0f32",
+  "databaseStatus": "STOPPED",
+  "identity": {
+    "versions": {
+      "argon2-cffi": "25.1.0",
+      "argon2-cffi-bindings": "26.1.0",
+      "cffi": "2.1.1",
+      "pycparser": "3.12"
+    },
+    "ready": true,
+    "local_paths": true
+  }
+}

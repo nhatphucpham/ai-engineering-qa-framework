@@ -8,3 +8,6 @@ spikes/s1/dist/
 /.cache/s6/
 # S6-B experiment wheels and transient dummy credentials.
 /.cache/s6b/
+
+# Private synthetic P4D-G1 campaign state and dummy sessions.
+/.cache/p4d_g1/

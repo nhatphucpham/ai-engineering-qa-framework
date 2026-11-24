@@ -393,3 +393,41 @@
 /spikes/s6b/run_b.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /spikes/s6b/schema.sql -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /spikes/s6b/test_preflight_b.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Exact bytes for new P4D-G1 synthetic source/protocol/evidence.
+/docs/NEXT-SESSION-POST-P4D-G1.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4D-G1-PROTOCOL.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4D-G1-RESULTS.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/baseline-20261124.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/candidate-regression-20261124.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/core-regression-20261124.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/final-review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/g1-20261124-r1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/g1-20261124-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/g1-20261124-r3.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/g1-20261124-r4.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/preflight-20261124.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/preservation-final.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/review-ledger.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/snapshot-final.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-results/verification-commands.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/README.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/__init__.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/cases.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/ingress.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/lifecycle.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/replay_process.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/run_conformance.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/schema.sql -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/test_ingress.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_g1/test_lifecycle.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve raw Git-only P4D-G1 delivery and preceding reviewed handoff.
+/.gitignore -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/NEXT-SESSION-POST-M50.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/POST-M50-HANDOFF-REVIEW-2026-11-24.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4DG1-PUSH-REVIEW-2026-11-24.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-push-20261124/new-chat-prompt.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-push-20261124/checks.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-push-20261124/snapshot.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-g1-push-20261124/review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

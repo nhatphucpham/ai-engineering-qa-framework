@@ -1,3 +1,9 @@
+# Bàn giao sang session mới — 24/11/2026
+
+Năm commit HC1/S4-F/M50 đã push thành công; local HEAD và origin/master cùng **019692b688737340790722474d36b1e264aa9937**, workspace sạch trước khi viết bàn giao. Tiến độ **7/12 ≈ 58,3%**; P4-A/B/C DONE/CLEAN, P3-B/P4-D/P4-E/P5/P6 còn mở.
+
+Đọc [bàn giao và các bước kế tiếp](NEXT-SESSION-POST-M50.md): ưu tiên contract + offline adapter conformance P4-D, giữ explicit unresolved khi thiếu occurrence/revision proof; sau đó P3-B/S3 và Windows client, rồi P5/P6 theo gate. Đây là thứ tự kỹ thuật đề xuất, chưa chốt production stack/host/SDK. [Review bàn giao](POST-M50-HANDOFF-REVIEW-2026-11-24.json) được ghi sau verdict độc lập CLEAN. Tài liệu/prefix bàn giao là thay đổi local mới, chưa commit; giữ nguyên khi bắt đầu session mới. Các câu push-pending/no-Git phía dưới là lịch sử trước kết quả đã xác minh này.
+
 # Hiện hành — Quyền commit/push theo từng thay đổi, 24/11/2026
 
 User yêu cầu **“commit và push theo từng thay dổi”**, sau đó xác nhận **“tiếp tục”**. Cho phép đưa toàn output HC1/S4-F/M50 đã review lên nhánh master hiện tại theo năm commit: bảo toàn byte, HC1, S4-F, M50 runtime/worker, và hồ sơ bàn giao. [Hồ sơ trước push](M50-PUSH-REVIEW-2026-11-24.md) lưu partition, checks, staged-byte audit và review độc lập. Các câu chưa có quyền Git bên dưới là lịch sử trước yêu cầu này.

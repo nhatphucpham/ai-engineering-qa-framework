@@ -1,3 +1,9 @@
+# D-43 — P4-D qua versioned offline conformance, 24/11/2026
+
+Tiếp user delegation từ post-M50: rà matrix, xác minh semantics GitHub bằng docs chính thức, protocol review CLEAN trước implementation. [P4D-G1](P4D-G1-PROTOCOL.md) tách receipt/cursor/pending plan durable khỏi từng admission Application.dispatch để tránh nhiều authority witnesses trong một transaction. Chỉ trusted synthetic pairing có version; payload không tự cấp proof, head hiện tại/timestamp không giải được event revision. Full provider occurrence→run/cursor atomicity và authenticated/provider/connector readiness vẫn OPEN.
+
+[Kết quả và review](P4D-G1-RESULTS.md) quyết định trạng thái bounded slice, không đóng full P4-D hoặc tăng7/12. Tiếp hướng P3-B/S3 → P4-E cùng API → P5 → P6 theo prerequisites, không tự chốt stack/SDK/host/Git/pilot. Bảo toàn nguyên byte bốn local handoff post-M50; bàn giao phát triển mới tại NEXT-SESSION-POST-P4D-G1. Chỉ append scoped private-cache ignore/exact-byte attributes và prepend hai current docs, giữ toàn nội dung gốc.
+
 # Hiện hành — Quyền commit/push theo từng thay đổi, 24/11/2026
 
 User yêu cầu **“commit và push theo từng thay dổi”**, sau đó xác nhận **“tiếp tục”**. Cho phép đưa toàn output HC1/S4-F/M50 đã review lên nhánh master hiện tại theo năm commit: bảo toàn byte, HC1, S4-F, M50 runtime/worker, và hồ sơ bàn giao. [Hồ sơ trước push](M50-PUSH-REVIEW-2026-11-24.md) lưu partition, checks, staged-byte audit và review độc lập. Các câu chưa có quyền Git bên dưới là lịch sử trước yêu cầu này.

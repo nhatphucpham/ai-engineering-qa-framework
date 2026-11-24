@@ -1,0 +1,71 @@
+{
+  "version": "p4d-g1-final-review-1.0.0",
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "scope": "P4D-G1 bounded trusted synthetic offline ingress through unchanged application API only",
+  "reviewer": {
+    "agent": "/root/p4d_review_replacement",
+    "model": "gpt-6.2-astra",
+    "reasoningEffort": "high",
+    "independent": true,
+    "effects": "none"
+  },
+  "snapshot": {
+    "path": "docs/p4d-g1-results/snapshot-final.json",
+    "sha256": "66c60b5751f2c50c638e9b619412ce23298997c9a53c37f24f5c3bfad254f2d7",
+    "payloadFiles": 26
+  },
+  "actualEvidence": {
+    "path": "docs/p4d-g1-results/g1-20261124-r4.json",
+    "sha256": "d5c6528c10d4b09f9ac20db0496f0a6afbdb42cc005ecf9e782a546b6ce2c714",
+    "applicationGroups": 19,
+    "unitTests": 9,
+    "seconds": 75.56171959987842,
+    "inputPinsBeforeAfterCurrent": 76,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "databaseFinalStatus": "STOPPED",
+    "pgCtlStatusCode": 3
+  },
+  "regression": {
+    "core": {
+      "tests": 45,
+      "status": "PASS"
+    },
+    "candidate": {
+      "tests": 54,
+      "status": "PASS"
+    }
+  },
+  "preservation": {
+    "baselineFiles": 754,
+    "unchanged": 750,
+    "allowedBytePreservingAppendOrPrefix": 4,
+    "allOriginalBytesRetained": true,
+    "postM50HandoffFilesUnchanged": 4,
+    "privateUntrackedPaths": 0
+  },
+  "closedFindings": [
+    "P4D-R001",
+    "P4D-R002",
+    "P4D-R003",
+    "P4D-R004",
+    "P4D-R005",
+    "P4D-R006",
+    "P4D-R007",
+    "P4D-R008",
+    "P4D-R009",
+    "P4D-R010",
+    "P4D-R011",
+    "P4D-R012"
+  ],
+  "outstandingFindings": [],
+  "fullP4D": "OPEN",
+  "productMilestones": "7/12 (58.3%)",
+  "humanDecision": "pending",
+  "unattendedConnector": "unproved",
+  "providerProof": false,
+  "gitActions": "none",
+  "note": "Administrative closure only; reviewed payload snapshot/hashes unchanged. Historical R1 ERROR and R2/R3 evidence preserved. DONE does not grant production/pilot/approval/Git rights."
+}

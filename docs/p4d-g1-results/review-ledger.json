@@ -1,0 +1,179 @@
+{
+  "scope": "P4D-G1 offline conformance only; full P4-D OPEN 7/12",
+  "status": "DONE",
+  "reviewers": [
+    {
+      "agent": "/root/p4d_review",
+      "model": "gpt-6.2-astra",
+      "effort": "high",
+      "role": "independent, no effects",
+      "end": "usage limit after implementation findings"
+    },
+    {
+      "agent": "/root/p4d_review_replacement",
+      "model": "gpt-6.2-astra",
+      "effort": "high",
+      "role": "independent replacement; inherited all stable findings"
+    }
+  ],
+  "rounds": [
+    {
+      "round": "design-1",
+      "snapshot": "81b80f91b74a8cff2aed4142250bf641c2519fda15e467105a0097e2cda289ce",
+      "verdict": "CHANGES_REQUESTED",
+      "findings": [
+        "R001",
+        "R002",
+        "R003"
+      ]
+    },
+    {
+      "round": "design-2",
+      "snapshot": "3775e7f6627f2b56aa1f0256588b69f53ac2180a3abc17943f14a4cf4eb8f5db",
+      "verdict": "CHANGES_REQUESTED",
+      "findings": [
+        "R001",
+        "R004"
+      ]
+    },
+    {
+      "round": "design-3",
+      "snapshot": "e9200c3ecbd06cfa53b89ae5313d02102c26affd3727b20b08bdb1a57489be35",
+      "verdict": "DESIGN_CLEAN",
+      "closed": [
+        "R001",
+        "R002",
+        "R003",
+        "R004"
+      ]
+    },
+    {
+      "round": "implementation-1",
+      "evidence": "g1-20261124-r2.json",
+      "verdict": "CHANGES_REQUESTED",
+      "findings": [
+        "R001",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009"
+      ]
+    },
+    {
+      "round": "implementation-2",
+      "evidence": "g1-20261124-r3.json",
+      "verdict": "CHANGES_REQUESTED",
+      "findings": [
+        "R010",
+        "R011",
+        "R012"
+      ]
+    },
+    {
+      "round": "implementation-3-static",
+      "verdict": "NO_FURTHER_STATIC_FINDINGS",
+      "required": "R4 actual and final exact docs/snapshot"
+    },
+    {
+      "round": "implementation-4-final",
+      "reviewer": "/root/p4d_review_replacement",
+      "verdict": "CLEAN",
+      "snapshotSha256": "66c60b5751f2c50c638e9b619412ce23298997c9a53c37f24f5c3bfad254f2d7",
+      "evidenceSha256": "d5c6528c10d4b09f9ac20db0496f0a6afbdb42cc005ecf9e782a546b6ce2c714",
+      "outstandingFindings": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "P4D-R001",
+      "status": "CLOSED",
+      "fixAndEvidence": "Multi-witness transactions / exact owned replay and pre-intake deterministic start-key collision. Two-phase single-witness admissions; C07-C09/C16-C17.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R002",
+      "status": "CLOSED",
+      "fixAndEvidence": "Separate operator occurrence/revision/snapshot pins from ordinary run/event metadata; C02.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R003",
+      "status": "CLOSED",
+      "fixAndEvidence": "Kind-derived immutable receipt identity and full proof/head/event consistency; grammar/C02/C06.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R004",
+      "status": "CLOSED",
+      "fixAndEvidence": "Restore protocol UTF-8 bytes; all subsequent reads explicitly UTF-8.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R005",
+      "status": "CLOSED",
+      "fixAndEvidence": "Project-wide run binding uniqueness across repo streams; index/receive and C14.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R006",
+      "status": "CLOSED",
+      "fixAndEvidence": "C02 asserts polling shares binding, persisted receipt count/status and exact one initial event.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R007",
+      "status": "CLOSED",
+      "fixAndEvidence": "C15 uses valid current config/grant to independently test stream/snapshot data policy; no stale-grant shortcut.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R008",
+      "status": "CLOSED",
+      "fixAndEvidence": "C13 injects after actual run_start witness; run/event/start receipt roll back while prior intake remains; new process fails closed.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R009",
+      "status": "CLOSED",
+      "fixAndEvidence": "Private campaign cache was not ignored. Exact .gitignore append, private contexts ignored, zero untracked private paths.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R010",
+      "status": "CLOSED",
+      "fixAndEvidence": "Opaque finite UTF-8 observation storage uses canonical BYTEA, not JSONB; C18 escaped NUL/Unicode replay.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R011",
+      "status": "CLOSED",
+      "fixAndEvidence": "Missing/malformed access denied with E_AUTH before trusted identity bypass; C19.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    },
+    {
+      "id": "P4D-R012",
+      "status": "CLOSED",
+      "fixAndEvidence": "Startup attempt owns cleanup even if start/close/hash fails; marker-checked final status; four mocked cleanup tests.",
+      "closure": "independent final exact-snapshot CLEAN by /root/p4d_review_replacement"
+    }
+  ],
+  "rootSetupError": {
+    "id": "P4D-SETUP-01",
+    "evidence": "g1-20261124-r1.json",
+    "reason": "source IDs enabled before operator registration",
+    "fix": "register source-only snapshot before project_configure; unchanged application denial retained"
+  },
+  "requiredChecks": {
+    "actual": "g1-20261124-r4.json",
+    "core": "core-regression-20261124.json",
+    "candidate": "candidate-regression-20261124.json"
+  },
+  "administrativeRecords": [
+    "review-ledger.json",
+    "final-review.json",
+    "snapshot-final.json",
+    "preservation-final.json"
+  ],
+  "note": "Administrative verdict/status may be appended after review; payload hashes are never rewritten to disguise a content change."
+}

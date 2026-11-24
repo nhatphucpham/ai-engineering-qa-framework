@@ -1,0 +1,41 @@
+{
+  "version": "p4d-g1-review-snapshot-1.0.0",
+  "files": {
+    ".gitattributes": "74668fdb8a7c322b46055f58eb3d474a6a055e53855b125f42474561f6c72545",
+    ".gitignore": "1551817fb93144aa3f79fbd596bf370050d8d39184960011ae053ad9e4e2dce4",
+    "docs/DECISION-LOG.md": "f6988acdbe117f485c107f6a8dda9515dfe2028529e1277da931528a1bed1e6b",
+    "docs/IMPLEMENTATION-PLAN.md": "9448083575dc19642b0790b1ae83a6e3fe334ea2d948798b8110b1053a23a574",
+    "docs/NEXT-SESSION-POST-P4D-G1.md": "60703553410a30673dde135aadb9725a04753d34dd6cbc5315865838c78e422f",
+    "docs/P4D-G1-PROTOCOL.md": "0fa3742ed6a84e46e6246cc5a3a6a0e6844dd42c37018603970d346337a77203",
+    "docs/P4D-G1-RESULTS.md": "3492808f1ff0a0dc01ad8628dca256b1185e4471fc2ed79b9c26c0d94138e8c3",
+    "docs/p4d-g1-results/baseline-20261124.json": "64ec54b0d20ca573960a1b483ac22ed27eda629eefc7cf850ffb83a74a845bd1",
+    "docs/p4d-g1-results/candidate-regression-20261124.json": "e44e0eee2527629d75a6e47159f9fc1cb86f557aafff6cba94c1709758f64cb9",
+    "docs/p4d-g1-results/core-regression-20261124.json": "d3f010e8836825839ea11694869ae74f1558c72994c1324bdc74adcf2b4a7227",
+    "docs/p4d-g1-results/g1-20261124-r1.json": "f52f6766c33f93ac28f4c46fa75e35c6f00a818f52f9d93c27de79fd7b6dec14",
+    "docs/p4d-g1-results/g1-20261124-r2.json": "2fa9de08ddefdc14b52d25e7d0faab92f22c19fe3bd425d3b972fbf59589d4f6",
+    "docs/p4d-g1-results/g1-20261124-r3.json": "542adc22e0c6c76f031f212a3c0e0b4c28af7bbef26c4142f64b6048409e0959",
+    "docs/p4d-g1-results/g1-20261124-r4.json": "d5c6528c10d4b09f9ac20db0496f0a6afbdb42cc005ecf9e782a546b6ce2c714",
+    "docs/p4d-g1-results/preflight-20261124.json": "22b3988f0763a31139c4f12d1079d17efa67ad3ba3fd8fa0b3da0a1f270ad6d1",
+    "docs/p4d-g1-results/verification-commands.json": "1673c0698db482ea1147a67d2b8938463e804fdc61330c73963207a7fa370ed8",
+    "spikes/p4d_g1/README.md": "c8fd69c6768eb0c769e904acbf220eced3f4b330288318e8e04798aca8dbe093",
+    "spikes/p4d_g1/__init__.py": "43670e49294566ca5cd0618aaec8679c14b341f6f5d99767964c46b8f47608ed",
+    "spikes/p4d_g1/cases.py": "cf677ab10215d97645d951690efb23866290f86bd97a467e9e0b889ac44be7e5",
+    "spikes/p4d_g1/ingress.py": "812a9004a23deeb9b39d30006b77b4278abe394900c7f54964a6ab88f9c9d005",
+    "spikes/p4d_g1/lifecycle.py": "3bbbd7e390a08a4d4983ecb658d00b43e3d4579eccc3c4c2187fa543d3e884fa",
+    "spikes/p4d_g1/replay_process.py": "53d8e1cd6fe3d12301f9afb0d07d835e836dc6692dd1c30d674e48c5579dd0cb",
+    "spikes/p4d_g1/run_conformance.py": "1112e7d06a33b8c4d282c59ee958f72c1f8f5d4369455ccb2741a6c3703f49bc",
+    "spikes/p4d_g1/schema.sql": "17545a3a214fa803fb470ba3ba61af063ebd62cef9316141e788a49d3c224695",
+    "spikes/p4d_g1/test_ingress.py": "851e6883d88bf5b2dbb467a4a7bf5a3ebd474d6b5932be71f5aac1120e23dcc7",
+    "spikes/p4d_g1/test_lifecycle.py": "ecd04cbf86dcc05735830ca09fa841fa9c05aaff8965071b8b376987f34a1abc"
+  },
+  "administrativeExclusions": [
+    "review-ledger.json",
+    "final-review.json",
+    "snapshot-final.json",
+    "preservation-final.json"
+  ],
+  "baselineManifest": {
+    "path": "docs/p4d-g1-results/baseline-20261124.json",
+    "sha256": "64ec54b0d20ca573960a1b483ac22ed27eda629eefc7cf850ffb83a74a845bd1"
+  }
+}

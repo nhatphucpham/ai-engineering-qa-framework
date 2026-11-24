@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "baselineFileCount": 754,
+  "unchangedCount": 750,
+  "allowedAppendOrPrefixCount": 4,
+  "changes": [
+    {
+      "path": ".gitattributes",
+      "originalBytesPreservedAs": "prefix",
+      "offset": 45637,
+      "originalSha256": "aca18398b1cc4faba3e4181d401144417e1793aaaf158f18ae096511431ac8ea"
+    },
+    {
+      "path": ".gitignore",
+      "originalBytesPreservedAs": "prefix",
+      "offset": 358,
+      "originalSha256": "2adf3876ecb94059074f04827e84efdc6c7d99f2711a72cf4e9f4da21fd383d5"
+    },
+    {
+      "path": "docs/DECISION-LOG.md",
+      "originalBytesPreservedAs": "suffix",
+      "offset": 1143,
+      "originalSha256": "771b9e7e6ff4ef051a7fa09b27eb37d15063e632c2d50787c754178343d61a78"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-PLAN.md",
+      "originalBytesPreservedAs": "suffix",
+      "offset": 1031,
+      "originalSha256": "4a1d82760a24db65d65caeb0100f3338c01f08d3787319e248126c6162b40abf"
+    }
+  ],
+  "failures": [],
+  "privateUntrackedPaths": [],
+  "postM50HandoffUnchanged": true,
+  "diffCheckExit": 0,
+  "diffCheckDiagnostics": "warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it\n",
+  "head": "019692b688737340790722474d36b1e264aa9937",
+  "branch": "master"
+}

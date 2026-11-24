@@ -1,0 +1,17 @@
+# Bàn giao sau P4D-G1 — 24/11/2026
+
+Trạng thái slice offline theo final-review.json được link trong results: PENDING cho tới khi record xác nhận CLEAN/DONE. Repo vẫn master `019692b688737340790722474d36b1e264aa9937`, origin/master đã đối chiếu cùng hash. Không Git action mới. Tiến độ giữ **7/12 ≈58,3%**; full P4-D và P3-B/P4-E/P5/P6 còn OPEN.
+
+Đọc AGENTS.md, skill qa-framework-development, REVIEW-WORKFLOW, [protocol](P4D-G1-PROTOCOL.md), [results](P4D-G1-RESULTS.md), snapshot/review ledger được link trong results. Bốn file bàn giao post-M50 có sẵn đầu phiên giữ nguyên byte; vì yêu cầu bảo toàn đó, phiên phát triển này ghi bàn giao mới ở đây thay vì sửa SESSION-HANDOFF/NEXT-SESSION cũ. Hai current prefixes IMPLEMENTATION-PLAN/DECISION-LOG phân biệt output mới với lịch sử.
+
+Đã thực hiện: capability matrix tách GitHub polling/webhook, local host, OpenAI và Anthropic; kiểm semantics bằng nguồn GitHub chính thức; protocol đạt DESIGN CLEAN trước code. `spikes/p4d_g1/` triển khai trusted synthetic ingress, proof registry riêng không do payload cấp, durable receipt/binding/quarantine/local cursor, explicit intake/start qua Application.dispatch hiện hành và current authority. Không sửa candidate API, core, S5/HC1, fixture hay evidence cũ.
+
+Evidence cuối R4:19 nhóm PostgreSQL/application PASS +9unit PASS75,562s; core45 PASS, candidate54 PASS. R1 ERROR do thứ tự setup được giữ; R2/R3 là snapshots lịch sử, không tự chuyển thành proof bản cuối. Trước/sau source pins khớp, DB quan sát STOPPED. C13 cố ý giữ campaign schema authority-unresolved sau rollback run_start; không tái sử dụng hoặc tự sửa nó. State/dummy sessions ở `.cache/p4d_g1/` đã ignore; không đưa cache vào Git. Không WSL/container/QA/model call hoặc install trong phiên này. Không chạy lại các batch đã PASS chỉ để có report khác.
+
+Review dùng GPT-6.2 Astra high độc lập; reviewer đầu hết hạn mức sau findings, người thay nhận ledger P4D-R001–R012 và kiểm file mới. Chỉ dùng trạng thái DONE của slice sau khi final-review xác nhận CLEAN, all required checks PASS; full P4-D luôn OPEN. Không tự đặt target phần trăm mới.
+
+Việc tiếp theo trong P4-D: xác định strategy/provider proof được chấp nhận cho canonical occurrence+exact revision; chưa đủ thì unresolved, không tạo run hoặc fallback current HEAD. G1 local cursor/pending plan không là provider watermark hay atomic provider→run gate; không có automatic rebind/drain. Hoàn thiện riêng local-host/OpenAI/Anthropic conformance về context/digest, policy, timeout/cancel, malformed/refusal/errors/budget và no silent retry/fallback, trước khi chọn SDK/host/transport. Không suy session-mediated reasoning thành connector nền.
+
+Sau khi boundaries/prerequisites đủ, tiếp hướng kỹ thuật P3-B/S3 so Windows release builds Tauri/Electron cùng workload/máy theo ADR-003, chưa tự chốt stack/cài toolchain. P4-E Windows start/progress/cancel/report/source/export cùng API, reconnect/cursor/replay và app-close worker độc lập. Rồi P5 technical readiness; P6 chỉ khi đủ gates và có target decision. Thiếu prerequisite thì NOT RUN/unknown và tiếp phần độc lập, không dùng số đo dev browser thay native hoặc tests thay human approval/ROI.
+
+Trước effect mới: kiểm status/branch/HEAD/remote và marker/path/DB status; chỉ agent chính điều phối shared PostgreSQL/WSL tuần tự. Chọn input pins, budget, output namespace mới trước actual campaign. Không reset/clean/stash/đổi nhánh/worktree, real API/account/key/project, install/pilot/publish hoặc commit/push ngoài quyền mới của người dùng.
