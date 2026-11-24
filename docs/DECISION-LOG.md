@@ -1,3 +1,39 @@
+# Hiện hành — Quyền commit/push theo từng thay đổi, 24/11/2026
+
+User yêu cầu **“commit và push theo từng thay dổi”**, sau đó xác nhận **“tiếp tục”**. Cho phép đưa toàn output HC1/S4-F/M50 đã review lên nhánh master hiện tại theo năm commit: bảo toàn byte, HC1, S4-F, M50 runtime/worker, và hồ sơ bàn giao. [Hồ sơ trước push](M50-PUSH-REVIEW-2026-11-24.md) lưu partition, checks, staged-byte audit và review độc lập. Các câu chưa có quyền Git bên dưới là lịch sử trước yêu cầu này.
+
+Tiến độ sản phẩm giữ **7/12 ≈ 58,3%**. Đây là lượt Git, không mở thêm phạm vi phát triển hoặc đóng các gate P3-B/P4-D/P4-E/P5/P6. Actual commit/push chỉ xác nhận sau thao tác; xem Git history và kết quả cuối trong chat, không suy từ kế hoạch. Không force/reset/clean/stash hoặc đổi nhánh; bảo toàn fixture, source và toàn evidence đã nghiệm thu.
+
+# Quyết định hiện hành — Đóng ba mốc đã giao, 24/11/2026
+
+User đã chốt **thêm 3 mốc đầy đủ**, từ 4/12 lên **7/12 ≈ 58,3%**. P4-A Shared core/report, P4-B Control service và P4-C Worker/acceptance đã **DONE/CLEAN** sau review độc lập mô hình cao. [Hồ sơ đóng mốc](m50-results/m50-20261124-final-closure.json) và [kết quả chi tiết](M50-RESULTS.md) là trạng thái hiện hành; các entry bên dưới là lịch sử theo snapshot.
+
+Bộ cuối: i9 có 40 nhóm integration PASS; worker r1 có 14/14 tình huống PASS với 129 source pins trước = sau = bản review; fresh QA thực chạy 9 checks (6 pass, 3 assertion fail cố ý, 0 error/skip), agent native C được core chấp nhận; đọc lại báo cáo đã lưu, khôi phục raw/job witness và restart PostgreSQL đều PASS. Candidate regression 54 PASS; core 45/HC1 15/VF1 12 giữ kết quả đã kiểm độc lập với source cũ nguyên byte. DB cuối đã STOPPED. F1/F2 ERROR được giữ nguyên; lượt resume không chạy QA, đánh giá hoặc submit lại.
+
+Còn mở: P3-B lựa chọn stack/spikes, P4-D adapters, P4-E ứng dụng Windows, P5 technical readiness và P6 packaging. Phạm vi hiện tại là synthetic reference candidate; chưa chốt production stack/platform, chưa pilot/publish hoặc có quyền Git mới. Human approval vẫn pending. Giữ nguyên fixture có lỗi cố ý, 645 baseline paths và nguyên suffix của bốn tài liệu hiện hành.
+
+Giữ endpoint người dùng đã chọn là 7/12 thay vì dừng ở 50%. Không dùng số test/slice để cộng tiến độ. Bản sửa lineage chỉ cho phép nguồn tạo check đã thuộc đúng project/task/snapshot với policy hiện tại; không mở rộng các loại source links khác. Resume dùng đúng báo cáo/package/đề nghị native đã commit, thêm một Admin disposable qua fixture rồi đổi mật khẩu bằng API; không coi đây là chức năng khôi phục credential sản phẩm.
+
+# Hiện hành — Đạt50%, tiếp mốc thứ ba, 23/11/2026
+
+D-44: ghi nhận hai fullrows P4-A/P4-B đã independentCLEAN/DONE ởi9/API1.1, count6/12=50%; [closure](m50-results/m50-20261123-i9-closure.json) và [results](M50-RESULTS.md). Không dừng ở50% vìuserexplicit chọnthêm3mốc→7/12; tiếpP4-Cfullscope. RV22 yêu cầu normalQAexecutor cùngrecovery-readycontext/CAS/collector; sleepfailureprobe khôngthaythế. RV23 yêu cầu apppreID vàdurablecoordinatorrebuild. S4-FboundedCLEAN chỉprerequisite, notproductgate. Maintenancewaitcandidate240/260sec làinfra từactualslowfsync, giữi8ERROR vàworkerbudgets/fsync/spikes; noP5performanceacceptance. NoGit/realaccount/provider/API/stack/platform/pilot/publish.
+
+# Hiện hành — M50 tiếp ba mốc, 23/11/2026
+
+D-43: tiếp tới đúng3 full milestones; sửa theo independent review RV18 ràng buộc exact XID/cluster/previous nonce/domain/salt vào next external nonce, RV06 kiểm DBclock sau witness IO, RV19 chặn input lệchhash trướclaunch, RV20 giữ issuer-observed native task/response corrections. Actuali7 PASS37; chưa final full gate review. S4F whole-unit test làm mất namespace pause: giữ unresolved, không suy cleanup từ engine lỗi/empty new store; bounded dead-anchor repair có protocol1.1 trướccode/effect và phải kiểm riêng. Native/review usage-limit không là quyền dùng đáp án cũ hoặc tự nghiệm thu. No new Git/account/API/stack/pilot decision.
+
+# D-42 — Tiếp tới ba full milestone, 22/11/2026
+
+Sau câu “tiếp tục đến50%3phase”, user explicit chọn “Thêm3mốc:khoảng58%” và resume. Chọn P4-A/B/C vì target-independent shared core/control/worker có thể phát triển trong scope synthetic; không dùng P3-B chưa đủ native/stack evidence làm mốc dễ đóng. Mỗi full row independent CLEAN cộng1:5/12→6/12→7/12; hiện4/12. [M50 protocol](M50-PROTOCOL.md), [results](M50-RESULTS.md) giữ gate/scope và stable findings. Reference candidate dùng existing pinned runtime/libs/DB/engine, không chọn production stack hoặc plugin target.
+
+Quyết định kỹ thuật: request/response release qua same identity-policy mutex tới mỗi4KiB write; run-specific events+watermark; worker không tự cấp accepted assessment/cleanup; independent collector/assessor+held bytes/current fence. Imported HC1 dùng cho persistence regressions, không fresh execution. i5 actual18groups PASS; remaining fresh executor/report/restore+whole-supervisor S4-F và full gate review. Không commit/push/API/account/project/key thật/new installs/pilot/publish; root serialize shared effects, preserve HC1/fixture/history.
+
+# D-41 — HC1 contract và bounded orchestration trước native adapter, 18/11/2026
+
+User delegation yêu cầu phiên mới tiếp tục thực hiện synthetic development từ clean master `bef018e` đã push VF1. Chọn [HC1](HC1-PROTOCOL.md), P4-D/P4-A: giữ production host target chưa chọn, giảm điều phối file bằng self-contained offer + caller-held ticket và completion auto core/report/view. Native invocation/save/complete vẫn qua session tools; callable replay chỉ conformance, không fake unattended/live reasoning. Không thêm dashboard chứa verdict soạn sẵn. Fresh actual final live-r3 checks + native fresh-context agents; historical live-r1/r2 và fixture/evidence giữ nguyên.
+
+Lý do: kiểm contract/value path độc lập với quyết định platform, không bypass S4-F safety prerequisites. [Results/review](HC1-RESULTS.md) DONE selected bounded scope — independent final CLEAN; reviewer Astra high từ đầu, stable HC1-RV-01/02/03/04 và root HC1-FIX-01 đều CLOSED. Native adapter thật cần target và evidence riêng; S4-F/durable/auth/broker/secret/export/GitHub/native/P5/P6 OPEN. Không Git action/pilot/publish/API/project/account/key thật.
+
 # Yêu cầu hiện hành — commit/push VF1, 18/11/2026
 
 User yêu cầu **“commit và push”** output VF1 đã independent CLEAN. Cho phép commit/push gói VF1 cùng current-doc handoff, exact-byte Git policy và pre-push verification; [pre-push record](VF1-PUSH-REVIEW-2026-11-18.md) lưu checks/snapshot/verdict. Các câu no-Git/chưa commit bên dưới là lịch sử trước quyền mới. Actual commit/remote/clean-tree xác minh sau Git action, không suy từ intent. Giữ VF1 DONE selected bounded scope và full product gates OPEN; không triển khai connector mới trong lượt Git này.

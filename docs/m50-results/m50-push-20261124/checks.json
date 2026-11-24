@@ -1,0 +1,304 @@
+{
+  "version": "m50-prepush-checks-1.0.0",
+  "status": "PASS",
+  "tests": {
+    "core": {
+      "count": 45,
+      "seconds": 42.67,
+      "status": "PASS"
+    },
+    "HC1": {
+      "count": 15,
+      "seconds": 4.823,
+      "status": "PASS"
+    },
+    "VF1": {
+      "count": 12,
+      "seconds": 0.465,
+      "status": "PASS"
+    },
+    "candidate": {
+      "count": 54,
+      "seconds": 2.92,
+      "status": "PASS"
+    }
+  },
+  "browser": {
+    "status": "PASS",
+    "scenarios": 12,
+    "widths": [
+      390,
+      768,
+      1280
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "labels": [
+      "a",
+      "b"
+    ],
+    "allTwelveScreenshotsOpenedByRoot": true,
+    "visualFindings": [],
+    "localOnlyCaptures": ".cache/s6/m50-push-20261124/browser-r1",
+    "captureStorageNote": "New pre-push captures are retained in ignored local cache, not added to master. Historical reviewed HC1 captures remain preserved as evidence.",
+    "checkerChange": "Copy frozen HC1 checker into ignored cache; expand only widths from [390,1280] to [390,768,1280].",
+    "actual": {
+      "status": "PASS",
+      "checkerSha256": "b1d6d4fe35cdf3ee99e29fb0ed63fd72425bc202680e058519f79acef000d2a2",
+      "checks": [
+        {
+          "label": "a",
+          "width": 390,
+          "colorScheme": "light",
+          "status": "PASS",
+          "dashboardSha256": "5ed128d6b295a0e1497581b0e3f7f35d7ac24e49fe26784b1e3041b6d2408087",
+          "viewSha256": "7ba273792941a82fbbf9e898de60a274597b1ee8ba771f395dc0897b2e23e711",
+          "screenshot": "a-390-light.png",
+          "screenshotSha256": "534f8a5bbd934e27b817551043b371c772d3a68a1918f860f69f9c086021389f",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "a",
+          "width": 390,
+          "colorScheme": "dark",
+          "status": "PASS",
+          "dashboardSha256": "5ed128d6b295a0e1497581b0e3f7f35d7ac24e49fe26784b1e3041b6d2408087",
+          "viewSha256": "7ba273792941a82fbbf9e898de60a274597b1ee8ba771f395dc0897b2e23e711",
+          "screenshot": "a-390-dark.png",
+          "screenshotSha256": "5e447c960e97b132962a9b0887a51870834e2a31940d56e00744bb08db885807",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "a",
+          "width": 768,
+          "colorScheme": "light",
+          "status": "PASS",
+          "dashboardSha256": "5ed128d6b295a0e1497581b0e3f7f35d7ac24e49fe26784b1e3041b6d2408087",
+          "viewSha256": "7ba273792941a82fbbf9e898de60a274597b1ee8ba771f395dc0897b2e23e711",
+          "screenshot": "a-768-light.png",
+          "screenshotSha256": "ba47c85e70ec161c5a2995b081f692947d5ab651ef34e53c5b5d45d42757c033",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "a",
+          "width": 768,
+          "colorScheme": "dark",
+          "status": "PASS",
+          "dashboardSha256": "5ed128d6b295a0e1497581b0e3f7f35d7ac24e49fe26784b1e3041b6d2408087",
+          "viewSha256": "7ba273792941a82fbbf9e898de60a274597b1ee8ba771f395dc0897b2e23e711",
+          "screenshot": "a-768-dark.png",
+          "screenshotSha256": "f11563dd783eedfe9505ade6e012a5278177822766b7a54752d327608c2d231c",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "a",
+          "width": 1280,
+          "colorScheme": "light",
+          "status": "PASS",
+          "dashboardSha256": "5ed128d6b295a0e1497581b0e3f7f35d7ac24e49fe26784b1e3041b6d2408087",
+          "viewSha256": "7ba273792941a82fbbf9e898de60a274597b1ee8ba771f395dc0897b2e23e711",
+          "screenshot": "a-1280-light.png",
+          "screenshotSha256": "64d82a57c0db541cd2929dfbab3a49f1a89412eb22e6f005c25e323e75574256",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "a",
+          "width": 1280,
+          "colorScheme": "dark",
+          "status": "PASS",
+          "dashboardSha256": "5ed128d6b295a0e1497581b0e3f7f35d7ac24e49fe26784b1e3041b6d2408087",
+          "viewSha256": "7ba273792941a82fbbf9e898de60a274597b1ee8ba771f395dc0897b2e23e711",
+          "screenshot": "a-1280-dark.png",
+          "screenshotSha256": "c8d1887d17e8cd96f64c989e786a6f7fec45a2dfaa167a85a9e4aad23746349c",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "b",
+          "width": 390,
+          "colorScheme": "light",
+          "status": "PASS",
+          "dashboardSha256": "4cbaa6d2c84559ae36089b733180a18a4e5d8e182a5f817ff30bf28a468dfd83",
+          "viewSha256": "35cb6e9bbecec632310e17b618bf902a90c100b79ac7739ad0bdf72c766f53ee",
+          "screenshot": "b-390-light.png",
+          "screenshotSha256": "68bcb680a3d43442529ba1910d3394043d51fb82cccfce2649c5e80a36eca66e",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "b",
+          "width": 390,
+          "colorScheme": "dark",
+          "status": "PASS",
+          "dashboardSha256": "4cbaa6d2c84559ae36089b733180a18a4e5d8e182a5f817ff30bf28a468dfd83",
+          "viewSha256": "35cb6e9bbecec632310e17b618bf902a90c100b79ac7739ad0bdf72c766f53ee",
+          "screenshot": "b-390-dark.png",
+          "screenshotSha256": "b3ad53b0be13b7591b6af448ab729d2dca83c8125754a435cc9681655d53674c",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "b",
+          "width": 768,
+          "colorScheme": "light",
+          "status": "PASS",
+          "dashboardSha256": "4cbaa6d2c84559ae36089b733180a18a4e5d8e182a5f817ff30bf28a468dfd83",
+          "viewSha256": "35cb6e9bbecec632310e17b618bf902a90c100b79ac7739ad0bdf72c766f53ee",
+          "screenshot": "b-768-light.png",
+          "screenshotSha256": "b29eca4578b2c900f707cb777d9d8eb09cf79f96ebef89110be4ab994d5252a5",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "b",
+          "width": 768,
+          "colorScheme": "dark",
+          "status": "PASS",
+          "dashboardSha256": "4cbaa6d2c84559ae36089b733180a18a4e5d8e182a5f817ff30bf28a468dfd83",
+          "viewSha256": "35cb6e9bbecec632310e17b618bf902a90c100b79ac7739ad0bdf72c766f53ee",
+          "screenshot": "b-768-dark.png",
+          "screenshotSha256": "9f82a01013f95d8ae9e8b373dfbd1b0894b0e0ce553118c0991b5979bac37071",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "b",
+          "width": 1280,
+          "colorScheme": "light",
+          "status": "PASS",
+          "dashboardSha256": "4cbaa6d2c84559ae36089b733180a18a4e5d8e182a5f817ff30bf28a468dfd83",
+          "viewSha256": "35cb6e9bbecec632310e17b618bf902a90c100b79ac7739ad0bdf72c766f53ee",
+          "screenshot": "b-1280-light.png",
+          "screenshotSha256": "0f2ee036546c9931d4b9bab4e3eff53e6d21703ef6419903331cdf87e69e3bfe",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        },
+        {
+          "label": "b",
+          "width": 1280,
+          "colorScheme": "dark",
+          "status": "PASS",
+          "dashboardSha256": "4cbaa6d2c84559ae36089b733180a18a4e5d8e182a5f817ff30bf28a468dfd83",
+          "viewSha256": "35cb6e9bbecec632310e17b618bf902a90c100b79ac7739ad0bdf72c766f53ee",
+          "screenshot": "b-1280-dark.png",
+          "screenshotSha256": "73cb26853b71750727e20ef3f61467b727364ddecf75405e7c1364f44eb806b7",
+          "keyboardSourceJourney": true,
+          "ownRunProvenance": true,
+          "overflow": false,
+          "pageErrors": [],
+          "network": []
+        }
+      ]
+    }
+  },
+  "retainedActualEvidence": {
+    "workerCases": 14,
+    "integrationGroups": 40,
+    "s4fGroups": 9,
+    "normalQA": {
+      "total": 9,
+      "pass": 6,
+      "intentionalFail": 3,
+      "error": 0,
+      "skipped": 0
+    },
+    "note": "Already independently accepted; no new engine/native/DB run for this Git-only request."
+  },
+  "remoteMasterBefore": "bef018e4cbbf1696627ec5c7ca4f455a062b9d0e",
+  "gitFormattingFinding": {
+    "id": "PUSH-FIX01",
+    "initial": "cached diff check: contracts.py:33 new blank line at EOF",
+    "fix": "Exact-path -blank-at-eof attribute, preserve pinned source byte-for-byte; other whitespace checks remain active",
+    "sourceBytesChanged": false
+  },
+  "provenanceFinding": {
+    "id": "PUSH-RV02",
+    "fix": "Separate Git baseline517/512 unchanged tree/index blobs from historical workspace manifest649/644 exact raw files, including132 then-untracked HC1; label suffix origins/hashes and retain existing historical autocrlf policy."
+  },
+  "checkoutFinding": {
+    "id": "PUSH-RV03",
+    "initialCheckoutMatch": 100,
+    "required": 129,
+    "fix": "Append exact-path -text for37 legacy raw LF Git blobs (29 worker plus8 additional S4-F), each verified equal its actual source pin. No source bytes changed.",
+    "legacyInputs": {
+      "qa_core/application.py": "117731bb0eaeed12db18dc05ca7bb9891ff9f6d2a423362516372c10190cd1de",
+      "qa_core/publication.py": "00431b11272b10140695e520d84e4f69d305bc26ef0db7cd069604a3aa01ef20",
+      "qa_core/runtime.py": "254a66b8280c5cc96ec4c44c301d6e08bc4e941badfbe581bdc43105e5ff9159",
+      "schemas/qa-assessment-v2.schema.json": "ee63c11e3530968d24cae20cc07351922dd83abf56c72641479510c71adbacea",
+      "schemas/qa-offline-report-v1.schema.json": "f99a4a5afd89a69784f7bb30492dd69197f57d1a2c2fa5de56a6735a6430bcfa",
+      "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+      "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+      "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+      "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+      "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+      "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+      "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+      "spikes/s4/README.md": "f8cc50a91b5b8f61feb00eb95518c704616dcd7d0233f9872b507690014c37d2",
+      "spikes/s4/collector.py": "515bf7958a979c0476ff96c223ad72649ffe53d8841f94ffbc406fcc93477f94",
+      "spikes/s4/preflight.py": "104446c72082b68859af2d4972b8814caecdde683407e3248c33026bda057177",
+      "spikes/s4/run_collector.py": "30b81ca2a7552d1f665c373c35580bf3a55f8cd4aaf28663074575e42e69bb5b",
+      "spikes/s4/test_preflight.py": "bf2be99d6cb1ca337938890822067c8a579694491c60e5910c407acd3dbcbb1c",
+      "spikes/s4b/README.md": "62e720b93fcc1a3d230fda5005f085d7ecc9bc970d0f56c0cb7bd188ed6c99e2",
+      "spikes/s4b/engine.py": "9c493db4f40d5885acfd2cb0ab881dd44df02d17c520c352d2c25fd5eaf42e10",
+      "spikes/s4b/run_engine.py": "3c411d42e8274297fd27456f45caafe018ccd746b0265626206bf5ce7bae0856",
+      "spikes/s4b/test_network.py": "78979fd09a7203899566549671c70b96a5366d6beb77291193b3dca3e31e2b97",
+      "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+      "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+      "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+      "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+      "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+      "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+      "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+      "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1",
+      "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+      "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+      "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+      "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+      "spikes/iapb/README.md": "379dcb41f49e886a733333364e3867bbfe2df1b6ee30db5c608368ff4032e335",
+      "spikes/iapb/authority.py": "1c4b413b781f949ccca52f710f2d21c3fec6170c7f7240bff57c77bc66627fab",
+      "spikes/iapb/run_iapb.py": "7081e7a81e06b03d5fca7dd3725e15dd0c95fd25c95bee940d25df8be9ac4a65",
+      "spikes/iapb/schema.sql": "31ca352095bf403507ef6e191da5dbadc6a6bf12387797f2acd5aef97ed8d1c3"
+    },
+    "s4fRequired": 38
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "version": "m50-prepush-review-1.0.0",
+  "recordedAt": "2026-11-24T03:07:55.445405+00:00",
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "scope": "Exact five-commit packaging and Git push preparation of already accepted HC1/S4-F/M50 synthetic outputs",
+  "reviewer": {
+    "agent": "/root/push_review_astra",
+    "model": "gpt-6.2-astra",
+    "reasoningEffort": "high",
+    "independent": true
+  },
+  "predecessor": {
+    "agent": "/root/m50_review_current",
+    "model": "gpt-6.2-sol",
+    "reasoningEffort": "high",
+    "outcome": "Preliminary partition/dependency and credential scan accepted; usage limit before exact staged review. History transferred, not counted as final clean round."
+  },
+  "snapshot": {
+    "path": "docs/m50-results/m50-push-20261124/snapshot.json",
+    "sha256": "41a3a309ecccd6542b1cd05704b9c478276f8d2677f0962dd621042608cf2227"
+  },
+  "payloadDigest": {
+    "algorithm": "sha256 of sorted UTF-8 path + NUL + binary content SHA256",
+    "value": "5b891b9c9a6f5df981ade4d0fb8602a71714b2923c33e89b41a63ce9ce878287",
+    "fileCount": 238
+  },
+  "rounds": [
+    {
+      "stage": "initial full index",
+      "verdict": "CHANGES REQUESTED",
+      "findings": [
+        "PUSH-FIX01"
+      ]
+    },
+    {
+      "stage": "baseline provenance",
+      "verdict": "CHANGES REQUESTED",
+      "findings": [
+        "PUSH-RV02"
+      ]
+    },
+    {
+      "stage": "fresh Windows checkout",
+      "verdict": "CHANGES REQUESTED",
+      "findings": [
+        "PUSH-RV03"
+      ]
+    },
+    {
+      "stage": "post-fix full round 1",
+      "verdict": "CLEAN",
+      "snapshotSha256": "41a3a309ecccd6542b1cd05704b9c478276f8d2677f0962dd621042608cf2227",
+      "closed": [
+        "PUSH-FIX01",
+        "PUSH-RV02",
+        "PUSH-RV03"
+      ]
+    },
+    {
+      "stage": "separate final re-read round 2",
+      "verdict": "CLEAN",
+      "snapshotSha256": "41a3a309ecccd6542b1cd05704b9c478276f8d2677f0962dd621042608cf2227",
+      "recurrence": [],
+      "newFindings": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "PUSH-FIX01",
+      "status": "CLOSED",
+      "resolution": "Exact EOF-only formatting diagnostic exception, preserve original pinned contract bytes."
+    },
+    {
+      "id": "PUSH-RV02",
+      "status": "CLOSED",
+      "resolution": "Separate Git517/index512 from workspace649/raw644 baselines and label both four-document suffix origins/hashes."
+    },
+    {
+      "id": "PUSH-RV03",
+      "status": "CLOSED",
+      "resolution": "Exact-path -text on37 verified raw LF legacy Git inputs; new normal checkout matches129worker/38S4F pins, with unchanged legacy blobs."
+    }
+  ],
+  "independentChecks": [
+    "240 index blobs recomputed as Git SHA-1;238payload against fresh export",
+    "129/129 worker and38/38S4F current and checkout pins",
+    "517 Git/649 historical workspace baseline preservation",
+    "450 historical/current matching path/hash pairs inspected for checkout drift",
+    "Seven retained final evidence file digests match",
+    "12 browser screenshots visually inspected and hashes match",
+    "Core45/HC115/VF112/candidate54 current tests pass",
+    "Relative Markdown links and partition/dependency order valid",
+    "No extra unstaged/untracked files and cached diff check PASS"
+  ],
+  "unresolvedFindings": [],
+  "consecutiveCleanRounds": 2,
+  "administrativeOnly": true,
+  "gitActionStatusAtRecord": "Not yet committed/pushed; actual hashes and remote match will be verified and reported separately."
+}
