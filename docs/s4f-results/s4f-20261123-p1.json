@@ -1,0 +1,142 @@
+{
+  "after_loss": {
+    "exitCode": 0,
+    "observation": {
+      "baseInode": 142188,
+      "boot": "17715daa-30fd-4cde-b757-34ef8b73a1a5",
+      "exists": true,
+      "mountNamespace": "mnt:[4026532210]",
+      "selfTmpInode": 73729
+    }
+  },
+  "closed": {
+    "activeState": "inactive",
+    "cgroupAbsent": true,
+    "loadState": "not-found",
+    "unit": "qa-s4-f-6342ee6ca7c34b9f.service"
+  },
+  "live": {
+    "exitCode": 0,
+    "observation": {
+      "baseInode": 142188,
+      "boot": "17715daa-30fd-4cde-b757-34ef8b73a1a5",
+      "exists": true,
+      "mountNamespace": "mnt:[4026532210]",
+      "selfTmpInode": 73729
+    }
+  },
+  "loss": {
+    "activeState": "inactive",
+    "cgroupAbsent": true,
+    "exitCode": 255,
+    "invocation": "278a319572d54d128db1eefa4eca6299",
+    "loadState": "not-found",
+    "originalProcess": {
+      "pid": 469,
+      "startTime": "20311"
+    },
+    "unit": "qa-s4-f-6342ee6ca7c34b9f.service"
+  },
+  "original": {
+    "context": {
+      "base": "/tmp/qa-s4-engine-fivq2mlc",
+      "baseId": [
+        2096,
+        142188
+      ],
+      "boot": "17715daa-30fd-4cde-b757-34ef8b73a1a5",
+      "generation": "93ec3564c96f423a9e6a8c03928a0087",
+      "image": "sha256:dde55fee9a72b558c5b2bddc4911556330006c4b5967f509436c8f17bb0b3955",
+      "invocation": "278a319572d54d128db1eefa4eca6299",
+      "landmarks": {
+        "auth.json": [
+          [
+            2096,
+            145314
+          ],
+          "ec21c035eccb78eb5ca20ec95628eb351633621e09a130ac8d7e663714d40c7a"
+        ],
+        "cache": [
+          2096,
+          143405
+        ],
+        "config": [
+          2096,
+          142959
+        ],
+        "containers.conf": [
+          [
+            2096,
+            145316
+          ],
+          "d3580e7231abaa7c1d1f1048ef6bfa17d78f2103759478df937dd0cec2c622cd"
+        ],
+        "data": [
+          2096,
+          143400
+        ],
+        "home": [
+          2096,
+          142376
+        ],
+        "input": [
+          2096,
+          145313
+        ],
+        "marker.json": [
+          [
+            2096,
+            142235
+          ],
+          "d032802a431cb9b36301a9413b7ff57f7c2e526b80a7aa511f14ad7dafad4da4"
+        ],
+        "output": [
+          2096,
+          145311
+        ],
+        "runroot": [
+          2096,
+          142735
+        ],
+        "runtime": [
+          2096,
+          142430
+        ],
+        "s4f.lock": [
+          [
+            2096,
+            145728
+          ],
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "storage": [
+          2096,
+          142700
+        ]
+      },
+      "supervisor": {
+        "pid": 469,
+        "startTime": "20311"
+      },
+      "uid": 1000,
+      "unit": "qa-s4-f-6342ee6ca7c34b9f.service",
+      "version": "s4f-context-v1"
+    },
+    "contextPin": "585dfcb7beb0120fa90cf2127d624ad8b9a9a589b1feeda369018a3b3474598c",
+    "image": {
+      "busyboxSha256": "dbac288c29ba568459550a2da9e7ae0ded6b1fc728ee9fad3044c44e62d6ac14",
+      "imageId": "sha256:dde55fee9a72b558c5b2bddc4911556330006c4b5967f509436c8f17bb0b3955",
+      "rootfsTarSha256": "bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e",
+      "source": "signed Ubuntu busybox-static local fixture"
+    },
+    "process": {
+      "pid": 469,
+      "startTime": "20311"
+    },
+    "ready": true,
+    "unit": "qa-s4-f-6342ee6ca7c34b9f.service"
+  },
+  "qaExecution": false,
+  "status": "OBSERVED",
+  "version": "s4f-no-container-diagnostic-v1"
+}

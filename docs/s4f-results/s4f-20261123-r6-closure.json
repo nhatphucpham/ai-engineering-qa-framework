@@ -1,0 +1,86 @@
+{
+  "actualEvidence": {
+    "databaseStopped": true,
+    "groups": 9,
+    "path": "docs/s4f-results/s4f-20261123-r6.json",
+    "seconds": 94.278,
+    "sha256": "08f33f82a63bee8f2aabe87dcc6be5687dcab983d5d95bbeb64a34069456d082"
+  },
+  "closedFindings": [
+    "S4F-RV-01"
+  ],
+  "historical": [
+    "r1-r3 failed and unacknowledged external incidents retained",
+    "r5 startup E_CHANNEL with separate exact safety teardown, no application cleanup acknowledgement",
+    "F04 old-head and lost-ack intentionally unresolved after external safety effects"
+  ],
+  "notClosed": [
+    "full P4-C candidate worker/application integration",
+    "production service/remote worker or engine/host reboot recovery",
+    "unattended authenticated model connector",
+    "product readiness/approval/pilot/publish/Git action"
+  ],
+  "quiescence": {
+    "path": "docs/s4f-results/s4f-20261123-quiescence-r6.json",
+    "priorBootPidStartIdentities": 190,
+    "sameBootPidStartIdentities": 0,
+    "sha256": "88ffb6ed5b46d342d1d3ae6719ab32e07623c4eb025822fcc1697ac27ec71138",
+    "unitsAbsent": 99
+  },
+  "reviewer": {
+    "independent": true,
+    "model": "gpt-6.2-sol",
+    "priorReviewer": "/root/review_connector",
+    "priorReviewerUsageLimited": true,
+    "reasoningEffort": "high",
+    "task": "/root/m50_review_current"
+  },
+  "rootFixes": [
+    "S4F-FIX-01 dead namespace pause/alive anchors; exact bound repair, actual positives and negatives",
+    "S4F-FIX-02 retain private channel stdout/reap relay for startup diagnostics"
+  ],
+  "scope": "bounded trusted-local whole-supervisor/rootless private-engine cleanup-only experiment",
+  "snapshot": {
+    "docs/S4-F-PROTOCOL.md": "5e648b742199122eb4fae43765edb217d79b530b84eb213835f2bb1e41ff886a",
+    "spikes/iap/README.md": "f8d5abc903305afcd35f48bfd0998e4b7f931224a5cac43d335f0f37856a3972",
+    "spikes/iap/application.py": "5514035188bc7fa126d0badd92c45b37ccbe2ada7fbcd2e1371c8fd15eaa9e8b",
+    "spikes/iap/run_iap.py": "880f3b285e6452b98435bfc22efffcd59ade4b45bbe3a1089557115cf33bcdc5",
+    "spikes/iap/schema.sql": "b11fae47d2a53d7d87b3d9298e24f3ccf459e3123fa518bd6a6e61e3543ea963",
+    "spikes/iapb/README.md": "379dcb41f49e886a733333364e3867bbfe2df1b6ee30db5c608368ff4032e335",
+    "spikes/iapb/authority.py": "1c4b413b781f949ccca52f710f2d21c3fec6170c7f7240bff57c77bc66627fab",
+    "spikes/iapb/run_iapb.py": "7081e7a81e06b03d5fca7dd3725e15dd0c95fd25c95bee940d25df8be9ac4a65",
+    "spikes/iapb/schema.sql": "31ca352095bf403507ef6e191da5dbadc6a6bf12387797f2acd5aef97ed8d1c3",
+    "spikes/s2/README.md": "8e2d81d1a11f602b8f33bb85d0cba0fb8e55b994e2d0275893b99703c9662693",
+    "spikes/s2/local.py": "b95082661328201cb49eaaa6d32ce29650e590c6b00193be36d3cbe53a98e802",
+    "spikes/s2/requirements-win-py314.lock": "4c8c5389ad70e06ac3abfae6ddd4a6976513c262613ee1e5adbdae3b4750d24b",
+    "spikes/s2/run.py": "59bee00b4f0dbdb5a5d8afb10b77430a64b78a526dcae466d0885484b97c1499",
+    "spikes/s2/schema.sql": "a2076025f0c00dc4eb3488a0ebca1e590cb473f8003accbe2b4b384ef392b25d",
+    "spikes/s2/store.py": "067f3f0cd67aa12d34c946092c6f4e0f4cc2ce0e022591874271e7c116725d0d",
+    "spikes/s2/test_preflight.py": "bf740fad1c4af0003fa3ee952de0a707cb33c79bf8d7f00a27c8d2f8b9676f1d",
+    "spikes/s4b/README.md": "62e720b93fcc1a3d230fda5005f085d7ecc9bc970d0f56c0cb7bd188ed6c99e2",
+    "spikes/s4b/engine.py": "9c493db4f40d5885acfd2cb0ab881dd44df02d17c520c352d2c25fd5eaf42e10",
+    "spikes/s4b/run_engine.py": "3c411d42e8274297fd27456f45caafe018ccd746b0265626206bf5ce7bae0856",
+    "spikes/s4b/test_network.py": "78979fd09a7203899566549671c70b96a5366d6beb77291193b3dca3e31e2b97",
+    "spikes/s4e/README.md": "a426d3aadaf0b11bbe2bc78aca8e4c5e0324bf8e1a711ac52df721591a8141c6",
+    "spikes/s4e/engine_helper.py": "5cd37a66331fe101d9225271e7faee85391d09f2751ae8d62db50564f4f60228",
+    "spikes/s4e/helper.py": "a4809f61cc19648f2ffa247c93abb892c4a7d12306ee1e035aae77797d630445",
+    "spikes/s4e/recovery.py": "0ef49815cbe4c59ed514a9b970ae4c4de4be9c4f19f3ec8a5a7aecad23fb2c34",
+    "spikes/s4e/run_s4e.py": "0acd61ffa3218b19c6060225d315751e244049720774c8df0aa6e0a77450fa36",
+    "spikes/s4e/schema.sql": "fa3b8b569f90161aab461eedf245d506cd24729a94fbb8fc05cf8ceabadac156",
+    "spikes/s4f/README.md": "cd68b5c59a958b75078ac273e4694f0f06db6032fb679f9c43e3c4ccf4f232d4",
+    "spikes/s4f/linux_supervisor.py": "807f67a7c8edd572c3f8ed172399ad3433d3e8de995864a8327997a792292fbf",
+    "spikes/s4f/run_s4f.py": "04e9c5e73bb0e646e091652de9ff6635bbd615315408f894bcb4008b3c008433",
+    "spikes/s4f/unit.py": "7861b8c4878eb0e61505c8c6e817a62c1437c1d4fb129a56314ed49d5e198c4a",
+    "spikes/s6b/README.md": "8e033518f6e9b80784cc3f22b39f70f06f70c5c1bd622c6d63712190c82f08e7",
+    "spikes/s6b/identity.py": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6",
+    "spikes/s6b/preflight_b.py": "7a308f8ffe7f60bbda6b279c39baab593decefc2ec450f19e719a7e2f4ff4508",
+    "spikes/s6b/probe_b.py": "e1d19d7ea6c17acbf159c1189e76b9dd1ca71edf30bb4064d774655d972c115a",
+    "spikes/s6b/requirements-win-py314.lock": "8ec9f407b53082cd193652438be1e3b1ea562b8f602db65331d7cc94d0347cfb",
+    "spikes/s6b/run_b.py": "fe0e59bab213626a11bc4e5b0798eccbc2044eb12fb4d422f6c437706a6d5b69",
+    "spikes/s6b/schema.sql": "a5bc32ea75dc97dcf6cceb3ab4ab4ec63ea95b4f6056f210d68303647465bf5d",
+    "spikes/s6b/test_preflight_b.py": "9f0380ca09bae3f36bd592a67c1756199540fb1eb2ac56c6efd21d89627aa2a1"
+  },
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "version": "s4f-review-closure-1.0.0"
+}

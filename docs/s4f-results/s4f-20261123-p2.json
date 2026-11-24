@@ -1,0 +1,228 @@
+{
+  "closed": {
+    "activeState": "inactive",
+    "cgroupAbsent": true,
+    "loadState": "not-found",
+    "unit": "qa-s4-f-7af0709021ce4d9b.service"
+  },
+  "live": {
+    "baseExists": true,
+    "baseFiles": [
+      "output",
+      "config",
+      "containers.conf",
+      "data",
+      "runtime",
+      "cache",
+      "marker.json",
+      "s4f.lock",
+      "rootfs.tar",
+      "runroot",
+      "storage",
+      "input",
+      "s4f-context.json",
+      "home",
+      "auth.json",
+      "config/cni",
+      "data/containers",
+      "runtime/libpod",
+      "runtime/containers",
+      "runtime/crun",
+      "runroot/vfs-locks",
+      "runroot/vfs-containers",
+      "runroot/vfs-layers",
+      "storage/libpod",
+      "storage/vfs",
+      "storage/db.sql",
+      "storage/storage.lock",
+      "storage/vfs-containers",
+      "storage/userns.lock",
+      "storage/vfs-images",
+      "storage/vfs-layers",
+      "config/cni/net.d",
+      "config/cni/net.d/cni.lock",
+      "data/containers/cache",
+      "data/containers/cache/blob-info-cache-v1.sqlite",
+      "runtime/libpod/tmp",
+      "runtime/libpod/tmp/events",
+      "runtime/libpod/tmp/pause.pid",
+      "runtime/libpod/tmp/alive",
+      "runtime/libpod/tmp/alive.lck",
+      "runtime/libpod/tmp/exits",
+      "runtime/libpod/tmp/events/events.log.lock",
+      "runtime/libpod/tmp/events/events.log",
+      "runroot/vfs-layers/mountpoints.json",
+      "runroot/vfs-layers/mountpoints.lock",
+      "storage/vfs/dir",
+      "storage/vfs-containers/containers.lock",
+      "storage/vfs-images/faec8f4fd8cb01182c75e894b364048212545eb080dac414038522ec5d7a49f7",
+      "storage/vfs-images/images.json",
+      "storage/vfs-images/images.lock",
+      "storage/vfs-layers/layers.json",
+      "storage/vfs-layers/layers.lock",
+      "storage/vfs-layers/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e.tar-split.gz",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/output",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/etc",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/input",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/tmp",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/etc/passwd",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/etc/group",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/head",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/wget",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/false",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/ip",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/printf",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/cat",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/wc",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/dd",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/seq",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/yes",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/id",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/grep",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/sleep",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/busybox",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/ps",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/mkdir",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/cut",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/kill",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/true",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/ls",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/touch",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/awk",
+      "storage/vfs/dir/bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e/bin/sh",
+      "storage/vfs-images/faec8f4fd8cb01182c75e894b364048212545eb080dac414038522ec5d7a49f7/manifest",
+      "storage/vfs-images/faec8f4fd8cb01182c75e894b364048212545eb080dac414038522ec5d7a49f7/=c2hhMjU2OmZhZWM4ZjRmZDhjYjAxMTgyYzc1ZTg5NGIzNjQwNDgyMTI1NDVlYjA4MGRhYzQxNDAzODUyMmVjNWQ3YTQ5Zjc=",
+      "storage/vfs-images/faec8f4fd8cb01182c75e894b364048212545eb080dac414038522ec5d7a49f7/=bWFuaWZlc3Qtc2hhMjU2OmFmNjg0ZDVlMzlmYWZjYTRmZDEzYzU2NDNhNjM1MWM2MTNiZWRiY2FjM2VkMjcwZDZjM2RjZmFhNTI1ODA0YzI="
+    ],
+    "processes": [
+      {
+        "cgroup": "0::/system.slice/qa-s4-f-7af0709021ce4d9b.service/supervisor\n",
+        "cmd": "/usr/bin/python3 -B /mnt/e/phucpn-workspace/git/ai-engineering-qa-framework/spikes/s4f/linux_supervisor.py original qa-s4-f-7af0709021ce4d9b.service ",
+        "pid": 462,
+        "uidMap": "         0          0 4294967295\n"
+      },
+      {
+        "cgroup": "0::/system.slice/qa-s4-f-7af0709021ce4d9b.service/supervisor\n",
+        "cmd": "/usr/bin/podman ",
+        "pid": 475,
+        "uidMap": "         0       1000          1\n         1     100000      65536\n"
+      }
+    ]
+  },
+  "loss": {
+    "activeState": "inactive",
+    "cgroupAbsent": true,
+    "exitCode": 255,
+    "invocation": "347b48b7ebb6482b9cf4d7cac1ab23e8",
+    "loadState": "not-found",
+    "originalProcess": {
+      "pid": 462,
+      "startTime": "26886"
+    },
+    "unit": "qa-s4-f-7af0709021ce4d9b.service"
+  },
+  "original": {
+    "context": {
+      "base": "/tmp/qa-s4-engine-ivvp39ex",
+      "baseId": [
+        2096,
+        143400
+      ],
+      "boot": "17715daa-30fd-4cde-b757-34ef8b73a1a5",
+      "generation": "75b549582d2f4ecfb65fee4316d810e7",
+      "image": "sha256:faec8f4fd8cb01182c75e894b364048212545eb080dac414038522ec5d7a49f7",
+      "invocation": "347b48b7ebb6482b9cf4d7cac1ab23e8",
+      "landmarks": {
+        "auth.json": [
+          [
+            2096,
+            145341
+          ],
+          "ec21c035eccb78eb5ca20ec95628eb351633621e09a130ac8d7e663714d40c7a"
+        ],
+        "cache": [
+          2096,
+          145322
+        ],
+        "config": [
+          2096,
+          145317
+        ],
+        "containers.conf": [
+          [
+            2096,
+            145363
+          ],
+          "d3580e7231abaa7c1d1f1048ef6bfa17d78f2103759478df937dd0cec2c622cd"
+        ],
+        "data": [
+          2096,
+          145319
+        ],
+        "home": [
+          2096,
+          145311
+        ],
+        "input": [
+          2096,
+          145339
+        ],
+        "marker.json": [
+          [
+            2096,
+            143405
+          ],
+          "d032802a431cb9b36301a9413b7ff57f7c2e526b80a7aa511f14ad7dafad4da4"
+        ],
+        "output": [
+          2096,
+          145326
+        ],
+        "runroot": [
+          2096,
+          145316
+        ],
+        "runtime": [
+          2096,
+          145313
+        ],
+        "s4f.lock": [
+          [
+            2096,
+            155159
+          ],
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        ],
+        "storage": [
+          2096,
+          145314
+        ]
+      },
+      "supervisor": {
+        "pid": 462,
+        "startTime": "26886"
+      },
+      "uid": 1000,
+      "unit": "qa-s4-f-7af0709021ce4d9b.service",
+      "version": "s4f-context-v1"
+    },
+    "contextPin": "624740acbb0785d9befdcf1a1ed2196b8d75cc842f50f927162c991e0a2c64ad",
+    "image": {
+      "busyboxSha256": "dbac288c29ba568459550a2da9e7ae0ded6b1fc728ee9fad3044c44e62d6ac14",
+      "imageId": "sha256:faec8f4fd8cb01182c75e894b364048212545eb080dac414038522ec5d7a49f7",
+      "rootfsTarSha256": "bd019efad430121f3cb34f490510112055ad18c910598778851dc98f1ad3b14e",
+      "source": "signed Ubuntu busybox-static local fixture"
+    },
+    "process": {
+      "pid": 462,
+      "startTime": "26886"
+    },
+    "ready": true,
+    "unit": "qa-s4-f-7af0709021ce4d9b.service"
+  },
+  "qaExecution": false,
+  "status": "OBSERVED",
+  "version": "s4f-no-container-diagnostic-v1"
+}

@@ -1,0 +1,606 @@
+{
+  "allUnitsAbsent": true,
+  "boot": "dae685ec-d179-4f26-b2cd-0438af946b63",
+  "capturedProcesses": 190,
+  "oldBootIdentities": 190,
+  "sameBootCapturedProcessesStillLive": [],
+  "sameBootProcessIdentitiesChecked": 0,
+  "scope": "Current unit/process absence only, no acknowledgement of prior failed external incidents or host-reboot recovery.",
+  "status": "OBSERVED",
+  "units": [
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-01cf1a7dbc914f48.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-02be621362194ce9.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-04b4261e8cba425c.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-07f34fc6447f48e0.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-0e6988f6e0f540de.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-0fcd22115ada4e6f.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-1076f048024648e5.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-12968b0797d44eab.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-1401e22e4b4440f7.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-18821bf7616441ee.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-19eef002742247c7.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-1b9dd141dbb54345.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-1fa342fd8858409c.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-26006e9666f445ee.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-2607e6979f8048a6.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-2d1d937f601e473b.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-34ca02183d2240ec.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-350f7776cd784e09.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-364d1ab28a604663.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-36ff4a3ba4ab4218.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-3ad935f92e764618.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-3af24d59da934185.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-3b10d11a649e4a50.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-40e1e2e587314221.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-44e2bf2750224a61.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-49864c5cdf824b08.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-4ae9fa2f3b964477.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-519568b6c211453e.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-51cdbbb179354181.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-51dd6879327b4519.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-55e2244411ac405a.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-59151ea2f836447c.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-5aa80810ffe34cb7.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-5bc6e30ca1c14940.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-6342ee6ca7c34b9f.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-63611f0672f84dde.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-6505fc1f753c41a9.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-668e7e1ec2e04080.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-688965a63ed6449a.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-6b455bb7a5c84eb3.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-6d6facef407544ba.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-6f1742d4c37149b0.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-7020ef4ee7dc49c2.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-75c3471f00594034.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-779290da95d84fbd.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-7810c581bf524346.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-78f261aa40e84ffd.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-7af0709021ce4d9b.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-7ce8805e33a24501.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-7f4e9f74488b4f86.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-8304c832df9e48c6.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-85c75055d1cb403b.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-89ba108da8074d8c.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-8baa878f450e4d6a.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-93f046365f734e63.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-95c6a3b0c9f74362.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-990e3e0ef1c9415e.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-9a167331d1ef4b61.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-9c3f979b8458413d.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-9d525204cbfc45cd.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-a092f3534605480a.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-a459fa58182e4211.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-a849739d18c5468b.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-aad09e8e4484424c.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-abfc3748d1a649c4.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-acc6f244711c4e9f.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-af6181854f7f46f4.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b01f0e6bf19c4e16.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b11db12e293f446d.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b199d353886d4901.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b3debade95034255.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b5625b4b05ce448a.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b72b89b5e3824e1d.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b8726fd9a3044502.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-b931df8435234260.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-c32e398d9e07433b.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-c3459f0a037742c1.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-c658a475e2404cd3.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-c6b8c7479e3c46b3.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-ca0eff68868a42c5.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-caf2d691908f4683.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-cfbf5f127a6a4551.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-d1a9f0cbc3bc455e.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-d8e16c77681a4bdd.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-d9de3b7bb82f42b2.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-dc304829af1242de.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-dcc841fc2b634434.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-dd799d95a8924dce.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-df31b4e932e9458b.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-e857f2b9ed674bc2.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-ebd6d655d73248e5.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-efc1580af8b54e8f.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-f1526b92902e475d.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-f1f4c291f2384d08.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-f3163f36f9804885.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-f348a05db6db4447.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-f433d094954a43ee.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-f4e2fc11167c4bc5.service"
+    },
+    {
+      "activeState": "inactive",
+      "cgroupAbsent": true,
+      "loadState": "not-found",
+      "unit": "qa-s4-f-f75dbc10f4f04905.service"
+    }
+  ]
+}
