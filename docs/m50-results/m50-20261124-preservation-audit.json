@@ -1,0 +1,42 @@
+{
+  "version": "m50-preservation-audit-1.0.0",
+  "at": "2026-11-23T17:25:44.711267+00:00",
+  "status": "PASS",
+  "baselinePathCount": 649,
+  "unchangedNonPrefixPaths": 645,
+  "changedNonPrefixPaths": [],
+  "historicalSuffixes": {
+    "docs/DECISION-LOG.md": {
+      "preserved": true,
+      "originalSuffixByteOffset": 4768,
+      "baselineSha256": "27d303009b939e8a47cf03e0562cd48919d2ae0c2f8e043dda1f6d08c236a438"
+    },
+    "docs/IMPLEMENTATION-PLAN.md": {
+      "preserved": true,
+      "originalSuffixByteOffset": 3531,
+      "baselineSha256": "ce670375e9841bf87b1743ca1f792d889999ced8189151708ccd6ee350d91a0d"
+    },
+    "docs/NEXT-SESSION.md": {
+      "preserved": true,
+      "originalSuffixByteOffset": 5178,
+      "baselineSha256": "80824c3f3f9a7175aad7d13c0f6e1731fb25825d82f60a1fb14ce64b099a49e3"
+    },
+    "docs/SESSION-HANDOFF.md": {
+      "preserved": true,
+      "originalSuffixByteOffset": 5649,
+      "baselineSha256": "0bea6845097105f8cb4e21ef77a6e841063b7fb55feabafe849074682cdde0e2"
+    }
+  },
+  "gitDiffCheck": {
+    "exitCode": 0,
+    "output": ""
+  },
+  "currentDocumentationPins": {
+    "docs/M50-RESULTS.md": "0848d64fd7c4c25ba422bcfaa11fbe05841d9e254ebb078ef171fe00f412e915",
+    "docs/DECISION-LOG.md": "f08577d24aa959647352cb74e1c4e3f4f382811446f2914e42df69cf55486c20",
+    "docs/IMPLEMENTATION-PLAN.md": "d703389a28f4708d38e6492386e80f909e5057062ee6b8df9e2eb6d9faf64b94",
+    "docs/NEXT-SESSION.md": "8fb0d073f8fdbdb64d3cf94402ab3ce73ead84f0e01cba8ed70812923304a3f7",
+    "docs/SESSION-HANDOFF.md": "e0dbfd4d1ba2b5d6b492a72fbe0c9114c791b0e67c98b46228dae854ce765230",
+    "docs/m50-results/m50-20261124-final-closure.json": "39f70d67ef2423ee84d6194494bebc0ac2e90f48720aea941eed9c06577ddea6"
+  }
+}

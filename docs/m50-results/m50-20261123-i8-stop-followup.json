@@ -1,0 +1,8 @@
+{
+  "logObservation": "Same fast shutdown completed at2026-11-23 18:53:49+07 after fsync of3198files, not a restart or forced termination",
+  "originalI8Status": "ERROR, databaseStopped=false at recorded timeout",
+  "pgCtlStatus": 3,
+  "postmasterPid": 47960,
+  "status": "OBSERVED",
+  "verification": "No new effect before observing status3; original i8 evidence unchanged"
+}
