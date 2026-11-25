@@ -1,0 +1,117 @@
+{
+  "version": "p4d-rc1-source-inspection-1.0.0",
+  "method": "read-only source inspection, not execution",
+  "localSources": [
+    {
+      "path": "runtime_candidate/API.md",
+      "sha256": "326e83d37284fcd0faf9965fbd30ba0850ccf7cf7b94cf2f50a47a096109f76e"
+    },
+    {
+      "path": "runtime_candidate/application.py",
+      "sha256": "d1ce9c9ae2f8fc73b41eae9f2f5886f48d4661f4de710cc8f698e325502be3cc"
+    },
+    {
+      "path": "runtime_candidate/common.py",
+      "sha256": "0c981d225b274d206ee0678118a922fda2a08fe68c31a4d9ae764e01d0bf7687"
+    },
+    {
+      "path": "runtime_candidate/run_fresh.py",
+      "sha256": "d4930eadf31494ee4907c91e1876827b6fb735fcc2fc97575d3dcaa980564a41"
+    },
+    {
+      "path": "runtime_candidate/execution_projection.py",
+      "sha256": "5b90318e2800f9f213a2bf86711ad5f1c63bdd4b6530f0e29b92dc84ca60a5a8"
+    },
+    {
+      "path": "runtime_candidate/publication.py",
+      "sha256": "9abb783ffed7c81f1f9892b256dbf90795727eb4e1c6c2031861e5ea46486d64"
+    },
+    {
+      "path": "spikes/hc1/orchestrator.py",
+      "sha256": "6d2085cb83cad70bcd249e8d9d0543329c446528f750e89301b8e694435c8ab9"
+    },
+    {
+      "path": "docs/DATA-CONTRACT.md",
+      "sha256": "aef80a7e4dc9dfc9b8b81f3968540ab4578575b4a82152e5bbaa506b30810e0f"
+    },
+    {
+      "path": "docs/TARGET-ARCHITECTURE.md",
+      "sha256": "3015906f4d3f536280dac434a7b868a533d8b9f51e9f9d74e1d5d749ac1a1872"
+    },
+    {
+      "path": "docs/HC1-PROTOCOL.md",
+      "sha256": "f2d2dd38de9103945d84c76f4010bd72a4dfb20aa31679276e8d0dd7a0471b38"
+    },
+    {
+      "path": "docs/p4d-g1-results/final-review.json",
+      "sha256": "01dfc1332eb31c5aa101ad77c16ba22330cff70a909480f85e178bbd3dc81db5"
+    },
+    {
+      "path": "docs/M50-RESULTS.md",
+      "sha256": "0848d64fd7c4c25ba422bcfaa11fbe05841d9e254ebb078ef171fe00f412e915"
+    },
+    {
+      "path": "docs/adr/003-stack-and-spikes.md",
+      "sha256": "43f601549e193e2be41bceff2e60376c287fb486d0e19d178c63395f0c5a09c0"
+    },
+    {
+      "path": "runtime_candidate/fixture_import.py",
+      "sha256": "78ccf105ddb222a2d8e9edc134e8652455f34efa725b827a9061353d845d466d"
+    },
+    {
+      "path": "spikes/vf1/run_vf1.py",
+      "sha256": "5b7ab3028f86535e293deb486c98d1fbf09923178c785c202d7544292776ec43"
+    }
+  ],
+  "officialSources": [
+    {
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs.md",
+      "consultedDate": "2026-11-24",
+      "note": "refusal/incomplete/API error separated; shape not business rules",
+      "evidenceType": "documentation, not provider execution",
+      "scope": "authored fixture profile rationale only"
+    },
+    {
+      "url": "https://developers.openai.com/api/reference/resources/responses/methods/create",
+      "consultedDate": "2026-11-24",
+      "note": "status/content, token cap includes reasoning, truncation disabled",
+      "evidenceType": "documentation, not provider execution",
+      "scope": "authored fixture profile rationale only"
+    },
+    {
+      "url": "https://github.com/openai/openai-python#retries",
+      "consultedDate": "2026-11-24",
+      "note": "default retries must be disabled in future selected SDK",
+      "evidenceType": "documentation, not provider execution",
+      "scope": "authored fixture profile rationale only"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
+      "consultedDate": "2026-11-24",
+      "note": "end_turn may be empty; refusal/truncation/tool/pause distinct",
+      "evidenceType": "documentation, not provider execution",
+      "scope": "authored fixture profile rationale only"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/api/errors",
+      "consultedDate": "2026-11-24",
+      "note": "error categories and diagnostic request IDs",
+      "evidenceType": "documentation, not provider execution",
+      "scope": "authored fixture profile rationale only"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python#retries",
+      "consultedDate": "2026-11-24",
+      "note": "default retries must be disabled in future selected SDK",
+      "evidenceType": "documentation, not provider execution",
+      "scope": "authored fixture profile rationale only"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance",
+      "consultedDate": "2026-11-24",
+      "note": "base+cache-read+cache-creation input, nested detail not added twice",
+      "evidenceType": "documentation, not provider execution",
+      "scope": "usage normalization rationale, no caching selection"
+    }
+  ]
+}

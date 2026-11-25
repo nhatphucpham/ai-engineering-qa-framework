@@ -1,0 +1,140 @@
+{
+  "version": "p4d-rc1-package-checks-1.0.0",
+  "status": "PASS",
+  "command": "py -3 -B docs/p4d-rc1-results/verify.py --capture checks-final.json",
+  "mode": "exclusive-new-capture",
+  "baselineFiles": 799,
+  "unchangedFiles": 796,
+  "changes": [
+    {
+      "path": ".gitattributes",
+      "mode": "original prefix, exact new paths"
+    },
+    {
+      "path": "docs/DECISION-LOG.md",
+      "mode": "original suffix"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-PLAN.md",
+      "mode": "original suffix"
+    }
+  ],
+  "sourcePinsBeforeAfterCurrent": 162,
+  "localLinks": 20,
+  "offlinePortCases": 45,
+  "integrationNotRun": 15,
+  "gitDiffCheckExit": 0,
+  "payload": {
+    ".gitattributes": {
+      "sha256": "a774effd6d7b4959defe2a75792764f5d626b6a7fdd35a5903f6011d4a6051ae",
+      "bytes": 53733
+    },
+    "docs/DECISION-LOG.md": {
+      "sha256": "5865991387c749226f8654c54086e4f0890f99646cbc7c5dce33b95df06e8a33",
+      "bytes": 65270
+    },
+    "docs/IMPLEMENTATION-PLAN.md": {
+      "sha256": "c5800a3f26256b2dee75c1350010bac49718287b444dba7fced0051bcf105998",
+      "bytes": 47088
+    },
+    "docs/NEXT-SESSION-POST-P4D-RC1-IMPLEMENTATION.md": {
+      "sha256": "c4066a958fe98f7087fb9b002f2e124555dc8f32e914550eae6b0844be76fb07",
+      "bytes": 4050
+    },
+    "docs/P4D-RC1-IMPLEMENTATION.md": {
+      "sha256": "216ee8ebf57301de739ebbee051c33e772bf68c326778e33c0917baa8d0252b8",
+      "bytes": 4056
+    },
+    "docs/P4D-RC1-RESULTS.md": {
+      "sha256": "57e8760341b65fe99c1ebb02ab6f57c708cdcfd82d285a56f9b3ceaae5247270",
+      "bytes": 6174
+    },
+    "docs/p4d-rc1-results/baseline.json": {
+      "sha256": "54069fe3a9d8c2d2acd986c030636bc8788fb4aee53318eac9828726c8985239",
+      "bytes": 128896
+    },
+    "docs/p4d-rc1-results/offline-r1.json": {
+      "sha256": "58cef3126fcdb8c3da211c22904362a5e976a0dd94825abc68268f2d64270dcb",
+      "bytes": 3010272
+    },
+    "docs/p4d-rc1-results/offline-r2.json": {
+      "sha256": "557ea015ba70b2c0d03280d1d0b82bae09b1a1467028067c53618c254ea4aa07",
+      "bytes": 3741521
+    },
+    "docs/p4d-rc1-results/offline-r3.json": {
+      "sha256": "3066876f233a73ffc4b6abda5d61f1618a47df7b250af54c1adb62c91fe35254",
+      "bytes": 3855440
+    },
+    "docs/p4d-rc1-results/offline-r4.json": {
+      "sha256": "71c8072a58db5dfb423c83307ec8fd1fad9219189c54beee7bddd910a80fdbad",
+      "bytes": 3857116
+    },
+    "docs/p4d-rc1-results/regression-command.txt": {
+      "sha256": "705a4f3c0e2bd0459ed93d0b885d3e0f59301649f3bfeb5993047072e79fd08c",
+      "bytes": 1643
+    },
+    "docs/p4d-rc1-results/regression-r1.json": {
+      "sha256": "1a1e651881042cf8dbd999cdf26f3df2bebdb092c3abf4fd983cc7a4e1e2a2f4",
+      "bytes": 19063
+    },
+    "docs/p4d-rc1-results/verification-commands.json": {
+      "sha256": "d3c6d79fc8d101f68e3dfbff67ffe7317baaac698f5a570587b6db99db0b1341",
+      "bytes": 869
+    },
+    "docs/p4d-rc1-results/verify.py": {
+      "sha256": "8ff8b7b33d21208d7d0575839ae0fd870123c8da3439320a97af380c3b5d8a3d",
+      "bytes": 8098
+    },
+    "spikes/p4d_rc1/README.md": {
+      "sha256": "0a7893caf819a615297b32be984d649a98dd5621661bf350c9535ad806bf61e4",
+      "bytes": 4168
+    },
+    "spikes/p4d_rc1/__init__.py": {
+      "sha256": "c06aeaa628fe78b9c5aa093f133f764a3fa67c43cf17c2df6e40d708c60a40ba",
+      "bytes": 70
+    },
+    "spikes/p4d_rc1/anthropic_port.py": {
+      "sha256": "deb7d621e616238366725f594a4ca481afe5d314a4cb6d433c6513fc6c41b50e",
+      "bytes": 3267
+    },
+    "spikes/p4d_rc1/common.py": {
+      "sha256": "212940f3d624f8fcdfd8df6320ccc6add39e5ffe5e88bd985044f89010553441",
+      "bytes": 4415
+    },
+    "spikes/p4d_rc1/contracts.py": {
+      "sha256": "dd0e17d1d22d80f6c3efe37f5116e3c682d9af3ddf26cfbe6d1b8d75f08057ca",
+      "bytes": 10880
+    },
+    "spikes/p4d_rc1/corpus.py": {
+      "sha256": "2ecdc8ea40d234d03c491edea526e4a3c2f2a7d3089704e80a9cd751a55f050b",
+      "bytes": 9079
+    },
+    "spikes/p4d_rc1/harness.py": {
+      "sha256": "f9b60f74e1e3c9f15e87376421dbddfc8fac0bb699d5f89f4c486beb6b3753ec",
+      "bytes": 19502
+    },
+    "spikes/p4d_rc1/local_host.py": {
+      "sha256": "fd8924727e59bc25ce12222f2f2a2f7c4131c906b0b9375d71fbf9371d2d9005",
+      "bytes": 1975
+    },
+    "spikes/p4d_rc1/openai_port.py": {
+      "sha256": "76bb0495ce9ea604b53e6e86c1e1138ab87ccee5de800148614aa780dcbe089a",
+      "bytes": 4835
+    },
+    "spikes/p4d_rc1/reopen_probe.py": {
+      "sha256": "e83f2186d6b7e93dce9f37d2ef061d90d642920908c5f02e7dc4e010309face4",
+      "bytes": 777
+    },
+    "spikes/p4d_rc1/run.py": {
+      "sha256": "e4b7d7f4c9d08f4f7dd2983d5f27770a0be4d431fa5694aeb436fa9967ee2474",
+      "bytes": 5724
+    },
+    "spikes/p4d_rc1/test_conformance.py": {
+      "sha256": "15345b41f488316162e25ef0f9dc06f52e4242162075d78e57bb993ab00c5b41",
+      "bytes": 41020
+    }
+  },
+  "failures": [],
+  "fullP4D": "OPEN",
+  "humanDecision": "pending"
+}

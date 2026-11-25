@@ -1,3 +1,15 @@
+# Hiện hành — RC1 offline implementation, 25/11/2026
+
+[Results](P4D-RC1-RESULTS.md), [source](../spikes/p4d_rc1/README.md) và [handoff](NEXT-SESSION-POST-P4D-RC1-IMPLEMENTATION.md): đã thực chạy45/45 O case/port groups PASS trên R4,533 scenario traces; core45/VF1 12/candidate54 regression PASS. Trạng thái selected offline slice theo [independent review](p4d-rc1-results/review.json), pending tới CLEAN;15 I integration rows NOT RUN. Source pins162 trước=sau=current; không actual provider/native/check/DB/WSL/container campaign mới. Historical design NOT RUN records không đổi.
+
+Full P4-D OPEN và tiến độ7/12≈58,3% không đổi. Tiếp version/review server reasoning authority extension để gắn attempt/offer/intent/reservation/policy/cancel với assessment_accept và worker_submit trước I01–I05; API1.1 outboundProviders vẫn rỗng. Không Git/API/key/account/install/pilot/publish hoặc stack/host/model/SDK decision mới.
+
+# Hiện hành — P4D-RC1 design trước code, 24/11/2026
+
+[Capability audit](P4D-CAPABILITY-AUDIT-2026-11-24.md), [protocol](P4D-RC1-PROTOCOL.md), [acceptance](P4D-RC1-ACCEPTANCE.md) và [handoff](NEXT-SESSION-POST-P4D-RC1.md) là output design; trạng thái theo [review record](p4d-rc1-design/review.json), pending cho tới CLEAN. Mọi RC1 runtime case NOT RUN. API1.1 chỉ cho outboundProviders rỗng; trước integrated reasoning phải version/review server authority + attempt/reservation/cancel fence tới acceptance/publication. Ba offline ports riêng là bước code độc lập tiếp theo, không API/host/SDK/stack decision.
+
+Baseline Git thực f71413f đã push từ phiên trước, không suy hash từ pending trong history. G1 bounded DONE/CLEAN không là GitHub provider proof/atomicity. Tiến độ giữ7/12≈58,3%, full P3-B/P4-D/P4-E/P5/P6 OPEN, human pending. Không campaign hoặc Git action mới; nguyên source/fixture/evidence/bốn post-M50 handoff files giữ byte.
+
 # Hiện hành — P4D-G1 offline conformance, 24/11/2026
 
 Tiếp delegation sau M50: capability review và protocol CLEAN trước slice synthetic ingress qua cùng application API. [Kết quả P4D-G1](P4D-G1-RESULTS.md) và [bàn giao mới](NEXT-SESSION-POST-P4D-G1.md) ghi evidence/review; trạng thái slice chỉ DONE khi final-review xác nhận CLEAN. R4 có19 nhóm actual PostgreSQL/application +9unit PASS; core45/candidate54 PASS, DB STOPPED. Proof registry là synthetic, chưa GitHub authentication/occurrence-revision proof. Local cursor/pending plan không đóng provider atomicity gate.

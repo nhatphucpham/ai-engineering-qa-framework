@@ -1,0 +1,303 @@
+{
+  "version": "p4d-rc1-acceptance-1.0.0",
+  "designOnly": true,
+  "implementationStatus": "NOT_IMPLEMENTED",
+  "cases": [
+    {
+      "id": "O01",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O02",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O03",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O04",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O05",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O06",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O07",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O08",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O09",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O10",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O11",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O12",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O13",
+      "stage": "offline",
+      "ports": [
+        "openai"
+      ],
+      "statusByPort": {
+        "openai": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O14",
+      "stage": "offline",
+      "ports": [
+        "anthropic"
+      ],
+      "statusByPort": {
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O15",
+      "stage": "offline",
+      "ports": [
+        "local_host"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O16",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "O17",
+      "stage": "offline",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "I01",
+      "stage": "integration",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "I02",
+      "stage": "integration",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "I03",
+      "stage": "integration",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "I04",
+      "stage": "integration",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    },
+    {
+      "id": "I05",
+      "stage": "integration",
+      "ports": [
+        "local_host",
+        "openai",
+        "anthropic"
+      ],
+      "statusByPort": {
+        "local_host": "NOT_RUN",
+        "openai": "NOT_RUN",
+        "anthropic": "NOT_RUN"
+      }
+    }
+  ]
+}

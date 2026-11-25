@@ -431,3 +431,57 @@
 /docs/p4d-g1-push-20261124/checks.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/p4d-g1-push-20261124/snapshot.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/p4d-g1-push-20261124/review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve exact P4D-RC1 design, static evidence and handoff bytes.
+/docs/P4D-CAPABILITY-AUDIT-2026-11-24.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4D-RC1-PROTOCOL.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4D-RC1-ACCEPTANCE.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/NEXT-SESSION-POST-P4D-RC1.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/baseline.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/acceptance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/source-inspection.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/check_design.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/checks.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/checks-initial.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/snapshot-r1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/checks-r3.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-design/checks-r4.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve exact RC1 offline implementation and evidence; existing policies untouched.
+/docs/NEXT-SESSION-POST-P4D-RC1-IMPLEMENTATION.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4D-RC1-IMPLEMENTATION.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4D-RC1-RESULTS.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/baseline.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/checks-final.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/offline-r1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/offline-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/offline-r3.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/offline-r4.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/regression-command.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/regression-r1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/verification-commands.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/verify.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/README.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/__init__.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/anthropic_port.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/common.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/contracts.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/corpus.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/harness.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/local_host.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/openai_port.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/reopen_probe.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/run.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/spikes/p4d_rc1/test_conformance.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/p4d-rc1-results/checks-final-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve exact RC1 commit/push delivery records.
+/docs/RC1-PUSH-REVIEW-2026-11-25.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/rc1-push-20261125/audit.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/rc1-push-20261125/baseline.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/rc1-push-20261125/checks.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/rc1-push-20261125/review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/rc1-push-20261125/snapshot.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/rc1-push-20261125/snapshot-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

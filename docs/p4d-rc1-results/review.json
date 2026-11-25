@@ -1,0 +1,261 @@
+{
+  "version": "p4d-rc1-implementation-review-1.0.0",
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "scope": "O01–O17 offline authored context/mappers/attempt ledger only; I01–I05 NOT RUN",
+  "reviewers": [
+    {
+      "agent": "/root/review_p4d",
+      "model": "gpt-6.2-astra",
+      "reasoningEffort": "high",
+      "role": "assigned before code; usage limit after early R001; history transferred"
+    },
+    {
+      "agent": "/root/review_rc1_implementation",
+      "model": "gpt-6.2-astra",
+      "reasoningEffort": "high",
+      "role": "independent replacement, read-only"
+    }
+  ],
+  "findings": [
+    {
+      "id": "P4DRCI-R001",
+      "severity": "medium",
+      "problem": "Actual restricted HC1 negative required, not only a shaped canary",
+      "fix": "Read-only load_hc1 b raw host-request bytes, retained SHA/revision/restricted classification; deny before emission",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R002",
+      "severity": "high",
+      "problem": "Intent replay/owner recovery and capacity ordering",
+      "fix": "Issuer session fences retained handles after reopen; capacity denial precedes funded ambiguity fence; pending uncertainty still prevents new work",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R003",
+      "severity": "high",
+      "problem": "Candidate validated before fence/usage, accounting vectors/incident incomplete",
+      "fix": "Check cancellation/deadline/known usage/bounds before pure core; preserve noncandidate failures; strict two-int accounting vectors; durable changed-count incidents",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R004",
+      "severity": "medium",
+      "problem": "Ad hoc malformed results and weak replay/accounting receipt integrity",
+      "fix": "Always full RC1 normalized result; caller validates anchors; replay verifies bound delivery/request hashes; corrupt receipt cannot refund",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R005",
+      "severity": "high",
+      "problem": "Untrusted schema/contract, capability and target shapes insufficient",
+      "fix": "Compare canonical digest against source-owned wrapper before any schema dereference; enforce selector/echo capability shape; producer-specific target grammar",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R006",
+      "severity": "medium",
+      "problem": "Missing/ambiguous terminal markers and top-level terminal errors misclassified",
+      "fix": "Missing markers malformed shape; explicit unknown stop unsupported; minimal failed/incomplete Responses preserved; message discriminator and role tests",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R007",
+      "severity": "high",
+      "problem": "Multiple same-offer deliveries permit choosing response on one ticket",
+      "fix": "Exactly one pre-admit trusted delivery per offer; bind expected delivery ID in intent; late/conflicting enrollment rejects",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R008",
+      "severity": "medium",
+      "problem": "Projected bundle expected digest generated from candidate itself",
+      "fix": "Corpus computes exact expected bundle before admission, trusted scope digest owns pin; changed projected source/evidence corpus rejects",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R009",
+      "severity": "medium",
+      "problem": "Trace/oracles omit actual clock/before balances/submitted pins and required negatives",
+      "fix": "Trace actual selected delivery and submitted offer hash; before/after accounts; denied asserts no new calls/release; same-job foreign port/policy, valid alternate identities, exception events; independent design matrix",
+      "status": "CLOSED"
+    },
+    {
+      "id": "P4DRCI-R010",
+      "severity": "medium",
+      "problem": "Default package verifier misses altered docs or historical evidence outside live source pins",
+      "fix": "Read-only compare all payload paths/hash/byte length to retained current snapshot; eight pure mutation comparator checks; preserve old capture; describe fresh capture reproduction in disposable copy",
+      "status": "CLOSED"
+    }
+  ],
+  "rounds": [
+    {
+      "round": "early source review",
+      "verdict": "FINDINGS",
+      "ids": [
+        "P4DRCI-R001",
+        "P4DRCI-R002",
+        "P4DRCI-R003",
+        "P4DRCI-R004",
+        "P4DRCI-R005",
+        "P4DRCI-R006",
+        "P4DRCI-R007",
+        "P4DRCI-R008",
+        "P4DRCI-R009"
+      ]
+    },
+    {
+      "round": "offline-r1",
+      "path": "offline-r1.json",
+      "status": "ERROR",
+      "groups": 45,
+      "failures": 9,
+      "errors": 0,
+      "skipped": 0,
+      "note": "Wrong expected corpus binding for changed risk data and unsorted cycle-fixture ancestry. Preserved initial failure, fixed fixture construction without weakening production pins."
+    },
+    {
+      "round": "offline-r2",
+      "path": "offline-r2.json",
+      "status": "PASS",
+      "groups": 45,
+      "scenarios": 515,
+      "note": "Later R002 review found cancel could lift unresolved-send fence; historical only."
+    },
+    {
+      "round": "offline-r3",
+      "path": "offline-r3.json",
+      "status": "PASS",
+      "groups": 45,
+      "scenarios": 530,
+      "note": "Independent intentOpen fence; later trace/required-record guards added in R4."
+    },
+    {
+      "round": "offline-r4",
+      "path": "offline-r4.json",
+      "status": "PASS",
+      "groups": 45,
+      "scenarios": 533,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sourcePins": 162,
+      "note": "Current tested source; awaiting independent package CLEAN."
+    },
+    {
+      "round": "package review R1",
+      "snapshot": "checks-final.json",
+      "snapshotSha256": "7e8e5d08a6f4c6ac09dad130614a13dc28affb0ecb412b85f33c7155c64be672",
+      "verdict": "FINDINGS",
+      "closedByReviewer": [
+        "P4DRCI-R001",
+        "P4DRCI-R002",
+        "P4DRCI-R003",
+        "P4DRCI-R004",
+        "P4DRCI-R005",
+        "P4DRCI-R006",
+        "P4DRCI-R007",
+        "P4DRCI-R008",
+        "P4DRCI-R009"
+      ],
+      "new": [
+        "P4DRCI-R010"
+      ],
+      "note": "Independent reviewer confirmed R001–R009 runtime fixes and actual R4 pins; default package checker missing exact retained-manifest comparison."
+    },
+    {
+      "round": "package review R2",
+      "snapshot": "checks-final-r2.json",
+      "snapshotSha256": "f9d3c01b5d41fdea837ba394dddb729a8ea51433ed167ab64a70a4b3f76ff934",
+      "verdict": "CLEAN",
+      "reviewer": "/root/review_rc1_implementation",
+      "independentPayloadHashesMatched": 28,
+      "readOnlyVerifier": "PASS/MATCH",
+      "comparatorSelfChecks": "8/8 PASS",
+      "closedByReviewer": [
+        "P4DRCI-R001",
+        "P4DRCI-R002",
+        "P4DRCI-R003",
+        "P4DRCI-R004",
+        "P4DRCI-R005",
+        "P4DRCI-R006",
+        "P4DRCI-R007",
+        "P4DRCI-R008",
+        "P4DRCI-R009",
+        "P4DRCI-R010"
+      ],
+      "outstanding": [],
+      "new": [],
+      "regressions": [],
+      "statement": "Independent final CLEAN for RC1 offline O01–O17 only. Reviewer modified no repository files and invoked no live provider/application/DB/WSL/container."
+    }
+  ],
+  "designHistory": "docs/p4d-rc1-design/review.json unchanged; P4DRC-R001–009 closed at design R4",
+  "fullP4D": "OPEN",
+  "productMilestones": "7/12 (58.3%)",
+  "humanDecision": "pending",
+  "applicationDispatches": 0,
+  "actualProviderCalls": 0,
+  "integration": {
+    "casePortRows": 15,
+    "status": "NOT_RUN",
+    "reason": "Requires separately versioned server reasoning authority extension and authorized actual API/DB campaign"
+  },
+  "gitActions": "none",
+  "currentEvidence": "docs/p4d-rc1-results/offline-r4.json",
+  "regression": {
+    "path": "docs/p4d-rc1-results/regression-r1.json",
+    "core": 45,
+    "vf1": 12,
+    "candidate": 54,
+    "status": "PASS"
+  },
+  "finalSnapshot": {
+    "path": "docs/p4d-rc1-results/checks-final-r2.json",
+    "sha256": "f9d3c01b5d41fdea837ba394dddb729a8ea51433ed167ab64a70a4b3f76ff934",
+    "payloadFiles": 28
+  },
+  "actualChecks": {
+    "offline": {
+      "path": "offline-r4.json",
+      "groups": 45,
+      "scenarioTraces": 533,
+      "countedAssertEqualAssertTrue": 2090,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sourcePinsBeforeAfterCurrent": 162
+    },
+    "regression": {
+      "path": "regression-r1.json",
+      "core": 45,
+      "vf1": 12,
+      "candidate": 54,
+      "status": "PASS"
+    },
+    "package": {
+      "baselineFiles": 799,
+      "unchangedFiles": 796,
+      "approvedBytePreservingEdits": 3,
+      "links": 21,
+      "gitDiffCheckExit": 0,
+      "retainedManifestComparison": "MATCH",
+      "pureComparatorChecks": 8
+    },
+    "verifierDefault": "read-only PASS, evidence bytes unchanged",
+    "existingCaptureRejection": {
+      "status": "PASS",
+      "expectedExit": 2,
+      "evidenceBytesUnchanged": true
+    }
+  },
+  "outstandingFindings": [],
+  "limitations": [
+    "Only authored offline mapper/context/attempt conformance complete",
+    "No actual model reasoning/provider API/application dispatch or QA/DB/WSL/container campaign",
+    "No remote termination/model identity attestation or production storage/stack choice",
+    "Full P4-D and P3-B/P4-E/P5/P6 OPEN, progress7/12, human decision pending"
+  ],
+  "administrativeClosure": "Records independent final verdict only. No payload/source/evidence changed after review; DONE does not grant Git/provider/install/pilot/publish authority."
+}

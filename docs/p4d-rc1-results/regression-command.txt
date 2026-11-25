@@ -1,0 +1,16 @@
+from pathlib import Path
+import io,json,sys,time,unittest,hashlib
+root=Path.cwd()
+sys.path[:0]=[str(root/'spikes/s2'),str(root/'.cache/s6b/deps'),str(root/'.cache/s6/deps'),str(root/'.cache/s2/deps')]
+output=root/'docs/p4d-rc1-results/regression-r1.json'
+with output.open('x',encoding='utf-8',newline='\n') as handle:
+    rows=[]
+    for name,folder,top in [('core','tools',None),('vf1','spikes/vf1',None),('candidate','runtime_candidate','.')]:
+        stream=io.StringIO(); begin=time.monotonic()
+        suite=unittest.defaultTestLoader.discover(folder,pattern='test_*.py',top_level_dir=top)
+        result=unittest.TextTestRunner(stream=stream,verbosity=2).run(suite)
+        rows.append({'suite':name,'discovery':{'start':folder,'pattern':'test_*.py','topLevel':top},'status':'PASS' if result.wasSuccessful() and not result.skipped else 'ERROR','tests':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),'skipped':len(result.skipped),'seconds':time.monotonic()-begin,'output':stream.getvalue()})
+    record={'version':'p4d-rc1-regression-1.0.0','status':'PASS' if all(r['status']=='PASS' for r in rows) else 'ERROR','scope':'existing core/VF1/candidate unit/pure local tests; no actual campaign','command':'py -3 -B <recorded inline unittest loader, retained dependency paths>','dependencyPaths':['spikes/s2','.cache/s6b/deps','.cache/s6/deps','.cache/s2/deps'],'suites':rows}
+    handle.write(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'status':record['status'],'suites':[{k:v for k,v in r.items() if k!='output'} for r in rows]},indent=2))
+raise SystemExit(record['status']!='PASS')

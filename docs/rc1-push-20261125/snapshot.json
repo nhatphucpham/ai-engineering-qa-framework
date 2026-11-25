@@ -1,0 +1,432 @@
+{
+  "version": "rc1-push-snapshot-1.0.0",
+  "status": "FAIL",
+  "baseline": "f71413f547b0963c6ca0c332f7571d6ab1f7a869",
+  "files": {
+    ".gitattributes": {
+      "sha256": "2cd8695295e08f17b1d465deac2b3579dd74e82101396f82a1c8a10dbcfc7ba6",
+      "gitBlob": "457a83d4171742dbda7a7da1e581c5bd135b47b5",
+      "bytes": 54535
+    },
+    "docs/DECISION-LOG.md": {
+      "sha256": "5865991387c749226f8654c54086e4f0890f99646cbc7c5dce33b95df06e8a33",
+      "gitBlob": "2f60fd6b6365da181f6e4e9032c746e0de0181da",
+      "bytes": 65270
+    },
+    "docs/IMPLEMENTATION-PLAN.md": {
+      "sha256": "c5800a3f26256b2dee75c1350010bac49718287b444dba7fced0051bcf105998",
+      "gitBlob": "0858a6a5191f67ffa5f122a9fed993122d7664bf",
+      "bytes": 47088
+    },
+    "docs/NEXT-SESSION-POST-P4D-RC1-IMPLEMENTATION.md": {
+      "sha256": "c4066a958fe98f7087fb9b002f2e124555dc8f32e914550eae6b0844be76fb07",
+      "gitBlob": "4234938fa4f9c577da6e17a5152c7e13e09d4a7b",
+      "bytes": 4050
+    },
+    "docs/NEXT-SESSION-POST-P4D-RC1.md": {
+      "sha256": "cf6116ca67a1b08ef65c9487dc700b0bbfc196ced030542544df29e886487bc3",
+      "gitBlob": "b2e044af34238274b77883622cb1435ee90ae9eb",
+      "bytes": 4130
+    },
+    "docs/P4D-CAPABILITY-AUDIT-2026-11-24.md": {
+      "sha256": "d81461886efd3c67d80e9a95e1e1a7c53b62cf9f3de1edfe27d05a6e74d6286b",
+      "gitBlob": "bb7027b026783eb44303ccbee7ff0b49565e1bc4",
+      "bytes": 7201
+    },
+    "docs/P4D-RC1-ACCEPTANCE.md": {
+      "sha256": "53431e2fdce07cd1d545f2e571a42f1a82dbf2d999b2035d2fc2279e9a6ff31a",
+      "gitBlob": "30a61732cfa5f8f30afc145d01434739f3b4c5e1",
+      "bytes": 13607
+    },
+    "docs/P4D-RC1-IMPLEMENTATION.md": {
+      "sha256": "216ee8ebf57301de739ebbee051c33e772bf68c326778e33c0917baa8d0252b8",
+      "gitBlob": "1b4bc94c8c4e1b25cfe96ae5602f6fadc4f47bf1",
+      "bytes": 4056
+    },
+    "docs/P4D-RC1-PROTOCOL.md": {
+      "sha256": "96a6959780323d0a19809e3533b18ff8fc1578dae91f706047a0078c21792a44",
+      "gitBlob": "61a85666a4fd37d085b7f1f5a1c1fb858277565c",
+      "bytes": 27794
+    },
+    "docs/P4D-RC1-RESULTS.md": {
+      "sha256": "8fdbc1b33d89e053ba1b11492749efdf97d6ce70da793c4cf7a090c69dcc7f21",
+      "gitBlob": "2640195a1b9bc09cb06986a9b9d09d357c435306",
+      "bytes": 6505
+    },
+    "docs/RC1-PUSH-REVIEW-2026-11-25.md": {
+      "sha256": "62b463d26496a6f7f02a8d1c964c8cde9ca98b85977c9c83ffd1e34420cd8680",
+      "gitBlob": "48d7c84c1b58a364152d5b65a6d6a3a53ab3b02a",
+      "bytes": 3519
+    },
+    "docs/p4d-rc1-design/acceptance.json": {
+      "sha256": "4f80823f0d6c67dccf4a0e45af226a8e2c436f4085171bf562881c60218d6dcb",
+      "gitBlob": "433f2f7d06849e228e06b1e5cc0f364a21831abf",
+      "bytes": 5756
+    },
+    "docs/p4d-rc1-design/baseline.json": {
+      "sha256": "aa31a3c5a13a8a5ea5270951b7bc4dd913b0d555706dcd5418acc2ad4b798b55",
+      "gitBlob": "3d8e679bb02121ea8a65c54dd4c0a7cd05ab8b7d",
+      "bytes": 126761
+    },
+    "docs/p4d-rc1-design/check_design.py": {
+      "sha256": "4ad7a3fdbf7ce343fc3ceeec8bd33ad3ca5b9b098a5914d731db36a434c57e35",
+      "gitBlob": "f7279ecc7b8ae17f651caf14df852e837433da4a",
+      "bytes": 7555
+    },
+    "docs/p4d-rc1-design/checks-initial.json": {
+      "sha256": "1d527edccda8b9120ea24e76d36ea2bcdb7c3a2fafa2c6095808f47dfbbfd62b",
+      "gitBlob": "749814c29cff838916506bca3f13f8ec844a8344",
+      "bytes": 2747
+    },
+    "docs/p4d-rc1-design/checks-r3.json": {
+      "sha256": "7b05a16718823449b07aa3c9695e62cd07cd19c74d39fe6230f70566e9dbcde9",
+      "gitBlob": "3fd8d60d66b2804556954dfd00ddf6d4b5d52d27",
+      "bytes": 3115
+    },
+    "docs/p4d-rc1-design/checks-r4.json": {
+      "sha256": "f3d5d9129e3c38ab4b05744c2b8cc7c8c4cb74f92103d0280e6c46a3cf720870",
+      "gitBlob": "5314e51aa66569df87aaf96046426321360d496d",
+      "bytes": 3270
+    },
+    "docs/p4d-rc1-design/checks.json": {
+      "sha256": "6e373714f4eb39bde40e61df9477f50fb41125109e6a50abf546777da3dc8c7d",
+      "gitBlob": "ab1c6525e550ca1fe460736a6a0476cde891e29a",
+      "bytes": 2903
+    },
+    "docs/p4d-rc1-design/review.json": {
+      "sha256": "1f75e56c9d1beaec891168744049c6e83d8b991314ad4a1ac3b844994d280419",
+      "gitBlob": "d3266a6d5190b4b2868aa3893d9ec19f89320f22",
+      "bytes": 8070
+    },
+    "docs/p4d-rc1-design/snapshot-r1.json": {
+      "sha256": "47c1e25980d37eae993d260b3dd57fefe3bfe62d0477269644989e7b0f834ee8",
+      "gitBlob": "1a88b0bb0767e202058c7ec929efa85998f9733f",
+      "bytes": 1837
+    },
+    "docs/p4d-rc1-design/source-inspection.json": {
+      "sha256": "102421a886e6198e47afe80664cfe6aa3faf319ae6a031e857cddd89d0cb4590",
+      "gitBlob": "a79abafcb221ccc8c2933e452e1312b485cb258e",
+      "bytes": 4633
+    },
+    "docs/p4d-rc1-results/baseline.json": {
+      "sha256": "54069fe3a9d8c2d2acd986c030636bc8788fb4aee53318eac9828726c8985239",
+      "gitBlob": "651f50eaaa0133618440af790cb806b2b59efe27",
+      "bytes": 128896
+    },
+    "docs/p4d-rc1-results/checks-final-r2.json": {
+      "sha256": "f9d3c01b5d41fdea837ba394dddb729a8ea51433ed167ab64a70a4b3f76ff934",
+      "gitBlob": "412bc1ef4dd52376f4c66fb43aaadcd4bea0158c",
+      "bytes": 5198
+    },
+    "docs/p4d-rc1-results/checks-final.json": {
+      "sha256": "7e8e5d08a6f4c6ac09dad130614a13dc28affb0ecb412b85f33c7155c64be672",
+      "gitBlob": "d3befaca9c6ab8149b74f99521146526d16b4af4",
+      "bytes": 4854
+    },
+    "docs/p4d-rc1-results/offline-r1.json": {
+      "sha256": "58cef3126fcdb8c3da211c22904362a5e976a0dd94825abc68268f2d64270dcb",
+      "gitBlob": "04a07d055c237e49b516a577fc6c891549153c20",
+      "bytes": 3010272
+    },
+    "docs/p4d-rc1-results/offline-r2.json": {
+      "sha256": "557ea015ba70b2c0d03280d1d0b82bae09b1a1467028067c53618c254ea4aa07",
+      "gitBlob": "e01da02239bd4b80564c1b1db6d7515ccfe68785",
+      "bytes": 3741521
+    },
+    "docs/p4d-rc1-results/offline-r3.json": {
+      "sha256": "3066876f233a73ffc4b6abda5d61f1618a47df7b250af54c1adb62c91fe35254",
+      "gitBlob": "13dc85c4b44e81fd9bd5917ee69c01ced2f5ab23",
+      "bytes": 3855440
+    },
+    "docs/p4d-rc1-results/offline-r4.json": {
+      "sha256": "71c8072a58db5dfb423c83307ec8fd1fad9219189c54beee7bddd910a80fdbad",
+      "gitBlob": "b0d86a02faef252ba7739d0ab91b36ad1a28c2c8",
+      "bytes": 3857116
+    },
+    "docs/p4d-rc1-results/regression-command.txt": {
+      "sha256": "705a4f3c0e2bd0459ed93d0b885d3e0f59301649f3bfeb5993047072e79fd08c",
+      "gitBlob": "2a56ecd71e14ee8093d6e10467a0ff28cb8ee4ab",
+      "bytes": 1643
+    },
+    "docs/p4d-rc1-results/regression-r1.json": {
+      "sha256": "1a1e651881042cf8dbd999cdf26f3df2bebdb092c3abf4fd983cc7a4e1e2a2f4",
+      "gitBlob": "5083f57604f23ebff001a4e6d69639c468f8689d",
+      "bytes": 19063
+    },
+    "docs/p4d-rc1-results/review.json": {
+      "sha256": "12c3524aff410228c9cac3c311229131021ce387af064b947c1f2f87562c1c6f",
+      "gitBlob": "c907445e757084b320424f5fd65f126dab4f8e12",
+      "bytes": 9519
+    },
+    "docs/p4d-rc1-results/verification-commands.json": {
+      "sha256": "d3c6d79fc8d101f68e3dfbff67ffe7317baaac698f5a570587b6db99db0b1341",
+      "gitBlob": "437e97d574fb23027e8c48ef130389ff3cb9d279",
+      "bytes": 869
+    },
+    "docs/p4d-rc1-results/verify.py": {
+      "sha256": "34aab5e87f3fdf4458ebf58711b4fc84b192f39bd7fa358232b18a0d67376381",
+      "gitBlob": "8caf0c245188928ae0e3bea470461fd34bcf8072",
+      "bytes": 10116
+    },
+    "docs/rc1-push-20261125/audit.py": {
+      "sha256": "dcb92f332d45824b6221ff2156763774a436e89223c422e0965693537e12b1a8",
+      "gitBlob": "301f41992819e44a1b2482ff32830656053d4e6a",
+      "bytes": 6594
+    },
+    "docs/rc1-push-20261125/baseline.json": {
+      "sha256": "bf0a9509224819220d190b9b0bd5870cd9cd873e7ba5e636935213a081393ea7",
+      "gitBlob": "596cf5ab09ef22b05724238a7718fa6b16fac225",
+      "bytes": 134903
+    },
+    "docs/rc1-push-20261125/checks.json": {
+      "sha256": "ce9b97c4565f95f661a9c6579e11d5201d3d3f0d9c47724f83f825c9de6be318",
+      "gitBlob": "52ecdf47dd4e16838835caa24e354e97b31412c4",
+      "bytes": 1866
+    },
+    "spikes/p4d_rc1/README.md": {
+      "sha256": "d6249a033c7c622f12a30853b5b79e642703f206696870f9a15610fc7e5aa1cc",
+      "gitBlob": "42aada32b3fb870bcea40693f825c42e85781bc5",
+      "bytes": 4341
+    },
+    "spikes/p4d_rc1/__init__.py": {
+      "sha256": "c06aeaa628fe78b9c5aa093f133f764a3fa67c43cf17c2df6e40d708c60a40ba",
+      "gitBlob": "6551e874b5604441062bcfb438c93c3d627da6b6",
+      "bytes": 70
+    },
+    "spikes/p4d_rc1/anthropic_port.py": {
+      "sha256": "deb7d621e616238366725f594a4ca481afe5d314a4cb6d433c6513fc6c41b50e",
+      "gitBlob": "475856ecea20e0b23606eba7af81ccaceeac8b0e",
+      "bytes": 3267
+    },
+    "spikes/p4d_rc1/common.py": {
+      "sha256": "212940f3d624f8fcdfd8df6320ccc6add39e5ffe5e88bd985044f89010553441",
+      "gitBlob": "7c66b5fc943f51554e88d01a3c23cca99ea4d26f",
+      "bytes": 4415
+    },
+    "spikes/p4d_rc1/contracts.py": {
+      "sha256": "dd0e17d1d22d80f6c3efe37f5116e3c682d9af3ddf26cfbe6d1b8d75f08057ca",
+      "gitBlob": "124c310953efdb2d633bc63b5a0b665ca4e21926",
+      "bytes": 10880
+    },
+    "spikes/p4d_rc1/corpus.py": {
+      "sha256": "2ecdc8ea40d234d03c491edea526e4a3c2f2a7d3089704e80a9cd751a55f050b",
+      "gitBlob": "506d61470cd3806b03b483c5d833b89431c5f590",
+      "bytes": 9079
+    },
+    "spikes/p4d_rc1/harness.py": {
+      "sha256": "f9b60f74e1e3c9f15e87376421dbddfc8fac0bb699d5f89f4c486beb6b3753ec",
+      "gitBlob": "16a960326ebe68e08da8f861a7a207b903a22fae",
+      "bytes": 19502
+    },
+    "spikes/p4d_rc1/local_host.py": {
+      "sha256": "fd8924727e59bc25ce12222f2f2a2f7c4131c906b0b9375d71fbf9371d2d9005",
+      "gitBlob": "bedbbf97be1ead1ed94e518dc624bb78551522c4",
+      "bytes": 1975
+    },
+    "spikes/p4d_rc1/openai_port.py": {
+      "sha256": "76bb0495ce9ea604b53e6e86c1e1138ab87ccee5de800148614aa780dcbe089a",
+      "gitBlob": "140145ee5e3a2777314bba8965b4968910b9defc",
+      "bytes": 4835
+    },
+    "spikes/p4d_rc1/reopen_probe.py": {
+      "sha256": "e83f2186d6b7e93dce9f37d2ef061d90d642920908c5f02e7dc4e010309face4",
+      "gitBlob": "b1f3e5cbef6d0b6e5a0db694360ca1df22d6015c",
+      "bytes": 777
+    },
+    "spikes/p4d_rc1/run.py": {
+      "sha256": "e4b7d7f4c9d08f4f7dd2983d5f27770a0be4d431fa5694aeb436fa9967ee2474",
+      "gitBlob": "c6a79641fd826f087d6d1b11a753d9b71c2ef76d",
+      "bytes": 5724
+    },
+    "spikes/p4d_rc1/test_conformance.py": {
+      "sha256": "15345b41f488316162e25ef0f9dc06f52e4242162075d78e57bb993ab00c5b41",
+      "gitBlob": "90e637f8157f72f877384979b0fd4256787cbc41",
+      "bytes": 41020
+    }
+  },
+  "stagedPathsChecked": 49,
+  "substantivePaths": 48,
+  "freshCheckoutPaths": 831,
+  "originalRawPathsPreserved": 826,
+  "testedInputPins": 162,
+  "secretPatternHits": 0,
+  "stagedDiffCheckExit": 0,
+  "uiScreenshots": "N/A no UI/view/template changes",
+  "failures": [
+    "fresh index checkout bytes AGENTS.md",
+    "fresh index checkout bytes docs/CDS5-PUSH-REVIEW-2026-11-13.md",
+    "fresh index checkout bytes docs/EVALUATION-PROTOCOL-E2.md",
+    "fresh index checkout bytes docs/EVALUATION-PROTOCOL.md",
+    "fresh index checkout bytes docs/IAP-A-PROTOCOL.md",
+    "fresh index checkout bytes docs/IAP-A-RESULTS.md",
+    "fresh index checkout bytes docs/IAP-AB-PUSH-REVIEW.md",
+    "fresh index checkout bytes docs/IAP-B-PROTOCOL.md",
+    "fresh index checkout bytes docs/IAP-B-RESULTS.md",
+    "fresh index checkout bytes docs/IAP-PUSH-REVIEW.md",
+    "fresh index checkout bytes docs/IAP-TRY-RUN-2026-11-12.md",
+    "fresh index checkout bytes docs/IDENTITY-APPLICATION-PROTOCOL.md",
+    "fresh index checkout bytes docs/IDENTITY-APPLICATION-REVIEW.md",
+    "fresh index checkout bytes docs/MANAGEMENT-PROPOSAL.md",
+    "fresh index checkout bytes docs/NEXT-SESSION-S4E.md",
+    "fresh index checkout bytes docs/OFFLINE-REPORT.md",
+    "fresh index checkout bytes docs/OUTPUT-REVIEW-LOOP.md",
+    "fresh index checkout bytes docs/P1-REVIEW-FIXES.md",
+    "fresh index checkout bytes docs/P2-V2-REVIEW.md",
+    "fresh index checkout bytes docs/P4-A-PUBLICATION.md",
+    "fresh index checkout bytes docs/P4-A-REFERENCE-REVIEW.md",
+    "fresh index checkout bytes docs/PARALLEL-REMAINING-2026-11-12.md",
+    "fresh index checkout bytes docs/REVIEW-WORKFLOW.md",
+    "fresh index checkout bytes docs/REVIEWER-CHECK.md",
+    "fresh index checkout bytes docs/S1-PROTOCOL.md",
+    "fresh index checkout bytes docs/S1-RESULTS.md",
+    "fresh index checkout bytes docs/S1-REVIEW.md",
+    "fresh index checkout bytes docs/S2-A-PROTOCOL.md",
+    "fresh index checkout bytes docs/S2-A-RESULTS.md",
+    "fresh index checkout bytes docs/S2-A-REVIEW.md",
+    "fresh index checkout bytes docs/S2-B-PROTOCOL.md",
+    "fresh index checkout bytes docs/S2-B-RESULTS.md",
+    "fresh index checkout bytes docs/S2-B-REVIEW.md",
+    "fresh index checkout bytes docs/S2-C-PROTOCOL.md",
+    "fresh index checkout bytes docs/S2-C-RESULTS.md",
+    "fresh index checkout bytes docs/S2-C-REVIEW.md",
+    "fresh index checkout bytes docs/S2-PUSH-REVIEW.md",
+    "fresh index checkout bytes docs/S2C-S6-PUSH-REVIEW.md",
+    "fresh index checkout bytes docs/S4-A-PROTOCOL.md",
+    "fresh index checkout bytes docs/S4-A-RESULTS.md",
+    "fresh index checkout bytes docs/S4-AB-PUSH-REVIEW.md",
+    "fresh index checkout bytes docs/S4-B-PROTOCOL.md",
+    "fresh index checkout bytes docs/S4-B-RESULTS.md",
+    "fresh index checkout bytes docs/S4-C-PROTOCOL.md",
+    "fresh index checkout bytes docs/S4-C-RESULTS.md",
+    "fresh index checkout bytes docs/S4-D-RESULTS.md",
+    "fresh index checkout bytes docs/S5-PROTOCOL.md",
+    "fresh index checkout bytes docs/S5-RESULTS.md",
+    "fresh index checkout bytes docs/S6-A-PROTOCOL.md",
+    "fresh index checkout bytes docs/S6-A-RESULTS.md",
+    "fresh index checkout bytes docs/S6-A-REVIEW.md",
+    "fresh index checkout bytes docs/S6-B-PROTOCOL.md",
+    "fresh index checkout bytes docs/SESSION-PLAN.md",
+    "fresh index checkout bytes docs/SESSION-TRANSFER-REVIEW.md",
+    "fresh index checkout bytes docs/VERIFICATION-RULES.md",
+    "fresh index checkout bytes docs/adr/001-boundaries-and-persistence.md",
+    "fresh index checkout bytes docs/adr/004-core-baseline-after-s1.md",
+    "fresh index checkout bytes docs/iap-results/2026-11-12-after-iapb-r1.json",
+    "fresh index checkout bytes docs/iap-results/2026-11-12-r1.json",
+    "fresh index checkout bytes docs/iap-results/2026-11-12-r2.json",
+    "fresh index checkout bytes docs/iap-results/2026-11-12-r3.json",
+    "fresh index checkout bytes docs/iap-results/2026-11-12-r4.json",
+    "fresh index checkout bytes docs/iap-results/2026-11-12-r5.json",
+    "fresh index checkout bytes docs/iapb-results/2026-11-12-r1.json",
+    "fresh index checkout bytes docs/iapb-results/2026-11-12-r2.json",
+    "fresh index checkout bytes docs/iapb-results/2026-11-12-r3.json",
+    "fresh index checkout bytes docs/s4-results/2026-11-12-collector-r1.json",
+    "fresh index checkout bytes docs/s4-results/2026-11-12-collector-r2.json",
+    "fresh index checkout bytes docs/s4b-results/2026-11-12-r1.json",
+    "fresh index checkout bytes docs/s4b-results/2026-11-12-r2.json",
+    "fresh index checkout bytes docs/s4c-results/2026-11-12-r1.json",
+    "fresh index checkout bytes docs/s4c-results/2026-11-12-r2.json",
+    "fresh index checkout bytes docs/s4d-results/2026-11-12-r1.json",
+    "fresh index checkout bytes docs/s4d-results/2026-11-12-r2.json",
+    "fresh index checkout bytes docs/s4d-results/2026-11-12-r3.json",
+    "fresh index checkout bytes docs/s4d-results/2026-11-13-r4.json",
+    "fresh index checkout bytes docs/s6-results/2026-11-11-r1.json",
+    "fresh index checkout bytes docs/s6-results/2026-11-11-r2.json",
+    "fresh index checkout bytes docs/s6-results/2026-11-11-r3.json",
+    "fresh index checkout bytes docs/s6-results/2026-11-11-r4.json",
+    "fresh index checkout bytes docs/s6b-results/2026-11-11-r1.json",
+    "fresh index checkout bytes docs/s6b-results/2026-11-11-r2.json",
+    "fresh index checkout bytes docs/s6b-results/2026-11-11-r3.json",
+    "fresh index checkout bytes docs/s6b-results/2026-11-11-r4.json",
+    "fresh index checkout bytes docs/s6b-results/2026-11-12-try-r1.json",
+    "fresh index checkout bytes examples/contracts/v1/README.md",
+    "fresh index checkout bytes examples/contracts/v2/README.md",
+    "fresh index checkout bytes examples/evaluation/e1-seat-cancellation/INPUT.md",
+    "fresh index checkout bytes examples/evaluation/e1-seat-cancellation/ORIENTATION.md",
+    "fresh index checkout bytes examples/evaluation/e1-seat-cancellation/base/booking.py",
+    "fresh index checkout bytes examples/evaluation/e1-seat-cancellation/head/booking.py",
+    "fresh index checkout bytes examples/evaluation/e1-seat-cancellation/requirements.md",
+    "fresh index checkout bytes examples/evaluation/e1-seat-cancellation/run_baseline.py",
+    "fresh index checkout bytes examples/evaluation/e1-seat-cancellation/tests/test_baseline.py",
+    "fresh index checkout bytes examples/evaluation/e2-qc-handoff/INPUT.md",
+    "fresh index checkout bytes examples/evaluation/e2-qc-handoff/evidence.mock.json",
+    "fresh index checkout bytes examples/evaluation/e2-qc-handoff/requirements.md",
+    "fresh index checkout bytes examples/mock/07-order-discount/README.md",
+    "fresh index checkout bytes examples/mock/07-order-discount/fixed/pricing.py",
+    "fresh index checkout bytes examples/mock/07-order-discount/head/pricing.py",
+    "fresh index checkout bytes examples/mock/07-order-discount/requirements.md",
+    "fresh index checkout bytes examples/mock/07-order-discount/run.py",
+    "fresh index checkout bytes examples/mock/07-order-discount/tests/test_baseline.py",
+    "fresh index checkout bytes examples/mock/07-order-discount/tests/test_probe.py",
+    "fresh index checkout bytes examples/remediation/06-filter-pagination-v2/README.md",
+    "fresh index checkout bytes examples/remediation/06-filter-pagination-v2/requirements.md",
+    "fresh index checkout bytes examples/remediation/06-filter-pagination-v2/tests/test_whitespace.py",
+    "fresh index checkout bytes examples/remediation/06-filter-pagination/README.md",
+    "fresh index checkout bytes examples/remediation/06-filter-pagination/run.py",
+    "fresh index checkout bytes examples/reports/publication-v1/README.md",
+    "fresh index checkout bytes examples/reports/runtime-v1/README.md",
+    "fresh index checkout bytes examples/reports/v1/README.md",
+    "fresh index checkout bytes examples/rules/v1/README.md",
+    "fresh index checkout bytes examples/rules/v2/README.md",
+    "fresh index checkout bytes examples/rules/v2/base-assessment.json",
+    "fresh index checkout bytes pilot/adjudication-log.md",
+    "fresh index checkout bytes pilot/e2-01-observations.md",
+    "fresh index checkout bytes pilot/e2-01-review.md",
+    "fresh index checkout bytes pilot/mock/MOCK-06-v2.md",
+    "fresh index checkout bytes pilot/mock/MOCK-07-review.md",
+    "fresh index checkout bytes pilot/results.md",
+    "fresh index checkout bytes pilot/task-register.md",
+    "fresh index checkout bytes spikes/s1/README.md",
+    "fresh index checkout bytes spikes/s1/package-lock.json",
+    "fresh index checkout bytes spikes/s1/package.json",
+    "fresh index checkout bytes spikes/s1/src/cli.ts",
+    "fresh index checkout bytes spikes/s1/src/contract.ts",
+    "fresh index checkout bytes spikes/s1/src/dispatch.ts",
+    "fresh index checkout bytes spikes/s1/src/json.ts",
+    "fresh index checkout bytes spikes/s1/src/report.ts",
+    "fresh index checkout bytes spikes/s1/src/rules.ts",
+    "fresh index checkout bytes spikes/s1/src/schema.ts",
+    "fresh index checkout bytes spikes/s1/tsconfig.json",
+    "fresh index checkout bytes spikes/s2b/README.md",
+    "fresh index checkout bytes spikes/s2b/run_b.py",
+    "fresh index checkout bytes spikes/s2b/schema.sql",
+    "fresh index checkout bytes spikes/s2b/store_b.py",
+    "fresh index checkout bytes spikes/s2c/README.md",
+    "fresh index checkout bytes spikes/s2c/backup.py",
+    "fresh index checkout bytes spikes/s2c/run_c.py",
+    "fresh index checkout bytes spikes/s2c/schema.sql",
+    "fresh index checkout bytes spikes/s2c/store_c.py",
+    "fresh index checkout bytes spikes/s4c/README.md",
+    "fresh index checkout bytes spikes/s4c/engine_helper.py",
+    "fresh index checkout bytes spikes/s4c/gate.py",
+    "fresh index checkout bytes spikes/s4c/run_s4c.py",
+    "fresh index checkout bytes spikes/s4c/schema.sql",
+    "fresh index checkout bytes spikes/s4d/schema.sql",
+    "fresh index checkout bytes spikes/s5/normalizer.py",
+    "fresh index checkout bytes spikes/s5/provider-shapes.json",
+    "fresh index checkout bytes spikes/s5/test_s5.py",
+    "fresh index checkout bytes spikes/s6/README.md",
+    "fresh index checkout bytes spikes/s6/envelope.py",
+    "fresh index checkout bytes spikes/s6/paths.py",
+    "fresh index checkout bytes spikes/s6/preflight.py",
+    "fresh index checkout bytes spikes/s6/probe_cli.py",
+    "fresh index checkout bytes spikes/s6/requirements-win-py314.lock",
+    "fresh index checkout bytes spikes/s6/run_s6.py",
+    "fresh index checkout bytes spikes/s6/schema.sql",
+    "fresh index checkout bytes spikes/s6/test_preflight.py",
+    "fresh index checkout bytes spikes/s6/vault.py",
+    "fresh index checkout bytes tools/json_input.py",
+    "fresh index checkout bytes tools/package_runtime_report.py",
+    "fresh index checkout bytes tools/prepare_runtime_report.py",
+    "fresh index checkout bytes tools/requirements-contracts.txt",
+    "fresh index checkout bytes tools/run_s1.py",
+    "fresh index checkout bytes tools/s1_reference.py",
+    "fresh index checkout bytes tools/test_contracts.py",
+    "fresh index checkout bytes tools/test_json_input.py",
+    "fresh index checkout bytes tools/test_publication.py",
+    "fresh index checkout bytes tools/test_reports.py",
+    "fresh index checkout bytes tools/test_rules.py",
+    "fresh index checkout bytes tools/test_rules_v2.py",
+    "fresh index checkout bytes tools/test_runtime_reports.py",
+    "fresh index checkout bytes tools/test_s1_harness.py"
+  ]
+}

@@ -1,3 +1,15 @@
+# Hiện hành — RC1 implementation chỉ offline gate, 25/11/2026
+
+User yêu cầu tiếp tục sau design CLEAN, rồi resume sau gián đoạn. Implement đầy đủ O01–O17 thành45 independently applicable port cases, không chọn một fake provider làm proof adapter khác. [Results](P4D-RC1-RESULTS.md) và [review](p4d-rc1-results/review.json) quyết định current status. R1 ERROR giữ nguyên; R2/R3 PASS không là final proof sau source fixes, R4 là current. Scope không đóng I01–I05 hoặc full P4-D, không tăng7/12.
+
+Ledger trusted local filesystem chỉ kiểm offline process reopen, không production storage/authority/power-loss. IntentOpen độc lập cancel/expiry, handle issuer-session và pre-enrolled delivery ngăn replay/response reattachment; reservation/accounting theo same-run policy account. Pure projection/core dùng corpus authored với expected bundle pin trước admission, actual restricted HC1 chỉ negative. Server extension vẫn cần version/review để enforce fences trong acceptance/publication transactions; không client-precheck/sidecar outbound bypass. Không actual provider/native/DB/WSL/container/check campaign hoặc Git action mới; bảo toàn byte mọi source/fixture/history/design cũ.
+
+# Hiện hành — P4D-RC1 design reasoning conformance, 24/11/2026
+
+Tiếp delegation sau G1 đã push, baseline master/origin-master f71413f sạch. Chọn [audit + RC1 protocol](P4D-CAPABILITY-AUDIT-2026-11-24.md) và acceptance trước code vì reasoning ports có phần offline độc lập, trong khi chưa có canonical GitHub occurrence↔revision provider proof. Không đổi ưu tiên bằng thêm synthetic correlation. Ba ports riêng; một fake provider không là proof adapter khác.
+
+Source inspection xác nhận API1.1 outboundProviders==[] và thiếu reasoning-attempt authority; client-side precheck không đủ cancel/revoke ordering. Thiết kế tách offline mapper gate (zero application effects) khỏi future versioned server admission/acceptance/publication gate, không dựng core/rules thứ hai hoặc silently mở config/route. HC1/M50 vẫn session-mediated; nguồn chính thức chỉ là rationale cho fixtures. [Review](p4d-rc1-design/review.json) quyết định design CLEAN/DONE, không là runtime PASS; mọi O/I NOT RUN.7/12 giữ nguyên, full P4-D và các product gates còn OPEN. Không Git/API/account/key/install/pilot/publish/campaign mới; không rerun evidence đã PASS.
+
 # D-43 — P4-D qua versioned offline conformance, 24/11/2026
 
 Tiếp user delegation từ post-M50: rà matrix, xác minh semantics GitHub bằng docs chính thức, protocol review CLEAN trước implementation. [P4D-G1](P4D-G1-PROTOCOL.md) tách receipt/cursor/pending plan durable khỏi từng admission Application.dispatch để tránh nhiều authority witnesses trong một transaction. Chỉ trusted synthetic pairing có version; payload không tự cấp proof, head hiện tại/timestamp không giải được event revision. Full provider occurrence→run/cursor atomicity và authenticated/provider/connector readiness vẫn OPEN.

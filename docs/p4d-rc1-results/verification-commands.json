@@ -1,0 +1,21 @@
+{
+  "version": "p4d-rc1-verification-commands-1.0.0",
+  "offlineActualArgv": [
+    "py",
+    "-3",
+    "-B",
+    "-m",
+    "spikes.p4d_rc1.run",
+    "--capture",
+    "docs/p4d-rc1-results/offline-r4.json"
+  ],
+  "offlineReproduce": "py -3 -B -m spikes.p4d_rc1.run --capture docs/p4d-rc1-results/<unused-name>.json",
+  "regressionActual": {
+    "shell": "PowerShell here-string piped to py -3 -B -",
+    "stdinScriptPath": "docs/p4d-rc1-results/regression-command.txt",
+    "stdinScriptSha256": "705a4f3c0e2bd0459ed93d0b885d3e0f59301649f3bfeb5993047072e79fd08c",
+    "recordOriginalCommandField": "placeholder retained; this adjacent exact script is the actual stdin program"
+  },
+  "regressionReproduce": "Use the recorded stdin script with a NEW output filename; existing capture refuses before tests. Do not overwrite old records.",
+  "noActualCampaignRerun": true
+}

@@ -1,0 +1,84 @@
+{
+  "version": "p4d-rc1-design-checks-1.0.0",
+  "status": "FAIL",
+  "command": "py -3 -B docs/p4d-rc1-design/check_design.py",
+  "scope": "static design integrity; NOT adapter runtime conformance",
+  "head": "f71413f547b0963c6ca0c332f7571d6ab1f7a869",
+  "baselineFiles": 785,
+  "unchangedFiles": 782,
+  "allowedChanges": [
+    {
+      "path": ".gitattributes",
+      "policy": "original byte prefix; exact new paths"
+    },
+    {
+      "path": "docs/DECISION-LOG.md",
+      "policy": "original byte suffix"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-PLAN.md",
+      "policy": "original byte suffix"
+    }
+  ],
+  "localLinksChecked": 25,
+  "plannedCases": 22,
+  "plannedPortCases": 60,
+  "runtimeCasesExecuted": 0,
+  "gitDiffCheckExit": 0,
+  "payload": {
+    "docs/P4D-CAPABILITY-AUDIT-2026-11-24.md": {
+      "sha256": "d81461886efd3c67d80e9a95e1e1a7c53b62cf9f3de1edfe27d05a6e74d6286b",
+      "bytes": 7201
+    },
+    "docs/P4D-RC1-PROTOCOL.md": {
+      "sha256": "ea4152ca8822a8c6e02331ecd696c66e4a9269d4130b8bb3884b7e2fea234656",
+      "bytes": 17750
+    },
+    "docs/P4D-RC1-ACCEPTANCE.md": {
+      "sha256": "8dcc415c68f3a7250f07d16a73e705efdfe603507f3422cf1def47f87ec33e64",
+      "bytes": 10592
+    },
+    "docs/NEXT-SESSION-POST-P4D-RC1.md": {
+      "sha256": "a1425a0b4c41aa2c1311ff852d08434e11a72714325040f26dc5803331bf56ac",
+      "bytes": 3959
+    },
+    "docs/DECISION-LOG.md": {
+      "sha256": "54f40aea6985b4c35c41f67b14ac95ba3998141bbb086900a012b4fe765ca8b6",
+      "bytes": 63997
+    },
+    "docs/IMPLEMENTATION-PLAN.md": {
+      "sha256": "bf6b2b57498f69d2130b540f4eceeced50b3130f8f98de2a8fba80ce4a0bb42b",
+      "bytes": 46107
+    },
+    ".gitattributes": {
+      "sha256": "ffed1dfcde960879060d30bdb3e00cdeb4308d98202936f722ab88027475921f",
+      "bytes": 50510
+    },
+    "docs/p4d-rc1-design/baseline.json": {
+      "sha256": "aa31a3c5a13a8a5ea5270951b7bc4dd913b0d555706dcd5418acc2ad4b798b55",
+      "bytes": 126761
+    },
+    "docs/p4d-rc1-design/acceptance.json": {
+      "sha256": "4f80823f0d6c67dccf4a0e45af226a8e2c436f4085171bf562881c60218d6dcb",
+      "bytes": 5756
+    },
+    "docs/p4d-rc1-design/source-inspection.json": {
+      "sha256": "d77534adb717d92bbec1a524ef27acd8a87d7d742c260e7feb92ca572ffc24e2",
+      "bytes": 3970
+    },
+    "docs/p4d-rc1-design/check_design.py": {
+      "sha256": "9414c2324ce478f5a49009c562d7e6167073a7c4acf03fa9d0d490ff91dc7300",
+      "bytes": 6300
+    }
+  },
+  "notRun": [
+    "RC1 offline cases",
+    "RC1 integration cases",
+    "provider/native calls",
+    "DB/WSL/container/QA campaigns"
+  ],
+  "failures": [
+    "local link: docs/P4D-RC1-ACCEPTANCE.md -> p4d-rc1-design/checks.json",
+    "local link: docs/NEXT-SESSION-POST-P4D-RC1.md -> p4d-rc1-design/checks.json"
+  ]
+}

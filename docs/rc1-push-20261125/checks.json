@@ -1,0 +1,62 @@
+{
+  "version": "rc1-push-checks-1.0.0",
+  "status": "PASS",
+  "preAdditionVerifier": {
+    "actualArgv": [
+      "py",
+      "-3",
+      "-B",
+      "docs/p4d-rc1-results/verify.py"
+    ],
+    "exit": 0,
+    "result": {
+      "version": "p4d-rc1-package-checks-1.0.0",
+      "status": "PASS",
+      "command": "py -3 -B docs/p4d-rc1-results/verify.py",
+      "mode": "read-only",
+      "baselineFiles": 799,
+      "unchangedFiles": 796,
+      "changes": [
+        {
+          "path": ".gitattributes",
+          "mode": "original prefix, exact new paths"
+        },
+        {
+          "path": "docs/DECISION-LOG.md",
+          "mode": "original suffix"
+        },
+        {
+          "path": "docs/IMPLEMENTATION-PLAN.md",
+          "mode": "original suffix"
+        }
+      ],
+      "sourcePinsBeforeAfterCurrent": 162,
+      "localLinks": 21,
+      "offlinePortCases": 45,
+      "integrationNotRun": 15,
+      "gitDiffCheckExit": 0,
+      "expectedSnapshot": "docs/p4d-rc1-results/checks-final-r2.json",
+      "snapshotComparison": "MATCH",
+      "comparatorSelfChecks": {
+        "passed": 8,
+        "total": 8
+      },
+      "failures": [],
+      "fullP4D": "OPEN",
+      "humanDecision": "pending"
+    }
+  },
+  "reviewedDesign": "DONE/CLEAN R4",
+  "reviewedImplementation": "DONE/CLEAN final package R2",
+  "offlineEvidence": "docs/p4d-rc1-results/offline-r4.json",
+  "offlineGroups": 45,
+  "regressions": {
+    "core": 45,
+    "vf1": 12,
+    "candidate": 54
+  },
+  "actualCampaignRerun": false,
+  "uiScreenshots": "N/A: no UI/view/template changes",
+  "sourceChangesSinceClean": "none; delivery metadata and exact byte attributes only",
+  "note": "Old verifier remains immutable and snapshot-bound; adding push artifacts/attrs and later moving HEAD intentionally exceeds its historical scope. This delivery audit verifies current staged bytes separately."
+}

@@ -1,0 +1,209 @@
+{
+  "version": "p4d-rc1-design-review-1.0.0",
+  "scope": "audit + RC1 design/acceptance + current prefixes/handoff + static evidence only",
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "reviewer": {
+    "agent": "/root/review_p4d",
+    "model": "gpt-6.2-astra",
+    "reasoningEffort": "high",
+    "independent": true
+  },
+  "rounds": [
+    {
+      "round": "R1",
+      "snapshot": "snapshot-r1.json",
+      "verdict": "FINDINGS",
+      "findingIds": [
+        "P4DRC-R001",
+        "P4DRC-R002",
+        "P4DRC-R003",
+        "P4DRC-R004",
+        "P4DRC-R005",
+        "P4DRC-R006",
+        "P4DRC-R007"
+      ],
+      "note": "Independent draft source review; initial static check failure retained separately, not runtime execution."
+    },
+    {
+      "round": "R2",
+      "snapshot": "checks.json",
+      "snapshotSha256": "6e373714f4eb39bde40e61df9477f50fb41125109e6a50abf546777da3dc8c7d",
+      "verdict": "FINDINGS",
+      "independentPayloadHashesMatched": 13,
+      "closedByReviewer": [
+        "P4DRC-R001",
+        "P4DRC-R003",
+        "P4DRC-R004",
+        "P4DRC-R006",
+        "P4DRC-R007"
+      ],
+      "remaining": [
+        "P4DRC-R002",
+        "P4DRC-R005"
+      ],
+      "new": [
+        "P4DRC-R008",
+        "P4DRC-R009"
+      ]
+    },
+    {
+      "round": "R3",
+      "snapshot": "checks-r3.json",
+      "snapshotSha256": "7b05a16718823449b07aa3c9695e62cd07cd19c74d39fe6230f70566e9dbcde9",
+      "verdict": "FINDINGS",
+      "independentReadOnlyChecker": "PASS",
+      "closedByReviewer": [
+        "P4DRC-R001",
+        "P4DRC-R002",
+        "P4DRC-R003",
+        "P4DRC-R004",
+        "P4DRC-R005",
+        "P4DRC-R006",
+        "P4DRC-R007",
+        "P4DRC-R008"
+      ],
+      "remaining": [
+        "P4DRC-R009"
+      ],
+      "new": []
+    },
+    {
+      "round": "R4",
+      "snapshot": "checks-r4.json",
+      "snapshotSha256": "f3d5d9129e3c38ab4b05744c2b8cc7c8c4cb74f92103d0280e6c46a3cf720870",
+      "verdict": "CLEAN",
+      "independentPayloadHashesAndLengthsMatched": 15,
+      "independentReadOnlyChecker": {
+        "exit": 0,
+        "status": "PASS",
+        "baselineFiles": 785,
+        "unchangedFiles": 782,
+        "allowedBytePreservingChanges": 3,
+        "localLinks": 28,
+        "plannedCaseIds": 22,
+        "plannedPortCasesNotRun": 60,
+        "runtimeCasesExecuted": 0,
+        "gitDiffCheckExit": 0
+      },
+      "closedByReviewer": [
+        "P4DRC-R001",
+        "P4DRC-R002",
+        "P4DRC-R003",
+        "P4DRC-R004",
+        "P4DRC-R005",
+        "P4DRC-R006",
+        "P4DRC-R007",
+        "P4DRC-R008",
+        "P4DRC-R009"
+      ],
+      "remaining": [],
+      "new": [],
+      "reviewerStatement": "R4 FINAL CLEAN — design output only; all P4DRC-R001–R009 CLOSED; no new/regressed/open in-scope findings."
+    }
+  ],
+  "findings": [
+    {
+      "id": "P4DRC-R001",
+      "severity": "high",
+      "problem": "Receive correlation cannot be derived from mapper-attached anchors",
+      "fix": "Private issuer receive handle and registered delivery binding; same-job sibling misdelivery oracle O02",
+      "status": "CLOSED",
+      "verification": "latest design source inspection + static checker; no O/I execution claimed"
+    },
+    {
+      "id": "P4DRC-R002",
+      "severity": "high",
+      "problem": "Result taxonomy and local errors not constructible",
+      "fix": "Closed outcome/diagnostic pairs, local trusted event variants, per-port HTTP/event selectors and precedence; R3 requires response object/type/assistant role and inner message completion markers",
+      "status": "CLOSED",
+      "verification": "latest design source inspection + static checker; no O/I execution claimed"
+    },
+    {
+      "id": "P4DRC-R003",
+      "severity": "medium",
+      "problem": "Producer identity/path/job shape mismatch",
+      "fix": "32-hex application UUIDs, integer fence, inert relative locators, unchanged VF1 coverage mechanism",
+      "status": "CLOSED",
+      "verification": "latest design source inspection + static checker; no O/I execution claimed"
+    },
+    {
+      "id": "P4DRC-R004",
+      "severity": "high",
+      "problem": "Restricted imported corpus cannot be positive release proof",
+      "fix": "New independent permitted synthetic corpus with exact projected bundle pre-registration; restricted importer denial retained",
+      "status": "CLOSED",
+      "verification": "latest design source inspection + static checker; no O/I execution claimed"
+    },
+    {
+      "id": "P4DRC-R005",
+      "severity": "high",
+      "problem": "Reservation race/accounting authority and categories underspecified",
+      "fix": "Shared fixed run/project/policy account, different-attempt race; ledger-only reconciliation; unknown usage blocks validation; exact per-provider token totals; R3 immutable (account,attemptId) binds one offerDigest even when two allocations fit",
+      "status": "CLOSED",
+      "verification": "latest design source inspection + static checker; no O/I execution claimed"
+    },
+    {
+      "id": "P4DRC-R006",
+      "severity": "medium",
+      "problem": "Stage-role and before/after delta oracle ambiguous",
+      "fix": "Role-by-stage matrix, retain prior assessment on pre-submit denial, explicit failure disposition without invented report",
+      "status": "CLOSED",
+      "verification": "latest design source inspection + static checker; no O/I execution claimed"
+    },
+    {
+      "id": "P4DRC-R007",
+      "severity": "medium",
+      "problem": "Live readiness could be imposed on synthetic gate",
+      "fix": "Separate existing offline explicit-gap gate from authorized external live readiness; no new mandatory real calls",
+      "status": "CLOSED",
+      "verification": "latest design source inspection + static checker; no O/I execution claimed"
+    },
+    {
+      "id": "P4DRC-R008",
+      "severity": "medium",
+      "problem": "Routine checker overwrites canonical retained evidence",
+      "fix": "Read-only default; explicit exclusive unused named capture; retained R2 and initial FAIL immutable; new-file whitespace checks",
+      "status": "CLOSED",
+      "verification": "R3 capture + read-only default and duplicate-capture rejection checks; no runtime cases"
+    },
+    {
+      "id": "P4DRC-R009",
+      "severity": "high",
+      "problem": "First-invocation same-port model/route fallback is not bound",
+      "fix": "Registry-owned route/model/enrollment selectors and response-model map in capabilityDigest; wrong first request selector blocked; O17 one-call mismatch oracles; R4 echo check only for otherwise candidate-eligible parsed success, prior rate/error/refusal/incomplete/timeout outcomes preserved; O12 no-model error regression oracles",
+      "status": "CLOSED",
+      "verification": "R3 source review and static integrity; no runtime cases"
+    }
+  ],
+  "fullP4D": "OPEN",
+  "productMilestones": "7/12 (58.3%)",
+  "humanDecision": "pending",
+  "runtimeCasesExecuted": 0,
+  "finalSnapshot": {
+    "path": "docs/p4d-rc1-design/checks-r4.json",
+    "sha256": "f3d5d9129e3c38ab4b05744c2b8cc7c8c4cb74f92103d0280e6c46a3cf720870",
+    "payloadFiles": 15
+  },
+  "actualChecks": {
+    "staticDesignIntegrity": "PASS",
+    "rawPreservation": "PASS",
+    "readOnlyCheckerDefault": "PASS",
+    "exclusiveCaptureExistingRejection": {
+      "status": "PASS",
+      "expectedExit": 2,
+      "allEvidenceBytesUnchanged": true
+    },
+    "runtime": "NOT_RUN",
+    "note": "Only static design/tool integrity and evidence preservation checked. Initial bootstrap link FAIL retained; R2/R3 snapshots not relabeled current."
+  },
+  "outstandingFindings": [],
+  "gitActions": "none",
+  "limitations": [
+    "No RC1 implementation or runtime conformance executed",
+    "No provider/native/DB/WSL/container campaign",
+    "No new platform/endpoint/model/SDK/production stack decision",
+    "Full P3-B/P4-D/P4-E/P5/P6 OPEN; human decision pending"
+  ],
+  "administrativeClosure": "Records independent verdict only; reviewed payload remains unchanged. No product gate, approval or Git/provider/install/pilot/publish authorization implied."
+}

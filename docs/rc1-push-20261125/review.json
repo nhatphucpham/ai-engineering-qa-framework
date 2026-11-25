@@ -1,0 +1,79 @@
+{
+  "version": "rc1-push-review-1.0.0",
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "scope": "one normal commit/push of exact RC1 design+offline implementation and delivery-only records on existing master",
+  "reviewer": {
+    "agent": "/root/review_rc1_implementation",
+    "model": "gpt-6.2-astra",
+    "reasoningEffort": "high",
+    "independent": true
+  },
+  "rounds": [
+    {
+      "round": "root audit R1",
+      "verdict": "FAIL",
+      "snapshot": "snapshot.json",
+      "failures": 175,
+      "scope": "Only unchanged historical EOL checkout comparisons; no staged/tested inputs intersect; all other checks pass."
+    },
+    {
+      "round": "independent correctness R1",
+      "verdict": "CLEAN",
+      "snapshot": "snapshot-r2.json",
+      "snapshotSha256": "7aaaffaffca634f0446ee2e406bdce539a9b83ac7ae29337f82e22e5ce817fff",
+      "reviewer": "/root/review_rc1_implementation",
+      "stagedBlobsReadIndependently": 51,
+      "substantivePinsMatched": 49,
+      "openFindings": [],
+      "closed": [
+        "RC1PUSH-R001"
+      ]
+    },
+    {
+      "round": "independent behavior R2",
+      "verdict": "CLEAN",
+      "snapshot": "snapshot-r2.json",
+      "snapshotSha256": "7aaaffaffca634f0446ee2e406bdce539a9b83ac7ae29337f82e22e5ce817fff",
+      "reviewer": "/root/review_rc1_implementation",
+      "readOnlyAuditExit": 0,
+      "stagedPaths": 51,
+      "substantivePinsMatched": 49,
+      "freshCheckoutPaths": 198,
+      "testedInputs": 162,
+      "unchangedHeadBlobModes": 782,
+      "rawOriginalsPreserved": 826,
+      "secretPatternHits": 0,
+      "stagedWhitespaceExit": 0,
+      "newFindings": [],
+      "openFindings": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "RC1PUSH-R001",
+      "severity": "medium",
+      "problem": "First audit compared unchanged legacy checkout EOL bytes to raw working bytes outside delivery/runtime scope",
+      "fix": "Keep exact fresh checkout for all staged and162tested inputs; other unchanged legacy index blobs/modes must equal HEAD. Preserve failed snapshot and current raw baseline. No normalization.",
+      "status": "CLOSED"
+    }
+  ],
+  "requiredConsecutiveCleanRounds": 2,
+  "productMilestones": "7/12 (58.3%)",
+  "fullP4D": "OPEN",
+  "humanDecision": "pending",
+  "consecutiveCleanRounds": 2,
+  "finalSnapshot": {
+    "path": "docs/rc1-push-20261125/snapshot-r2.json",
+    "sha256": "7aaaffaffca634f0446ee2e406bdce539a9b83ac7ae29337f82e22e5ce817fff",
+    "substantiveFiles": 49,
+    "stagedPaths": 51
+  },
+  "closedFindings": [
+    "RC1PUSH-R001"
+  ],
+  "outstandingFindings": [],
+  "commitSubject": "feat: add offline reasoning port conformance",
+  "gitExecution": "Commit/push not yet executed in this pre-commit record; verify actual identity from Git history/remote after action.",
+  "administrativeClosure": "Only review verdict recorded after two same-payload CLEAN rounds; no substantive source/evidence changed. Delivery DONE does not close P4-D or human gate."
+}

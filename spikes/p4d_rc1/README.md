@@ -1,0 +1,21 @@
+# RC1 offline reasoning conformance
+
+[Protocol](../../docs/P4D-RC1-PROTOCOL.md), [implementation profile](../../docs/P4D-RC1-IMPLEMENTATION.md), [results and review](../../docs/P4D-RC1-RESULTS.md). Three distinct fixture encoders/mappers share issuer context validation and a disposable local ledger. There is no SDK, socket client, callback transport, application dispatch, credential store or native host invocation in this harness. This is a synthetic reference slice, not production adapters or a storage/platform choice.
+
+With the already available Python/jsonschema dependencies, from repository root:
+
+```powershell
+py -3 -B -m spikes.p4d_rc1.run --capture docs/p4d-rc1-results/<unused-name>.json
+```
+
+Capture must be a new `.json` filename immediately inside that directory; existing records reject before tests. Reproduce in a disposable repository copy when retaining another capture: the frozen package verifier intentionally flags unreviewed extra captures in the current checkout. Do not overwrite or rerun old actual campaigns. Ordinary unit discovery is `py -3 -B -m unittest spikes.p4d_rc1.test_conformance`. The runner has 45 independently applicable O cases (15 per port), derived against the unchanged design matrix. It records actual trace metadata and pins, and leaves all 15 integration rows NOT RUN. The parent campaign denies socket connects; nine local Python subprocess probes only reopen the temporary filesystem ledger. Cleanup uses owned temporary directories. No DB, WSL, container or QA executor is started.
+
+`corpus.make` reads unchanged approved MOCK-06 source bytes and authors new outcome-only observations and judgments. The API page/size observation is intentionally absent. A caller-owned expected projected bundle is computed and pinned before admission; it is not an accepted report or actual execution evidence. Local risk/data variants get their own pre-admission expected bundle. The returned validation summary retains two failed criteria, a mandatory unverified coverage gap, and pending humanDecision. Existing restricted HC1 host-request bytes are read only for a negative denial test; their raw bytes, revision and classification are never promoted or logged as new execution.
+
+Trusted setup owns offer/source/capability/account/delivery registration. Exactly one registered delivery is bound before send intent and selected by an issuer handle; responses cannot choose their attempt, policy or route. Context encoders release only the approved job/response contract plus their separate fixture configuration. A fixed corpus scope intentionally uses the existing VF1 fixture bridge; it does not accept arbitrary real projects or claim understanding from authored proposals.
+
+Ledger state is canonical finite JSON protected by an integrity envelope, fsynced file replacement and an exclusive mutation directory. Its self-check detects accidental corruption under a trusted local filesystem; it is not an independent authority witness or malicious-storage defense. No power-loss durability claim. A fresh Harness instance/process fences old issuer handles, and abandoned mutation locks fail unresolved without repair. `intentOpen` remains independent of cancellation/expiry/outcome until trustworthy accounting reconciliation; an orphaned send cannot unlock a funded sibling by cancelling. Remote termination always stays unknown.
+
+Unknown usage holds reservation and blocks candidate validation. Reconciliation is a trusted authored-observation test facility, not an application/model operation; only the ledger changes balances, rejects wrong-length/bool/changed vectors and persists accounting incidents. It never promotes an old accounting-unresolved receipt to validated, even after later counts become known. Replay under current authority verifies original request/delivery/receipt hashes without re-running the mapper/core or refunding again. Cancellation/expiry and incomplete/refusal/errors do not become AC failures or fabricated reports.
+
+I01–I05 need a versioned server reasoning authority extension before actual API/DB integration. API1.1 still accepts only `outboundProviders == []`. No sidecar permission, alternate core, silent retry/fallback, native model attestation or GitHub provider proof is supplied here. Full P4-D and later product gates remain OPEN; 7/12 unchanged.
