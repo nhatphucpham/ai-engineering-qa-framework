@@ -1,0 +1,173 @@
+{
+  "version": "ra1-design-review-1.0.0",
+  "status": "DONE",
+  "verdict": "CLEAN",
+  "scope": "RA1-D source-consistent server authority protocol, request/read schemas and pure corpus feasibility before integration code",
+  "baseline": "6f720dc1f23cf7f05d14e1fa110ae1b029992f10",
+  "reviewer": {
+    "agent": "/root/review_ra1",
+    "model": "gpt-6.2-astra",
+    "reasoningEffort": "high",
+    "independent": true
+  },
+  "reviewerTransfer": "Previous reviewer usage limit before RA1 findings; new reviewer assigned before files authored",
+  "currentSnapshot": "checks-r3.json",
+  "rounds": [
+    {
+      "round": "draft source review R1",
+      "verdict": "FINDINGS",
+      "findingIds": [
+        "RA1-R001",
+        "RA1-R002",
+        "RA1-R003",
+        "RA1-R004",
+        "RA1-R005",
+        "RA1-R006",
+        "RA1-R007"
+      ],
+      "evidence": "Independent source/design review while draft artifacts built; no runtime campaign"
+    },
+    {
+      "round": "R2 full checks-r1 review",
+      "snapshot": "checks-r1.json",
+      "sha256": "9261d69405100f5bf3c73c96ad8b71159250170f089966ed751d80788e597227",
+      "verdict": "FINDINGS",
+      "closedFindingIds": [
+        "RA1-R001",
+        "RA1-R002",
+        "RA1-R003",
+        "RA1-R004",
+        "RA1-R005",
+        "RA1-R006",
+        "RA1-R007"
+      ],
+      "newFindingIds": [
+        "RA1-R008",
+        "RA1-R009"
+      ],
+      "evidence": "Independent read-only PASS/MATCH plus source review; no runtime campaign"
+    },
+    {
+      "round": "R3 independent latest-package review",
+      "snapshot": "checks-r3.json",
+      "sha256": "6e830007af0b75776a00befa3ea40b3d7425f5552751b1c8980a07b765d8a38e",
+      "verdict": "CLEAN",
+      "closedFindingIds": [
+        "RA1-R001",
+        "RA1-R002",
+        "RA1-R003",
+        "RA1-R004",
+        "RA1-R005",
+        "RA1-R006",
+        "RA1-R007",
+        "RA1-R008",
+        "RA1-R009"
+      ],
+      "recheckedRegressions": [
+        "RA1-R002 pending/staleCAS race",
+        "RA1-R001–007 remain closed"
+      ],
+      "newOrReopenedFindings": [],
+      "evidence": "Independent verifier exit0 PASS/MATCH; full design/read/schema/probe/acceptance/handoff review; no in-scope finding remains"
+    }
+  ],
+  "findings": [
+    {
+      "id": "RA1-R001",
+      "severity": "high",
+      "problem": "No legal candidate delivery to assessor or accepted digest delivery to worker",
+      "fix": "Add intended-assessor candidate_read confidential bounded packet and assigned-worker receipt, rechecked at subsequent public mutations",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R002",
+      "severity": "high",
+      "problem": "No legal trusted late-count or contradictory-count reconciliation edge",
+      "fix": "Add separate bound accounting-only operation, strict vector/unique observation/CAS, durable incident before safe error, no candidate promotion; pending server observations fence new candidate effects, staleCAS cannot drop contradictions",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R003",
+      "severity": "medium",
+      "problem": "Operation-inclusive receipt PK contradicts cross-operation key conflict",
+      "fix": "Use unique audience+actor+epoch+project+key with immutable stored operation/body digest",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R004",
+      "severity": "high",
+      "problem": "Assessment replay reruns core or fails completed; submit replay uses write witness",
+      "fix": "Separate accepted historical read paths before phase checks and read-only completed submit, exact packet/identity authority pins and ReplayOnly race unwind before mutation/witness with final DB checks",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R005",
+      "severity": "medium",
+      "problem": "New receiver could claim pre-claim orphaned admitted intent",
+      "fix": "Bind actual volatile server-owned receiver at admission itself, no regenerated owner/capability via credential/metadata replay",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R006",
+      "severity": "high",
+      "problem": "Frozen projection mislabels imported authored corpus as execution",
+      "fix": "Explicit opt-in RA1 read/view/source/export version, deny legacy RA1 reads after auth, recomputed descriptors and self-contained provenance, current full-envelope re-release, pure reproduction",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R007",
+      "severity": "medium",
+      "problem": "Schema dollar end anchor accepts final LF contrary to runtime identifier",
+      "fix": "Unambiguous absolute end negative-lookahead anchors and negative private/read ID and raw-frame digest/time/ID specimens",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R008",
+      "severity": "high",
+      "problem": "Expected request pin/receiver ownership does not prove full frame actually accepted before candidate observation",
+      "fix": "Require nonreplayable sink-issued actual byte count/hash receipt and one invocation before candidate observation; incomplete/uncertain copies noncandidate; same-live-owner negative oracle",
+      "status": "CLOSED"
+    },
+    {
+      "id": "RA1-R009",
+      "severity": "high",
+      "problem": "Frozen target1/1 cannot run after required source configure advances fresh project to2/2",
+      "fix": "Freeze target2/2, register at1/1 then configure exact registered source IDs CAS1→2; policy/grant/intake/start2/2; pure predicate and per-port/case namespace preflight",
+      "status": "CLOSED"
+    }
+  ],
+  "runtimeCasesExecuted": 0,
+  "fullP4D": "OPEN",
+  "productMilestones": "7/12 (58.3%)",
+  "humanDecision": "pending",
+  "gitActions": "none",
+  "captureHistory": [
+    {
+      "snapshot": "checks-r2.json",
+      "status": "FAIL",
+      "reason": "Verifier caught accidental newline conversion of original decision-log suffix; restored exact baseline bytes before r3; failed evidence retained"
+    }
+  ],
+  "finalSnapshot": {
+    "path": "checks-r3.json",
+    "sha256": "6e830007af0b75776a00befa3ea40b3d7425f5552751b1c8980a07b765d8a38e",
+    "payloadFiles": 19,
+    "reviewedBy": "/root/review_ra1"
+  },
+  "actualChecks": {
+    "baselineFiles": 833,
+    "unchangedFiles": 830,
+    "bytePreservingEdits": 3,
+    "sourcePins": 21,
+    "localLinks": 15,
+    "requestShapeAndStrictWireCases": 50,
+    "pureCorpusChecks": 25,
+    "actualApplicationOperations": 0,
+    "runtimeCasesExecuted": 0,
+    "runtimeCasesNotRun": 27,
+    "independentVerifier": "PASS/MATCH",
+    "gitDiffCheck": "PASS"
+  },
+  "completionBoundary": "DONE for RA1-D design only; no server/store/transport implementation, actual auth/DB/release/integration proof, product gate or human approval",
+  "administrativeClosure": "Only this recursion-excluded review record updated after CLEAN; reviewed payload and immutable captures unchanged"
+}

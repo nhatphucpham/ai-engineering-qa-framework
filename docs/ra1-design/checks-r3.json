@@ -1,0 +1,787 @@
+{
+  "version": "ra1-design-checks-1.0.0",
+  "status": "PASS",
+  "command": "py -3 -B docs/ra1-design/verify.py --capture checks-r3.json",
+  "mode": "exclusive-new-capture",
+  "scope": "RA1-D design/shape/wire/pure corpus only; no server/auth/DB proof",
+  "baselineFiles": 833,
+  "unchangedFiles": 830,
+  "bytePreservingEdits": [
+    ".gitattributes",
+    "docs/DECISION-LOG.md",
+    "docs/IMPLEMENTATION-PLAN.md"
+  ],
+  "localLinks": 15,
+  "localInspectedSourcePins": 21,
+  "schemaChecks": {
+    "status": "PASS",
+    "authority": {
+      "scope": "request JSON/shape/strict-integer specimens only; no authority or transaction proof",
+      "status": "PASS",
+      "operations": 10,
+      "cases": [
+        {
+          "id": "S01",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S02",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S03",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S04",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S05",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S06",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S07",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S08",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S09",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "S10",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "N01-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N02-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N03-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N04-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N05-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N06-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N07-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N08-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N09-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N10-authority-field",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N11-version",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N12-operation",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N13-credential",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N14-self-usage",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N15-bool",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N16-float-int",
+          "accepted": false,
+          "stage": "wire",
+          "status": "PASS"
+        },
+        {
+          "id": "N17-network",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N18-mode",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N19-echo",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N20-retry",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N21-path",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N22-duplicate-project",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N23-strict-json",
+          "accepted": false,
+          "stage": "json",
+          "status": "PASS"
+        },
+        {
+          "id": "N24-strict-json",
+          "accepted": false,
+          "stage": "json",
+          "status": "PASS"
+        },
+        {
+          "id": "N25-strict-json",
+          "accepted": false,
+          "stage": "json",
+          "status": "PASS"
+        },
+        {
+          "id": "S11-all-three-ports",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "N26-invalid-utf8",
+          "accepted": false,
+          "stage": "json",
+          "status": "PASS"
+        },
+        {
+          "id": "N27-byte-bound",
+          "accepted": false,
+          "stage": "json",
+          "status": "PASS"
+        },
+        {
+          "id": "N28-same-port-different-object",
+          "accepted": false,
+          "stage": "wire",
+          "status": "PASS"
+        },
+        {
+          "id": "N-terminal-LF-ID",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        }
+      ]
+    },
+    "optInRead": {
+      "scope": "request JSON/shape/strict-integer specimens only; no authority or transaction proof",
+      "status": "PASS",
+      "operations": 3,
+      "cases": [
+        {
+          "id": "R01",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "R02",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "R03",
+          "accepted": true,
+          "stage": "shape_and_wire",
+          "status": "PASS"
+        },
+        {
+          "id": "RN01-authority",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "RN02-authority",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "RN03-authority",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "RN-legacy-version",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "RN-private-op",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "RN-self-provenance",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        },
+        {
+          "id": "N-terminal-LF-ID",
+          "accepted": false,
+          "stage": "shape",
+          "status": "PASS"
+        }
+      ]
+    }
+  },
+  "pureCorpus": {
+    "scope": "pure schema/bytes/projection/readside-data feasibility; no real API/auth/DB/release proof",
+    "checks": [
+      {
+        "id": "D01_closed_authored_frame",
+        "status": "PASS"
+      },
+      {
+        "id": "D02_no_private_trace_or_unknown_field",
+        "status": "PASS"
+      },
+      {
+        "id": "D03_exact_source_hashes",
+        "status": "PASS"
+      },
+      {
+        "id": "D04_rebuild_and_literal_reasons",
+        "status": "PASS"
+      },
+      {
+        "id": "D05_withheld_is_authored_not_executed",
+        "status": "PASS"
+      },
+      {
+        "id": "D06_private_aliases_remain_restricted",
+        "status": "PASS"
+      },
+      {
+        "id": "D07_failed_and_gap_pending",
+        "status": "PASS"
+      },
+      {
+        "id": "D08_digest_domains",
+        "status": "PASS"
+      },
+      {
+        "id": "D09_private_packet_fits_bound_shape_only",
+        "status": "PASS"
+      },
+      {
+        "id": "D10_pure_readside_data_compatibility_not_API",
+        "status": "PASS"
+      },
+      {
+        "id": "D11_private_alias_source_reads_denied_pure",
+        "status": "PASS"
+      },
+      {
+        "id": "D12_reclassification_not_permission",
+        "status": "PASS"
+      },
+      {
+        "id": "D13_schema_denies_trace",
+        "status": "PASS"
+      },
+      {
+        "id": "D13_schema_denies_unknown",
+        "status": "PASS"
+      },
+      {
+        "id": "D14_old_projection_does_not_show_imported",
+        "status": "PASS"
+      },
+      {
+        "id": "D15_planned_delivery_labels_and_new_hash",
+        "status": "PASS"
+      },
+      {
+        "id": "D16_detached_provenance_tamper_mismatches",
+        "status": "PASS"
+      },
+      {
+        "id": "D17_planned_detached_export_bound",
+        "status": "PASS"
+      },
+      {
+        "id": "D18_schema_denies_final_LF_jobId",
+        "status": "PASS"
+      },
+      {
+        "id": "D18_schema_denies_final_LF_finishedAt",
+        "status": "PASS"
+      },
+      {
+        "id": "D19_schema_denies_final_LF_hash",
+        "status": "PASS"
+      },
+      {
+        "id": "D20_fresh_v1_empty_scope_denies_pure",
+        "status": "PASS"
+      },
+      {
+        "id": "D21_register_then_configure_target2_pure",
+        "status": "PASS"
+      },
+      {
+        "id": "D22_v1_target_stale_after_configure_pure",
+        "status": "PASS"
+      },
+      {
+        "id": "D23_delivery_versions_match_frozen_target",
+        "status": "PASS"
+      }
+    ],
+    "status": "PASS",
+    "fieldOriginMap": {
+      "version": "registered_closed_frame_or_profile",
+      "classification": "registered_closed_frame_or_profile",
+      "runId": "registered_closed_frame_or_profile",
+      "jobId": "registered_closed_frame_or_profile",
+      "candidateRevision": "registered_closed_frame_or_profile",
+      "requirementVersion": "registered_closed_frame_or_profile",
+      "observedAt": "registered_closed_frame_or_profile",
+      "executionRef": "registered_closed_frame_or_profile",
+      "executionSha256": "registered_closed_frame_or_profile",
+      "artifacts": "safe_source_bytes",
+      "selectedCriteria": "approved_requirement_fields",
+      "policy": "registered_closed_frame_or_profile",
+      "observations": "closed_authored_outcomes"
+    },
+    "jobDigest": "64d1055f46f3cd9cc68b7c900dbc38321dcfeae21b4a6578214f9f773f78175b",
+    "rawRecordSha256": "db7c2534c0746edb5ef38e2afe090c7ca86af055bed50227510b8c0b87164deb",
+    "expectedBundleDigest": "181c6058b012402ecc5cdc05a6e6021e881e3b180f059e10dad0214e708eb790",
+    "collectorExecutionDigest": "38abcd3c99bd5e6c26677aff8fcbe1fe97ee777f5f9acf0e1be8dc43be1bfe9f",
+    "fixtureJobId": "ra1FixtureJob",
+    "effectJobId": "NOT_ASSIGNED: requires future worker_admit",
+    "deliveryProjectionProof": {
+      "scope": "hypothetical pure data transform only, not an implemented route/export",
+      "baseSourcesProvenance": "execution",
+      "plannedViewSha256": "b75ac088778474cce953c73a9c0028230ff6b03af9ab7ba4853acc4222f96f73",
+      "plannedDetachedManifestSha256": "7003c3ac10004fef935df8b70fb192391f9afb51b8bcda1f7ef7e51b10973e4a"
+    },
+    "expectedAssessmentPacketBytes": 13934,
+    "sourcePins": {
+      "artifact-1": {
+        "sha256": "419e7e8d3e87cbfe38bd36de1d9ab7b974f578cc91960cd4bad1897525bb0820",
+        "bytes": 2387,
+        "classification": "safe_source",
+        "revision": "mock-req-06-v1"
+      },
+      "artifact-2": {
+        "sha256": "00c78310124c172daaca0d89a81b63f4a9f976c8d51c7072a171c3b666ad5c07",
+        "bytes": 393,
+        "classification": "safe_source",
+        "revision": "mock-06-head-v1"
+      },
+      "artifact-3": {
+        "sha256": "c1aa36e1a586b882c638966da2cf8b4925fa1b69adda6f766e57f116d7372314",
+        "bytes": 384,
+        "classification": "safe_source",
+        "revision": "mock-06-head-v1"
+      },
+      "artifact-4": {
+        "sha256": "c77a54a9a26ce80d8b4b8545f1fe4bb41fbe956f69631e2f7dbd0cf09336a4f3",
+        "bytes": 277,
+        "classification": "safe_source",
+        "revision": "mock-06-head-v1"
+      },
+      "artifact-5": {
+        "sha256": "7f7e33b414049306ddc31d3070c958dd93126063dfa8c38a654f6bfca30b54a3",
+        "bytes": 369,
+        "classification": "safe_source",
+        "revision": "mock-06-head-v1"
+      },
+      "artifact-6": {
+        "sha256": "46b74fb61dd0b3f5c4d7976b0d7a8b2cee4f7e1ca44edad5e197277aa044d315",
+        "bytes": 1738,
+        "classification": "safe_source",
+        "revision": "mock-06-head-v1"
+      },
+      "artifact-7": {
+        "sha256": "4234afad5bbda80bf1afe1db1f46ba52e2008dd30d5234a7d37c9db3375f74fc",
+        "bytes": 398,
+        "classification": "safe_source",
+        "revision": "mock-06-head-v1"
+      },
+      "artifact-8": {
+        "sha256": "23311f292e35e53af72449ab62e7f27e5e16e3c60e204ec2a2290851ba162fbb",
+        "bytes": 958,
+        "classification": "safe_source",
+        "revision": "mock-06-head-v1"
+      },
+      "vf1-execution-record": {
+        "sha256": "db7c2534c0746edb5ef38e2afe090c7ca86af055bed50227510b8c0b87164deb",
+        "bytes": 1559,
+        "classification": "restricted",
+        "revision": "mock-06-head-v1"
+      },
+      "vf1-coverage-policy": {
+        "sha256": "64d1055f46f3cd9cc68b7c900dbc38321dcfeae21b4a6578214f9f773f78175b",
+        "bytes": 10797,
+        "classification": "restricted",
+        "revision": "vf1-job-1.0.0"
+      }
+    },
+    "preflightPlan": {
+      "scope": "pure data predicates, no actual registration/configure/intake/start proof",
+      "order": [
+        "project_create1/1",
+        "register_frozen_target2/2_and_sources",
+        "project_configure_CAS1_to2",
+        "assert_config2_policy2",
+        "ra_policy_and_grant2/2",
+        "intake2",
+        "run_start2"
+      ],
+      "configuredSourceIds": [
+        "artifact-1",
+        "artifact-2",
+        "artifact-3",
+        "artifact-4",
+        "artifact-5",
+        "artifact-6",
+        "artifact-7",
+        "artifact-8"
+      ],
+      "target": {
+        "projectId": "ra1Project",
+        "runId": "ra1Run",
+        "handoffId": "ra1Handoff",
+        "taskRef": "ra1Task",
+        "candidateRevision": "mock-06-head-v1",
+        "requirementVersion": "mock-req-06-v1",
+        "projectConfigVersion": 2,
+        "dataPolicyVersion": 2
+      },
+      "perPortCaseIsolation": "fresh exclusive namespace; never reuse completed run"
+    },
+    "actualApplicationOperations": 0,
+    "actualExecution": false
+  },
+  "probeError": null,
+  "runtimeCases": [
+    {
+      "id": "I01",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I01",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I01",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I02",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I02",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I02",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I03",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I03",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I03",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I04",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I04",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I04",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I05",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I05",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I05",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A01",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A02",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A03",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A04",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A05",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A06",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A07",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A08",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A09",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A10",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A11",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A12",
+      "port": "common",
+      "status": "NOT_RUN"
+    }
+  ],
+  "runtimeCasesExecuted": 0,
+  "gitDiffCheckExit": 0,
+  "payload": {
+    ".gitattributes": {
+      "sha256": "55f91e26f793b5c2070518c82c31ed67fe6feba713e33c08ba819f88f574a48b",
+      "bytes": 56582
+    },
+    "docs/DECISION-LOG.md": {
+      "sha256": "6dfe2a6d05e8b0587d00c9024d75615dcf60d1b566b7899f8e15a0a94037c89e",
+      "bytes": 66779
+    },
+    "docs/IMPLEMENTATION-PLAN.md": {
+      "sha256": "78cdca68a3e4c6d2a37739fad231eea9b00677450babb236a24c223e051ebae6",
+      "bytes": 48165
+    },
+    "docs/NEXT-SESSION-POST-RA1-D.md": {
+      "sha256": "bd7ab4349a92020e278011088d5c41d7fdec13b6564256a56521e0612728226d",
+      "bytes": 4592
+    },
+    "docs/P4D-RA1-ACCEPTANCE.md": {
+      "sha256": "eb4a35b5832f071e7184c1b0fb38fb8a09f7500328f293583ab55cf7e0db9703",
+      "bytes": 11636
+    },
+    "docs/P4D-RA1-PROTOCOL.md": {
+      "sha256": "d96c0d5e3cf18d06a9241c1b6d553f6a706a01d7d0c7825cd3b99243333c7b27",
+      "bytes": 44851
+    },
+    "docs/ra1-design/acceptance.json": {
+      "sha256": "5dd976624a5c1b6a036598b17b3fb8a465b5c43a5c93ee977d5288fec5d8d8aa",
+      "bytes": 2409
+    },
+    "docs/ra1-design/baseline.json": {
+      "sha256": "eb3407d886ca7b8b706a37d15539dbec61357c219ae821045d5a90407d3193ef",
+      "bytes": 134184
+    },
+    "docs/ra1-design/checks-r1.json": {
+      "sha256": "9261d69405100f5bf3c73c96ad8b71159250170f089966ed751d80788e597227",
+      "bytes": 19076
+    },
+    "docs/ra1-design/checks-r2.json": {
+      "sha256": "a0978f6d3d12f72726aad2465dc4c7e862061adb53aee594bc917614f22f4837",
+      "bytes": 20659
+    },
+    "docs/ra1-design/corpus_probe.py": {
+      "sha256": "4c89113f41b4865338e3d2c474a1c0c7b0242da529da82622968288ad5eb41c0",
+      "bytes": 13763
+    },
+    "docs/ra1-design/read-specimens.json": {
+      "sha256": "4117d061d96b398e8190c3502ab0f5a54c0a03f438fe3689c928ccb6f8bde030",
+      "bytes": 3364
+    },
+    "docs/ra1-design/request-specimens.json": {
+      "sha256": "073b77e12bf2ddb71c260feeb801e83afa5cc406ead67a211c026aaaac0eb5a7",
+      "bytes": 23413
+    },
+    "docs/ra1-design/schema_check.py": {
+      "sha256": "5ec105196e3694b86a144ca2b372a7594086ed757a93978b4550fe3a4bdde2d4",
+      "bytes": 3073
+    },
+    "docs/ra1-design/source-inspection.json": {
+      "sha256": "e6ae44c20658545bb2f3985eb19112bf9ac09d344a84745d6611c494b1b0f194",
+      "bytes": 4021
+    },
+    "docs/ra1-design/verify.py": {
+      "sha256": "49bf42ff4ed08ea792e3ed5d86d2926c85e2ab48e7cb615aad58a8b25d6b0d8c",
+      "bytes": 9231
+    },
+    "schemas/ra1-authored-record-v1.schema.json": {
+      "sha256": "e4692dd3caa4453316c5be7c69b621ea40b4544912a37c4780a003734cd6f41b",
+      "bytes": 4020
+    },
+    "schemas/ra1-authority-request-v1.schema.json": {
+      "sha256": "b8c1b08617a4b45436e93425d79908789ae730c635d290d1f22d695147c38a03",
+      "bytes": 10628
+    },
+    "schemas/ra1-read-request-v1.schema.json": {
+      "sha256": "15a10d2f04f8b0dad4369c2ba8aa2e34015096161183b6dfb5c87c1b6d9590f0",
+      "bytes": 1790
+    }
+  },
+  "snapshotComparison": "new candidate capture",
+  "failures": [],
+  "fullP4D": "OPEN",
+  "productMilestones": "7/12",
+  "humanDecision": "pending"
+}

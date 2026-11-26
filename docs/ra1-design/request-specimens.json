@@ -1,0 +1,854 @@
+{
+  "version": "ra1-request-specimens-1.0.0",
+  "origin": "authored_design_only",
+  "cases": [
+    {
+      "id": "S01",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_enroll",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "projects": [
+            "ra1Project"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S02",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_revoke",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "expected_epoch": 1
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "authored_fixture",
+            "network": "disabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 1,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          }
+        }
+      }
+    },
+    {
+      "id": "S04",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_admit",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "fixture_id": "ra1Fixture",
+          "key": "admit1"
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_release_claim",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 1,
+          "key": "claim1"
+        }
+      }
+    },
+    {
+      "id": "S06",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_record",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 2,
+          "observation_id": "observed1",
+          "key": "record1"
+        }
+      }
+    },
+    {
+      "id": "S07",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_account",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 3,
+          "accounting_observation_id": "lateCounts1",
+          "key": "account1"
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_candidate_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt"
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_worker_receipt",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt"
+        }
+      }
+    },
+    {
+      "id": "S10",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt"
+        }
+      }
+    },
+    {
+      "id": "N01-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_enroll",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "projects": [
+            "ra1Project"
+          ],
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N02-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_revoke",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "expected_epoch": 1,
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N03-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "authored_fixture",
+            "network": "disabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 1,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          },
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N04-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_admit",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "fixture_id": "ra1Fixture",
+          "key": "admit1",
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N05-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_release_claim",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 1,
+          "key": "claim1",
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N06-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_record",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 2,
+          "observation_id": "observed1",
+          "key": "record1",
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N07-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_account",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 3,
+          "accounting_observation_id": "lateCounts1",
+          "key": "account1",
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N08-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_candidate_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N09-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_worker_receipt",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N10-authority-field",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "authorized": true
+        }
+      }
+    },
+    {
+      "id": "N11-version",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "unknown",
+        "operation": "gateway_enroll",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "projects": [
+            "ra1Project"
+          ]
+        }
+      }
+    },
+    {
+      "id": "N12-operation",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "load_plugin",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "projects": [
+            "ra1Project"
+          ]
+        }
+      }
+    },
+    {
+      "id": "N13-credential",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_enroll",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "projects": [
+            "ra1Project"
+          ]
+        },
+        "credential": "forbidden-body"
+      }
+    },
+    {
+      "id": "N14-self-usage",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_record",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 2,
+          "observation_id": "observed1",
+          "key": "record1",
+          "usage": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "id": "N15-bool",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_record",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": true,
+          "observation_id": "observed1",
+          "key": "record1"
+        }
+      }
+    },
+    {
+      "id": "N16-float-int",
+      "expectedAccepted": false,
+      "expectedStage": "wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_record",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt",
+          "expected_attempt_version": 1.0,
+          "observation_id": "observed1",
+          "key": "record1"
+        }
+      }
+    },
+    {
+      "id": "N17-network",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "authored_fixture",
+            "network": "enabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 1,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          }
+        }
+      }
+    },
+    {
+      "id": "N18-mode",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "live",
+            "network": "disabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 1,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          }
+        }
+      }
+    },
+    {
+      "id": "N19-echo",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "authored_fixture",
+            "network": "disabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": false
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 1,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          }
+        }
+      }
+    },
+    {
+      "id": "N20-retry",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "authored_fixture",
+            "network": "disabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 2,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          }
+        }
+      }
+    },
+    {
+      "id": "N21-path",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_enroll",
+        "params": {
+          "gateway_id": "../escape",
+          "projects": [
+            "ra1Project"
+          ]
+        }
+      }
+    },
+    {
+      "id": "N22-duplicate-project",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_enroll",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "projects": [
+            "ra1Project",
+            "ra1Project"
+          ]
+        }
+      }
+    },
+    {
+      "id": "N23-strict-json",
+      "raw": "{\"version\":1,\"version\":2}",
+      "expectedAccepted": false,
+      "expectedStage": "json"
+    },
+    {
+      "id": "N24-strict-json",
+      "raw": "{\"a\":NaN}",
+      "expectedAccepted": false,
+      "expectedStage": "json"
+    },
+    {
+      "id": "N25-strict-json",
+      "raw": "{\"a\":Infinity}",
+      "expectedAccepted": false,
+      "expectedStage": "json"
+    },
+    {
+      "id": "S11-all-three-ports",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "authored_fixture",
+            "network": "disabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              },
+              {
+                "port": "local_host",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [],
+                "require_model_echo": false
+              },
+              {
+                "port": "anthropic",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 1,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          }
+        }
+      }
+    },
+    {
+      "id": "N26-invalid-utf8",
+      "rawHex": "ff",
+      "expectedAccepted": false,
+      "expectedStage": "json"
+    },
+    {
+      "id": "N27-byte-bound",
+      "expectedAccepted": false,
+      "expectedStage": "json",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "gateway_enroll",
+        "params": {
+          "gateway_id": "ra1Gateway",
+          "projects": [
+            "ra1Project"
+          ]
+        }
+      },
+      "padTo": 65537
+    },
+    {
+      "id": "N28-same-port-different-object",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "policy_set",
+        "params": {
+          "project": "ra1Project",
+          "expected_config": 2,
+          "expected_ra_policy": 0,
+          "policy": {
+            "mode": "authored_fixture",
+            "network": "disabled",
+            "enabled": true,
+            "base_policy_version": 2,
+            "source_ids": [
+              "artifact-1"
+            ],
+            "ports": [
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "fixtureModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              },
+              {
+                "port": "openai",
+                "route_selector": "fixtureRoute",
+                "model_selector": "anotherModel",
+                "enrollment_selector": "fixtureEnrollment",
+                "response_models": [
+                  "fixtureModel"
+                ],
+                "require_model_echo": true
+              }
+            ],
+            "budget": {
+              "input_bound": 100,
+              "output_bound": 100,
+              "attempt_seconds": 60,
+              "max_invocations": 1,
+              "max_submissions": 1,
+              "max_response_bytes": 65536
+            },
+            "derivation_profile": "ra1-fixed-authored-outcome-1"
+          }
+        }
+      },
+      "expectedAccepted": false,
+      "expectedStage": "wire"
+    },
+    {
+      "id": "N-terminal-LF-ID",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-authority-1.0.0",
+        "operation": "reasoning_read",
+        "params": {
+          "project": "ra1Project\n",
+          "run_id": "ra1Run",
+          "attempt_id": "ra1Attempt"
+        }
+      }
+    }
+  ]
+}

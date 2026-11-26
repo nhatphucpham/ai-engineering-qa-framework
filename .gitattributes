@@ -485,3 +485,23 @@
 /docs/rc1-push-20261125/review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/rc1-push-20261125/snapshot.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/rc1-push-20261125/snapshot-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve exact RA1-D design and limited-check evidence.
+/docs/P4D-RA1-PROTOCOL.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/P4D-RA1-ACCEPTANCE.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/NEXT-SESSION-POST-RA1-D.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/schemas/ra1-authority-request-v1.schema.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/schemas/ra1-read-request-v1.schema.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/schemas/ra1-authored-record-v1.schema.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/baseline.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/source-inspection.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/request-specimens.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/read-specimens.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/acceptance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/schema_check.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/corpus_probe.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/verify.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/review.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/checks-r1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/checks-r2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/ra1-design/checks-r3.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

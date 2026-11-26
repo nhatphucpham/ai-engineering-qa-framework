@@ -1,0 +1,144 @@
+{
+  "version": "ra1-read-specimens-1.0.0",
+  "origin": "authored_design_only",
+  "cases": [
+    {
+      "id": "R01",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "report_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run"
+        }
+      }
+    },
+    {
+      "id": "R02",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "source_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "artifact_id": "artifact-1"
+        }
+      }
+    },
+    {
+      "id": "R03",
+      "expectedAccepted": true,
+      "expectedStage": "shape_and_wire",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "report_export",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run"
+        }
+      }
+    },
+    {
+      "id": "RN01-authority",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "report_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "role": "Admin"
+        }
+      }
+    },
+    {
+      "id": "RN02-authority",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "source_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "artifact_id": "artifact-1",
+          "role": "Admin"
+        }
+      }
+    },
+    {
+      "id": "RN03-authority",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "report_export",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run",
+          "role": "Admin"
+        }
+      }
+    },
+    {
+      "id": "RN-legacy-version",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "m50-application-1.1.0",
+        "operation": "report_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run"
+        }
+      }
+    },
+    {
+      "id": "RN-private-op",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "reasoning_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run"
+        }
+      }
+    },
+    {
+      "id": "RN-self-provenance",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "report_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run"
+        },
+        "provenance": {
+          "evidenceMode": "execution"
+        }
+      }
+    },
+    {
+      "id": "N-terminal-LF-ID",
+      "expectedAccepted": false,
+      "expectedStage": "shape",
+      "request": {
+        "version": "ra1-read-1.0.0",
+        "operation": "report_read",
+        "params": {
+          "project": "ra1Project",
+          "run_id": "ra1Run\n"
+        }
+      }
+    }
+  ]
+}

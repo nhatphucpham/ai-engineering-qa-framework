@@ -1,0 +1,110 @@
+{
+  "version": "ra1-source-inspection-1.0.0",
+  "method": "read-only source inspection, no new runtime authority proof",
+  "localSources": [
+    {
+      "path": "runtime_candidate/application.py",
+      "sha256": "d1ce9c9ae2f8fc73b41eae9f2f5886f48d4661f4de710cc8f698e325502be3cc"
+    },
+    {
+      "path": "runtime_candidate/storage.py",
+      "sha256": "2cb485c3c4684b6a650ff5f2abd6a10166ade5d4b397c176534a46c8c61d009a"
+    },
+    {
+      "path": "runtime_candidate/schema.sql",
+      "sha256": "9566914df3017f34db74698c87c7f54b2f2ad150b697798f27c6ed7e75e46f65"
+    },
+    {
+      "path": "runtime_candidate/contracts.py",
+      "sha256": "33fd837b62ba1427bd36dd953d09f0c9b860cc6d96bcfef9b5ebcce7e705fd7d"
+    },
+    {
+      "path": "runtime_candidate/common.py",
+      "sha256": "0c981d225b274d206ee0678118a922fda2a08fe68c31a4d9ae764e01d0bf7687"
+    },
+    {
+      "path": "runtime_candidate/transport.py",
+      "sha256": "9b27f7d6055cfb3dbc65db88f7faa92422b0f9e045ea5b1addcc39329d72d740"
+    },
+    {
+      "path": "runtime_candidate/API.md",
+      "sha256": "326e83d37284fcd0faf9965fbd30ba0850ccf7cf7b94cf2f50a47a096109f76e"
+    },
+    {
+      "path": "runtime_candidate/readside.py",
+      "sha256": "fe118dd9c381617940f7dd5a0cf0337ed117fa12c160888cdf15d20f0cea2d79"
+    },
+    {
+      "path": "runtime_candidate/lineage.py",
+      "sha256": "d784aef46367bc262b02a907be654c02b2dcdd2971f9e1d6a2c853fae2d3a686"
+    },
+    {
+      "path": "runtime_candidate/execution_projection.py",
+      "sha256": "5b90318e2800f9f213a2bf86711ad5f1c63bdd4b6530f0e29b92dc84ca60a5a8"
+    },
+    {
+      "path": "runtime_candidate/publication.py",
+      "sha256": "9abb783ffed7c81f1f9892b256dbf90795727eb4e1c6c2031861e5ea46486d64"
+    },
+    {
+      "path": "runtime_candidate/blobs.py",
+      "sha256": "fea8a418b27be4fa2cd10e67aa9fc21ddf2f5036e83217450b60b94fae95d31b"
+    },
+    {
+      "path": "spikes/s6b/identity.py",
+      "sha256": "1e5bb6df314be5872d6d5993ba1372dbcd0ad1da50ee2ee4e8a64dd46eae1dd6"
+    },
+    {
+      "path": "spikes/vf1/core_bridge.py",
+      "sha256": "0eebc56df58953b6feb3b20fe113a350e42c5fb3aee32678f70d180f779757b3"
+    },
+    {
+      "path": "spikes/vf1/run_vf1.py",
+      "sha256": "5b7ab3028f86535e293deb486c98d1fbf09923178c785c202d7544292776ec43"
+    },
+    {
+      "path": "spikes/p4d_rc1/contracts.py",
+      "sha256": "dd0e17d1d22d80f6c3efe37f5116e3c682d9af3ddf26cfbe6d1b8d75f08057ca"
+    },
+    {
+      "path": "spikes/p4d_rc1/corpus.py",
+      "sha256": "2ecdc8ea40d234d03c491edea526e4a3c2f2a7d3089704e80a9cd751a55f050b"
+    },
+    {
+      "path": "docs/DATA-CONTRACT.md",
+      "sha256": "aef80a7e4dc9dfc9b8b81f3968540ab4578575b4a82152e5bbaa506b30810e0f"
+    },
+    {
+      "path": "docs/TARGET-ARCHITECTURE.md",
+      "sha256": "3015906f4d3f536280dac434a7b868a533d8b9f51e9f9d74e1d5d749ac1a1872"
+    },
+    {
+      "path": "docs/CORE-FRAMEWORK.md",
+      "sha256": "c1fda084c16e63b299baad2b65ecd3fe5f3c50fb61d95fabda20524b881f4913"
+    },
+    {
+      "path": "docs/p4d-rc1-results/review.json",
+      "sha256": "12c3524aff410228c9cac3c311229131021ce387af064b947c1f2f87562c1c6f"
+    }
+  ],
+  "officialSources": [
+    {
+      "url": "https://www.postgresql.org/docs/18/explicit-locking.html",
+      "consultedDate": "2026-11-26",
+      "purpose": "held row-lock ordering",
+      "evidenceType": "documentation only; proposed reuse of existing mutex/end predicates, not execution"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html",
+      "consultedDate": "2026-11-26",
+      "purpose": "check outside transaction not atomic permission",
+      "evidenceType": "documentation only; proposed reuse of existing mutex/end predicates, not execution"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/18/functions-datetime.html",
+      "consultedDate": "2026-11-26",
+      "purpose": "advancing clock_timestamp versus transaction-start time",
+      "evidenceType": "documentation only; proposed reuse of existing mutex/end predicates, not execution"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "version": "ra1-actual-acceptance-plan-1.0.0",
+  "scope": "planned actual integration/common authority cases; not run in design session",
+  "cases": [
+    {
+      "id": "I01",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I01",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I01",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I02",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I02",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I02",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I03",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I03",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I03",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I04",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I04",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I04",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I05",
+      "port": "local_host",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I05",
+      "port": "openai",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "I05",
+      "port": "anthropic",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A01",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A02",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A03",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A04",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A05",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A06",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A07",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A08",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A09",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A10",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A11",
+      "port": "common",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "A12",
+      "port": "common",
+      "status": "NOT_RUN"
+    }
+  ]
+}

@@ -1,3 +1,9 @@
+# Hiện hành — RA1-D server reasoning authority design, 26/11/2026
+
+[Protocol](P4D-RA1-PROTOCOL.md), [acceptance](P4D-RA1-ACCEPTANCE.md), [handoff](NEXT-SESSION-POST-RA1-D.md) và [review](ra1-design/review.json) là output thiết kế trước code tích hợp. Có request/read schemas, strict wire specimens và pure imported-corpus feasibility; không actual server/API/DB proof, toàn bộ15 I +12 A cases NOT RUN. Current store/factory phải chặn legacy bypass và guard cả assessment_accept/worker_submit/replay; opt-in read/export giữ provenance imported/authored thay vì execution label của base projection.
+
+Baseline thực6f720dc đã push phiên trước; quyền Git đó hoàn tất, không Git mutation mới. RA1-D chỉ DONE khi latest independent CLEAN và limited checks PASS; full P4-D/P3-B/P4-E/P5/P6 OPEN,7/12≈58,3%, human pending. Source/fixture/evidence cũ bảo toàn nguyên byte; không actual provider/native/check/DB/WSL/container campaign, real account/key/install/pilot/publish hoặc production-stack/host/SDK/model decision.
+
 # Hiện hành — RC1 offline implementation, 25/11/2026
 
 [Results](P4D-RC1-RESULTS.md), [source](../spikes/p4d_rc1/README.md) và [handoff](NEXT-SESSION-POST-P4D-RC1-IMPLEMENTATION.md): đã thực chạy45/45 O case/port groups PASS trên R4,533 scenario traces; core45/VF1 12/candidate54 regression PASS. Trạng thái selected offline slice theo [independent review](p4d-rc1-results/review.json), pending tới CLEAN;15 I integration rows NOT RUN. Source pins162 trước=sau=current; không actual provider/native/check/DB/WSL/container campaign mới. Historical design NOT RUN records không đổi.

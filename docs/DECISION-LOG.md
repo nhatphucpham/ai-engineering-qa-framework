@@ -1,3 +1,9 @@
+# Hiện hành — RA1-D trước integration implementation, 26/11/2026
+
+User tiếp tục sau RC1 commit/push6f720dc. Chọn [server authority design RA1-D](P4D-RA1-PROTOCOL.md) theo prerequisite đã ghi, chưa dựng code tích hợp khi chưa có protocol/version/acceptance review. Tách wire/private-gateway authority khỏi public mutation API1.1; fresh guarded-store marker không cho legacy factory bypass, nhưng giữ frozen witness/unit/core algorithms. Hai mutation guards sở hữu final deadlines và cùng transaction; accepted/completed replay không tái chạy core/send/refund/publication.
+
+Design review phát hiện missing candidate→assessor/digest→worker acquisition, late accounting edge, receipt key collision, orphan owner và imported provenance downgrade. Chốt thêm private bounded handoff/accounting cùng explicit read/export opt-in profile; không sửa frozen core hoặc reclassify restricted aliases. Review tiếp yêu cầu sink receipt sau actual full frame/one invocation và corpus target2/2 theo thứ tự register1/1→configure2/2→policy/grant/intake; không coi expected request hash là delivery hay freeze target1/1 không chạy được. Schemas/pure feasibility chỉ kiểm cấu trúc/dữ liệu, không auth/CAS/DB execution. [Review ledger](ra1-design/review.json) giữ stable RA1-R IDs và latest status. Tất cả actual I/A NOT RUN, full P4-D OPEN và7/12 không đổi; quyền commit/push trước không suy thành quyền Git mới.
+
 # Hiện hành — RC1 implementation chỉ offline gate, 25/11/2026
 
 User yêu cầu tiếp tục sau design CLEAN, rồi resume sau gián đoạn. Implement đầy đủ O01–O17 thành45 independently applicable port cases, không chọn một fake provider làm proof adapter khác. [Results](P4D-RC1-RESULTS.md) và [review](p4d-rc1-results/review.json) quyết định current status. R1 ERROR giữ nguyên; R2/R3 PASS không là final proof sau source fixes, R4 là current. Scope không đóng I01–I05 hoặc full P4-D, không tăng7/12.

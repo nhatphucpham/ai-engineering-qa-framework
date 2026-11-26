@@ -1,0 +1,511 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:synthetic-qa:ra1:authority-request:1.0.0",
+  "title": "RA1 private authority request design; shape is not authorization",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "operation",
+    "params"
+  ],
+  "properties": {
+    "version": {
+      "const": "ra1-authority-1.0.0"
+    },
+    "operation": {
+      "enum": [
+        "gateway_enroll",
+        "gateway_revoke",
+        "policy_set",
+        "reasoning_admit",
+        "reasoning_release_claim",
+        "reasoning_record",
+        "reasoning_account",
+        "reasoning_candidate_read",
+        "reasoning_worker_receipt",
+        "reasoning_read"
+      ]
+    },
+    "params": {
+      "type": "object"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "operation": {
+          "const": "gateway_enroll"
+        },
+        "params": {
+          "$ref": "#/$defs/enroll"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "gateway_revoke"
+        },
+        "params": {
+          "$ref": "#/$defs/revoke"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "policy_set"
+        },
+        "params": {
+          "$ref": "#/$defs/policySet"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "reasoning_admit"
+        },
+        "params": {
+          "$ref": "#/$defs/admit"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "reasoning_release_claim"
+        },
+        "params": {
+          "$ref": "#/$defs/claim"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "reasoning_record"
+        },
+        "params": {
+          "$ref": "#/$defs/record"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "reasoning_account"
+        },
+        "params": {
+          "$ref": "#/$defs/account"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "reasoning_candidate_read"
+        },
+        "params": {
+          "$ref": "#/$defs/read"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "reasoning_worker_receipt"
+        },
+        "params": {
+          "$ref": "#/$defs/read"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "reasoning_read"
+        },
+        "params": {
+          "$ref": "#/$defs/read"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}(?![\\s\\S])"
+    },
+    "positive": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "enroll": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gateway_id",
+        "projects"
+      ],
+      "properties": {
+        "gateway_id": {
+          "$ref": "#/$defs/id"
+        },
+        "projects": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "revoke": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gateway_id",
+        "expected_epoch"
+      ],
+      "properties": {
+        "gateway_id": {
+          "$ref": "#/$defs/id"
+        },
+        "expected_epoch": {
+          "$ref": "#/$defs/positive"
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_bound",
+        "output_bound",
+        "attempt_seconds",
+        "max_invocations",
+        "max_submissions",
+        "max_response_bytes"
+      ],
+      "properties": {
+        "input_bound": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "output_bound": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "attempt_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120
+        },
+        "max_invocations": {
+          "const": 1
+        },
+        "max_submissions": {
+          "const": 1
+        },
+        "max_response_bytes": {
+          "const": 65536
+        }
+      }
+    },
+    "port": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "port",
+        "route_selector",
+        "model_selector",
+        "enrollment_selector",
+        "response_models",
+        "require_model_echo"
+      ],
+      "properties": {
+        "port": {
+          "enum": [
+            "local_host",
+            "openai",
+            "anthropic"
+          ]
+        },
+        "route_selector": {
+          "$ref": "#/$defs/id"
+        },
+        "model_selector": {
+          "$ref": "#/$defs/id"
+        },
+        "enrollment_selector": {
+          "$ref": "#/$defs/id"
+        },
+        "response_models": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "require_model_echo": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "port": {
+                "enum": [
+                  "openai",
+                  "anthropic"
+                ]
+              }
+            },
+            "required": [
+              "port"
+            ]
+          },
+          "then": {
+            "properties": {
+              "require_model_echo": {
+                "const": true
+              },
+              "response_models": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "network",
+        "enabled",
+        "base_policy_version",
+        "source_ids",
+        "ports",
+        "budget",
+        "derivation_profile"
+      ],
+      "properties": {
+        "mode": {
+          "const": "authored_fixture"
+        },
+        "network": {
+          "const": "disabled"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "base_policy_version": {
+          "$ref": "#/$defs/positive"
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "ports": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/port"
+          }
+        },
+        "budget": {
+          "$ref": "#/$defs/budget"
+        },
+        "derivation_profile": {
+          "const": "ra1-fixed-authored-outcome-1"
+        }
+      }
+    },
+    "policySet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "expected_config",
+        "expected_ra_policy",
+        "policy"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "expected_config": {
+          "$ref": "#/$defs/positive"
+        },
+        "expected_ra_policy": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "policy": {
+          "$ref": "#/$defs/policy"
+        }
+      }
+    },
+    "admit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "run_id",
+        "attempt_id",
+        "fixture_id",
+        "key"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "attempt_id": {
+          "$ref": "#/$defs/id"
+        },
+        "fixture_id": {
+          "$ref": "#/$defs/id"
+        },
+        "key": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "run_id",
+        "attempt_id",
+        "expected_attempt_version",
+        "key"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "attempt_id": {
+          "$ref": "#/$defs/id"
+        },
+        "expected_attempt_version": {
+          "$ref": "#/$defs/positive"
+        },
+        "key": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "run_id",
+        "attempt_id",
+        "expected_attempt_version",
+        "observation_id",
+        "key"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "attempt_id": {
+          "$ref": "#/$defs/id"
+        },
+        "expected_attempt_version": {
+          "$ref": "#/$defs/positive"
+        },
+        "observation_id": {
+          "$ref": "#/$defs/id"
+        },
+        "key": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "account": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "run_id",
+        "attempt_id",
+        "expected_attempt_version",
+        "accounting_observation_id",
+        "key"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "attempt_id": {
+          "$ref": "#/$defs/id"
+        },
+        "expected_attempt_version": {
+          "$ref": "#/$defs/positive"
+        },
+        "accounting_observation_id": {
+          "$ref": "#/$defs/id"
+        },
+        "key": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "read": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "run_id",
+        "attempt_id"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "attempt_id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    }
+  }
+}

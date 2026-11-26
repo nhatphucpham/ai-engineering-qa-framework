@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:synthetic-qa:ra1:read-request:1.0.0",
+  "title": "Explicit opt-in RA1 read design; no actor authority implied",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "operation",
+    "params"
+  ],
+  "properties": {
+    "version": {
+      "const": "ra1-read-1.0.0"
+    },
+    "operation": {
+      "enum": [
+        "report_read",
+        "source_read",
+        "report_export"
+      ]
+    },
+    "params": {
+      "type": "object"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "operation": {
+          "enum": [
+            "report_read",
+            "report_export"
+          ]
+        },
+        "params": {
+          "$ref": "#/$defs/report"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "source_read"
+        },
+        "params": {
+          "$ref": "#/$defs/source"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}(?![\\s\\S])"
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "run_id"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "run_id",
+        "artifact_id"
+      ],
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/id"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "artifact_id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    }
+  }
+}
